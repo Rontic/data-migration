@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientMotUniAnaResuMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMotUniAnaResu">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="AMPLITUDE" jdbcType="VARCHAR" property="amplitude" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="DURATION" jdbcType="VARCHAR" property="duration" />
+    <result column="EXAM_ITEM_NAME" jdbcType="VARCHAR" property="examItemName" />
+    <result column="MUSCLE" jdbcType="VARCHAR" property="muscle" />
+    <result column="PHASES" jdbcType="VARCHAR" property="phases" />
+    <result column="SPIKE_DURATION" jdbcType="VARCHAR" property="spikeDuration" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="MOT_UNi_ANA_ITEM_ID" jdbcType="VARCHAR" property="motUniAnaItemId" />
+    <result column="P_ELEC_TRO_GRAM_ID" jdbcType="VARCHAR" property="pElecTroGramId" />
+    <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+    <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, AMPLITUDE, CREATE_BY, CREATE_DATE, CREATE_NAME, DURATION, EXAM_ITEM_NAME, MUSCLE,
+    PHASES, SPIKE_DURATION, UPDATE_BY, UPDATE_DATE, UPDATE_NAME, MOT_UNi_ANA_ITEM_ID,
+    P_ELEC_TRO_GRAM_ID, P_CASE_ID, P_INFO_ID,REMARKS
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_mot_uni_ana_resu
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientMotUniAnaResu">
+    insert into tc_patient_mot_uni_ana_resu (ID, AMPLITUDE, CREATE_BY,
+      CREATE_DATE, CREATE_NAME, DURATION,
+      EXAM_ITEM_NAME, MUSCLE, PHASES,
+      SPIKE_DURATION, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, MOT_UNi_ANA_ITEM_ID, P_ELEC_TRO_GRAM_ID,
+      P_CASE_ID, P_INFO_ID, REMARKS
+      )
+    values (#{id,jdbcType=VARCHAR}, #{amplitude,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR}, #{duration,jdbcType=VARCHAR},
+      #{examItemName,jdbcType=VARCHAR}, #{muscle,jdbcType=VARCHAR}, #{phases,jdbcType=VARCHAR},
+      #{spikeDuration,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{motUniAnaItemId,jdbcType=VARCHAR}, #{pElecTroGramId,jdbcType=VARCHAR},
+      #{pCaseId,jdbcType=VARCHAR}, #{pInfoId,jdbcType=INTEGER}, #{remarks,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientMotUniAnaResu">
+    insert into tc_patient_mot_uni_ana_resu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="amplitude != null">
+        AMPLITUDE,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="duration != null">
+        DURATION,
+      </if>
+      <if test="examItemName != null">
+        EXAM_ITEM_NAME,
+      </if>
+      <if test="muscle != null">
+        MUSCLE,
+      </if>
+      <if test="phases != null">
+        PHASES,
+      </if>
+      <if test="spikeDuration != null">
+        SPIKE_DURATION,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="motUniAnaItemId != null">
+        MOT_UNi_ANA_ITEM_ID,
+      </if>
+      <if test="pElecTroGramId != null">
+        P_ELEC_TRO_GRAM_ID,
+      </if>
+      <if test="pCaseId != null">
+        P_CASE_ID,
+      </if>
+      <if test="pInfoId != null">
+        P_INFO_ID,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="amplitude != null">
+        #{amplitude,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null">
+        #{duration,jdbcType=VARCHAR},
+      </if>
+      <if test="examItemName != null">
+        #{examItemName,jdbcType=VARCHAR},
+      </if>
+      <if test="muscle != null">
+        #{muscle,jdbcType=VARCHAR},
+      </if>
+      <if test="phases != null">
+        #{phases,jdbcType=VARCHAR},
+      </if>
+      <if test="spikeDuration != null">
+        #{spikeDuration,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="motUniAnaItemId != null">
+        #{motUniAnaItemId,jdbcType=VARCHAR},
+      </if>
+      <if test="pElecTroGramId != null">
+        #{pElecTroGramId,jdbcType=VARCHAR},
+      </if>
+      <if test="pCaseId != null">
+        #{pCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="pInfoId != null">
+        #{pInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

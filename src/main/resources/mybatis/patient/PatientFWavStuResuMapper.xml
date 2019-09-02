@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientFWavStuResuMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientFWavStuResu">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="F_LATENCY" jdbcType="VARCHAR" property="fLatency" />
+    <result column="F_PROPORTION" jdbcType="VARCHAR" property="fProportion" />
+    <result column="M_LATENCY" jdbcType="VARCHAR" property="mLatency" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="NERVE" jdbcType="VARCHAR" property="nerve" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="F_WAV_STU_ITEM_ID" jdbcType="VARCHAR" property="fWavStuItemId" />
+    <result column="P_ELEC_TRO_GRAM_ID" jdbcType="VARCHAR" property="pElecTroGramId" />
+    <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+    <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, F_LATENCY, F_PROPORTION, M_LATENCY, CREATE_BY, CREATE_DATE, CREATE_NAME, NERVE,
+    REMARKS, UPDATE_BY, UPDATE_DATE, UPDATE_NAME, F_WAV_STU_ITEM_ID, P_ELEC_TRO_GRAM_ID,
+    P_CASE_ID, P_INFO_ID
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_f_wav_stu_resu
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientFWavStuResu">
+    insert into tc_patient_f_wav_stu_resu (ID, F_LATENCY, F_PROPORTION,
+      M_LATENCY, CREATE_BY, CREATE_DATE,
+      CREATE_NAME, NERVE, REMARKS,
+      UPDATE_BY, UPDATE_DATE, UPDATE_NAME,
+      F_WAV_STU_ITEM_ID, P_ELEC_TRO_GRAM_ID, P_CASE_ID,
+      P_INFO_ID)
+    values (#{id,jdbcType=VARCHAR}, #{fLatency,jdbcType=VARCHAR}, #{fProportion,jdbcType=VARCHAR},
+      #{mLatency,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{nerve,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR},
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR},
+      #{fWavStuItemId,jdbcType=VARCHAR}, #{pElecTroGramId,jdbcType=VARCHAR}, #{pCaseId,jdbcType=VARCHAR},
+      #{pInfoId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientFWavStuResu">
+    insert into tc_patient_f_wav_stu_resu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="fLatency != null">
+        F_LATENCY,
+      </if>
+      <if test="fProportion != null">
+        F_PROPORTION,
+      </if>
+      <if test="mLatency != null">
+        M_LATENCY,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="nerve != null">
+        NERVE,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="fWavStuItemId != null">
+        F_WAV_STU_ITEM_ID,
+      </if>
+      <if test="pElecTroGramId != null">
+        P_ELEC_TRO_GRAM_ID,
+      </if>
+      <if test="pCaseId != null">
+        P_CASE_ID,
+      </if>
+      <if test="pInfoId != null">
+        P_INFO_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="fLatency != null">
+        #{fLatency,jdbcType=VARCHAR},
+      </if>
+      <if test="fProportion != null">
+        #{fProportion,jdbcType=VARCHAR},
+      </if>
+      <if test="mLatency != null">
+        #{mLatency,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="nerve != null">
+        #{nerve,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="fWavStuItemId != null">
+        #{fWavStuItemId,jdbcType=VARCHAR},
+      </if>
+      <if test="pElecTroGramId != null">
+        #{pElecTroGramId,jdbcType=VARCHAR},
+      </if>
+      <if test="pCaseId != null">
+        #{pCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="pInfoId != null">
+        #{pInfoId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

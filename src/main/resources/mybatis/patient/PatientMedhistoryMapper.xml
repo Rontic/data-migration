@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientMedhistoryMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMedhistory">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="MED_DOSE" jdbcType="VARCHAR" property="medDose" />
+    <result column="MED_END" jdbcType="TIMESTAMP" property="medEnd" />
+    <result column="MED_NAME" jdbcType="VARCHAR" property="medName" />
+    <result column="MED_START" jdbcType="TIMESTAMP" property="medStart" />
+    <result column="MED_TYPE" jdbcType="INTEGER" property="medType" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="IS_ADVERSE" jdbcType="VARCHAR" property="isAdverse" />
+    <result column="IS_CONTINUE" jdbcType="VARCHAR" property="isContinue" />
+    <result column="IS_EFFECTIVE" jdbcType="VARCHAR" property="isEffective" />
+    <result column="START_UNIT" jdbcType="VARCHAR" property="startUnit" />
+    <result column="STOP_CAUSE" jdbcType="VARCHAR" property="stopCause" />
+    <result column="MED_COMMON_NAME" jdbcType="VARCHAR" property="medCommonName" />
+    <result column="DOSE_EACH_TIME" jdbcType="VARCHAR" property="doseEachTime" />
+    <result column="MED_DETAIL_TYPE" jdbcType="INTEGER" property="medDetailType" />
+    <result column="USE_YEAR" jdbcType="INTEGER" property="useYear" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, CREATE_BY, CREATE_DATE, CREATE_NAME, MED_DOSE, MED_END, MED_NAME, MED_START,
+    MED_TYPE, UPDATE_BY, UPDATE_DATE, UPDATE_NAME, PATIENT_ID, version, IS_ADVERSE, IS_CONTINUE,
+    IS_EFFECTIVE, START_UNIT, STOP_CAUSE, MED_COMMON_NAME, DOSE_EACH_TIME, MED_DETAIL_TYPE,
+    USE_YEAR,REMARKS
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+
+    from tc_patient_medhistory
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientMedhistory">
+    insert into tc_patient_medhistory (ID, CREATE_BY, CREATE_DATE,
+      CREATE_NAME, MED_DOSE, MED_END,
+      MED_NAME, MED_START, MED_TYPE,
+      UPDATE_BY, UPDATE_DATE, UPDATE_NAME,
+      PATIENT_ID, version, IS_ADVERSE,
+      IS_CONTINUE, IS_EFFECTIVE, START_UNIT,
+      STOP_CAUSE, MED_COMMON_NAME, DOSE_EACH_TIME,
+      MED_DETAIL_TYPE, USE_YEAR, REMARKS
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{medDose,jdbcType=VARCHAR}, #{medEnd,jdbcType=TIMESTAMP},
+      #{medName,jdbcType=VARCHAR}, #{medStart,jdbcType=TIMESTAMP}, #{medType,jdbcType=INTEGER},
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR},
+      #{patientId,jdbcType=INTEGER}, #{version,jdbcType=INTEGER}, #{isAdverse,jdbcType=VARCHAR},
+      #{isContinue,jdbcType=VARCHAR}, #{isEffective,jdbcType=VARCHAR}, #{startUnit,jdbcType=VARCHAR},
+      #{stopCause,jdbcType=VARCHAR}, #{medCommonName,jdbcType=VARCHAR}, #{doseEachTime,jdbcType=VARCHAR},
+      #{medDetailType,jdbcType=INTEGER}, #{useYear,jdbcType=INTEGER}, #{remarks,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientMedhistory">
+    insert into tc_patient_medhistory
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="medDose != null">
+        MED_DOSE,
+      </if>
+      <if test="medEnd != null">
+        MED_END,
+      </if>
+      <if test="medName != null">
+        MED_NAME,
+      </if>
+      <if test="medStart != null">
+        MED_START,
+      </if>
+      <if test="medType != null">
+        MED_TYPE,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="isAdverse != null">
+        IS_ADVERSE,
+      </if>
+      <if test="isContinue != null">
+        IS_CONTINUE,
+      </if>
+      <if test="isEffective != null">
+        IS_EFFECTIVE,
+      </if>
+      <if test="startUnit != null">
+        START_UNIT,
+      </if>
+      <if test="stopCause != null">
+        STOP_CAUSE,
+      </if>
+      <if test="medCommonName != null">
+        MED_COMMON_NAME,
+      </if>
+      <if test="doseEachTime != null">
+        DOSE_EACH_TIME,
+      </if>
+      <if test="medDetailType != null">
+        MED_DETAIL_TYPE,
+      </if>
+      <if test="useYear != null">
+        USE_YEAR,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="medDose != null">
+        #{medDose,jdbcType=VARCHAR},
+      </if>
+      <if test="medEnd != null">
+        #{medEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="medName != null">
+        #{medName,jdbcType=VARCHAR},
+      </if>
+      <if test="medStart != null">
+        #{medStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="medType != null">
+        #{medType,jdbcType=INTEGER},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="isAdverse != null">
+        #{isAdverse,jdbcType=VARCHAR},
+      </if>
+      <if test="isContinue != null">
+        #{isContinue,jdbcType=VARCHAR},
+      </if>
+      <if test="isEffective != null">
+        #{isEffective,jdbcType=VARCHAR},
+      </if>
+      <if test="startUnit != null">
+        #{startUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="stopCause != null">
+        #{stopCause,jdbcType=VARCHAR},
+      </if>
+      <if test="medCommonName != null">
+        #{medCommonName,jdbcType=VARCHAR},
+      </if>
+      <if test="doseEachTime != null">
+        #{doseEachTime,jdbcType=VARCHAR},
+      </if>
+      <if test="medDetailType != null">
+        #{medDetailType,jdbcType=INTEGER},
+      </if>
+      <if test="useYear != null">
+        #{useYear,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

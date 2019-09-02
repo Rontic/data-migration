@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientNeedExamResuMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientNeedExamResu">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="INSERTIONAL" jdbcType="VARCHAR" property="insertional" />
+    <result column="MUSCLE" jdbcType="VARCHAR" property="muscle" />
+    <result column="SPO_ACT_FASC" jdbcType="VARCHAR" property="spoActFasc" />
+    <result column="SPO_ACT_FIB" jdbcType="VARCHAR" property="spoActFib" />
+    <result column="SPO_ACT_WAVE" jdbcType="VARCHAR" property="spoActWave" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="VOLMUAPAMP" jdbcType="VARCHAR" property="volmuapamp" />
+    <result column="VOL_MUAPDUR" jdbcType="VARCHAR" property="volMuapdur" />
+    <result column="VOLMUAPPOLY" jdbcType="VARCHAR" property="volmuappoly" />
+    <result column="NEED_EXAM_ITEM_ID" jdbcType="VARCHAR" property="needExamItemId" />
+    <result column="P_ELEC_TRO_GRAM_ID" jdbcType="VARCHAR" property="pElecTroGramId" />
+    <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+    <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, CREATE_BY, CREATE_DATE, CREATE_NAME, INSERTIONAL, MUSCLE, SPO_ACT_FASC, SPO_ACT_FIB,
+    SPO_ACT_WAVE, UPDATE_BY, UPDATE_DATE, UPDATE_NAME, VOLMUAPAMP, VOL_MUAPDUR, VOLMUAPPOLY,
+    NEED_EXAM_ITEM_ID, P_ELEC_TRO_GRAM_ID, P_CASE_ID, P_INFO_ID
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_need_exam_resu
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientNeedExamResu">
+    insert into tc_patient_need_exam_resu (ID, CREATE_BY, CREATE_DATE,
+      CREATE_NAME, INSERTIONAL, MUSCLE,
+      SPO_ACT_FASC, SPO_ACT_FIB, SPO_ACT_WAVE,
+      UPDATE_BY, UPDATE_DATE, UPDATE_NAME,
+      VOLMUAPAMP, VOL_MUAPDUR, VOLMUAPPOLY,
+      NEED_EXAM_ITEM_ID, P_ELEC_TRO_GRAM_ID, P_CASE_ID,
+      P_INFO_ID)
+    values (#{id,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{insertional,jdbcType=VARCHAR}, #{muscle,jdbcType=VARCHAR},
+      #{spoActFasc,jdbcType=VARCHAR}, #{spoActFib,jdbcType=VARCHAR}, #{spoActWave,jdbcType=VARCHAR},
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR},
+      #{volmuapamp,jdbcType=VARCHAR}, #{volMuapdur,jdbcType=VARCHAR}, #{volmuappoly,jdbcType=VARCHAR},
+      #{needExamItemId,jdbcType=VARCHAR}, #{pElecTroGramId,jdbcType=VARCHAR}, #{pCaseId,jdbcType=VARCHAR},
+      #{pInfoId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientNeedExamResu">
+    insert into tc_patient_need_exam_resu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="insertional != null">
+        INSERTIONAL,
+      </if>
+      <if test="muscle != null">
+        MUSCLE,
+      </if>
+      <if test="spoActFasc != null">
+        SPO_ACT_FASC,
+      </if>
+      <if test="spoActFib != null">
+        SPO_ACT_FIB,
+      </if>
+      <if test="spoActWave != null">
+        SPO_ACT_WAVE,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="volmuapamp != null">
+        VOLMUAPAMP,
+      </if>
+      <if test="volMuapdur != null">
+        VOL_MUAPDUR,
+      </if>
+      <if test="volmuappoly != null">
+        VOLMUAPPOLY,
+      </if>
+      <if test="needExamItemId != null">
+        NEED_EXAM_ITEM_ID,
+      </if>
+      <if test="pElecTroGramId != null">
+        P_ELEC_TRO_GRAM_ID,
+      </if>
+      <if test="pCaseId != null">
+        P_CASE_ID,
+      </if>
+      <if test="pInfoId != null">
+        P_INFO_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="insertional != null">
+        #{insertional,jdbcType=VARCHAR},
+      </if>
+      <if test="muscle != null">
+        #{muscle,jdbcType=VARCHAR},
+      </if>
+      <if test="spoActFasc != null">
+        #{spoActFasc,jdbcType=VARCHAR},
+      </if>
+      <if test="spoActFib != null">
+        #{spoActFib,jdbcType=VARCHAR},
+      </if>
+      <if test="spoActWave != null">
+        #{spoActWave,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="volmuapamp != null">
+        #{volmuapamp,jdbcType=VARCHAR},
+      </if>
+      <if test="volMuapdur != null">
+        #{volMuapdur,jdbcType=VARCHAR},
+      </if>
+      <if test="volmuappoly != null">
+        #{volmuappoly,jdbcType=VARCHAR},
+      </if>
+      <if test="needExamItemId != null">
+        #{needExamItemId,jdbcType=VARCHAR},
+      </if>
+      <if test="pElecTroGramId != null">
+        #{pElecTroGramId,jdbcType=VARCHAR},
+      </if>
+      <if test="pCaseId != null">
+        #{pCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="pInfoId != null">
+        #{pInfoId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

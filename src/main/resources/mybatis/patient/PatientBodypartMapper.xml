@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientBodypartMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientBodypart">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ARISE_TIME" jdbcType="TIMESTAMP" property="ariseTime" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="SPEPHYSICAL_RESULT" jdbcType="VARCHAR" property="spephysicalResult" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="PATIENT" jdbcType="INTEGER" property="patient" />
+    <result column="CHECK_NUMBER" jdbcType="VARCHAR" property="checkNumber" />
+    <result column="CHECK_RESULT" jdbcType="VARCHAR" property="checkResult" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="FILES" jdbcType="VARCHAR" property="files" />
+    <result column="PART_EXAMINATION" jdbcType="LONGVARCHAR" property="partExamination" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, ARISE_TIME, CREATE_BY, CREATE_DATE, CREATE_NAME, SPEPHYSICAL_RESULT, UPDATE_BY,
+    UPDATE_DATE, UPDATE_NAME, PATIENT_CASE_ID, PATIENT, CHECK_NUMBER, CHECK_RESULT, REMARKS,
+    FILES,PART_EXAMINATION
+  </sql>
+
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_bodypart
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientBodypart">
+    insert into tc_patient_bodypart (ID, ARISE_TIME, CREATE_BY,
+      CREATE_DATE, CREATE_NAME, SPEPHYSICAL_RESULT,
+      UPDATE_BY, UPDATE_DATE, UPDATE_NAME,
+      PATIENT_CASE_ID, PATIENT, CHECK_NUMBER,
+      CHECK_RESULT, REMARKS, FILES,
+      PART_EXAMINATION)
+    values (#{id,jdbcType=INTEGER}, #{ariseTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR}, #{spephysicalResult,jdbcType=VARCHAR},
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR},
+      #{patientCaseId,jdbcType=VARCHAR}, #{patient,jdbcType=INTEGER}, #{checkNumber,jdbcType=VARCHAR},
+      #{checkResult,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{files,jdbcType=VARCHAR},
+      #{partExamination,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientBodypart">
+    insert into tc_patient_bodypart
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="ariseTime != null">
+        ARISE_TIME,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="spephysicalResult != null">
+        SPEPHYSICAL_RESULT,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="patientCaseId != null">
+        PATIENT_CASE_ID,
+      </if>
+      <if test="patient != null">
+        PATIENT,
+      </if>
+      <if test="checkNumber != null">
+        CHECK_NUMBER,
+      </if>
+      <if test="checkResult != null">
+        CHECK_RESULT,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="files != null">
+        FILES,
+      </if>
+      <if test="partExamination != null">
+        PART_EXAMINATION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ariseTime != null">
+        #{ariseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="spephysicalResult != null">
+        #{spephysicalResult,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="patient != null">
+        #{patient,jdbcType=INTEGER},
+      </if>
+      <if test="checkNumber != null">
+        #{checkNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="checkResult != null">
+        #{checkResult,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="files != null">
+        #{files,jdbcType=VARCHAR},
+      </if>
+      <if test="partExamination != null">
+        #{partExamination,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientPhytheTmsMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPhytheTms">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="RECORD_DATE" jdbcType="TIMESTAMP" property="recordDate" />
+    <result column="DEVICE_TYPE" jdbcType="TINYINT" property="deviceType" />
+    <result column="STIMULUS_INTENSITY" jdbcType="DECIMAL" property="stimulusIntensity" />
+    <result column="STIMULUS_FREQUENCY" jdbcType="DECIMAL" property="stimulusFrequency" />
+    <result column="STIMULUS_SIDE" jdbcType="VARCHAR" property="stimulusSide" />
+    <result column="STIMULUS_DURATION" jdbcType="DECIMAL" property="stimulusDuration" />
+    <result column="LEFT_THRESHOLD_BEFORE" jdbcType="VARCHAR" property="leftThresholdBefore" />
+    <result column="RIGHT_THRESHOLD_BEFORE" jdbcType="VARCHAR" property="rightThresholdBefore" />
+    <result column="LEFT_THRESHOLD_AFTER" jdbcType="VARCHAR" property="leftThresholdAfter" />
+    <result column="RIGHT_THRESHOLD_AFTER" jdbcType="VARCHAR" property="rightThresholdAfter" />
+    <result column="PHYSI_TYPE" jdbcType="INTEGER" property="physiType" />
+    <result column="REACTION_FLAG" jdbcType="TINYINT" property="reactionFlag" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, RECORD_DATE, DEVICE_TYPE, STIMULUS_INTENSITY, STIMULUS_FREQUENCY, STIMULUS_SIDE,
+    STIMULUS_DURATION, LEFT_THRESHOLD_BEFORE, RIGHT_THRESHOLD_BEFORE, LEFT_THRESHOLD_AFTER,
+    RIGHT_THRESHOLD_AFTER, PHYSI_TYPE, REACTION_FLAG, REMARK, PATIENT_CASE_ID, PATIENT_ID,
+    CREATE_BY, CREATE_DATE, CREATE_NAME, UPDATE_BY, UPDATE_DATE, UPDATE_NAME
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_phythe_tms
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientPhytheTms">
+    insert into tc_patient_phythe_tms (ID, RECORD_DATE, DEVICE_TYPE,
+      STIMULUS_INTENSITY, STIMULUS_FREQUENCY, STIMULUS_SIDE,
+      STIMULUS_DURATION, LEFT_THRESHOLD_BEFORE,
+      RIGHT_THRESHOLD_BEFORE, LEFT_THRESHOLD_AFTER,
+      RIGHT_THRESHOLD_AFTER, PHYSI_TYPE, REACTION_FLAG,
+      REMARK, PATIENT_CASE_ID, PATIENT_ID,
+      CREATE_BY, CREATE_DATE, CREATE_NAME,
+      UPDATE_BY, UPDATE_DATE, UPDATE_NAME
+      )
+    values (#{id,jdbcType=INTEGER}, #{recordDate,jdbcType=TIMESTAMP}, #{deviceType,jdbcType=TINYINT},
+      #{stimulusIntensity,jdbcType=DECIMAL}, #{stimulusFrequency,jdbcType=DECIMAL}, #{stimulusSide,jdbcType=VARCHAR},
+      #{stimulusDuration,jdbcType=DECIMAL}, #{leftThresholdBefore,jdbcType=VARCHAR},
+      #{rightThresholdBefore,jdbcType=VARCHAR}, #{leftThresholdAfter,jdbcType=VARCHAR},
+      #{rightThresholdAfter,jdbcType=VARCHAR}, #{physiType,jdbcType=INTEGER}, #{reactionFlag,jdbcType=TINYINT},
+      #{remark,jdbcType=VARCHAR}, #{patientCaseId,jdbcType=VARCHAR}, #{patientId,jdbcType=INTEGER},
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR},
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientPhytheTms">
+    insert into tc_patient_phythe_tms
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="recordDate != null">
+        RECORD_DATE,
+      </if>
+      <if test="deviceType != null">
+        DEVICE_TYPE,
+      </if>
+      <if test="stimulusIntensity != null">
+        STIMULUS_INTENSITY,
+      </if>
+      <if test="stimulusFrequency != null">
+        STIMULUS_FREQUENCY,
+      </if>
+      <if test="stimulusSide != null">
+        STIMULUS_SIDE,
+      </if>
+      <if test="stimulusDuration != null">
+        STIMULUS_DURATION,
+      </if>
+      <if test="leftThresholdBefore != null">
+        LEFT_THRESHOLD_BEFORE,
+      </if>
+      <if test="rightThresholdBefore != null">
+        RIGHT_THRESHOLD_BEFORE,
+      </if>
+      <if test="leftThresholdAfter != null">
+        LEFT_THRESHOLD_AFTER,
+      </if>
+      <if test="rightThresholdAfter != null">
+        RIGHT_THRESHOLD_AFTER,
+      </if>
+      <if test="physiType != null">
+        PHYSI_TYPE,
+      </if>
+      <if test="reactionFlag != null">
+        REACTION_FLAG,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="patientCaseId != null">
+        PATIENT_CASE_ID,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="recordDate != null">
+        #{recordDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deviceType != null">
+        #{deviceType,jdbcType=TINYINT},
+      </if>
+      <if test="stimulusIntensity != null">
+        #{stimulusIntensity,jdbcType=DECIMAL},
+      </if>
+      <if test="stimulusFrequency != null">
+        #{stimulusFrequency,jdbcType=DECIMAL},
+      </if>
+      <if test="stimulusSide != null">
+        #{stimulusSide,jdbcType=VARCHAR},
+      </if>
+      <if test="stimulusDuration != null">
+        #{stimulusDuration,jdbcType=DECIMAL},
+      </if>
+      <if test="leftThresholdBefore != null">
+        #{leftThresholdBefore,jdbcType=VARCHAR},
+      </if>
+      <if test="rightThresholdBefore != null">
+        #{rightThresholdBefore,jdbcType=VARCHAR},
+      </if>
+      <if test="leftThresholdAfter != null">
+        #{leftThresholdAfter,jdbcType=VARCHAR},
+      </if>
+      <if test="rightThresholdAfter != null">
+        #{rightThresholdAfter,jdbcType=VARCHAR},
+      </if>
+      <if test="physiType != null">
+        #{physiType,jdbcType=INTEGER},
+      </if>
+      <if test="reactionFlag != null">
+        #{reactionFlag,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

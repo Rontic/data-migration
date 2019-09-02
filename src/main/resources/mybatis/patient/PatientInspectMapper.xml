@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientInspectMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientInspect">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="patient_id" jdbcType="INTEGER" property="patientId" />
+    <result column="inspection_id" jdbcType="VARCHAR" property="inspectionId" />
+    <result column="serial_number" jdbcType="VARCHAR" property="serialNumber" />
+    <result column="dual_task" jdbcType="VARCHAR" property="dualTask" />
+    <result column="is_checked" jdbcType="VARCHAR" property="isChecked" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="check_type" jdbcType="VARCHAR" property="checkType" />
+    <result column="order" jdbcType="INTEGER" property="order" />
+    <result column="org_id" jdbcType="VARCHAR" property="orgId" />
+    <result column="task_code" jdbcType="VARCHAR" property="taskCode" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, patient_id, inspection_id, serial_number, dual_task, is_checked, remark, create_by,
+    update_by, create_date, update_date, check_type, order, org_id, task_code
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_inspect
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientInspect">
+    insert into tc_patient_inspect (id, patient_id, inspection_id,
+      serial_number, dual_task, is_checked,
+      remark, create_by, update_by,
+      create_date, update_date, check_type,
+      order, org_id, task_code
+      )
+    values (#{id,jdbcType=INTEGER}, #{patientId,jdbcType=INTEGER}, #{inspectionId,jdbcType=VARCHAR},
+      #{serialNumber,jdbcType=VARCHAR}, #{dualTask,jdbcType=VARCHAR}, #{isChecked,jdbcType=VARCHAR},
+      #{remark,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{checkType,jdbcType=VARCHAR},
+      #{order,jdbcType=INTEGER}, #{orgId,jdbcType=VARCHAR}, #{taskCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientInspect">
+    insert into tc_patient_inspect
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="patientId != null">
+        patient_id,
+      </if>
+      <if test="inspectionId != null">
+        inspection_id,
+      </if>
+      <if test="serialNumber != null">
+        serial_number,
+      </if>
+      <if test="dualTask != null">
+        dual_task,
+      </if>
+      <if test="isChecked != null">
+        is_checked,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="checkType != null">
+        check_type,
+      </if>
+      <if test="order != null">
+        `order`,
+      </if>
+      <if test="orgId != null">
+        org_id,
+      </if>
+      <if test="taskCode != null">
+        task_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="inspectionId != null">
+        #{inspectionId,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null">
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="dualTask != null">
+        #{dualTask,jdbcType=VARCHAR},
+      </if>
+      <if test="isChecked != null">
+        #{isChecked,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkType != null">
+        #{checkType,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null">
+        #{order,jdbcType=INTEGER},
+      </if>
+      <if test="orgId != null">
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="taskCode != null">
+        #{taskCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

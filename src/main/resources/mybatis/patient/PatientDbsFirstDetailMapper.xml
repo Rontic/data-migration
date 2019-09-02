@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientDbsFirstDetailMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsFirstDetail">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CHANGE_CONSTANTLY" jdbcType="VARCHAR" property="changeConstantly" />
+    <result column="CONTACT" jdbcType="VARCHAR" property="contact" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="DBS_CASE" jdbcType="VARCHAR" property="dbsCase" />
+    <result column="ELBOW_TONE" jdbcType="DOUBLE" property="elbowTone" />
+    <result column="KNEE_TONE" jdbcType="DOUBLE" property="kneeTone" />
+    <result column="NECK_TONE" jdbcType="DOUBLE" property="neckTone" />
+    <result column="SIDE_EFFECT" jdbcType="VARCHAR" property="sideEffect" />
+    <result column="TC_PATIENT_DBS_FIRST_ID" jdbcType="INTEGER" property="tcPatientDbsFirstId" />
+    <result column="TREMOR" jdbcType="DOUBLE" property="tremor" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="WRIST_TONE" jdbcType="DOUBLE" property="wristTone" />
+    <result column="DBS_VOLTAGE" jdbcType="INTEGER" property="dbsVoltage" />
+    <result column="SIDE_EFFECT_DURATION" jdbcType="INTEGER" property="sideEffectDuration" />
+    <result column="PATIENT_DBS_FIRST_ID" jdbcType="INTEGER" property="patientDbsFirstId" />
+    <result column="TENSION_TONE" jdbcType="DOUBLE" property="tensionTone" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, CHANGE_CONSTANTLY, CONTACT, CREATE_BY, CREATE_DATE, CREATE_NAME, DBS_CASE, ELBOW_TONE,
+    KNEE_TONE, NECK_TONE, SIDE_EFFECT, TC_PATIENT_DBS_FIRST_ID, TREMOR, UPDATE_BY, UPDATE_DATE,
+    UPDATE_NAME, WRIST_TONE, DBS_VOLTAGE, SIDE_EFFECT_DURATION, PATIENT_DBS_FIRST_ID,
+    TENSION_TONE
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_dbs_first_detail
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsFirstDetail">
+    insert into tc_patient_dbs_first_detail (ID, CHANGE_CONSTANTLY, CONTACT,
+      CREATE_BY, CREATE_DATE, CREATE_NAME,
+      DBS_CASE, ELBOW_TONE, KNEE_TONE,
+      NECK_TONE, SIDE_EFFECT, TC_PATIENT_DBS_FIRST_ID,
+      TREMOR, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, WRIST_TONE, DBS_VOLTAGE,
+      SIDE_EFFECT_DURATION, PATIENT_DBS_FIRST_ID,
+      TENSION_TONE)
+    values (#{id,jdbcType=INTEGER}, #{changeConstantly,jdbcType=VARCHAR}, #{contact,jdbcType=VARCHAR},
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR},
+      #{dbsCase,jdbcType=VARCHAR}, #{elbowTone,jdbcType=DOUBLE}, #{kneeTone,jdbcType=DOUBLE},
+      #{neckTone,jdbcType=DOUBLE}, #{sideEffect,jdbcType=VARCHAR}, #{tcPatientDbsFirstId,jdbcType=INTEGER},
+      #{tremor,jdbcType=DOUBLE}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{wristTone,jdbcType=DOUBLE}, #{dbsVoltage,jdbcType=INTEGER},
+      #{sideEffectDuration,jdbcType=INTEGER}, #{patientDbsFirstId,jdbcType=INTEGER},
+      #{tensionTone,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsFirstDetail">
+    insert into tc_patient_dbs_first_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="changeConstantly != null">
+        CHANGE_CONSTANTLY,
+      </if>
+      <if test="contact != null">
+        CONTACT,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="dbsCase != null">
+        DBS_CASE,
+      </if>
+      <if test="elbowTone != null">
+        ELBOW_TONE,
+      </if>
+      <if test="kneeTone != null">
+        KNEE_TONE,
+      </if>
+      <if test="neckTone != null">
+        NECK_TONE,
+      </if>
+      <if test="sideEffect != null">
+        SIDE_EFFECT,
+      </if>
+      <if test="tcPatientDbsFirstId != null">
+        TC_PATIENT_DBS_FIRST_ID,
+      </if>
+      <if test="tremor != null">
+        TREMOR,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="wristTone != null">
+        WRIST_TONE,
+      </if>
+      <if test="dbsVoltage != null">
+        DBS_VOLTAGE,
+      </if>
+      <if test="sideEffectDuration != null">
+        SIDE_EFFECT_DURATION,
+      </if>
+      <if test="patientDbsFirstId != null">
+        PATIENT_DBS_FIRST_ID,
+      </if>
+      <if test="tensionTone != null">
+        TENSION_TONE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="changeConstantly != null">
+        #{changeConstantly,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null">
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="dbsCase != null">
+        #{dbsCase,jdbcType=VARCHAR},
+      </if>
+      <if test="elbowTone != null">
+        #{elbowTone,jdbcType=DOUBLE},
+      </if>
+      <if test="kneeTone != null">
+        #{kneeTone,jdbcType=DOUBLE},
+      </if>
+      <if test="neckTone != null">
+        #{neckTone,jdbcType=DOUBLE},
+      </if>
+      <if test="sideEffect != null">
+        #{sideEffect,jdbcType=VARCHAR},
+      </if>
+      <if test="tcPatientDbsFirstId != null">
+        #{tcPatientDbsFirstId,jdbcType=INTEGER},
+      </if>
+      <if test="tremor != null">
+        #{tremor,jdbcType=DOUBLE},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="wristTone != null">
+        #{wristTone,jdbcType=DOUBLE},
+      </if>
+      <if test="dbsVoltage != null">
+        #{dbsVoltage,jdbcType=INTEGER},
+      </if>
+      <if test="sideEffectDuration != null">
+        #{sideEffectDuration,jdbcType=INTEGER},
+      </if>
+      <if test="patientDbsFirstId != null">
+        #{patientDbsFirstId,jdbcType=INTEGER},
+      </if>
+      <if test="tensionTone != null">
+        #{tensionTone,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

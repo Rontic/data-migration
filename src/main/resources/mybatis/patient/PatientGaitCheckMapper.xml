@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientGaitCheckMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientGaitCheck">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="gait_item_id" jdbcType="VARCHAR" property="gaitItemId" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="type_child" jdbcType="VARCHAR" property="typeChild" />
+    <result column="type_code" jdbcType="VARCHAR" property="typeCode" />
+    <result column="left_normal" jdbcType="VARCHAR" property="leftNormal" />
+    <result column="left_error" jdbcType="VARCHAR" property="leftError" />
+    <result column="right_normal" jdbcType="VARCHAR" property="rightNormal" />
+    <result column="right_error" jdbcType="VARCHAR" property="rightError" />
+    <result column="data_normal" jdbcType="VARCHAR" property="dataNormal" />
+    <result column="data_error" jdbcType="VARCHAR" property="dataError" />
+    <result column="reference_value" jdbcType="VARCHAR" property="referenceValue" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="avg_normal" jdbcType="VARCHAR" property="avgNormal" />
+    <result column="avg_error" jdbcType="VARCHAR" property="avgError" />
+    <result column="x_axis" jdbcType="VARCHAR" property="xAxis" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, gait_item_id, type, type_child, type_code, left_normal, left_error, right_normal,
+    right_error, data_normal, data_error, reference_value, remark, create_by, update_by,
+    create_date, update_date, unit, avg_normal, avg_error, x_axis
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_gait_check
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientGaitCheck">
+    insert into tc_patient_gait_check (id, gait_item_id, type,
+      type_child, type_code, left_normal,
+      left_error, right_normal, right_error,
+      data_normal, data_error, reference_value,
+      remark, create_by, update_by,
+      create_date, update_date, unit,
+      avg_normal, avg_error, x_axis
+      )
+    values (#{id,jdbcType=VARCHAR}, #{gaitItemId,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR},
+      #{typeChild,jdbcType=VARCHAR}, #{typeCode,jdbcType=VARCHAR}, #{leftNormal,jdbcType=VARCHAR},
+      #{leftError,jdbcType=VARCHAR}, #{rightNormal,jdbcType=VARCHAR}, #{rightError,jdbcType=VARCHAR},
+      #{dataNormal,jdbcType=VARCHAR}, #{dataError,jdbcType=VARCHAR}, #{referenceValue,jdbcType=VARCHAR},
+      #{remark,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{unit,jdbcType=VARCHAR},
+      #{avgNormal,jdbcType=VARCHAR}, #{avgError,jdbcType=VARCHAR}, #{xAxis,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientGaitCheck">
+    insert into tc_patient_gait_check
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="gaitItemId != null">
+        gait_item_id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="typeChild != null">
+        type_child,
+      </if>
+      <if test="typeCode != null">
+        type_code,
+      </if>
+      <if test="leftNormal != null">
+        left_normal,
+      </if>
+      <if test="leftError != null">
+        left_error,
+      </if>
+      <if test="rightNormal != null">
+        right_normal,
+      </if>
+      <if test="rightError != null">
+        right_error,
+      </if>
+      <if test="dataNormal != null">
+        data_normal,
+      </if>
+      <if test="dataError != null">
+        data_error,
+      </if>
+      <if test="referenceValue != null">
+        reference_value,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="avgNormal != null">
+        avg_normal,
+      </if>
+      <if test="avgError != null">
+        avg_error,
+      </if>
+      <if test="xAxis != null">
+        x_axis,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="gaitItemId != null">
+        #{gaitItemId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="typeChild != null">
+        #{typeChild,jdbcType=VARCHAR},
+      </if>
+      <if test="typeCode != null">
+        #{typeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="leftNormal != null">
+        #{leftNormal,jdbcType=VARCHAR},
+      </if>
+      <if test="leftError != null">
+        #{leftError,jdbcType=VARCHAR},
+      </if>
+      <if test="rightNormal != null">
+        #{rightNormal,jdbcType=VARCHAR},
+      </if>
+      <if test="rightError != null">
+        #{rightError,jdbcType=VARCHAR},
+      </if>
+      <if test="dataNormal != null">
+        #{dataNormal,jdbcType=VARCHAR},
+      </if>
+      <if test="dataError != null">
+        #{dataError,jdbcType=VARCHAR},
+      </if>
+      <if test="referenceValue != null">
+        #{referenceValue,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="avgNormal != null">
+        #{avgNormal,jdbcType=VARCHAR},
+      </if>
+      <if test="avgError != null">
+        #{avgError,jdbcType=VARCHAR},
+      </if>
+      <if test="xAxis != null">
+        #{xAxis,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

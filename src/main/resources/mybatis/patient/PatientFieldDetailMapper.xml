@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientFieldDetailMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientFieldDetail">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ROW_FIELD_ID" jdbcType="INTEGER" property="rowFieldId" />
+    <result column="COLUMN_FIELD_ID" jdbcType="INTEGER" property="columnFieldId" />
+    <result column="FIELD_VALUE" jdbcType="VARCHAR" property="fieldValue" />
+    <result column="TYPE_GROUP_CODE" jdbcType="VARCHAR" property="typeGroupCode" />
+    <result column="TYPE_CODE" jdbcType="VARCHAR" property="typeCode" />
+    <result column="TYPE_PCODE" jdbcType="VARCHAR" property="typePcode" />
+    <result column="BUSINESS_ID" jdbcType="INTEGER" property="businessId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, ROW_FIELD_ID, COLUMN_FIELD_ID, FIELD_VALUE, TYPE_GROUP_CODE, TYPE_CODE, TYPE_PCODE,
+    BUSINESS_ID
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_field_detail
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientFieldDetail">
+    insert into tc_patient_field_detail (ID, ROW_FIELD_ID, COLUMN_FIELD_ID,
+      FIELD_VALUE, TYPE_GROUP_CODE, TYPE_CODE,
+      TYPE_PCODE, BUSINESS_ID)
+    values (#{id,jdbcType=INTEGER}, #{rowFieldId,jdbcType=INTEGER}, #{columnFieldId,jdbcType=INTEGER},
+      #{fieldValue,jdbcType=VARCHAR}, #{typeGroupCode,jdbcType=VARCHAR}, #{typeCode,jdbcType=VARCHAR},
+      #{typePcode,jdbcType=VARCHAR}, #{businessId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientFieldDetail">
+    insert into tc_patient_field_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="rowFieldId != null">
+        ROW_FIELD_ID,
+      </if>
+      <if test="columnFieldId != null">
+        COLUMN_FIELD_ID,
+      </if>
+      <if test="fieldValue != null">
+        FIELD_VALUE,
+      </if>
+      <if test="typeGroupCode != null">
+        TYPE_GROUP_CODE,
+      </if>
+      <if test="typeCode != null">
+        TYPE_CODE,
+      </if>
+      <if test="typePcode != null">
+        TYPE_PCODE,
+      </if>
+      <if test="businessId != null">
+        BUSINESS_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="rowFieldId != null">
+        #{rowFieldId,jdbcType=INTEGER},
+      </if>
+      <if test="columnFieldId != null">
+        #{columnFieldId,jdbcType=INTEGER},
+      </if>
+      <if test="fieldValue != null">
+        #{fieldValue,jdbcType=VARCHAR},
+      </if>
+      <if test="typeGroupCode != null">
+        #{typeGroupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="typeCode != null">
+        #{typeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="typePcode != null">
+        #{typePcode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessId != null">
+        #{businessId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

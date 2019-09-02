@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- 文件输出格式 -->
+	<property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n" />
+
+	<!-- 日志文件路径 -->
+	<property name="FILE_PATH" value="/var/log/ruiyu_dataMigration" />
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name = "FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${FILE_PATH}/ruiyu_dataMigration-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<appender name = "FILE_ERROR_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${FILE_PATH}/ruiyu_dataMigration-error-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印错误日志 -->
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+	<!-- 开发环境 -->
+	<springProfile name="dev">
+		<logger name="com.gyenno.ruiyun.datamigration" level="info">
+			<appender-ref ref="FILE"/>
+		</logger>
+
+		<logger name="org.springframework" level="info">
+			<appender-ref ref="FILE"/>
+			<appender-ref ref="FILE_ERROR_LOG"/>
+		</logger>
+
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+
+	<!-- Docker开发环境 -->
+	<springProfile name="dockercompose">
+
+		<logger name="com.gyenno.ruiyun.datamigration" level="debug">
+			<appender-ref ref="FILE"/>
+		</logger>
+
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root>
+
+	</springProfile>
+
+	<!-- 测试环境 -->
+	<springProfile name="test">
+
+		<logger name="com.gyenno.ruiyun.datamigration" level="debug">
+			<appender-ref ref="FILE" />
+		</logger>
+
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+
+	<!-- 预发布环境 -->
+	<springProfile name="pre">
+
+		<logger name="com.gyenno.ruiyun.datamigration" level="info">
+			<appender-ref ref="FILE" />
+		</logger>
+
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+
+	<!-- 英文环境 -->
+	<springProfile name="ehb">
+
+		<logger name="com.gyenno.ruiyun.datamigration" level="debug">
+			<appender-ref ref="FILE" />
+		</logger>
+
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root>
+
+	</springProfile>
+
+	<!-- 生产环境 -->
+	<springProfile name="prod">
+
+		<logger name="com.gyenno.ruiyun.datamigration" level="debug">
+			<appender-ref ref="FILE" />
+		</logger>
+
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root>
+
+	</springProfile>
+
+	<!-- 单机版本 -->
+	<springProfile name="standalone">
+
+		<logger name="com.gyenno.ruiyun.datamigration" level="debug">
+			<appender-ref ref="FILE" />
+		</logger>
+
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root>
+
+	</springProfile>
+
+</configuration>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientDiaryMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDiary">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="RECORD_TIME" jdbcType="TIMESTAMP" property="recordTime" />
+    <result column="GET_UP_TIME" jdbcType="VARCHAR" property="getUpTime" />
+    <result column="SLEEP_TIME" jdbcType="VARCHAR" property="sleepTime" />
+    <result column="DAY_SLEEP_TIME" jdbcType="VARCHAR" property="daySleepTime" />
+    <result column="DAY_SLEEP_HS" jdbcType="REAL" property="daySleepHs" />
+    <result column="ALL_SLEEP_HS" jdbcType="REAL" property="allSleepHs" />
+    <result column="NICE_TIME" jdbcType="VARCHAR" property="niceTime" />
+    <result column="BAD_TIME" jdbcType="VARCHAR" property="badTime" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="NICE_HOURS" jdbcType="REAL" property="niceHours" />
+    <result column="BAD_HOURS" jdbcType="REAL" property="badHours" />
+    <result column="REMARK" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, PATIENT_CASE_ID, RECORD_TIME, GET_UP_TIME, SLEEP_TIME, DAY_SLEEP_TIME, DAY_SLEEP_HS,
+    ALL_SLEEP_HS, NICE_TIME, BAD_TIME, CREATE_BY, CREATE_DATE, CREATE_NAME, UPDATE_BY,
+    UPDATE_DATE, UPDATE_NAME, NICE_HOURS, BAD_HOURS , REMARK
+  </sql>
+
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+
+    from tc_patient_diary
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientDiary">
+    insert into tc_patient_diary (ID, PATIENT_CASE_ID, RECORD_TIME,
+      GET_UP_TIME, SLEEP_TIME, DAY_SLEEP_TIME,
+      DAY_SLEEP_HS, ALL_SLEEP_HS, NICE_TIME,
+      BAD_TIME, CREATE_BY, CREATE_DATE,
+      CREATE_NAME, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, NICE_HOURS, BAD_HOURS,
+      REMARK)
+    values (#{id,jdbcType=INTEGER}, #{patientCaseId,jdbcType=VARCHAR}, #{recordTime,jdbcType=TIMESTAMP},
+      #{getUpTime,jdbcType=VARCHAR}, #{sleepTime,jdbcType=VARCHAR}, #{daySleepTime,jdbcType=VARCHAR},
+      #{daySleepHs,jdbcType=REAL}, #{allSleepHs,jdbcType=REAL}, #{niceTime,jdbcType=VARCHAR},
+      #{badTime,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{niceHours,jdbcType=REAL}, #{badHours,jdbcType=REAL},
+      #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientDiary">
+    insert into tc_patient_diary
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="patientCaseId != null">
+        PATIENT_CASE_ID,
+      </if>
+      <if test="recordTime != null">
+        RECORD_TIME,
+      </if>
+      <if test="getUpTime != null">
+        GET_UP_TIME,
+      </if>
+      <if test="sleepTime != null">
+        SLEEP_TIME,
+      </if>
+      <if test="daySleepTime != null">
+        DAY_SLEEP_TIME,
+      </if>
+      <if test="daySleepHs != null">
+        DAY_SLEEP_HS,
+      </if>
+      <if test="allSleepHs != null">
+        ALL_SLEEP_HS,
+      </if>
+      <if test="niceTime != null">
+        NICE_TIME,
+      </if>
+      <if test="badTime != null">
+        BAD_TIME,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="niceHours != null">
+        NICE_HOURS,
+      </if>
+      <if test="badHours != null">
+        BAD_HOURS,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        #{recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="getUpTime != null">
+        #{getUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sleepTime != null">
+        #{sleepTime,jdbcType=VARCHAR},
+      </if>
+      <if test="daySleepTime != null">
+        #{daySleepTime,jdbcType=VARCHAR},
+      </if>
+      <if test="daySleepHs != null">
+        #{daySleepHs,jdbcType=REAL},
+      </if>
+      <if test="allSleepHs != null">
+        #{allSleepHs,jdbcType=REAL},
+      </if>
+      <if test="niceTime != null">
+        #{niceTime,jdbcType=VARCHAR},
+      </if>
+      <if test="badTime != null">
+        #{badTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="niceHours != null">
+        #{niceHours,jdbcType=REAL},
+      </if>
+      <if test="badHours != null">
+        #{badHours,jdbcType=REAL},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

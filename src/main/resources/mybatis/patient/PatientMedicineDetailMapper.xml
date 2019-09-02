@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientMedicineDetailMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicineDetail">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="COMPUT_UNIT" jdbcType="INTEGER" property="computUnit" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="TAKE_DOSE" jdbcType="VARCHAR" property="takeDose" />
+    <result column="TAKE_TIME" jdbcType="VARCHAR" property="takeTime" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="Patient_Medicine_ID" jdbcType="INTEGER" property="patientMedicineId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, COMPUT_UNIT, CREATE_BY, CREATE_DATE, CREATE_NAME, TAKE_DOSE, TAKE_TIME, UPDATE_BY,
+    UPDATE_DATE, UPDATE_NAME, Patient_Medicine_ID
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_medicine_detail
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicineDetail">
+    insert into tc_patient_medicine_detail (ID, COMPUT_UNIT, CREATE_BY,
+      CREATE_DATE, CREATE_NAME, TAKE_DOSE,
+      TAKE_TIME, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, Patient_Medicine_ID)
+    values (#{id,jdbcType=INTEGER}, #{computUnit,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR}, #{takeDose,jdbcType=VARCHAR},
+      #{takeTime,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{patientMedicineId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicineDetail">
+    insert into tc_patient_medicine_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="computUnit != null">
+        COMPUT_UNIT,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="takeDose != null">
+        TAKE_DOSE,
+      </if>
+      <if test="takeTime != null">
+        TAKE_TIME,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="patientMedicineId != null">
+        Patient_Medicine_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="computUnit != null">
+        #{computUnit,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="takeDose != null">
+        #{takeDose,jdbcType=VARCHAR},
+      </if>
+      <if test="takeTime != null">
+        #{takeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientMedicineId != null">
+        #{patientMedicineId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientPreopsInfoMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsInfo">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CLOSE_RATIO" jdbcType="DOUBLE" property="closeRatio" />
+    <result column="CLOSE_TIME" jdbcType="DOUBLE" property="closeTime" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="DEP_DYSKINESIA_OPEN_RATIO" jdbcType="DOUBLE" property="depDyskinesiaOpenRatio" />
+    <result column="DEVICE_POWER_TYPE" jdbcType="INTEGER" property="devicePowerType" />
+    <result column="DYSKINESIA_TIME" jdbcType="DOUBLE" property="dyskinesiaTime" />
+    <result column="INTENSION_ARISE_TIME" jdbcType="TIMESTAMP" property="intensionAriseTime" />
+    <result column="LOADING_DOSE_COUNT" jdbcType="DOUBLE" property="loadingDoseCount" />
+    <result column="NOR_DYSKINESIA_OPEN_RATIO" jdbcType="DOUBLE" property="norDyskinesiaOpenRatio" />
+    <result column="OPEN_RATIO" jdbcType="DOUBLE" property="openRatio" />
+    <result column="OPEN_TIME" jdbcType="DOUBLE" property="openTime" />
+    <result column="OPERATION_INTENSION" jdbcType="INTEGER" property="operationIntension" />
+    <result column="UDYSBS_ONE_RATIO" jdbcType="DOUBLE" property="udysbsOneRatio" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="UPDRS_FOURONE_RATIO" jdbcType="DOUBLE" property="updrsFouroneRatio" />
+    <result column="UPDRS_FOURTHREE_RATIO" jdbcType="DOUBLE" property="updrsFourthreeRatio" />
+    <result column="WAKE_TIME" jdbcType="DOUBLE" property="wakeTime" />
+    <result column="DEVICE_ID" jdbcType="VARCHAR" property="deviceId" />
+    <result column="PATIENT_SURGICAL_ID" jdbcType="INTEGER" property="patientSurgicalId" />
+    <result column="PREOPS_TIME" jdbcType="TIMESTAMP" property="preopsTime" />
+    <result column="TERMINAL_TIME" jdbcType="TIMESTAMP" property="terminalTime" />
+    <result column="TERMINAL_SCALE" jdbcType="INTEGER" property="terminalScale" />
+    <result column="TERMINAL_EXIST" jdbcType="INTEGER" property="terminalExist" />
+    <result column="TERMINAL_ISFIRST" jdbcType="INTEGER" property="terminalIsfirst" />
+    <result column="TERMINAL_FIRST_TIME" jdbcType="TIMESTAMP" property="terminalFirstTime" />
+    <result column="TERMINAL_DURATION" jdbcType="DOUBLE" property="terminalDuration" />
+    <result column="Motor_TEST_TIME" jdbcType="TIMESTAMP" property="motorTestTime" />
+    <result column="PREOPS_REMARK" jdbcType="VARCHAR" property="preopsRemark" />
+    <result column="TERMINAL_REMARK" jdbcType="VARCHAR" property="terminalRemark" />
+    <result column="DIARY_REMARK" jdbcType="VARCHAR" property="diaryRemark" />
+    <result column="DYSKINESIA_REMARK" jdbcType="VARCHAR" property="dyskinesiaRemark" />
+    <result column="NONMotor_REMARK" jdbcType="VARCHAR" property="nonmotorRemark" />
+    <result column="Motor_REMARK" jdbcType="VARCHAR" property="motorRemark" />
+    <result column="INTENSION_REMARK" jdbcType="VARCHAR" property="intensionRemark" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="file" jdbcType="VARCHAR" property="file" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, CLOSE_RATIO, CLOSE_TIME, CREATE_BY, CREATE_DATE, CREATE_NAME, DEP_DYSKINESIA_OPEN_RATIO,
+    DEVICE_POWER_TYPE, DYSKINESIA_TIME, INTENSION_ARISE_TIME, LOADING_DOSE_COUNT, NOR_DYSKINESIA_OPEN_RATIO,
+    OPEN_RATIO, OPEN_TIME, OPERATION_INTENSION, UDYSBS_ONE_RATIO, UPDATE_BY, UPDATE_DATE,
+    UPDATE_NAME, UPDRS_FOURONE_RATIO, UPDRS_FOURTHREE_RATIO, WAKE_TIME, DEVICE_ID, PATIENT_SURGICAL_ID,
+    PREOPS_TIME, TERMINAL_TIME, TERMINAL_SCALE, TERMINAL_EXIST, TERMINAL_ISFIRST, TERMINAL_FIRST_TIME,
+    TERMINAL_DURATION, Motor_TEST_TIME, PREOPS_REMARK, TERMINAL_REMARK, DIARY_REMARK,
+    DYSKINESIA_REMARK, NONMotor_REMARK, Motor_REMARK, INTENSION_REMARK, PATIENT_CASE_ID,
+    type, file
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_preops_info
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsInfo">
+    insert into tc_patient_preops_info (ID, CLOSE_RATIO, CLOSE_TIME,
+      CREATE_BY, CREATE_DATE, CREATE_NAME,
+      DEP_DYSKINESIA_OPEN_RATIO, DEVICE_POWER_TYPE,
+      DYSKINESIA_TIME, INTENSION_ARISE_TIME, LOADING_DOSE_COUNT,
+      NOR_DYSKINESIA_OPEN_RATIO, OPEN_RATIO, OPEN_TIME,
+      OPERATION_INTENSION, UDYSBS_ONE_RATIO, UPDATE_BY,
+      UPDATE_DATE, UPDATE_NAME, UPDRS_FOURONE_RATIO,
+      UPDRS_FOURTHREE_RATIO, WAKE_TIME, DEVICE_ID,
+      PATIENT_SURGICAL_ID, PREOPS_TIME, TERMINAL_TIME,
+      TERMINAL_SCALE, TERMINAL_EXIST, TERMINAL_ISFIRST,
+      TERMINAL_FIRST_TIME, TERMINAL_DURATION, Motor_TEST_TIME,
+      PREOPS_REMARK, TERMINAL_REMARK, DIARY_REMARK,
+      DYSKINESIA_REMARK, NONMotor_REMARK, Motor_REMARK,
+      INTENSION_REMARK, PATIENT_CASE_ID, type,
+      file)
+    values (#{id,jdbcType=INTEGER}, #{closeRatio,jdbcType=DOUBLE}, #{closeTime,jdbcType=DOUBLE},
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR},
+      #{depDyskinesiaOpenRatio,jdbcType=DOUBLE}, #{devicePowerType,jdbcType=INTEGER},
+      #{dyskinesiaTime,jdbcType=DOUBLE}, #{intensionAriseTime,jdbcType=TIMESTAMP}, #{loadingDoseCount,jdbcType=DOUBLE},
+      #{norDyskinesiaOpenRatio,jdbcType=DOUBLE}, #{openRatio,jdbcType=DOUBLE}, #{openTime,jdbcType=DOUBLE},
+      #{operationIntension,jdbcType=INTEGER}, #{udysbsOneRatio,jdbcType=DOUBLE}, #{updateBy,jdbcType=VARCHAR},
+      #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR}, #{updrsFouroneRatio,jdbcType=DOUBLE},
+      #{updrsFourthreeRatio,jdbcType=DOUBLE}, #{wakeTime,jdbcType=DOUBLE}, #{deviceId,jdbcType=VARCHAR},
+      #{patientSurgicalId,jdbcType=INTEGER}, #{preopsTime,jdbcType=TIMESTAMP}, #{terminalTime,jdbcType=TIMESTAMP},
+      #{terminalScale,jdbcType=INTEGER}, #{terminalExist,jdbcType=INTEGER}, #{terminalIsfirst,jdbcType=INTEGER},
+      #{terminalFirstTime,jdbcType=TIMESTAMP}, #{terminalDuration,jdbcType=DOUBLE}, #{motorTestTime,jdbcType=TIMESTAMP},
+      #{preopsRemark,jdbcType=VARCHAR}, #{terminalRemark,jdbcType=VARCHAR}, #{diaryRemark,jdbcType=VARCHAR},
+      #{dyskinesiaRemark,jdbcType=VARCHAR}, #{nonmotorRemark,jdbcType=VARCHAR}, #{motorRemark,jdbcType=VARCHAR},
+      #{intensionRemark,jdbcType=VARCHAR}, #{patientCaseId,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER},
+      #{file,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsInfo">
+    insert into tc_patient_preops_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="closeRatio != null">
+        CLOSE_RATIO,
+      </if>
+      <if test="closeTime != null">
+        CLOSE_TIME,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="depDyskinesiaOpenRatio != null">
+        DEP_DYSKINESIA_OPEN_RATIO,
+      </if>
+      <if test="devicePowerType != null">
+        DEVICE_POWER_TYPE,
+      </if>
+      <if test="dyskinesiaTime != null">
+        DYSKINESIA_TIME,
+      </if>
+      <if test="intensionAriseTime != null">
+        INTENSION_ARISE_TIME,
+      </if>
+      <if test="loadingDoseCount != null">
+        LOADING_DOSE_COUNT,
+      </if>
+      <if test="norDyskinesiaOpenRatio != null">
+        NOR_DYSKINESIA_OPEN_RATIO,
+      </if>
+      <if test="openRatio != null">
+        OPEN_RATIO,
+      </if>
+      <if test="openTime != null">
+        OPEN_TIME,
+      </if>
+      <if test="operationIntension != null">
+        OPERATION_INTENSION,
+      </if>
+      <if test="udysbsOneRatio != null">
+        UDYSBS_ONE_RATIO,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="updrsFouroneRatio != null">
+        UPDRS_FOURONE_RATIO,
+      </if>
+      <if test="updrsFourthreeRatio != null">
+        UPDRS_FOURTHREE_RATIO,
+      </if>
+      <if test="wakeTime != null">
+        WAKE_TIME,
+      </if>
+      <if test="deviceId != null">
+        DEVICE_ID,
+      </if>
+      <if test="patientSurgicalId != null">
+        PATIENT_SURGICAL_ID,
+      </if>
+      <if test="preopsTime != null">
+        PREOPS_TIME,
+      </if>
+      <if test="terminalTime != null">
+        TERMINAL_TIME,
+      </if>
+      <if test="terminalScale != null">
+        TERMINAL_SCALE,
+      </if>
+      <if test="terminalExist != null">
+        TERMINAL_EXIST,
+      </if>
+      <if test="terminalIsfirst != null">
+        TERMINAL_ISFIRST,
+      </if>
+      <if test="terminalFirstTime != null">
+        TERMINAL_FIRST_TIME,
+      </if>
+      <if test="terminalDuration != null">
+        TERMINAL_DURATION,
+      </if>
+      <if test="motorTestTime != null">
+        Motor_TEST_TIME,
+      </if>
+      <if test="preopsRemark != null">
+        PREOPS_REMARK,
+      </if>
+      <if test="terminalRemark != null">
+        TERMINAL_REMARK,
+      </if>
+      <if test="diaryRemark != null">
+        DIARY_REMARK,
+      </if>
+      <if test="dyskinesiaRemark != null">
+        DYSKINESIA_REMARK,
+      </if>
+      <if test="nonmotorRemark != null">
+        NONMotor_REMARK,
+      </if>
+      <if test="motorRemark != null">
+        Motor_REMARK,
+      </if>
+      <if test="intensionRemark != null">
+        INTENSION_REMARK,
+      </if>
+      <if test="patientCaseId != null">
+        PATIENT_CASE_ID,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="file != null">
+        file,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="closeRatio != null">
+        #{closeRatio,jdbcType=DOUBLE},
+      </if>
+      <if test="closeTime != null">
+        #{closeTime,jdbcType=DOUBLE},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="depDyskinesiaOpenRatio != null">
+        #{depDyskinesiaOpenRatio,jdbcType=DOUBLE},
+      </if>
+      <if test="devicePowerType != null">
+        #{devicePowerType,jdbcType=INTEGER},
+      </if>
+      <if test="dyskinesiaTime != null">
+        #{dyskinesiaTime,jdbcType=DOUBLE},
+      </if>
+      <if test="intensionAriseTime != null">
+        #{intensionAriseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loadingDoseCount != null">
+        #{loadingDoseCount,jdbcType=DOUBLE},
+      </if>
+      <if test="norDyskinesiaOpenRatio != null">
+        #{norDyskinesiaOpenRatio,jdbcType=DOUBLE},
+      </if>
+      <if test="openRatio != null">
+        #{openRatio,jdbcType=DOUBLE},
+      </if>
+      <if test="openTime != null">
+        #{openTime,jdbcType=DOUBLE},
+      </if>
+      <if test="operationIntension != null">
+        #{operationIntension,jdbcType=INTEGER},
+      </if>
+      <if test="udysbsOneRatio != null">
+        #{udysbsOneRatio,jdbcType=DOUBLE},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="updrsFouroneRatio != null">
+        #{updrsFouroneRatio,jdbcType=DOUBLE},
+      </if>
+      <if test="updrsFourthreeRatio != null">
+        #{updrsFourthreeRatio,jdbcType=DOUBLE},
+      </if>
+      <if test="wakeTime != null">
+        #{wakeTime,jdbcType=DOUBLE},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientSurgicalId != null">
+        #{patientSurgicalId,jdbcType=INTEGER},
+      </if>
+      <if test="preopsTime != null">
+        #{preopsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="terminalTime != null">
+        #{terminalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="terminalScale != null">
+        #{terminalScale,jdbcType=INTEGER},
+      </if>
+      <if test="terminalExist != null">
+        #{terminalExist,jdbcType=INTEGER},
+      </if>
+      <if test="terminalIsfirst != null">
+        #{terminalIsfirst,jdbcType=INTEGER},
+      </if>
+      <if test="terminalFirstTime != null">
+        #{terminalFirstTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="terminalDuration != null">
+        #{terminalDuration,jdbcType=DOUBLE},
+      </if>
+      <if test="motorTestTime != null">
+        #{motorTestTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="preopsRemark != null">
+        #{preopsRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalRemark != null">
+        #{terminalRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="diaryRemark != null">
+        #{diaryRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="dyskinesiaRemark != null">
+        #{dyskinesiaRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="nonmotorRemark != null">
+        #{nonmotorRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="motorRemark != null">
+        #{motorRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="intensionRemark != null">
+        #{intensionRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="file != null">
+        #{file,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

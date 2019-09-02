@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientPhytheReactionMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPhytheReaction">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="REACTION_TYPE" jdbcType="INTEGER" property="reactionType" />
+    <result column="SEVERITY_LEVEL" jdbcType="INTEGER" property="severityLevel" />
+    <result column="ASSESS_TYPE" jdbcType="INTEGER" property="assessType" />
+    <result column="ASSESS_ID" jdbcType="INTEGER" property="assessId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, REACTION_TYPE, SEVERITY_LEVEL, ASSESS_TYPE, ASSESS_ID
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_phythe_reaction
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientPhytheReaction">
+    insert into tc_patient_phythe_reaction (ID, REACTION_TYPE, SEVERITY_LEVEL,
+      ASSESS_TYPE, ASSESS_ID)
+    values (#{id,jdbcType=INTEGER}, #{reactionType,jdbcType=INTEGER}, #{severityLevel,jdbcType=INTEGER},
+      #{assessType,jdbcType=INTEGER}, #{assessId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientPhytheReaction">
+    insert into tc_patient_phythe_reaction
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="reactionType != null">
+        REACTION_TYPE,
+      </if>
+      <if test="severityLevel != null">
+        SEVERITY_LEVEL,
+      </if>
+      <if test="assessType != null">
+        ASSESS_TYPE,
+      </if>
+      <if test="assessId != null">
+        ASSESS_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="reactionType != null">
+        #{reactionType,jdbcType=INTEGER},
+      </if>
+      <if test="severityLevel != null">
+        #{severityLevel,jdbcType=INTEGER},
+      </if>
+      <if test="assessType != null">
+        #{assessType,jdbcType=INTEGER},
+      </if>
+      <if test="assessId != null">
+        #{assessId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

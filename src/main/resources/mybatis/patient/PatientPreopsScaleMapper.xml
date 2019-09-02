@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientPreopsScaleMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsScale">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ARISE_TIME" jdbcType="TIMESTAMP" property="ariseTime" />
+    <result column="BODY_STATUS" jdbcType="INTEGER" property="bodyStatus" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="DRUG_FLAG" jdbcType="INTEGER" property="drugFlag" />
+    <result column="MED_IMPROVE_RATIO" jdbcType="DOUBLE" property="medImproveRatio" />
+    <result column="SCALE_INFO" jdbcType="INTEGER" property="scaleInfo" />
+    <result column="SCALE_SCORE" jdbcType="DOUBLE" property="scaleScore" />
+    <result column="SCALE_TYPE" jdbcType="INTEGER" property="scaleType" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="PATIENT_PREOPS_INFO_ID" jdbcType="INTEGER" property="patientPreopsInfoId" />
+    <result column="SCALE_NAME" jdbcType="VARCHAR" property="scaleName" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    <result column="REMARK_LIST" jdbcType="LONGVARCHAR" property="remarkList" />
+    <result column="PATIENT_SCALE_LIST" jdbcType="LONGVARCHAR" property="patientScaleList" />
+    <result column="SCORE_LIST" jdbcType="LONGVARCHAR" property="scoreList" />
+    <result column="TIME_LIST" jdbcType="LONGVARCHAR" property="timeList" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, ARISE_TIME, BODY_STATUS, CREATE_BY, CREATE_DATE, CREATE_NAME, DRUG_FLAG, MED_IMPROVE_RATIO,
+    SCALE_INFO, SCALE_SCORE, SCALE_TYPE, UPDATE_BY, UPDATE_DATE, UPDATE_NAME, PATIENT_PREOPS_INFO_ID,
+    SCALE_NAME,REMARKS, REMARK_LIST, PATIENT_SCALE_LIST, SCORE_LIST, TIME_LIST
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_preops_scale
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsScale">
+    insert into tc_patient_preops_scale (ID, ARISE_TIME, BODY_STATUS,
+      CREATE_BY, CREATE_DATE, CREATE_NAME,
+      DRUG_FLAG, MED_IMPROVE_RATIO, SCALE_INFO,
+      SCALE_SCORE, SCALE_TYPE, UPDATE_BY,
+      UPDATE_DATE, UPDATE_NAME, PATIENT_PREOPS_INFO_ID,
+      SCALE_NAME, REMARKS, REMARK_LIST,
+      PATIENT_SCALE_LIST, SCORE_LIST, TIME_LIST
+      )
+    values (#{id,jdbcType=INTEGER}, #{ariseTime,jdbcType=TIMESTAMP}, #{bodyStatus,jdbcType=INTEGER},
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR},
+      #{drugFlag,jdbcType=INTEGER}, #{medImproveRatio,jdbcType=DOUBLE}, #{scaleInfo,jdbcType=INTEGER},
+      #{scaleScore,jdbcType=DOUBLE}, #{scaleType,jdbcType=INTEGER}, #{updateBy,jdbcType=VARCHAR},
+      #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR}, #{patientPreopsInfoId,jdbcType=INTEGER},
+      #{scaleName,jdbcType=VARCHAR}, #{remarks,jdbcType=LONGVARCHAR}, #{remarkList,jdbcType=LONGVARCHAR},
+      #{patientScaleList,jdbcType=LONGVARCHAR}, #{scoreList,jdbcType=LONGVARCHAR}, #{timeList,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsScale">
+    insert into tc_patient_preops_scale
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="ariseTime != null">
+        ARISE_TIME,
+      </if>
+      <if test="bodyStatus != null">
+        BODY_STATUS,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="drugFlag != null">
+        DRUG_FLAG,
+      </if>
+      <if test="medImproveRatio != null">
+        MED_IMPROVE_RATIO,
+      </if>
+      <if test="scaleInfo != null">
+        SCALE_INFO,
+      </if>
+      <if test="scaleScore != null">
+        SCALE_SCORE,
+      </if>
+      <if test="scaleType != null">
+        SCALE_TYPE,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="patientPreopsInfoId != null">
+        PATIENT_PREOPS_INFO_ID,
+      </if>
+      <if test="scaleName != null">
+        SCALE_NAME,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="remarkList != null">
+        REMARK_LIST,
+      </if>
+      <if test="patientScaleList != null">
+        PATIENT_SCALE_LIST,
+      </if>
+      <if test="scoreList != null">
+        SCORE_LIST,
+      </if>
+      <if test="timeList != null">
+        TIME_LIST,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ariseTime != null">
+        #{ariseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bodyStatus != null">
+        #{bodyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="drugFlag != null">
+        #{drugFlag,jdbcType=INTEGER},
+      </if>
+      <if test="medImproveRatio != null">
+        #{medImproveRatio,jdbcType=DOUBLE},
+      </if>
+      <if test="scaleInfo != null">
+        #{scaleInfo,jdbcType=INTEGER},
+      </if>
+      <if test="scaleScore != null">
+        #{scaleScore,jdbcType=DOUBLE},
+      </if>
+      <if test="scaleType != null">
+        #{scaleType,jdbcType=INTEGER},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientPreopsInfoId != null">
+        #{patientPreopsInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="scaleName != null">
+        #{scaleName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remarkList != null">
+        #{remarkList,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="patientScaleList != null">
+        #{patientScaleList,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="scoreList != null">
+        #{scoreList,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="timeList != null">
+        #{timeList,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

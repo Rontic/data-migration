@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientPreopsMedicineMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsMedicine">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="LOADING_DOSE" jdbcType="DOUBLE" property="loadingDose" />
+    <result column="MED_SPECIFICATION" jdbcType="INTEGER" property="medSpecification" />
+    <result column="MED_USAGE" jdbcType="DOUBLE" property="medUsage" />
+    <result column="MEDICINE_INFO" jdbcType="INTEGER" property="medicineInfo" />
+    <result column="MORNING_DOSE" jdbcType="DOUBLE" property="morningDose" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="PATIENT_PREOPS_INFO_ID" jdbcType="INTEGER" property="patientPreopsInfoId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, CREATE_BY, CREATE_DATE, CREATE_NAME, LOADING_DOSE, MED_SPECIFICATION, MED_USAGE,
+    MEDICINE_INFO, MORNING_DOSE, UPDATE_BY, UPDATE_DATE, UPDATE_NAME, PATIENT_PREOPS_INFO_ID
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_preops_medicine
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsMedicine">
+    insert into tc_patient_preops_medicine (ID, CREATE_BY, CREATE_DATE,
+      CREATE_NAME, LOADING_DOSE, MED_SPECIFICATION,
+      MED_USAGE, MEDICINE_INFO, MORNING_DOSE,
+      UPDATE_BY, UPDATE_DATE, UPDATE_NAME,
+      PATIENT_PREOPS_INFO_ID)
+    values (#{id,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{loadingDose,jdbcType=DOUBLE}, #{medSpecification,jdbcType=INTEGER},
+      #{medUsage,jdbcType=DOUBLE}, #{medicineInfo,jdbcType=INTEGER}, #{morningDose,jdbcType=DOUBLE},
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR},
+      #{patientPreopsInfoId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsMedicine">
+    insert into tc_patient_preops_medicine
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="loadingDose != null">
+        LOADING_DOSE,
+      </if>
+      <if test="medSpecification != null">
+        MED_SPECIFICATION,
+      </if>
+      <if test="medUsage != null">
+        MED_USAGE,
+      </if>
+      <if test="medicineInfo != null">
+        MEDICINE_INFO,
+      </if>
+      <if test="morningDose != null">
+        MORNING_DOSE,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="patientPreopsInfoId != null">
+        PATIENT_PREOPS_INFO_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="loadingDose != null">
+        #{loadingDose,jdbcType=DOUBLE},
+      </if>
+      <if test="medSpecification != null">
+        #{medSpecification,jdbcType=INTEGER},
+      </if>
+      <if test="medUsage != null">
+        #{medUsage,jdbcType=DOUBLE},
+      </if>
+      <if test="medicineInfo != null">
+        #{medicineInfo,jdbcType=INTEGER},
+      </if>
+      <if test="morningDose != null">
+        #{morningDose,jdbcType=DOUBLE},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientPreopsInfoId != null">
+        #{patientPreopsInfoId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

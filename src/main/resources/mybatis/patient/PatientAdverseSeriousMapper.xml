@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientAdverseSeriousMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientAdverseSerious">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="adverse_name" jdbcType="VARCHAR" property="adverseName" />
+    <result column="sae_situation" jdbcType="VARCHAR" property="saeSituation" />
+    <result column="sae_accur_date" jdbcType="TIMESTAMP" property="saeAccurDate" />
+    <result column="sae_get_date" jdbcType="TIMESTAMP" property="saeGetDate" />
+    <result column="out_come" jdbcType="TINYINT" property="outCome" />
+    <result column="treatment_relate" jdbcType="TINYINT" property="treatmentRelate" />
+    <result column="sequela" jdbcType="TINYINT" property="sequela" />
+    <result column="disappear_time" jdbcType="TIMESTAMP" property="disappearTime" />
+    <result column="death_cause" jdbcType="VARCHAR" property="deathCause" />
+    <result column="death_date" jdbcType="TIMESTAMP" property="deathDate" />
+    <result column="domestic_situation" jdbcType="TINYINT" property="domesticSituation" />
+    <result column="abroad_situation" jdbcType="TINYINT" property="abroadSituation" />
+    <result column="relate_evaluate_flag" jdbcType="VARCHAR" property="relateEvaluateFlag" />
+    <result column="unblind_flag" jdbcType="TINYINT" property="unblindFlag" />
+    <result column="unblind_date" jdbcType="TIMESTAMP" property="unblindDate" />
+    <result column="sae_deal_detail" jdbcType="VARCHAR" property="saeDealDetail" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="patient_case_id" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="patient_id" jdbcType="INTEGER" property="patientId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, adverse_name, sae_situation, sae_accur_date, sae_get_date, out_come, treatment_relate,
+    sequela, disappear_time, death_cause, death_date, domestic_situation, abroad_situation,
+    relate_evaluate_flag, unblind_flag, unblind_date, sae_deal_detail, create_by, create_date,
+    update_by, update_date, patient_case_id, patient_id
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_adverse_serious
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientAdverseSerious">
+    insert into tc_patient_adverse_serious (ID, adverse_name, sae_situation,
+      sae_accur_date, sae_get_date, out_come,
+      treatment_relate, sequela, disappear_time,
+      death_cause, death_date, domestic_situation,
+      abroad_situation, relate_evaluate_flag, unblind_flag,
+      unblind_date, sae_deal_detail, create_by,
+      create_date, update_by, update_date,
+      patient_case_id, patient_id)
+    values (#{id,jdbcType=INTEGER}, #{adverseName,jdbcType=VARCHAR}, #{saeSituation,jdbcType=VARCHAR},
+      #{saeAccurDate,jdbcType=TIMESTAMP}, #{saeGetDate,jdbcType=TIMESTAMP}, #{outCome,jdbcType=TINYINT},
+      #{treatmentRelate,jdbcType=TINYINT}, #{sequela,jdbcType=TINYINT}, #{disappearTime,jdbcType=TIMESTAMP},
+      #{deathCause,jdbcType=VARCHAR}, #{deathDate,jdbcType=TIMESTAMP}, #{domesticSituation,jdbcType=TINYINT},
+      #{abroadSituation,jdbcType=TINYINT}, #{relateEvaluateFlag,jdbcType=VARCHAR}, #{unblindFlag,jdbcType=TINYINT},
+      #{unblindDate,jdbcType=TIMESTAMP}, #{saeDealDetail,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{patientCaseId,jdbcType=VARCHAR}, #{patientId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientAdverseSerious">
+    insert into tc_patient_adverse_serious
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="adverseName != null">
+        adverse_name,
+      </if>
+      <if test="saeSituation != null">
+        sae_situation,
+      </if>
+      <if test="saeAccurDate != null">
+        sae_accur_date,
+      </if>
+      <if test="saeGetDate != null">
+        sae_get_date,
+      </if>
+      <if test="outCome != null">
+        out_come,
+      </if>
+      <if test="treatmentRelate != null">
+        treatment_relate,
+      </if>
+      <if test="sequela != null">
+        sequela,
+      </if>
+      <if test="disappearTime != null">
+        disappear_time,
+      </if>
+      <if test="deathCause != null">
+        death_cause,
+      </if>
+      <if test="deathDate != null">
+        death_date,
+      </if>
+      <if test="domesticSituation != null">
+        domestic_situation,
+      </if>
+      <if test="abroadSituation != null">
+        abroad_situation,
+      </if>
+      <if test="relateEvaluateFlag != null">
+        relate_evaluate_flag,
+      </if>
+      <if test="unblindFlag != null">
+        unblind_flag,
+      </if>
+      <if test="unblindDate != null">
+        unblind_date,
+      </if>
+      <if test="saeDealDetail != null">
+        sae_deal_detail,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="patientCaseId != null">
+        patient_case_id,
+      </if>
+      <if test="patientId != null">
+        patient_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="adverseName != null">
+        #{adverseName,jdbcType=VARCHAR},
+      </if>
+      <if test="saeSituation != null">
+        #{saeSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="saeAccurDate != null">
+        #{saeAccurDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="saeGetDate != null">
+        #{saeGetDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outCome != null">
+        #{outCome,jdbcType=TINYINT},
+      </if>
+      <if test="treatmentRelate != null">
+        #{treatmentRelate,jdbcType=TINYINT},
+      </if>
+      <if test="sequela != null">
+        #{sequela,jdbcType=TINYINT},
+      </if>
+      <if test="disappearTime != null">
+        #{disappearTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deathCause != null">
+        #{deathCause,jdbcType=VARCHAR},
+      </if>
+      <if test="deathDate != null">
+        #{deathDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="domesticSituation != null">
+        #{domesticSituation,jdbcType=TINYINT},
+      </if>
+      <if test="abroadSituation != null">
+        #{abroadSituation,jdbcType=TINYINT},
+      </if>
+      <if test="relateEvaluateFlag != null">
+        #{relateEvaluateFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="unblindFlag != null">
+        #{unblindFlag,jdbcType=TINYINT},
+      </if>
+      <if test="unblindDate != null">
+        #{unblindDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="saeDealDetail != null">
+        #{saeDealDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

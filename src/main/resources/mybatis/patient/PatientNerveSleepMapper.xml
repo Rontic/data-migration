@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientNerveSleepMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientNerveSleep">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="RECORD_START" jdbcType="TIMESTAMP" property="recordStart" />
+    <result column="RECORD_END" jdbcType="TIMESTAMP" property="recordEnd" />
+    <result column="RECORD_TOTAL" jdbcType="TIMESTAMP" property="recordTotal" />
+    <result column="HEIGHT" jdbcType="VARCHAR" property="height" />
+    <result column="WEIGHT" jdbcType="VARCHAR" property="weight" />
+    <result column="EXAM_RESULT" jdbcType="VARCHAR" property="examResult" />
+    <result column="ELEC_EXAM_TYPE" jdbcType="VARCHAR" property="elecExamType" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, RECORD_START, RECORD_END, RECORD_TOTAL, HEIGHT, WEIGHT, EXAM_RESULT, ELEC_EXAM_TYPE,
+    PATIENT_CASE_ID, PATIENT_ID, CREATE_BY, CREATE_DATE, UPDATE_BY, UPDATE_DATE, REMARKS
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_nerve_sleep
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientNerveSleep">
+    insert into tc_patient_nerve_sleep (ID, RECORD_START, RECORD_END,
+      RECORD_TOTAL, HEIGHT, WEIGHT,
+      EXAM_RESULT, ELEC_EXAM_TYPE, PATIENT_CASE_ID,
+      PATIENT_ID, CREATE_BY, CREATE_DATE,
+      UPDATE_BY, UPDATE_DATE, REMARKS
+      )
+    values (#{id,jdbcType=INTEGER}, #{recordStart,jdbcType=TIMESTAMP}, #{recordEnd,jdbcType=TIMESTAMP},
+      #{recordTotal,jdbcType=TIMESTAMP}, #{height,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR},
+      #{examResult,jdbcType=VARCHAR}, #{elecExamType,jdbcType=VARCHAR}, #{patientCaseId,jdbcType=VARCHAR},
+      #{patientId,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientNerveSleep">
+    insert into tc_patient_nerve_sleep
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="recordStart != null">
+        RECORD_START,
+      </if>
+      <if test="recordEnd != null">
+        RECORD_END,
+      </if>
+      <if test="recordTotal != null">
+        RECORD_TOTAL,
+      </if>
+      <if test="height != null">
+        HEIGHT,
+      </if>
+      <if test="weight != null">
+        WEIGHT,
+      </if>
+      <if test="examResult != null">
+        EXAM_RESULT,
+      </if>
+      <if test="elecExamType != null">
+        ELEC_EXAM_TYPE,
+      </if>
+      <if test="patientCaseId != null">
+        PATIENT_CASE_ID,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="recordStart != null">
+        #{recordStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordEnd != null">
+        #{recordEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordTotal != null">
+        #{recordTotal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="examResult != null">
+        #{examResult,jdbcType=VARCHAR},
+      </if>
+      <if test="elecExamType != null">
+        #{elecExamType,jdbcType=VARCHAR},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

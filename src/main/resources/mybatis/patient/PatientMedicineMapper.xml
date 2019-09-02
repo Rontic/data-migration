@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientMedicineMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicine">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ARISE_TIME" jdbcType="TIMESTAMP" property="ariseTime" />
+    <result column="CALCUL_QUANTITY" jdbcType="REAL" property="calculQuantity" />
+    <result column="COMPUT_UNIT" jdbcType="INTEGER" property="computUnit" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="DRUGSTOP_TIME" jdbcType="TIMESTAMP" property="drugstopTime" />
+    <result column="ORAL_QUANTITY" jdbcType="REAL" property="oralQuantity" />
+    <result column="ORAL_UNIT" jdbcType="INTEGER" property="oralUnit" />
+    <result column="STOP_DURATION" jdbcType="REAL" property="stopDuration" />
+    <result column="TOTAL_MEASURE" jdbcType="REAL" property="totalMeasure" />
+    <result column="UNIT_FACTOR" jdbcType="VARCHAR" property="unitFactor" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="USAGES" jdbcType="INTEGER" property="usages" />
+    <result column="MEDICINE_ID" jdbcType="INTEGER" property="medicineId" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="days" jdbcType="INTEGER" property="days" />
+    <result column="eveUseingMedicine" jdbcType="REAL" property="eveuseingmedicine" />
+    <result column="morUseingMedicine" jdbcType="REAL" property="moruseingmedicine" />
+    <result column="nonUseingMedicine" jdbcType="REAL" property="nonuseingmedicine" />
+    <result column="LEVODOPA_Dose" jdbcType="REAL" property="levodopaDose" />
+    <result column="LEVODOPA_Factor_USED" jdbcType="VARCHAR" property="levodopaFactorUsed" />
+    <result column="MEDICAL_SPEC_USED" jdbcType="VARCHAR" property="medicalSpecUsed" />
+    <result column="STOP_DATE" jdbcType="TIMESTAMP" property="stopDate" />
+    <result column="STOP_REASON" jdbcType="INTEGER" property="stopReason" />
+    <result column="STOP_REMARK" jdbcType="VARCHAR" property="stopRemark" />
+    <result column="SIDEEFFECT_DATE" jdbcType="TIMESTAMP" property="sideeffectDate" />
+    <result column="SIDEEFFECT_TYPE" jdbcType="INTEGER" property="sideeffectType" />
+    <result column="SIDEEFFECT_REMARK" jdbcType="VARCHAR" property="sideeffectRemark" />
+    <result column="STATUS_FLAG" jdbcType="INTEGER" property="statusFlag" />
+    <result column="STOP_FLAG" jdbcType="INTEGER" property="stopFlag" />
+    <result column="VALID_FLAG" jdbcType="TINYINT" property="validFlag" />
+    <result column="FIR_MED_FLAG" jdbcType="TINYINT" property="firMedFlag" />
+    <result column="WEAR_OFF_FLAG" jdbcType="TINYINT" property="wearOffFlag" />
+    <result column="SWITCH_EXIST_FLAG" jdbcType="TINYINT" property="switchExistFlag" />
+    <result column="DYSKINESIA" jdbcType="INTEGER" property="dyskinesia" />
+    <result column="DYSTONIA_FLAG" jdbcType="TINYINT" property="dystoniaFlag" />
+    <result column="PRESCRIPTION_Days" jdbcType="VARCHAR" property="prescriptionDays" />
+    <result column="NON_TAKING_DOSE" jdbcType="VARCHAR" property="nonTakingDose" />
+    <result column="DRUG_COMPLIANCE_INDEX" jdbcType="VARCHAR" property="drugComplianceIndex" />
+    <result column="IS_TAKING_TCM" jdbcType="INTEGER" property="isTakingTcm" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, ARISE_TIME, CALCUL_QUANTITY, COMPUT_UNIT, CREATE_BY, CREATE_DATE, CREATE_NAME,
+    DRUGSTOP_TIME, ORAL_QUANTITY, ORAL_UNIT, STOP_DURATION, TOTAL_MEASURE, UNIT_FACTOR,
+    UPDATE_BY, UPDATE_DATE, UPDATE_NAME, USAGES, MEDICINE_ID, PATIENT_CASE_ID, PATIENT_ID,
+    days, eveUseingMedicine, morUseingMedicine, nonUseingMedicine, LEVODOPA_Dose, LEVODOPA_Factor_USED,
+    MEDICAL_SPEC_USED, STOP_DATE, STOP_REASON, STOP_REMARK, SIDEEFFECT_DATE, SIDEEFFECT_TYPE,
+    SIDEEFFECT_REMARK, STATUS_FLAG, STOP_FLAG, VALID_FLAG, FIR_MED_FLAG, WEAR_OFF_FLAG,
+    SWITCH_EXIST_FLAG, DYSKINESIA, DYSTONIA_FLAG, PRESCRIPTION_Days, NON_TAKING_DOSE,
+    DRUG_COMPLIANCE_INDEX, IS_TAKING_TCM,REMARKS
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_medicine
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicine">
+    insert into tc_patient_medicine (ID, ARISE_TIME, CALCUL_QUANTITY,
+      COMPUT_UNIT, CREATE_BY, CREATE_DATE,
+      CREATE_NAME, DRUGSTOP_TIME, ORAL_QUANTITY,
+      ORAL_UNIT, STOP_DURATION, TOTAL_MEASURE,
+      UNIT_FACTOR, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, USAGES, MEDICINE_ID,
+      PATIENT_CASE_ID, PATIENT_ID, days,
+      eveUseingMedicine, morUseingMedicine, nonUseingMedicine,
+      LEVODOPA_Dose, LEVODOPA_Factor_USED, MEDICAL_SPEC_USED,
+      STOP_DATE, STOP_REASON, STOP_REMARK,
+      SIDEEFFECT_DATE, SIDEEFFECT_TYPE, SIDEEFFECT_REMARK,
+      STATUS_FLAG, STOP_FLAG, VALID_FLAG,
+      FIR_MED_FLAG, WEAR_OFF_FLAG, SWITCH_EXIST_FLAG,
+      DYSKINESIA, DYSTONIA_FLAG, PRESCRIPTION_Days,
+      NON_TAKING_DOSE, DRUG_COMPLIANCE_INDEX, IS_TAKING_TCM,
+      REMARKS)
+    values (#{id,jdbcType=INTEGER}, #{ariseTime,jdbcType=TIMESTAMP}, #{calculQuantity,jdbcType=REAL},
+      #{computUnit,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{drugstopTime,jdbcType=TIMESTAMP}, #{oralQuantity,jdbcType=REAL},
+      #{oralUnit,jdbcType=INTEGER}, #{stopDuration,jdbcType=REAL}, #{totalMeasure,jdbcType=REAL},
+      #{unitFactor,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{usages,jdbcType=INTEGER}, #{medicineId,jdbcType=INTEGER},
+      #{patientCaseId,jdbcType=VARCHAR}, #{patientId,jdbcType=INTEGER}, #{days,jdbcType=INTEGER},
+      #{eveuseingmedicine,jdbcType=REAL}, #{moruseingmedicine,jdbcType=REAL}, #{nonuseingmedicine,jdbcType=REAL},
+      #{levodopaDose,jdbcType=REAL}, #{levodopaFactorUsed,jdbcType=VARCHAR}, #{medicalSpecUsed,jdbcType=VARCHAR},
+      #{stopDate,jdbcType=TIMESTAMP}, #{stopReason,jdbcType=INTEGER}, #{stopRemark,jdbcType=VARCHAR},
+      #{sideeffectDate,jdbcType=TIMESTAMP}, #{sideeffectType,jdbcType=INTEGER}, #{sideeffectRemark,jdbcType=VARCHAR},
+      #{statusFlag,jdbcType=INTEGER}, #{stopFlag,jdbcType=INTEGER}, #{validFlag,jdbcType=TINYINT},
+      #{firMedFlag,jdbcType=TINYINT}, #{wearOffFlag,jdbcType=TINYINT}, #{switchExistFlag,jdbcType=TINYINT},
+      #{dyskinesia,jdbcType=INTEGER}, #{dystoniaFlag,jdbcType=TINYINT}, #{prescriptionDays,jdbcType=VARCHAR},
+      #{nonTakingDose,jdbcType=VARCHAR}, #{drugComplianceIndex,jdbcType=VARCHAR}, #{isTakingTcm,jdbcType=INTEGER},
+      #{remarks,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicine">
+    insert into tc_patient_medicine
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="ariseTime != null">
+        ARISE_TIME,
+      </if>
+      <if test="calculQuantity != null">
+        CALCUL_QUANTITY,
+      </if>
+      <if test="computUnit != null">
+        COMPUT_UNIT,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="drugstopTime != null">
+        DRUGSTOP_TIME,
+      </if>
+      <if test="oralQuantity != null">
+        ORAL_QUANTITY,
+      </if>
+      <if test="oralUnit != null">
+        ORAL_UNIT,
+      </if>
+      <if test="stopDuration != null">
+        STOP_DURATION,
+      </if>
+      <if test="totalMeasure != null">
+        TOTAL_MEASURE,
+      </if>
+      <if test="unitFactor != null">
+        UNIT_FACTOR,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="usages != null">
+        USAGES,
+      </if>
+      <if test="medicineId != null">
+        MEDICINE_ID,
+      </if>
+      <if test="patientCaseId != null">
+        PATIENT_CASE_ID,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="days != null">
+        days,
+      </if>
+      <if test="eveuseingmedicine != null">
+        eveUseingMedicine,
+      </if>
+      <if test="moruseingmedicine != null">
+        morUseingMedicine,
+      </if>
+      <if test="nonuseingmedicine != null">
+        nonUseingMedicine,
+      </if>
+      <if test="levodopaDose != null">
+        LEVODOPA_Dose,
+      </if>
+      <if test="levodopaFactorUsed != null">
+        LEVODOPA_Factor_USED,
+      </if>
+      <if test="medicalSpecUsed != null">
+        MEDICAL_SPEC_USED,
+      </if>
+      <if test="stopDate != null">
+        STOP_DATE,
+      </if>
+      <if test="stopReason != null">
+        STOP_REASON,
+      </if>
+      <if test="stopRemark != null">
+        STOP_REMARK,
+      </if>
+      <if test="sideeffectDate != null">
+        SIDEEFFECT_DATE,
+      </if>
+      <if test="sideeffectType != null">
+        SIDEEFFECT_TYPE,
+      </if>
+      <if test="sideeffectRemark != null">
+        SIDEEFFECT_REMARK,
+      </if>
+      <if test="statusFlag != null">
+        STATUS_FLAG,
+      </if>
+      <if test="stopFlag != null">
+        STOP_FLAG,
+      </if>
+      <if test="validFlag != null">
+        VALID_FLAG,
+      </if>
+      <if test="firMedFlag != null">
+        FIR_MED_FLAG,
+      </if>
+      <if test="wearOffFlag != null">
+        WEAR_OFF_FLAG,
+      </if>
+      <if test="switchExistFlag != null">
+        SWITCH_EXIST_FLAG,
+      </if>
+      <if test="dyskinesia != null">
+        DYSKINESIA,
+      </if>
+      <if test="dystoniaFlag != null">
+        DYSTONIA_FLAG,
+      </if>
+      <if test="prescriptionDays != null">
+        PRESCRIPTION_Days,
+      </if>
+      <if test="nonTakingDose != null">
+        NON_TAKING_DOSE,
+      </if>
+      <if test="drugComplianceIndex != null">
+        DRUG_COMPLIANCE_INDEX,
+      </if>
+      <if test="isTakingTcm != null">
+        IS_TAKING_TCM,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ariseTime != null">
+        #{ariseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="calculQuantity != null">
+        #{calculQuantity,jdbcType=REAL},
+      </if>
+      <if test="computUnit != null">
+        #{computUnit,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="drugstopTime != null">
+        #{drugstopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oralQuantity != null">
+        #{oralQuantity,jdbcType=REAL},
+      </if>
+      <if test="oralUnit != null">
+        #{oralUnit,jdbcType=INTEGER},
+      </if>
+      <if test="stopDuration != null">
+        #{stopDuration,jdbcType=REAL},
+      </if>
+      <if test="totalMeasure != null">
+        #{totalMeasure,jdbcType=REAL},
+      </if>
+      <if test="unitFactor != null">
+        #{unitFactor,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="usages != null">
+        #{usages,jdbcType=INTEGER},
+      </if>
+      <if test="medicineId != null">
+        #{medicineId,jdbcType=INTEGER},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="days != null">
+        #{days,jdbcType=INTEGER},
+      </if>
+      <if test="eveuseingmedicine != null">
+        #{eveuseingmedicine,jdbcType=REAL},
+      </if>
+      <if test="moruseingmedicine != null">
+        #{moruseingmedicine,jdbcType=REAL},
+      </if>
+      <if test="nonuseingmedicine != null">
+        #{nonuseingmedicine,jdbcType=REAL},
+      </if>
+      <if test="levodopaDose != null">
+        #{levodopaDose,jdbcType=REAL},
+      </if>
+      <if test="levodopaFactorUsed != null">
+        #{levodopaFactorUsed,jdbcType=VARCHAR},
+      </if>
+      <if test="medicalSpecUsed != null">
+        #{medicalSpecUsed,jdbcType=VARCHAR},
+      </if>
+      <if test="stopDate != null">
+        #{stopDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopReason != null">
+        #{stopReason,jdbcType=INTEGER},
+      </if>
+      <if test="stopRemark != null">
+        #{stopRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="sideeffectDate != null">
+        #{sideeffectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sideeffectType != null">
+        #{sideeffectType,jdbcType=INTEGER},
+      </if>
+      <if test="sideeffectRemark != null">
+        #{sideeffectRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="statusFlag != null">
+        #{statusFlag,jdbcType=INTEGER},
+      </if>
+      <if test="stopFlag != null">
+        #{stopFlag,jdbcType=INTEGER},
+      </if>
+      <if test="validFlag != null">
+        #{validFlag,jdbcType=TINYINT},
+      </if>
+      <if test="firMedFlag != null">
+        #{firMedFlag,jdbcType=TINYINT},
+      </if>
+      <if test="wearOffFlag != null">
+        #{wearOffFlag,jdbcType=TINYINT},
+      </if>
+      <if test="switchExistFlag != null">
+        #{switchExistFlag,jdbcType=TINYINT},
+      </if>
+      <if test="dyskinesia != null">
+        #{dyskinesia,jdbcType=INTEGER},
+      </if>
+      <if test="dystoniaFlag != null">
+        #{dystoniaFlag,jdbcType=TINYINT},
+      </if>
+      <if test="prescriptionDays != null">
+        #{prescriptionDays,jdbcType=VARCHAR},
+      </if>
+      <if test="nonTakingDose != null">
+        #{nonTakingDose,jdbcType=VARCHAR},
+      </if>
+      <if test="drugComplianceIndex != null">
+        #{drugComplianceIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="isTakingTcm != null">
+        #{isTakingTcm,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

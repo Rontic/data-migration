@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientGaitMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientGait">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="serial_number" jdbcType="VARCHAR" property="serialNumber" />
+    <result column="patient_id" jdbcType="INTEGER" property="patientId" />
+    <result column="acquisition_start_time" jdbcType="TIMESTAMP" property="acquisitionStartTime" />
+    <result column="acquisition_end_time" jdbcType="TIMESTAMP" property="acquisitionEndTime" />
+    <result column="check_time" jdbcType="TIMESTAMP" property="checkTime" />
+    <result column="check_doctor" jdbcType="VARCHAR" property="checkDoctor" />
+    <result column="to_examine_doctor" jdbcType="VARCHAR" property="toExamineDoctor" />
+    <result column="equipment_model" jdbcType="INTEGER" property="equipmentModel" />
+    <result column="equipment_number" jdbcType="VARCHAR" property="equipmentNumber" />
+    <result column="check_number" jdbcType="VARCHAR" property="checkNumber" />
+    <result column="data_sources" jdbcType="VARCHAR" property="dataSources" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="inspect_id" jdbcType="INTEGER" property="inspectId" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="result" jdbcType="VARCHAR" property="result" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="task_info_id" jdbcType="INTEGER" property="taskInfoId" />
+    <result column="step" jdbcType="VARCHAR" property="step" />
+    <result column="patient_case_id" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="inspection_id" jdbcType="VARCHAR" property="inspectionId" />
+    <result column="node_mode" jdbcType="VARCHAR" property="nodeMode" />
+    <result column="node_count" jdbcType="INTEGER" property="nodeCount" />
+    <result column="switch_type" jdbcType="SMALLINT" property="switchType" />
+    <result column="is_synchro_score" jdbcType="SMALLINT" property="isSynchroScore" />
+    <result column="patient_scale_id" jdbcType="VARCHAR" property="patientScaleId" />
+    <result column="updrs3_point" jdbcType="VARCHAR" property="updrs3Point" />
+    <result column="last_medicine_time" jdbcType="VARCHAR" property="lastMedicineTime" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, serial_number, patient_id, acquisition_start_time, acquisition_end_time, check_time,
+    check_doctor, to_examine_doctor, equipment_model, equipment_number, check_number,
+    data_sources, type, inspect_id, remark, result, create_by, update_by, create_date,
+    update_date, task_info_id, step, patient_case_id, inspection_id, node_mode, node_count,
+    switch_type, is_synchro_score, patient_scale_id, updrs3_point, last_medicine_time
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_gait
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientGait">
+    insert into tc_patient_gait (id, serial_number, patient_id,
+      acquisition_start_time, acquisition_end_time,
+      check_time, check_doctor, to_examine_doctor,
+      equipment_model, equipment_number, check_number,
+      data_sources, type, inspect_id,
+      remark, result, create_by,
+      update_by, create_date, update_date,
+      task_info_id, step, patient_case_id,
+      inspection_id, node_mode, node_count,
+      switch_type, is_synchro_score, patient_scale_id,
+      updrs3_point, last_medicine_time)
+    values (#{id,jdbcType=VARCHAR}, #{serialNumber,jdbcType=VARCHAR}, #{patientId,jdbcType=INTEGER},
+      #{acquisitionStartTime,jdbcType=TIMESTAMP}, #{acquisitionEndTime,jdbcType=TIMESTAMP},
+      #{checkTime,jdbcType=TIMESTAMP}, #{checkDoctor,jdbcType=VARCHAR}, #{toExamineDoctor,jdbcType=VARCHAR},
+      #{equipmentModel,jdbcType=INTEGER}, #{equipmentNumber,jdbcType=VARCHAR}, #{checkNumber,jdbcType=VARCHAR},
+      #{dataSources,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{inspectId,jdbcType=INTEGER},
+      #{remark,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR},
+      #{updateBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP},
+      #{taskInfoId,jdbcType=INTEGER}, #{step,jdbcType=VARCHAR}, #{patientCaseId,jdbcType=VARCHAR},
+      #{inspectionId,jdbcType=VARCHAR}, #{nodeMode,jdbcType=VARCHAR}, #{nodeCount,jdbcType=INTEGER},
+      #{switchType,jdbcType=SMALLINT}, #{isSynchroScore,jdbcType=SMALLINT}, #{patientScaleId,jdbcType=VARCHAR},
+      #{updrs3Point,jdbcType=VARCHAR}, #{lastMedicineTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientGait">
+    insert into tc_patient_gait
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="serialNumber != null">
+        serial_number,
+      </if>
+      <if test="patientId != null">
+        patient_id,
+      </if>
+      <if test="acquisitionStartTime != null">
+        acquisition_start_time,
+      </if>
+      <if test="acquisitionEndTime != null">
+        acquisition_end_time,
+      </if>
+      <if test="checkTime != null">
+        check_time,
+      </if>
+      <if test="checkDoctor != null">
+        check_doctor,
+      </if>
+      <if test="toExamineDoctor != null">
+        to_examine_doctor,
+      </if>
+      <if test="equipmentModel != null">
+        equipment_model,
+      </if>
+      <if test="equipmentNumber != null">
+        equipment_number,
+      </if>
+      <if test="checkNumber != null">
+        check_number,
+      </if>
+      <if test="dataSources != null">
+        data_sources,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="inspectId != null">
+        inspect_id,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="result != null">
+        result,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="taskInfoId != null">
+        task_info_id,
+      </if>
+      <if test="step != null">
+        step,
+      </if>
+      <if test="patientCaseId != null">
+        patient_case_id,
+      </if>
+      <if test="inspectionId != null">
+        inspection_id,
+      </if>
+      <if test="nodeMode != null">
+        node_mode,
+      </if>
+      <if test="nodeCount != null">
+        node_count,
+      </if>
+      <if test="switchType != null">
+        switch_type,
+      </if>
+      <if test="isSynchroScore != null">
+        is_synchro_score,
+      </if>
+      <if test="patientScaleId != null">
+        patient_scale_id,
+      </if>
+      <if test="updrs3Point != null">
+        updrs3_point,
+      </if>
+      <if test="lastMedicineTime != null">
+        last_medicine_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null">
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="acquisitionStartTime != null">
+        #{acquisitionStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acquisitionEndTime != null">
+        #{acquisitionEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkTime != null">
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkDoctor != null">
+        #{checkDoctor,jdbcType=VARCHAR},
+      </if>
+      <if test="toExamineDoctor != null">
+        #{toExamineDoctor,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentModel != null">
+        #{equipmentModel,jdbcType=INTEGER},
+      </if>
+      <if test="equipmentNumber != null">
+        #{equipmentNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="checkNumber != null">
+        #{checkNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSources != null">
+        #{dataSources,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectId != null">
+        #{inspectId,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taskInfoId != null">
+        #{taskInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="step != null">
+        #{step,jdbcType=VARCHAR},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectionId != null">
+        #{inspectionId,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeMode != null">
+        #{nodeMode,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeCount != null">
+        #{nodeCount,jdbcType=INTEGER},
+      </if>
+      <if test="switchType != null">
+        #{switchType,jdbcType=SMALLINT},
+      </if>
+      <if test="isSynchroScore != null">
+        #{isSynchroScore,jdbcType=SMALLINT},
+      </if>
+      <if test="patientScaleId != null">
+        #{patientScaleId,jdbcType=VARCHAR},
+      </if>
+      <if test="updrs3Point != null">
+        #{updrs3Point,jdbcType=VARCHAR},
+      </if>
+      <if test="lastMedicineTime != null">
+        #{lastMedicineTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

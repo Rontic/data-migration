@@ -1,0 +1,2134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientWholeInfoMapper">
+    <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientWholeInfo">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="ariTime" jdbcType="TIMESTAMP" property="aritime" />
+        <result column="BIRTH" jdbcType="TIMESTAMP" property="birth" />
+        <result column="BIRTH_PLACE" jdbcType="VARCHAR" property="birthPlace" />
+        <result column="CAREER" jdbcType="VARCHAR" property="career" />
+        <result column="CODE" jdbcType="VARCHAR" property="code" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="DIAGMODE" jdbcType="VARCHAR" property="diagmode" />
+        <result column="DISEASE_TYPE" jdbcType="VARCHAR" property="diseaseType" />
+        <result column="ECON_TYPE" jdbcType="VARCHAR" property="econType" />
+        <result column="FIR_BODY" jdbcType="VARCHAR" property="firBody" />
+        <result column="FIRHOSP" jdbcType="VARCHAR" property="firhosp" />
+        <result column="FIRMED" jdbcType="VARCHAR" property="firmed" />
+        <result column="FIR_SYM" jdbcType="VARCHAR" property="firSym" />
+        <result column="firTime" jdbcType="TIMESTAMP" property="firtime" />
+        <result column="GETDISFAC" jdbcType="VARCHAR" property="getdisfac" />
+        <result column="GETDISFAC0" jdbcType="VARCHAR" property="getdisfac0" />
+        <result column="HEIGHT" jdbcType="VARCHAR" property="height" />
+        <result column="HOME_ADDRESS" jdbcType="VARCHAR" property="homeAddress" />
+        <result column="LIVE_TYPE" jdbcType="VARCHAR" property="liveType" />
+        <result column="MARRY_TYPE" jdbcType="VARCHAR" property="marryType" />
+        <result column="NATION" jdbcType="VARCHAR" property="nation" />
+        <result column="OWN_CODE" jdbcType="VARCHAR" property="ownCode" />
+        <result column="ptcphone" jdbcType="VARCHAR" property="ptcphone" />
+        <result column="PTNAME" jdbcType="VARCHAR" property="ptname" />
+        <result column="PTNAME_HEAD" jdbcType="VARCHAR" property="ptnameHead" />
+        <result column="PT_PHONE" jdbcType="VARCHAR" property="ptPhone" />
+        <result column="QUALIFICATION" jdbcType="VARCHAR" property="qualification" />
+        <result column="SEX" jdbcType="VARCHAR" property="sex" />
+        <result column="surHosp" jdbcType="VARCHAR" property="surhosp" />
+        <result column="surTime" jdbcType="TIMESTAMP" property="surtime" />
+        <result column="TREATPRO" jdbcType="VARCHAR" property="treatpro" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="WEIGHT" jdbcType="VARCHAR" property="weight" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+        <result column="degree" jdbcType="INTEGER" property="degree" />
+        <result column="bloodType" jdbcType="INTEGER" property="bloodtype" />
+        <result column="patientCode" jdbcType="VARCHAR" property="patientcode" />
+        <result column="version" jdbcType="INTEGER" property="version" />
+        <result column="patientPersonInfoVersion" jdbcType="INTEGER" property="patientpersoninfoversion" />
+        <result column="orgId" jdbcType="INTEGER" property="orgid" />
+        <result column="orgType" jdbcType="TINYINT" property="orgtype" />
+        <result column="createByUserId" jdbcType="INTEGER" property="createbyuserid" />
+        <result column="createByUserType" jdbcType="TINYINT" property="createbyusertype" />
+        <result column="createByAccount" jdbcType="VARCHAR" property="createbyaccount" />
+        <result column="homeCity" jdbcType="VARCHAR" property="homecity" />
+        <result column="diseaseVersion" jdbcType="INTEGER" property="diseaseversion" />
+        <result column="FIR_MEDINFO" jdbcType="VARCHAR" property="firMedinfo" />
+        <result column="FIR_MEDTIME" jdbcType="TIMESTAMP" property="firMedtime" />
+        <result column="DBS_PATIENT_CODE" jdbcType="VARCHAR" property="dbsPatientCode" />
+        <result column="CLIENT_TYPE" jdbcType="INTEGER" property="clientType" />
+        <result column="ARI_AGE" jdbcType="INTEGER" property="ariAge" />
+        <result column="SYMMETRIES" jdbcType="INTEGER" property="symmetries" />
+        <result column="SYMMETRIES_TIME" jdbcType="TIMESTAMP" property="symmetriesTime" />
+        <result column="OUT_PATIENT_MEDICAL_RECORDS" jdbcType="VARCHAR" property="outPatientMedicalRecords" />
+        <result column="MEDICAL_RECORD_NUMBER" jdbcType="VARCHAR" property="medicalRecordNumber" />
+        <result column="BMI" jdbcType="DECIMAL" property="bmi" />
+        <result column="YEARS_OF_EDUCATION" jdbcType="REAL" property="yearsOfEducation" />
+        <result column="COURSE_OF_DISEASE" jdbcType="INTEGER" property="courseOfDisease" />
+        <result column="SPECIFIC_DISEASE" jdbcType="INTEGER" property="specificDisease" />
+        <result column="STATUS" jdbcType="TINYINT" property="status" />
+        <result column="TASK_INFO_ID" jdbcType="INTEGER" property="taskInfoId" />
+        <result column="DIAGNOSE_STATE" jdbcType="INTEGER" property="diagnoseState" />
+        <result column="STEP" jdbcType="INTEGER" property="step" />
+        <result column="PATIENT_NAME_SPELL" jdbcType="VARCHAR" property="patientNameSpell" />
+        <result column="CALFLENGTH" jdbcType="VARCHAR" property="calflength" />
+        <result column="THIGHLENGTH" jdbcType="VARCHAR" property="thighlength" />
+        <result column="CREATE_SUPPORT" jdbcType="VARCHAR" property="createSupport" />
+        <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+        <result column="NATIONALITY" jdbcType="VARCHAR" property="nationality" />
+        <result column="social_security_number" jdbcType="VARCHAR" property="socialSecurityNumber" />
+        <result column="complete_percent" jdbcType="VARCHAR" property="completePercent" />
+        <result column="WAIST" jdbcType="VARCHAR" property="waist" />
+        <result column="DISEASE_TYPE_REMARK" jdbcType="VARCHAR" property="diseaseTypeRemark" />
+        <result column="live_status" jdbcType="INTEGER" property="liveStatus" />
+        <result column="nationality_code" jdbcType="VARCHAR" property="nationalityCode" />
+        <result column="home_city_txt" jdbcType="VARCHAR" property="homeCityTxt" />
+        <result column="birth_place_code" jdbcType="VARCHAR" property="birthPlaceCode" />
+        <result column="PREMORBID_WEIGHT" jdbcType="VARCHAR" property="premorbidWeight" />
+        <result column="TCM_TYPE" jdbcType="VARCHAR" property="tcmType" />
+        <result column="DOMINANT_SIDE" jdbcType="INTEGER" property="dominantSide" />
+        <result column="bear_num" jdbcType="INTEGER" property="bearNum" />
+        <result column="menopause_age" jdbcType="INTEGER" property="menopauseAge" />
+        <result column="emergency_phone" jdbcType="VARCHAR" property="emergencyPhone" />
+        <result column="HY_POINT" jdbcType="VARCHAR" property="hyPoint" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+        <result column="TOIMPOERDATA" jdbcType="LONGVARCHAR" property="toimpoerdata" />
+        <result column="CHIEF_COMPLAINT" jdbcType="LONGVARCHAR" property="chiefComplaint" />
+        <collection property="patientCaseList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientCase"/>
+        <collection property="patientDiseaseOrderList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientDiseaseOrder"/>
+        <collection property="patientMedHistoryList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientMedHistory"/>
+        <collection property="patientHabitList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientHabit"/>
+        <collection property="patientHistoryList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientHistory"/>
+        <collection property="patientFirstSymbolList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientFirstSymbol"/>
+        <collection property="patientDiseaseList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientDisease"/>
+        <collection property="patientAllergyList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientAllergy"/>
+        <collection property="patientFamilyHistoryList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientFamilyHistory"/>
+        <collection property="patientCideexposedHistoryList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientCideexposedHistory"/>
+        <collection property="patientPaperOptionList"  column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientPaperOption"/>
+        <collection property="patientDependentsList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientDependents"/>
+        <collection property="patientExerciseList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientExercise"/>
+        <collection property="patientFirstVisitTreatmentList" column="{patientId=ID}" javaType="java.util.List"
+                    select="selectPatientFirstVisitTreatment"/>
+    </resultMap>
+
+    <resultMap id="patientDiseaseOrderMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDiseaseOrder">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="ARISE_PART" jdbcType="INTEGER" property="arisePart" />
+        <result column="TIME" jdbcType="DATE" property="time" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    </resultMap>
+
+    <resultMap id="patientMedHistoryMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMedhistory">
+        <id column="ID" jdbcType="VARCHAR" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="MED_DOSE" jdbcType="VARCHAR" property="medDose" />
+        <result column="MED_END" jdbcType="TIMESTAMP" property="medEnd" />
+        <result column="MED_NAME" jdbcType="VARCHAR" property="medName" />
+        <result column="MED_START" jdbcType="TIMESTAMP" property="medStart" />
+        <result column="MED_TYPE" jdbcType="INTEGER" property="medType" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="version" jdbcType="INTEGER" property="version" />
+        <result column="IS_ADVERSE" jdbcType="VARCHAR" property="isAdverse" />
+        <result column="IS_CONTINUE" jdbcType="VARCHAR" property="isContinue" />
+        <result column="IS_EFFECTIVE" jdbcType="VARCHAR" property="isEffective" />
+        <result column="START_UNIT" jdbcType="VARCHAR" property="startUnit" />
+        <result column="STOP_CAUSE" jdbcType="VARCHAR" property="stopCause" />
+        <result column="MED_COMMON_NAME" jdbcType="VARCHAR" property="medCommonName" />
+        <result column="DOSE_EACH_TIME" jdbcType="VARCHAR" property="doseEachTime" />
+        <result column="MED_DETAIL_TYPE" jdbcType="INTEGER" property="medDetailType" />
+        <result column="USE_YEAR" jdbcType="INTEGER" property="useYear" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientCaseMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientCase">
+            <id column="ID" jdbcType="VARCHAR" property="id" />
+            <result column="CASE_NAME" jdbcType="VARCHAR" property="caseName" />
+            <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+            <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+            <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+            <result column="DIAG_TIME" jdbcType="TIMESTAMP" property="diagTime" />
+            <result column="DOC_ID" jdbcType="VARCHAR" property="docId" />
+            <result column="DOC_NAME" jdbcType="VARCHAR" property="docName" />
+            <result column="HOSP_ID" jdbcType="VARCHAR" property="hospId" />
+            <result column="HOSP_NAME" jdbcType="VARCHAR" property="hospName" />
+            <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+            <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+            <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+            <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+            <result column="version" jdbcType="INTEGER" property="version" />
+            <result column="BP_ORTHOSTATIC" jdbcType="VARCHAR" property="bpOrthostatic" />
+            <result column="BREATHING" jdbcType="VARCHAR" property="breathing" />
+            <result column="DOI_CDR" jdbcType="VARCHAR" property="doiCdr" />
+            <result column="DOI_MMSE" jdbcType="VARCHAR" property="doiMmse" />
+            <result column="DOI_MOCA" jdbcType="VARCHAR" property="doiMoca" />
+            <result column="HEART_RATE" jdbcType="VARCHAR" property="heartRate" />
+            <result column="MEDICINEIMAGE_BRIEF" jdbcType="VARCHAR" property="medicineimageBrief" />
+            <result column="PULSE" jdbcType="VARCHAR" property="pulse" />
+            <result column="RHYTHM" jdbcType="TINYINT" property="rhythm" />
+            <result column="TEMPERATURE" jdbcType="VARCHAR" property="temperature" />
+            <result column="BP_DECUBITUS" jdbcType="VARCHAR" property="bpDecubitus" />
+            <result column="CASE_TYPE" jdbcType="INTEGER" property="caseType" />
+            <result column="ARCHIVE_STATUS" jdbcType="INTEGER" property="archiveStatus" />
+            <result column="DISEASE_TYPE" jdbcType="INTEGER" property="diseaseType" />
+            <result column="CASE_SYMPTOM" jdbcType="VARCHAR" property="caseSymptom" />
+            <result column="BLOOD_CODE" jdbcType="VARCHAR" property="bloodCode" />
+            <result column="GENE_DETECTION_NAME" jdbcType="VARCHAR" property="geneDetectionName" />
+            <result column="GENE_DETECTION_RESULT" jdbcType="VARCHAR" property="geneDetectionResult" />
+            <result column="TCS_RESULT" jdbcType="VARCHAR" property="tcsResult" />
+            <result column="BP_SITTING" jdbcType="VARCHAR" property="bpSitting" />
+            <result column="SPECIFIC_DISEASE" jdbcType="INTEGER" property="specificDisease" />
+            <result column="DIAGNOSE_STATE" jdbcType="INTEGER" property="diagnoseState" />
+            <result column="PATIENT_EXPERIMENT_ID" jdbcType="INTEGER" property="patientExperimentId" />
+            <result column="IS_PAYED" jdbcType="TINYINT" property="isPayed" />
+            <result column="TASK_INFO_ID" jdbcType="INTEGER" property="taskInfoId" />
+            <result column="PAY_DATE" jdbcType="VARCHAR" property="payDate" />
+            <result column="TCM_TYPE" jdbcType="VARCHAR" property="tcmType" />
+            <result column="FOLLOW_TIMES" jdbcType="INTEGER" property="followTimes" />
+            <result column="IS_Accompany" jdbcType="INTEGER" property="isAccompany" />
+            <result column="MEDICINE_BRIEF" jdbcType="LONGVARCHAR" property="medicineBrief" />
+            <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+            <result column="SCALE_BRIEF" jdbcType="LONGVARCHAR" property="scaleBrief" />
+            <result column="SIDEEFFECT_BRIEF" jdbcType="LONGVARCHAR" property="sideeffectBrief" />
+            <result column="SPEPHYSICAL_BRIEF" jdbcType="LONGVARCHAR" property="spephysicalBrief" />
+            <result column="SURGICAL_BRIEF" jdbcType="LONGVARCHAR" property="surgicalBrief" />
+            <result column="SYM_NAME" jdbcType="LONGVARCHAR" property="symName" />
+            <result column="BIOEXAM_BRIEF" jdbcType="LONGVARCHAR" property="bioexamBrief" />
+            <result column="ETG_BRIEF" jdbcType="LONGVARCHAR" property="etgBrief" />
+            <result column="AUXILIARYEXAM_BRIEF" jdbcType="LONGVARCHAR" property="auxiliaryexamBrief" />
+            <collection property="patientScaleList" column="{patientCaseId=ID}" javaType="java.util.List" select="selectPatientScale"/>
+            <collection property="patientDependentAccompanyingList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientDependentAccompanying"/>
+            <collection property="patientCasePaperOptionList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientCasePaperOption"/>
+            <collection property="patientDiaryList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientDiary"/>
+            <collection property="patientDiseaseComplicationList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientDiseaseComplication"/>
+            <collection property="patientSymptomList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientSymptom"/>
+            <collection property="patientMedicineList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientMedicine"/>
+            <collection property="patientVideoInfoList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientVideoInfo"/>
+            <collection property="patientGaitList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientGait"/>
+            <collection property="patientElecTroGramList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientElecTroGram"/>
+            <collection property="patientNerveSleepList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientNerveSleep"/>
+            <collection property="patientBioexamList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientBioexam"/>
+            <collection property="patientBodypartList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientBobypart"/>
+            <collection property="patientVitalSignList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientVitalSign"/>
+            <collection property="patientPhytheTmsList" column="{patientCaseId=ID}" javaType="java.util.List"
+                        select="selectPatientPhytheTms"/>
+            <collection property="patientPhytheAccessList" column="{patientCaseId=ID}" javaType="java.util.List"
+                        select="selectPatientPhytheAssess"/>
+            <collection property="patientPreopsInfoList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientPreopsInfo"/>
+            <collection property="patientAdverseList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientAdverse"/>
+            <collection property="patientAdverseSeriousList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientAdverseSerious"/>
+            <collection property="patientTreatmentList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientTreatment"/>
+            <collection property="patientComplicationList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientComplication"/>
+            <collection property="patientDbsFirstList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientDbsFirst"/>
+            <collection property="patientDbsFollowList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientDbsFollow"/>
+            <collection property="patientCombineMedicineList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientCombineMedicine"/>
+            <collection property="patientMedicineAdverseList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientMedicineAdverse"/>
+            <collection property="patientSpephysicalList" column="{patientCaseId=ID}" javaType="java.util.List"
+                    select="selectPatientSpephysical"/>
+    </resultMap>
+
+    <resultMap id="patientScaleMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientScale">
+            <id column="ID" jdbcType="INTEGER" property="id" />
+            <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+            <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+            <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+            <result column="LAST_TAKING_TIME" jdbcType="TIMESTAMP" property="lastTakingTime" />
+            <result column="SCALE_POINT" jdbcType="REAL" property="scalePoint" />
+            <result column="SWITCH_TYPE" jdbcType="INTEGER" property="switchType" />
+            <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+            <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+            <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+            <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+            <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+            <result column="SCALE_INFO_ID" jdbcType="VARCHAR" property="scaleInfoId" />
+            <result column="INSPECT_TIME" jdbcType="TIMESTAMP" property="inspectTime" />
+            <result column="IS_COMPLETE" jdbcType="TINYINT" property="isComplete" />
+            <result column="equipment_switchgear" jdbcType="INTEGER" property="equipmentSwitchgear" />
+            <result column="part_one_score" jdbcType="REAL" property="partOneScore" />
+            <result column="part_two_score" jdbcType="REAL" property="partTwoScore" />
+            <result column="part_three_score" jdbcType="REAL" property="partThreeScore" />
+            <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+            <result column="SCALE_OPTION_IDS" jdbcType="LONGVARCHAR" property="scaleOptionIds" />
+            <result column="SCALE_SYMP_NAME" jdbcType="LONGVARCHAR" property="scaleSympName" />
+            <result column="SCALE_SYMP_INFO" jdbcType="LONGVARCHAR" property="scaleSympInfo" />
+            <result column="SCALE_SYMP_TIP" jdbcType="LONGVARCHAR" property="scaleSympTip" />
+            <result column="SCALE_EXTRAINFO" jdbcType="LONGVARCHAR" property="scaleExtrainfo" />
+            <result column="SCALEEXTRA_INFOTIP" jdbcType="LONGVARCHAR" property="scaleextraInfotip" />
+            <collection property="patientOptionList" column="{patientScaleId=ID}"
+                        javaType="java.util.List" select="selectPatientOption"/>
+            <collection property="patientScaleFileList" column="{patientScaleId=ID}"
+                    javaType="java.util.List" select="selectPatientScaleFile"/>
+    </resultMap>
+
+    <resultMap id="patientOptionMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientOption">
+        <result column="BPM_STATUS" jdbcType="VARCHAR" property="bpmStatus" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="SYS_COMPANY_CODE" jdbcType="VARCHAR" property="sysCompanyCode" />
+        <result column="SYS_ORG_CODE" jdbcType="VARCHAR" property="sysOrgCode" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="PATIENT_SCALE_ID" jdbcType="INTEGER" property="patientScaleId" />
+        <result column="SCALE_OPTION_ID" jdbcType="VARCHAR" property="scaleOptionId" />
+        <result column="SORT" jdbcType="INTEGER" property="sort" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+        <result column="OPTION_POINT" jdbcType="LONGVARCHAR" property="optionPoint" />
+    </resultMap>
+
+    <resultMap id="patientHabitMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientHabit">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="DOSE_INFO" jdbcType="VARCHAR" property="doseInfo" />
+        <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+        <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_HABIT_ID" jdbcType="INTEGER" property="patientHabitId" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="version" jdbcType="INTEGER" property="version" />
+        <result column="UNIT" jdbcType="INTEGER" property="unit" />
+        <result column="YEARS_OF_SMOKING" jdbcType="VARCHAR" property="yearsOfSmoking" />
+        <result column="YEARS_OF_WINE" jdbcType="VARCHAR" property="yearsOfWine" />
+        <result column="STOP_YEARS" jdbcType="VARCHAR" property="stopYears" />
+        <result column="YEARS_OF_TEA" jdbcType="VARCHAR" property="yearsOfTea" />
+        <result column="YEARS_OF_COFFEE" jdbcType="VARCHAR" property="yearsOfCoffee" />
+        <result column="QUESTION_INFO" jdbcType="INTEGER" property="questionInfo" />
+        <result column="QUESTION_INFOS" jdbcType="INTEGER" property="questionInfos" />
+        <result column="taste_preference" jdbcType="VARCHAR" property="tastePreference" />
+        <result column="staple_preference" jdbcType="INTEGER" property="staplePreference" />
+        <result column="sleep_latency" jdbcType="VARCHAR" property="sleepLatency" />
+        <result column="snoring_time" jdbcType="VARCHAR" property="snoringTime" />
+        <result column="substance_abuse" jdbcType="VARCHAR" property="substanceAbuse" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientHistoryMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientHistory">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="ARISE_TIME" jdbcType="TIMESTAMP" property="ariseTime" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="DOCTOR_ID" jdbcType="VARCHAR" property="doctorId" />
+        <result column="DOCTOR_NAME" jdbcType="VARCHAR" property="doctorName" />
+        <result column="HOSP_NAME" jdbcType="VARCHAR" property="hospName" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="version" jdbcType="INTEGER" property="version" />
+        <result column="GIVEN_MEDICINE" jdbcType="VARCHAR" property="givenMedicine" />
+        <result column="CURATIVE_EFFECT" jdbcType="VARCHAR" property="curativeEffect" />
+        <result column="HOSPITALIZATION_TIMES" jdbcType="INTEGER" property="hospitalizationTimes" />
+        <result column="INPATIENT_CAUSE" jdbcType="VARCHAR" property="inpatientCause" />
+        <result column="CHIEF_COMPLAINT" jdbcType="LONGVARCHAR" property="chiefComplaint" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+        <result column="DIAGNOSIS" jdbcType="LONGVARCHAR" property="diagnosis" />
+    </resultMap>
+
+    <resultMap id="patientFirstSymbolMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientFirstSymbol">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="FIRST_SYMBOL_TYPE" jdbcType="INTEGER" property="firstSymbolType" />
+        <result column="FIRST_SYMBOL_NAME" jdbcType="INTEGER" property="firstSymbolName" />
+        <result column="ARISE_TIME_LEFT_UP" jdbcType="DATE" property="ariseTimeLeftUp" />
+        <result column="ARISE_TIME_RIGHT_UP" jdbcType="DATE" property="ariseTimeRightUp" />
+        <result column="ARISE_TIME_LEFT_DOWN" jdbcType="DATE" property="ariseTimeLeftDown" />
+        <result column="ARISE_TIME_RIGHT_DOWN" jdbcType="DATE" property="ariseTimeRightDown" />
+        <result column="REGULAR" jdbcType="INTEGER" property="regular" />
+        <result column="NOT_SPORT_TYPE" jdbcType="INTEGER" property="notSportType" />
+        <result column="LAST_TIME" jdbcType="VARCHAR" property="lastTime" />
+        <result column="ARISE_TIME" jdbcType="DATE" property="ariseTime" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientDiseaseMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDisease">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+        <result column="IS_HOSPITALIZATION" jdbcType="VARCHAR" property="isHospitalization" />
+        <result column="MEDICATION" jdbcType="VARCHAR" property="medication" />
+        <result column="SEVERITY" jdbcType="VARCHAR" property="severity" />
+        <result column="SURGERY_HISTORY" jdbcType="VARCHAR" property="surgeryHistory" />
+        <result column="TIME" jdbcType="TIMESTAMP" property="time" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="DISEASE_RELATION_ID" jdbcType="INTEGER" property="diseaseRelationId" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="version" jdbcType="INTEGER" property="version" />
+        <result column="EXIST" jdbcType="INTEGER" property="exist" />
+        <result column="TCM_TYPE" jdbcType="VARCHAR" property="tcmType" />
+        <result column="DISEASE_TYPE" jdbcType="VARCHAR" property="diseaseType" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientAllergyMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientAllergy">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="patient_id" jdbcType="INTEGER" property="patientId" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+        <result column="end_date" jdbcType="TIMESTAMP" property="endDate" />
+        <result column="duration" jdbcType="INTEGER" property="duration" />
+        <result column="exist" jdbcType="INTEGER" property="exist" />
+        <result column="medication" jdbcType="VARCHAR" property="medication" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+        <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    </resultMap>
+
+    <resultMap id="patientFamilyHistoryMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientFamilyHistory">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="BIRTHDAY" jdbcType="TIMESTAMP" property="birthday" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="DISEASE_NAME" jdbcType="VARCHAR" property="diseaseName" />
+        <result column="DISEASE_TYPE" jdbcType="INTEGER" property="diseaseType" />
+        <result column="SIMILAR_ROLE" jdbcType="INTEGER" property="similarRole" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="version" jdbcType="INTEGER" property="version" />
+        <result column="is_gen_mutation_info" jdbcType="INTEGER" property="isGenMutationInfo" />
+        <result column="fetus_type" jdbcType="INTEGER" property="fetusType" />
+        <result column="illness_time" jdbcType="TIMESTAMP" property="illnessTime" />
+        <result column="whether_alive" jdbcType="INTEGER" property="whetherAlive" />
+        <result column="death_age" jdbcType="INTEGER" property="deathAge" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientCideexposedHistoryMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientCideexposedHistory">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="EXPMATERIAL_NAME" jdbcType="VARCHAR" property="expmaterialName" />
+        <result column="EXPOSED_FRQUENCY" jdbcType="VARCHAR" property="exposedFrquency" />
+        <result column="EXPOSED_TYPE" jdbcType="INTEGER" property="exposedType" />
+        <result column="IS_DISCOMFORT" jdbcType="INTEGER" property="isDiscomfort" />
+        <result column="LIFE_STAGE" jdbcType="INTEGER" property="lifeStage" />
+        <result column="PROT_MEASURES" jdbcType="VARCHAR" property="protMeasures" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="version" jdbcType="INTEGER" property="version" />
+        <result column="WORK_EXPERIENCE" jdbcType="VARCHAR" property="workExperience" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientPaperOptionMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPaperOption">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="PAPER_ID" jdbcType="INTEGER" property="paperId" />
+        <result column="PAPER_QUESTION_ID" jdbcType="INTEGER" property="paperQuestionId" />
+        <result column="PAPER_OPTION_ID" jdbcType="INTEGER" property="paperOptionId" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="ISDELETE" jdbcType="BIT" property="isdelete" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="OPTION_POINT" jdbcType="LONGVARCHAR" property="optionPoint" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientDependentsMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDependents">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="DEPENDENTS_NAME" jdbcType="VARCHAR" property="dependentsName" />
+        <result column="BIRTHDAY" jdbcType="TIMESTAMP" property="birthday" />
+        <result column="SEX" jdbcType="VARCHAR" property="sex" />
+        <result column="DEGREE" jdbcType="INTEGER" property="degree" />
+        <result column="PATIENT_RELATIONSHIP" jdbcType="INTEGER" property="patientRelationship" />
+        <result column="IS_LIVE" jdbcType="VARCHAR" property="isLive" />
+        <result column="VISITS_FREQUENCY" jdbcType="INTEGER" property="visitsFrequency" />
+        <result column="TELEPHONE_FREQUENCY" jdbcType="INTEGER" property="telephoneFrequency" />
+        <result column="AUTHENTICITY" jdbcType="VARCHAR" property="authenticity" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientDependentAccompanyingMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDependentAccompanying">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PATIENT_DEPENDENTS_ID" jdbcType="INTEGER" property="patientDependentsId" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientDiaryMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDiary">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="RECORD_TIME" jdbcType="TIMESTAMP" property="recordTime" />
+        <result column="GET_UP_TIME" jdbcType="VARCHAR" property="getUpTime" />
+        <result column="SLEEP_TIME" jdbcType="VARCHAR" property="sleepTime" />
+        <result column="DAY_SLEEP_TIME" jdbcType="VARCHAR" property="daySleepTime" />
+        <result column="DAY_SLEEP_HS" jdbcType="REAL" property="daySleepHs" />
+        <result column="ALL_SLEEP_HS" jdbcType="REAL" property="allSleepHs" />
+        <result column="NICE_TIME" jdbcType="VARCHAR" property="niceTime" />
+        <result column="BAD_TIME" jdbcType="VARCHAR" property="badTime" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="NICE_HOURS" jdbcType="REAL" property="niceHours" />
+        <result column="BAD_HOURS" jdbcType="REAL" property="badHours" />
+        <result column="REMARK" jdbcType="LONGVARCHAR" property="remark" />
+    </resultMap>
+
+    <resultMap id="patientDiseaseComplicationMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDiseaseComplication">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="disease_name" jdbcType="VARCHAR" property="diseaseName" />
+        <result column="ari_time" jdbcType="TIMESTAMP" property="ariTime" />
+        <result column="last_time" jdbcType="INTEGER" property="lastTime" />
+        <result column="reason_type" jdbcType="BIT" property="reasonType" />
+        <result column="reason_remark" jdbcType="VARCHAR" property="reasonRemark" />
+        <result column="treatment_type" jdbcType="BIT" property="treatmentType" />
+        <result column="treatment_remark" jdbcType="VARCHAR" property="treatmentRemark" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+        <result column="patient_case_id" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="create_name" jdbcType="VARCHAR" property="createName" />
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="update_name" jdbcType="VARCHAR" property="updateName" />
+        <result column="del_flag" jdbcType="BIT" property="delFlag" />
+    </resultMap>
+
+    <resultMap id="patientSymptomMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientSymptom">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="ARISE_TIME" jdbcType="TIMESTAMP" property="ariseTime" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+        <result column="SYM_NAME" jdbcType="VARCHAR" property="symName" />
+        <result column="SYM_TYPE" jdbcType="VARCHAR" property="symType" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="WHETHER_LAW" jdbcType="VARCHAR" property="whetherLaw" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="SYMPTOM_TYPE_ID" jdbcType="INTEGER" property="symptomTypeId" />
+        <result column="ARISE_TIME_LEFT_UP" jdbcType="TIMESTAMP" property="ariseTimeLeftUp" />
+        <result column="ARISE_TIME_RIGHT_UP" jdbcType="TIMESTAMP" property="ariseTimeRightUp" />
+        <result column="ARISE_TIME_LEFT_DOWN" jdbcType="TIMESTAMP" property="ariseTimeLeftDown" />
+        <result column="ARISE_TIME_RIGHT_DOWN" jdbcType="TIMESTAMP" property="ariseTimeRightDown" />
+        <result column="LAST_TIME" jdbcType="VARCHAR" property="lastTime" />
+        <result column="NOT_SPORT_TYPE" jdbcType="VARCHAR" property="notSportType" />
+        <result column="NOT_SPORT_TYPE_ID" jdbcType="INTEGER" property="notSportTypeId" />
+        <result column="SYM_TYPE_ID" jdbcType="INTEGER" property="symTypeId" />
+        <result column="WHETHER_LAW_ID" jdbcType="INTEGER" property="whetherLawId" />
+    </resultMap>
+
+    <resultMap id="patientMedicineMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicine">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="ARISE_TIME" jdbcType="TIMESTAMP" property="ariseTime" />
+        <result column="CALCUL_QUANTITY" jdbcType="REAL" property="calculQuantity" />
+        <result column="COMPUT_UNIT" jdbcType="INTEGER" property="computUnit" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="DRUGSTOP_TIME" jdbcType="TIMESTAMP" property="drugstopTime" />
+        <result column="ORAL_QUANTITY" jdbcType="REAL" property="oralQuantity" />
+        <result column="ORAL_UNIT" jdbcType="INTEGER" property="oralUnit" />
+        <result column="STOP_DURATION" jdbcType="REAL" property="stopDuration" />
+        <result column="TOTAL_MEASURE" jdbcType="REAL" property="totalMeasure" />
+        <result column="UNIT_FACTOR" jdbcType="VARCHAR" property="unitFactor" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="USAGES" jdbcType="INTEGER" property="usages" />
+        <result column="MEDICINE_ID" jdbcType="INTEGER" property="medicineId" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="days" jdbcType="INTEGER" property="days" />
+        <result column="eveUseingMedicine" jdbcType="REAL" property="eveuseingmedicine" />
+        <result column="morUseingMedicine" jdbcType="REAL" property="moruseingmedicine" />
+        <result column="nonUseingMedicine" jdbcType="REAL" property="nonuseingmedicine" />
+        <result column="LEVODOPA_Dose" jdbcType="REAL" property="levodopaDose" />
+        <result column="LEVODOPA_Factor_USED" jdbcType="VARCHAR" property="levodopaFactorUsed" />
+        <result column="MEDICAL_SPEC_USED" jdbcType="VARCHAR" property="medicalSpecUsed" />
+        <result column="STOP_DATE" jdbcType="TIMESTAMP" property="stopDate" />
+        <result column="STOP_REASON" jdbcType="INTEGER" property="stopReason" />
+        <result column="STOP_REMARK" jdbcType="VARCHAR" property="stopRemark" />
+        <result column="SIDEEFFECT_DATE" jdbcType="TIMESTAMP" property="sideeffectDate" />
+        <result column="SIDEEFFECT_TYPE" jdbcType="INTEGER" property="sideeffectType" />
+        <result column="SIDEEFFECT_REMARK" jdbcType="VARCHAR" property="sideeffectRemark" />
+        <result column="STATUS_FLAG" jdbcType="INTEGER" property="statusFlag" />
+        <result column="STOP_FLAG" jdbcType="INTEGER" property="stopFlag" />
+        <result column="VALID_FLAG" jdbcType="TINYINT" property="validFlag" />
+        <result column="FIR_MED_FLAG" jdbcType="TINYINT" property="firMedFlag" />
+        <result column="WEAR_OFF_FLAG" jdbcType="TINYINT" property="wearOffFlag" />
+        <result column="SWITCH_EXIST_FLAG" jdbcType="TINYINT" property="switchExistFlag" />
+        <result column="DYSKINESIA" jdbcType="INTEGER" property="dyskinesia" />
+        <result column="DYSTONIA_FLAG" jdbcType="TINYINT" property="dystoniaFlag" />
+        <result column="PRESCRIPTION_Days" jdbcType="VARCHAR" property="prescriptionDays" />
+        <result column="NON_TAKING_DOSE" jdbcType="VARCHAR" property="nonTakingDose" />
+        <result column="DRUG_COMPLIANCE_INDEX" jdbcType="VARCHAR" property="drugComplianceIndex" />
+        <result column="IS_TAKING_TCM" jdbcType="INTEGER" property="isTakingTcm" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+        <collection property="patientMedicineDetailList" column="{patientMedicineId=ID}" javaType="java.util.List"
+                    select="selectPatientMedicineDetail"/>
+    </resultMap>
+
+    <resultMap id="patientMedicineDetailMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicineDetail">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="COMPUT_UNIT" jdbcType="INTEGER" property="computUnit" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="TAKE_DOSE" jdbcType="VARCHAR" property="takeDose" />
+        <result column="TAKE_TIME" jdbcType="VARCHAR" property="takeTime" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="Patient_Medicine_ID" jdbcType="INTEGER" property="patientMedicineId" />
+    </resultMap>
+
+    <resultMap id="patientCombineMedicineMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientCombineMedicine">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="MEDICINE_NAME" jdbcType="VARCHAR" property="medicineName" />
+        <result column="MEDICINE_TYPE" jdbcType="INTEGER" property="medicineType" />
+        <result column="MEDICAL_SPEC_USED" jdbcType="VARCHAR" property="medicalSpecUsed" />
+        <result column="DRUG_METHOD" jdbcType="INTEGER" property="drugMethod" />
+        <result column="FIR_MED_DATE" jdbcType="TIMESTAMP" property="firMedDate" />
+        <result column="DRUG_OF_YEAR" jdbcType="VARCHAR" property="drugOfYear" />
+        <result column="VALID_FLAG" jdbcType="TINYINT" property="validFlag" />
+        <result column="ADR_FLAG" jdbcType="BIT" property="adrFlag" />
+        <result column="USAGES" jdbcType="INTEGER" property="usages" />
+        <result column="IS_TAKING" jdbcType="INTEGER" property="isTaking" />
+        <result column="COMPUT_UNIT" jdbcType="BIT" property="computUnit" />
+        <result column="DAILY_TAKE_DOSE" jdbcType="DECIMAL" property="dailyTakeDose" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="STOP_DATE" jdbcType="TIMESTAMP" property="stopDate" />
+        <result column="STOP_REASON" jdbcType="INTEGER" property="stopReason" />
+        <result column="STOP_REMARK" jdbcType="VARCHAR" property="stopRemark" />
+        <result column="SIDEEFFECT_DATE" jdbcType="TIMESTAMP" property="sideeffectDate" />
+        <result column="SIDEEFFECT_TYPE" jdbcType="INTEGER" property="sideeffectType" />
+        <result column="SIDEEFFECT_REMARK" jdbcType="VARCHAR" property="sideeffectRemark" />
+        <result column="STATUS_FLAG" jdbcType="BIT" property="statusFlag" />
+        <result column="STOP_FLAG" jdbcType="BIT" property="stopFlag" />
+        <result column="WEAR_OFF_FLAG" jdbcType="TINYINT" property="wearOffFlag" />
+        <result column="SWITCH_EXIST_FLAG" jdbcType="TINYINT" property="switchExistFlag" />
+        <result column="DYSKINESIA" jdbcType="TINYINT" property="dyskinesia" />
+        <result column="DYSTONIA_FLAG" jdbcType="TINYINT" property="dystoniaFlag" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+        <collection property="patientCombineMedicineDetailList" column="{patientCombineMedicineId=ID}" javaType="java.util.List"
+                    select="selectPatientCombineMedicineDetail"/>
+    </resultMap>
+
+    <resultMap id="patientCombineMedicineDetailMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientCombineMedicineDetail">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="COMPUT_UNIT" jdbcType="INTEGER" property="computUnit" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="TAKE_DOSE" jdbcType="VARCHAR" property="takeDose" />
+        <result column="TAKE_TIME" jdbcType="VARCHAR" property="takeTime" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="COMBINE_MEDICINE_ID" jdbcType="INTEGER" property="combineMedicineId" />
+    </resultMap>
+
+    <resultMap id="patientVideoInfoMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientVideoInfo">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="checkDate" jdbcType="TIMESTAMP" property="checkdate" />
+        <result column="checkDevice" jdbcType="VARCHAR" property="checkdevice" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="VIDEO_TYPE" jdbcType="INTEGER" property="videoType" />
+        <result column="DEVICE_ID" jdbcType="VARCHAR" property="deviceId" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="ATTACHMENT_ID" jdbcType="VARCHAR" property="attachmentId" />
+        <result column="checkNum" jdbcType="VARCHAR" property="checknum" />
+        <result column="MAGNETIC_INTENSITY" jdbcType="INTEGER" property="magneticIntensity" />
+        <result column="diaceleWidth" jdbcType="VARCHAR" property="diacelewidth" />
+        <result column="HIPPOCAMPAL_DESC" jdbcType="VARCHAR" property="hippocampalDesc" />
+        <result column="BASAL_GANGLIA_DESC" jdbcType="VARCHAR" property="basalGangliaDesc" />
+        <result column="DAT_11C" jdbcType="BIT" property="dat11c" />
+        <result column="FDG_18F" jdbcType="BIT" property="fdg18f" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+        <result column="checkconclusion" jdbcType="LONGVARCHAR" property="checkconclusion" />
+        <collection property="patientVideoAttachmentList" column="{patientVideoAttachmentId=ID}" javaType="java.util.List"
+                    select="selectPatientVideoAttachment"/>
+        <collection property="patientFieldDetailList" column="{businessId=ID}" javaType="java.util.List"
+                    select="selectPatientFieldDetail"/>
+    </resultMap>
+
+    <resultMap id="patientAttachmentMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientAttachment">
+        <id column="ID" jdbcType="VARCHAR" property="id" />
+        <result column="attachmenttitle" jdbcType="VARCHAR" property="attachmenttitle" />
+        <result column="businesskey" jdbcType="VARCHAR" property="businesskey" />
+        <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+        <result column="extend" jdbcType="VARCHAR" property="extend" />
+        <result column="realpath" jdbcType="VARCHAR" property="realpath" />
+        <result column="BUSENTITYNAME" jdbcType="VARCHAR" property="busentityname" />
+        <result column="INFOTYPEID" jdbcType="VARCHAR" property="infotypeid" />
+        <result column="USERID" jdbcType="VARCHAR" property="userid" />
+        <result column="size" jdbcType="BIGINT" property="size" />
+        <result column="filename" jdbcType="VARCHAR" property="filename" />
+        <result column="tag" jdbcType="VARCHAR" property="tag" />
+        <result column="attachmenttype" jdbcType="SMALLINT" property="attachmenttype" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="PATIENTATTACHMENTID" jdbcType="INTEGER" property="patientattachmentid" />
+        <result column="attachmentcontent" jdbcType="LONGVARBINARY" property="attachmentcontent" />
+        <result column="note" jdbcType="LONGVARCHAR" property="note" />
+        <result column="subclassname" jdbcType="LONGVARCHAR" property="subclassname" />
+        <result column="swfpath" jdbcType="LONGVARCHAR" property="swfpath" />
+    </resultMap>
+
+    <resultMap id="patientGaitMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientGait">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="serial_number" jdbcType="VARCHAR" property="serialNumber" />
+        <result column="patient_id" jdbcType="INTEGER" property="patientId" />
+        <result column="acquisition_start_time" jdbcType="TIMESTAMP" property="acquisitionStartTime" />
+        <result column="acquisition_end_time" jdbcType="TIMESTAMP" property="acquisitionEndTime" />
+        <result column="check_time" jdbcType="TIMESTAMP" property="checkTime" />
+        <result column="check_doctor" jdbcType="VARCHAR" property="checkDoctor" />
+        <result column="to_examine_doctor" jdbcType="VARCHAR" property="toExamineDoctor" />
+        <result column="equipment_model" jdbcType="INTEGER" property="equipmentModel" />
+        <result column="equipment_number" jdbcType="VARCHAR" property="equipmentNumber" />
+        <result column="check_number" jdbcType="VARCHAR" property="checkNumber" />
+        <result column="data_sources" jdbcType="VARCHAR" property="dataSources" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="inspect_id" jdbcType="INTEGER" property="inspectId" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+        <result column="result" jdbcType="VARCHAR" property="result" />
+        <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="task_info_id" jdbcType="INTEGER" property="taskInfoId" />
+        <result column="step" jdbcType="VARCHAR" property="step" />
+        <result column="patient_case_id" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="inspection_id" jdbcType="VARCHAR" property="inspectionId" />
+        <result column="node_mode" jdbcType="VARCHAR" property="nodeMode" />
+        <result column="node_count" jdbcType="INTEGER" property="nodeCount" />
+        <result column="switch_type" jdbcType="SMALLINT" property="switchType" />
+        <result column="is_synchro_score" jdbcType="SMALLINT" property="isSynchroScore" />
+        <result column="patient_scale_id" jdbcType="VARCHAR" property="patientScaleId" />
+        <result column="updrs3_point" jdbcType="VARCHAR" property="updrs3Point" />
+        <result column="last_medicine_time" jdbcType="VARCHAR" property="lastMedicineTime" />
+        <collection property="patientGaitItemList" column="{patientGaitId=id}" javaType="java.util.List"
+                    select="selectPatientGaitItem"/>
+        <collection property="patientInspectList" column="{patientInspectId=inspect_id}" javaType="java.util.List"
+                    select="selectPatientInspect"/>
+    </resultMap>
+
+    <resultMap id="patientGaitItemMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientGaitItem">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="gait_id" jdbcType="VARCHAR" property="gaitId" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="type_code" jdbcType="VARCHAR" property="typeCode" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+        <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+        <collection property="patientGaitCheckList" column="{patientGaitItemId=id}" javaType="java.util.List"
+                    select="selectPatientGaitCheck"/>
+    </resultMap>
+
+    <resultMap id="patientGaitCheckMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientGaitCheck">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="gait_item_id" jdbcType="VARCHAR" property="gaitItemId" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="type_child" jdbcType="VARCHAR" property="typeChild" />
+        <result column="type_code" jdbcType="VARCHAR" property="typeCode" />
+        <result column="left_normal" jdbcType="VARCHAR" property="leftNormal" />
+        <result column="left_error" jdbcType="VARCHAR" property="leftError" />
+        <result column="right_normal" jdbcType="VARCHAR" property="rightNormal" />
+        <result column="right_error" jdbcType="VARCHAR" property="rightError" />
+        <result column="data_normal" jdbcType="VARCHAR" property="dataNormal" />
+        <result column="data_error" jdbcType="VARCHAR" property="dataError" />
+        <result column="reference_value" jdbcType="VARCHAR" property="referenceValue" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+        <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="unit" jdbcType="VARCHAR" property="unit" />
+        <result column="avg_normal" jdbcType="VARCHAR" property="avgNormal" />
+        <result column="avg_error" jdbcType="VARCHAR" property="avgError" />
+        <result column="x_axis" jdbcType="VARCHAR" property="xAxis" />
+    </resultMap>
+
+    <resultMap id="patientElecTroGramMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientElecTroGram">
+        <id column="ID" jdbcType="VARCHAR" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="ETG_NAME" jdbcType="VARCHAR" property="etgName" />
+        <result column="ETG_TYPE" jdbcType="VARCHAR" property="etgType" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="ELEC_TRO__GRAM_ID" jdbcType="VARCHAR" property="elecTroGramId" />
+        <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+        <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+        <result column="ELEC_EXAM_TYPE" jdbcType="VARCHAR" property="elecExamType" />
+        <result column="myotremor_frequency" jdbcType="INTEGER" property="myotremorFrequency" />
+        <result column="ETG_STRING" jdbcType="LONGVARCHAR" property="etgString" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+        <result column="PAT_ElE_HINT" jdbcType="LONGVARCHAR" property="patEleHint" />
+        <result column="PAT_ElE_RESULE" jdbcType="LONGVARCHAR" property="patEleResule" />
+        <collection property="patientMotNerCondResuList" column="{patientElecTroGramId=ID}" javaType="java.util.List"
+                    select="selectPatientMotNerCondResu"/>
+        <collection property="patientFWavStuResuList" column="{patientElecTroGramId=ID}" javaType="java.util.List"
+                    select="selectPatientFWavStuResu"/>
+        <collection property="patientSenNerCondResuList" column="{patientElecTroGramId=ID}" javaType="java.util.List"
+                    select="selectPatientSenNerCondResu"/>
+        <collection property="patientNeedExamResuList" column="{patientElecTroGramId=ID}" javaType="java.util.List"
+                    select="selectPatientNeedExamResu"/>
+        <collection property="patientMotUniAnaResuList" column="{patientElecTroGramId=ID}" javaType="java.util.List"
+                    select="selectPatientMotUniAnaResu"/>
+        <collection property="patientIntPatAnaItemList" column="{patientElecTroGramId=ID}" javaType="java.util.List"
+                    select="selectPatientIntPatAnaItem"/>
+    </resultMap>
+
+    <resultMap id="patientMotNerCondResuMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMotNerCondResu">
+        <id column="ID" jdbcType="VARCHAR" property="id" />
+        <result column="AMPLITUDE" jdbcType="VARCHAR" property="amplitude" />
+        <result column="CONDUCTION_VELOCITY" jdbcType="VARCHAR" property="conductionVelocity" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="DISTANCE" jdbcType="VARCHAR" property="distance" />
+        <result column="LATENCY" jdbcType="VARCHAR" property="latency" />
+        <result column="LATENCY_DIFFERENCE" jdbcType="VARCHAR" property="latencyDifference" />
+        <result column="NERVE_AND_SITE" jdbcType="VARCHAR" property="nerveAndSite" />
+        <result column="NERVE_TYPE" jdbcType="VARCHAR" property="nerveType" />
+        <result column="SEGMENT" jdbcType="VARCHAR" property="segment" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="MOT_NER_ITEM_ID" jdbcType="VARCHAR" property="motNerItemId" />
+        <result column="P_ELEC_TRO_GRAM_ID" jdbcType="VARCHAR" property="pElecTroGramId" />
+        <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+        <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+    </resultMap>
+
+    <resultMap id="patientMotUniAnaResuMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMotUniAnaResu">
+        <id column="ID" jdbcType="VARCHAR" property="id" />
+        <result column="AMPLITUDE" jdbcType="VARCHAR" property="amplitude" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="DURATION" jdbcType="VARCHAR" property="duration" />
+        <result column="EXAM_ITEM_NAME" jdbcType="VARCHAR" property="examItemName" />
+        <result column="MUSCLE" jdbcType="VARCHAR" property="muscle" />
+        <result column="PHASES" jdbcType="VARCHAR" property="phases" />
+        <result column="SPIKE_DURATION" jdbcType="VARCHAR" property="spikeDuration" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="MOT_UNi_ANA_ITEM_ID" jdbcType="VARCHAR" property="motUniAnaItemId" />
+        <result column="P_ELEC_TRO_GRAM_ID" jdbcType="VARCHAR" property="pElecTroGramId" />
+        <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+        <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientNeedExamResuMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientNeedExamResu">
+        <id column="ID" jdbcType="VARCHAR" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="INSERTIONAL" jdbcType="VARCHAR" property="insertional" />
+        <result column="MUSCLE" jdbcType="VARCHAR" property="muscle" />
+        <result column="SPO_ACT_FASC" jdbcType="VARCHAR" property="spoActFasc" />
+        <result column="SPO_ACT_FIB" jdbcType="VARCHAR" property="spoActFib" />
+        <result column="SPO_ACT_WAVE" jdbcType="VARCHAR" property="spoActWave" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="VOLMUAPAMP" jdbcType="VARCHAR" property="volmuapamp" />
+        <result column="VOL_MUAPDUR" jdbcType="VARCHAR" property="volMuapdur" />
+        <result column="VOLMUAPPOLY" jdbcType="VARCHAR" property="volmuappoly" />
+        <result column="NEED_EXAM_ITEM_ID" jdbcType="VARCHAR" property="needExamItemId" />
+        <result column="P_ELEC_TRO_GRAM_ID" jdbcType="VARCHAR" property="pElecTroGramId" />
+        <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+        <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+    </resultMap>
+
+    <resultMap id="patientSenNerCondResuMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientSenNerCondResu">
+        <id column="ID" jdbcType="VARCHAR" property="id" />
+        <result column="AMPLITUDE" jdbcType="VARCHAR" property="amplitude" />
+        <result column="CONDUCTION_VELOCITY" jdbcType="VARCHAR" property="conductionVelocity" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="DISTANCE" jdbcType="VARCHAR" property="distance" />
+        <result column="LATENCY_DIFFERENCE" jdbcType="VARCHAR" property="latencyDifference" />
+        <result column="NERVE_AND_SITE" jdbcType="VARCHAR" property="nerveAndSite" />
+        <result column="NERVE_TYPE" jdbcType="VARCHAR" property="nerveType" />
+        <result column="ONSET_LATENCY" jdbcType="VARCHAR" property="onsetLatency" />
+        <result column="PEAK_LATENCY" jdbcType="VARCHAR" property="peakLatency" />
+        <result column="SEGMENT" jdbcType="VARCHAR" property="segment" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="P_ELEC_TRO_GRAM_ID" jdbcType="VARCHAR" property="pElecTroGramId" />
+        <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+        <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+        <result column="SEN_NER_COND_ITEM_ID" jdbcType="VARCHAR" property="senNerCondItemId" />
+    </resultMap>
+
+    <resultMap id="patientIntPatAnaItemMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientIntPatAnaItem">
+        <id column="ID" jdbcType="VARCHAR" property="id" />
+        <result column="AMPLITUDE" jdbcType="VARCHAR" property="amplitude" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="MUSCLE" jdbcType="VARCHAR" property="muscle" />
+        <result column="RATIO" jdbcType="VARCHAR" property="ratio" />
+        <result column="TURN" jdbcType="VARCHAR" property="turn" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="INT_PAT_ANA_ID" jdbcType="VARCHAR" property="intPatAnaId" />
+        <result column="P_ELEC_TRO_GRAM_ID" jdbcType="VARCHAR" property="pElecTroGramId" />
+        <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+        <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+    </resultMap>
+
+    <resultMap id="patientFWavStuResuMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientFWavStuResu">
+        <id column="ID" jdbcType="VARCHAR" property="id" />
+        <result column="F_LATENCY" jdbcType="VARCHAR" property="fLatency" />
+        <result column="F_PROPORTION" jdbcType="VARCHAR" property="fProportion" />
+        <result column="M_LATENCY" jdbcType="VARCHAR" property="mLatency" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="NERVE" jdbcType="VARCHAR" property="nerve" />
+        <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="F_WAV_STU_ITEM_ID" jdbcType="VARCHAR" property="fWavStuItemId" />
+        <result column="P_ELEC_TRO_GRAM_ID" jdbcType="VARCHAR" property="pElecTroGramId" />
+        <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+        <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+    </resultMap>
+
+    <resultMap id="patientFieldDetailMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientFieldDetail">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="ROW_FIELD_ID" jdbcType="INTEGER" property="rowFieldId" />
+        <result column="COLUMN_FIELD_ID" jdbcType="INTEGER" property="columnFieldId" />
+        <result column="FIELD_VALUE" jdbcType="VARCHAR" property="fieldValue" />
+        <result column="TYPE_GROUP_CODE" jdbcType="VARCHAR" property="typeGroupCode" />
+        <result column="TYPE_CODE" jdbcType="VARCHAR" property="typeCode" />
+        <result column="TYPE_PCODE" jdbcType="VARCHAR" property="typePcode" />
+        <result column="BUSINESS_ID" jdbcType="INTEGER" property="businessId" />
+    </resultMap>
+
+    <resultMap id="patientNerveSleepMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientNerveSleep">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="RECORD_START" jdbcType="TIMESTAMP" property="recordStart" />
+        <result column="RECORD_END" jdbcType="TIMESTAMP" property="recordEnd" />
+        <result column="RECORD_TOTAL" jdbcType="TIMESTAMP" property="recordTotal" />
+        <result column="HEIGHT" jdbcType="VARCHAR" property="height" />
+        <result column="WEIGHT" jdbcType="VARCHAR" property="weight" />
+        <result column="EXAM_RESULT" jdbcType="VARCHAR" property="examResult" />
+        <result column="ELEC_EXAM_TYPE" jdbcType="VARCHAR" property="elecExamType" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+        <collection property="patientFieldDetailList" column="{businessId=ID}" javaType="java.util.List"
+                    select="selectPatientFieldDetail"/>
+    </resultMap>
+
+    <resultMap id="patientInspectMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientInspect">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="patient_id" jdbcType="INTEGER" property="patientId" />
+        <result column="inspection_id" jdbcType="VARCHAR" property="inspectionId" />
+        <result column="serial_number" jdbcType="VARCHAR" property="serialNumber" />
+        <result column="dual_task" jdbcType="VARCHAR" property="dualTask" />
+        <result column="is_checked" jdbcType="VARCHAR" property="isChecked" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+        <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="check_type" jdbcType="VARCHAR" property="checkType" />
+        <result column="order" jdbcType="INTEGER" property="order" />
+        <result column="org_id" jdbcType="VARCHAR" property="orgId" />
+        <result column="task_code" jdbcType="VARCHAR" property="taskCode" />
+    </resultMap>
+
+    <resultMap id="patientBioexamMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientBioexam">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="CHECK_DATE" jdbcType="TIMESTAMP" property="checkDate" />
+        <result column="BLOOD_CODE" jdbcType="VARCHAR" property="bloodCode" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="BIOEXAM_ID" jdbcType="INTEGER" property="bioexamId" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="file" jdbcType="VARCHAR" property="file" />
+        <result column="is_gen_mutation_info" jdbcType="INTEGER" property="isGenMutationInfo" />
+        <result column="sample_collection_flg" jdbcType="INTEGER" property="sampleCollectionFlg" />
+        <result column="PROJECT_RESULTS" jdbcType="LONGVARCHAR" property="projectResults" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+        <collection property="patientBioexamResultList" column="{patientBioexamId=id}" javaType="java.util.List"
+                    select="selectPatientBioexamResult"/>
+        <collection property="patientGeneMutationInfoList" column="{patientBioexamId=id}" javaType="java.util.List"
+                    select="selectPatientGeneMutationInfo"/>
+    </resultMap>
+
+    <resultMap id="patientBioexamResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientBioexamResult">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="BIOEXAM_PROJECT_ID" jdbcType="INTEGER" property="bioexamProjectId" />
+        <result column="PATIENT_BIOEXAM_ID" jdbcType="INTEGER" property="patientBioexamId" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="IS_REFERENCE" jdbcType="BIT" property="isReference" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+        <result column="RESULT" jdbcType="LONGVARCHAR" property="result" />
+    </resultMap>
+
+    <resultMap id="patientGeneMutationInfoMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientGeneMutationInfo">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="gid" jdbcType="INTEGER" property="gid" />
+        <result column="bid" jdbcType="VARCHAR" property="bid" />
+        <result column="type" jdbcType="INTEGER" property="type" />
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+    </resultMap>
+
+    <resultMap id="patientBodypartMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientBodypart">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="ARISE_TIME" jdbcType="TIMESTAMP" property="ariseTime" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="SPEPHYSICAL_RESULT" jdbcType="VARCHAR" property="spephysicalResult" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PATIENT" jdbcType="INTEGER" property="patient" />
+        <result column="CHECK_NUMBER" jdbcType="VARCHAR" property="checkNumber" />
+        <result column="CHECK_RESULT" jdbcType="VARCHAR" property="checkResult" />
+        <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+        <result column="FILES" jdbcType="VARCHAR" property="files" />
+        <result column="PART_EXAMINATION" jdbcType="LONGVARCHAR" property="partExamination" />
+    </resultMap>
+
+    <resultMap id="patientVitalSignMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientVitalSign">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PATIENT" jdbcType="INTEGER" property="patient" />
+        <result column="CHECK_TIME" jdbcType="TIMESTAMP" property="checkTime" />
+        <result column="BREATHING" jdbcType="VARCHAR" property="breathing" />
+        <result column="TEMPERATURE" jdbcType="VARCHAR" property="temperature" />
+        <result column="PULSE" jdbcType="VARCHAR" property="pulse" />
+        <result column="RHYTHM" jdbcType="TINYINT" property="rhythm" />
+        <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+        <collection property="patientVitalSignDetailList" column="{patientVitalSignId=ID}" javaType="java.util.List"
+                    select="selectPatientVitalSignDetail"/>
+    </resultMap>
+
+    <resultMap id="patientVitalSignDetailMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientVitalSignDetail">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="BP" jdbcType="TINYINT" property="bp" />
+        <result column="SIDE" jdbcType="TINYINT" property="side" />
+        <result column="SYSTOLIC" jdbcType="VARCHAR" property="systolic" />
+        <result column="DIASTOLIC" jdbcType="VARCHAR" property="diastolic" />
+        <result column="HEARTRATE" jdbcType="VARCHAR" property="heartrate" />
+        <result column="DIZZY" jdbcType="TINYINT" property="dizzy" />
+        <result column="Patient_VitalSign_ID" jdbcType="INTEGER" property="patientVitalsignId" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    </resultMap>
+
+    <resultMap id="patientPhytheReactionMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPhytheReaction">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="REACTION_TYPE" jdbcType="INTEGER" property="reactionType" />
+        <result column="SEVERITY_LEVEL" jdbcType="INTEGER" property="severityLevel" />
+        <result column="ASSESS_TYPE" jdbcType="INTEGER" property="assessType" />
+        <result column="ASSESS_ID" jdbcType="INTEGER" property="assessId" />
+    </resultMap>
+
+    <resultMap id="patientPhytheTmsMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPhytheTms">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="RECORD_DATE" jdbcType="TIMESTAMP" property="recordDate" />
+        <result column="DEVICE_TYPE" jdbcType="TINYINT" property="deviceType" />
+        <result column="STIMULUS_INTENSITY" jdbcType="DECIMAL" property="stimulusIntensity" />
+        <result column="STIMULUS_FREQUENCY" jdbcType="DECIMAL" property="stimulusFrequency" />
+        <result column="STIMULUS_SIDE" jdbcType="VARCHAR" property="stimulusSide" />
+        <result column="STIMULUS_DURATION" jdbcType="DECIMAL" property="stimulusDuration" />
+        <result column="LEFT_THRESHOLD_BEFORE" jdbcType="VARCHAR" property="leftThresholdBefore" />
+        <result column="RIGHT_THRESHOLD_BEFORE" jdbcType="VARCHAR" property="rightThresholdBefore" />
+        <result column="LEFT_THRESHOLD_AFTER" jdbcType="VARCHAR" property="leftThresholdAfter" />
+        <result column="RIGHT_THRESHOLD_AFTER" jdbcType="VARCHAR" property="rightThresholdAfter" />
+        <result column="PHYSI_TYPE" jdbcType="INTEGER" property="physiType" />
+        <result column="REACTION_FLAG" jdbcType="TINYINT" property="reactionFlag" />
+        <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <collection property="patientPhytheReactionList" column="{accessId=ID}" javaType="java.util.List"
+                    select="selectPatientPhytheTmsReaction"/>
+    </resultMap>
+
+    <resultMap id="patientPhytheAssessMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPhytheAssess">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="RECORD_DATE" jdbcType="TIMESTAMP" property="recordDate" />
+        <result column="SITUATION_TYPE" jdbcType="INTEGER" property="situationType" />
+        <result column="LEFT_THRESHOLD" jdbcType="VARCHAR" property="leftThreshold" />
+        <result column="RIGHT_THRESHOLD" jdbcType="VARCHAR" property="rightThreshold" />
+        <result column="SITUATION_REMARK" jdbcType="VARCHAR" property="situationRemark" />
+        <result column="REACTION_FLAG" jdbcType="TINYINT" property="reactionFlag" />
+        <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <collection property="patientPhytheReactionList" column="{accessId=ID}" javaType="java.util.List"
+                    select="selectPatientPhytheAssessReaction"/>
+    </resultMap>
+
+    <resultMap id="patientAdverseMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientAdverse">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="occur_time" jdbcType="TIMESTAMP" property="occurTime" />
+        <result column="adverse_name" jdbcType="VARCHAR" property="adverseName" />
+        <result column="adverse_describe" jdbcType="VARCHAR" property="adverseDescribe" />
+        <result column="measure_flag" jdbcType="TINYINT" property="measureFlag" />
+        <result column="severity" jdbcType="TINYINT" property="severity" />
+        <result column="treatment_relate" jdbcType="TINYINT" property="treatmentRelate" />
+        <result column="serious_flag" jdbcType="TINYINT" property="seriousFlag" />
+        <result column="serious_adverse" jdbcType="VARCHAR" property="seriousAdverse" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+        <result column="other_measure" jdbcType="VARCHAR" property="otherMeasure" />
+        <result column="aboratory_exam" jdbcType="VARCHAR" property="aboratoryExam" />
+        <result column="adverse_result" jdbcType="TINYINT" property="adverseResult" />
+        <result column="relieve_date" jdbcType="TIMESTAMP" property="relieveDate" />
+        <result column="adverse_effect" jdbcType="TINYINT" property="adverseEffect" />
+        <result column="patient_case_id" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="patient_id" jdbcType="INTEGER" property="patientId" />
+        <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+        <result column="out_come" jdbcType="TINYINT" property="outCome" />
+        <result column="expression" jdbcType="VARCHAR" property="expression" />
+        <result column="death_cause" jdbcType="VARCHAR" property="deathCause" />
+        <result column="death_date" jdbcType="TIMESTAMP" property="deathDate" />
+        <result column="correct_flag" jdbcType="TINYINT" property="correctFlag" />
+        <result column="treat_record" jdbcType="VARCHAR" property="treatRecord" />
+        <result column="exit_test_flag" jdbcType="TINYINT" property="exitTestFlag" />
+        <result column="unblind_flag" jdbcType="TINYINT" property="unblindFlag" />
+        <result column="unblind_date" jdbcType="TIMESTAMP" property="unblindDate" />
+        <collection property="patientAdverseMedicineList" column="{adverseId=id}" javaType="java.util.List"
+                    select="selectPatientAdverseMedicine"/>
+    </resultMap>
+
+    <resultMap id="patientPreopsInfoMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsInfo">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CLOSE_RATIO" jdbcType="DOUBLE" property="closeRatio" />
+        <result column="CLOSE_TIME" jdbcType="DOUBLE" property="closeTime" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="DEP_DYSKINESIA_OPEN_RATIO" jdbcType="DOUBLE" property="depDyskinesiaOpenRatio" />
+        <result column="DEVICE_POWER_TYPE" jdbcType="INTEGER" property="devicePowerType" />
+        <result column="DYSKINESIA_TIME" jdbcType="DOUBLE" property="dyskinesiaTime" />
+        <result column="INTENSION_ARISE_TIME" jdbcType="TIMESTAMP" property="intensionAriseTime" />
+        <result column="LOADING_DOSE_COUNT" jdbcType="DOUBLE" property="loadingDoseCount" />
+        <result column="NOR_DYSKINESIA_OPEN_RATIO" jdbcType="DOUBLE" property="norDyskinesiaOpenRatio" />
+        <result column="OPEN_RATIO" jdbcType="DOUBLE" property="openRatio" />
+        <result column="OPEN_TIME" jdbcType="DOUBLE" property="openTime" />
+        <result column="OPERATION_INTENSION" jdbcType="INTEGER" property="operationIntension" />
+        <result column="UDYSBS_ONE_RATIO" jdbcType="DOUBLE" property="udysbsOneRatio" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="UPDRS_FOURONE_RATIO" jdbcType="DOUBLE" property="updrsFouroneRatio" />
+        <result column="UPDRS_FOURTHREE_RATIO" jdbcType="DOUBLE" property="updrsFourthreeRatio" />
+        <result column="WAKE_TIME" jdbcType="DOUBLE" property="wakeTime" />
+        <result column="DEVICE_ID" jdbcType="VARCHAR" property="deviceId" />
+        <result column="PATIENT_SURGICAL_ID" jdbcType="INTEGER" property="patientSurgicalId" />
+        <result column="PREOPS_TIME" jdbcType="TIMESTAMP" property="preopsTime" />
+        <result column="TERMINAL_TIME" jdbcType="TIMESTAMP" property="terminalTime" />
+        <result column="TERMINAL_SCALE" jdbcType="INTEGER" property="terminalScale" />
+        <result column="TERMINAL_EXIST" jdbcType="INTEGER" property="terminalExist" />
+        <result column="TERMINAL_ISFIRST" jdbcType="INTEGER" property="terminalIsfirst" />
+        <result column="TERMINAL_FIRST_TIME" jdbcType="TIMESTAMP" property="terminalFirstTime" />
+        <result column="TERMINAL_DURATION" jdbcType="DOUBLE" property="terminalDuration" />
+        <result column="Motor_TEST_TIME" jdbcType="TIMESTAMP" property="motorTestTime" />
+        <result column="PREOPS_REMARK" jdbcType="VARCHAR" property="preopsRemark" />
+        <result column="TERMINAL_REMARK" jdbcType="VARCHAR" property="terminalRemark" />
+        <result column="DIARY_REMARK" jdbcType="VARCHAR" property="diaryRemark" />
+        <result column="DYSKINESIA_REMARK" jdbcType="VARCHAR" property="dyskinesiaRemark" />
+        <result column="NONMotor_REMARK" jdbcType="VARCHAR" property="nonmotorRemark" />
+        <result column="Motor_REMARK" jdbcType="VARCHAR" property="motorRemark" />
+        <result column="INTENSION_REMARK" jdbcType="VARCHAR" property="intensionRemark" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="type" jdbcType="INTEGER" property="type" />
+        <result column="file" jdbcType="VARCHAR" property="file" />
+        <collection property="patientPreopsScaleList" column="{patientPreopsInfoId=ID}" javaType="java.util.List"
+                    select="selectPatientPreopsScale"/>
+        <collection property="patientPreopsMedicineList" column="{patientPreopsInfoId=ID}" javaType="java.util.List"
+                    select="selectPatientPreopsMedicine"/>
+        <collection property="patientPreopsDiaryList" column="{patientPreopsInfoId=ID}" javaType="java.util.List"
+                    select="selectPatientPreopsDiary"/>
+    </resultMap>
+
+    <resultMap id="patientPreopsDiaryMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsDiary">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="DAY_COUNT" jdbcType="INTEGER" property="dayCount" />
+        <result column="FIVE_DAY_DIARY_HOUR" jdbcType="DOUBLE" property="fiveDayDiaryHour" />
+        <result column="FIVE_DAY_DIARY_TYPE" jdbcType="INTEGER" property="fiveDayDiaryType" />
+        <result column="FIVE_DAY_TIME" jdbcType="TIMESTAMP" property="fiveDayTime" />
+        <result column="FOUR_DAY_DIARY_HOUR" jdbcType="DOUBLE" property="fourDayDiaryHour" />
+        <result column="FOUR_DAY_DIARY_TYPE" jdbcType="INTEGER" property="fourDayDiaryType" />
+        <result column="FOUR_DAY_TIME" jdbcType="TIMESTAMP" property="fourDayTime" />
+        <result column="HOUR_AVERAGE" jdbcType="DOUBLE" property="hourAverage" />
+        <result column="ONE_DAY_DIARY_HOUR" jdbcType="DOUBLE" property="oneDayDiaryHour" />
+        <result column="ONE_DAY_DIARY_TYPE" jdbcType="INTEGER" property="oneDayDiaryType" />
+        <result column="ONE_DAY_TIME" jdbcType="TIMESTAMP" property="oneDayTime" />
+        <result column="SIX_DAY_DIARY_HOUR" jdbcType="DOUBLE" property="sixDayDiaryHour" />
+        <result column="SIX_DAY_DIARY_TYPE" jdbcType="INTEGER" property="sixDayDiaryType" />
+        <result column="SIX_DAY_TIME" jdbcType="TIMESTAMP" property="sixDayTime" />
+        <result column="THREE_DAY_DIARY_HOUR" jdbcType="DOUBLE" property="threeDayDiaryHour" />
+        <result column="THREE_DAY_DIARY_TYPE" jdbcType="INTEGER" property="threeDayDiaryType" />
+        <result column="THREE_DAY_TIME" jdbcType="TIMESTAMP" property="threeDayTime" />
+        <result column="TWO_DAY_DIARY_HOUR" jdbcType="DOUBLE" property="twoDayDiaryHour" />
+        <result column="TWO_DAY_DIARY_TYPE" jdbcType="INTEGER" property="twoDayDiaryType" />
+        <result column="TWO_DAY_TIME" jdbcType="TIMESTAMP" property="twoDayTime" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_PREOPS_INFO_ID" jdbcType="INTEGER" property="patientPreopsInfoId" />
+        <result column="seven_day_diary_hour" jdbcType="DOUBLE" property="sevenDayDiaryHour" />
+        <result column="seven_day_diary_type" jdbcType="INTEGER" property="sevenDayDiaryType" />
+        <result column="seven_day_time" jdbcType="TIMESTAMP" property="sevenDayTime" />
+    </resultMap>
+
+    <resultMap id="patientPreopsMedicineMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsMedicine">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="LOADING_DOSE" jdbcType="DOUBLE" property="loadingDose" />
+        <result column="MED_SPECIFICATION" jdbcType="INTEGER" property="medSpecification" />
+        <result column="MED_USAGE" jdbcType="DOUBLE" property="medUsage" />
+        <result column="MEDICINE_INFO" jdbcType="INTEGER" property="medicineInfo" />
+        <result column="MORNING_DOSE" jdbcType="DOUBLE" property="morningDose" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_PREOPS_INFO_ID" jdbcType="INTEGER" property="patientPreopsInfoId" />
+    </resultMap>
+
+    <resultMap id="patientPreopsScaleMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsScale">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="ARISE_TIME" jdbcType="TIMESTAMP" property="ariseTime" />
+        <result column="BODY_STATUS" jdbcType="INTEGER" property="bodyStatus" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="DRUG_FLAG" jdbcType="INTEGER" property="drugFlag" />
+        <result column="MED_IMPROVE_RATIO" jdbcType="DOUBLE" property="medImproveRatio" />
+        <result column="SCALE_INFO" jdbcType="INTEGER" property="scaleInfo" />
+        <result column="SCALE_SCORE" jdbcType="DOUBLE" property="scaleScore" />
+        <result column="SCALE_TYPE" jdbcType="INTEGER" property="scaleType" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_PREOPS_INFO_ID" jdbcType="INTEGER" property="patientPreopsInfoId" />
+        <result column="SCALE_NAME" jdbcType="VARCHAR" property="scaleName" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+        <result column="REMARK_LIST" jdbcType="LONGVARCHAR" property="remarkList" />
+        <result column="PATIENT_SCALE_LIST" jdbcType="LONGVARCHAR" property="patientScaleList" />
+        <result column="SCORE_LIST" jdbcType="LONGVARCHAR" property="scoreList" />
+        <result column="TIME_LIST" jdbcType="LONGVARCHAR" property="timeList" />
+    </resultMap>
+
+    <resultMap id="patientTreatmentMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientTreatment">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="SURGICAL_DATE" jdbcType="TIMESTAMP" property="surgicalDate" />
+        <result column="SURGICAL_INFO_ID" jdbcType="INTEGER" property="surgicalInfoId" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_SURGICAL_ID" jdbcType="INTEGER" property="patientSurgicalId" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientComplicationMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientComplication">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="ILLUSTRATION" jdbcType="INTEGER" property="illustration" />
+        <result column="MAJOR_COMPLICATION_TYPE" jdbcType="INTEGER" property="majorComplicationType" />
+        <result column="MINOR_COMPLICATION_TYPE" jdbcType="INTEGER" property="minorComplicationType" />
+        <result column="OCCURRENCE_TIME" jdbcType="TIMESTAMP" property="occurrenceTime" />
+        <result column="RESULT" jdbcType="INTEGER" property="result" />
+        <result column="TREATMENT" jdbcType="INTEGER" property="treatment" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_SURGICAL_ID" jdbcType="INTEGER" property="patientSurgicalId" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PROCESS" jdbcType="LONGVARCHAR" property="process" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientDbsFirstMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsFirst">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="LEFT_CONTACT_EFFECT_ORDER" jdbcType="VARCHAR" property="leftContactEffectOrder" />
+        <result column="LEFT_EXCITE_MOD" jdbcType="INTEGER" property="leftExciteMod" />
+        <result column="LEFT_FREQUENCY" jdbcType="VARCHAR" property="leftFrequency" />
+        <result column="LEFT_NEGATIVE_POLE" jdbcType="VARCHAR" property="leftNegativePole" />
+        <result column="LEFT_POSITIVE_POLE" jdbcType="VARCHAR" property="leftPositivePole" />
+        <result column="LEFT_PULSE_WIDTH" jdbcType="VARCHAR" property="leftPulseWidth" />
+        <result column="LEFT_VOLTAGE" jdbcType="VARCHAR" property="leftVoltage" />
+        <result column="MEDICATION_STATUS" jdbcType="VARCHAR" property="medicationStatus" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="RELIEF_DAY" jdbcType="INTEGER" property="reliefDay" />
+        <result column="RIGHT_CONTACT_EFFECT_ORDER" jdbcType="VARCHAR" property="rightContactEffectOrder" />
+        <result column="RIGHT_EXCITE_MOD" jdbcType="INTEGER" property="rightExciteMod" />
+        <result column="RIGHT_FREQUENCY" jdbcType="VARCHAR" property="rightFrequency" />
+        <result column="RIGHT_NEGATIVE_POLE" jdbcType="VARCHAR" property="rightNegativePole" />
+        <result column="RIGHT_POSITIVE_POLE" jdbcType="VARCHAR" property="rightPositivePole" />
+        <result column="RIGHT_PULSE_WIDTH" jdbcType="VARCHAR" property="rightPulseWidth" />
+        <result column="RIGHT_VOLTAGE" jdbcType="VARCHAR" property="rightVoltage" />
+        <result column="DEVICE_ID" jdbcType="VARCHAR" property="deviceId" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PROGRAM_DATE" jdbcType="TIMESTAMP" property="programDate" />
+        <result column="PATIENT_SURGICAL_ID" jdbcType="INTEGER" property="patientSurgicalId" />
+        <result column="DEVICE_POWER_TYPE" jdbcType="INTEGER" property="devicePowerType" />
+        <result column="IS_TAKE_MEDICATION" jdbcType="INTEGER" property="isTakeMedication" />
+        <result column="DAMAGE_EFFECT_EXIST" jdbcType="INTEGER" property="damageEffectExist" />
+        <result column="DAMAGE_EFFECT_DURATION" jdbcType="VARCHAR" property="damageEffectDuration" />
+        <result column="ADVERSE_EVENTS_EXIST" jdbcType="INTEGER" property="adverseEventsExist" />
+        <result column="ADVERSE_EVENTS_REMARK" jdbcType="VARCHAR" property="adverseEventsRemark" />
+        <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+        <result column="DEPART_ID" jdbcType="VARCHAR" property="departId" />
+        <result column="TC_DEVICE_ID" jdbcType="VARCHAR" property="tcDeviceId" />
+        <collection property="patientDbsFirstDetailList" column="{patientDbsFirstId=ID}" javaType="java.util.List"
+                    select="selectPatientDbsFirstDetail"/>
+        <collection property="patientDbsParameterList" column="{patientDbsFirstId=ID}" javaType="java.util.List"
+                    select="selectPatientDbsParameter"/>
+        <collection property="patientDbsMedicineList" column="{patientDbsFirstId=ID}" javaType="java.util.List"
+                    select="selectPatientDbsMedicine"/>
+        <collection property="patientDbsChooseList" column="{patientDbsFirstId=ID}" javaType="java.util.List"
+                    select="selectPatientDbsChoose"/>
+    </resultMap>
+
+    <resultMap id="patientDbsFirstDetailMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsFirstDetail">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CHANGE_CONSTANTLY" jdbcType="VARCHAR" property="changeConstantly" />
+        <result column="CONTACT" jdbcType="VARCHAR" property="contact" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="DBS_CASE" jdbcType="VARCHAR" property="dbsCase" />
+        <result column="ELBOW_TONE" jdbcType="DOUBLE" property="elbowTone" />
+        <result column="KNEE_TONE" jdbcType="DOUBLE" property="kneeTone" />
+        <result column="NECK_TONE" jdbcType="DOUBLE" property="neckTone" />
+        <result column="SIDE_EFFECT" jdbcType="VARCHAR" property="sideEffect" />
+        <result column="TC_PATIENT_DBS_FIRST_ID" jdbcType="INTEGER" property="tcPatientDbsFirstId" />
+        <result column="TREMOR" jdbcType="DOUBLE" property="tremor" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="WRIST_TONE" jdbcType="DOUBLE" property="wristTone" />
+        <result column="DBS_VOLTAGE" jdbcType="INTEGER" property="dbsVoltage" />
+        <result column="SIDE_EFFECT_DURATION" jdbcType="INTEGER" property="sideEffectDuration" />
+        <result column="PATIENT_DBS_FIRST_ID" jdbcType="INTEGER" property="patientDbsFirstId" />
+        <result column="TENSION_TONE" jdbcType="DOUBLE" property="tensionTone" />
+    </resultMap>
+
+    <resultMap id="patientDbsParameterMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsParameter">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="PARAM_TYPE" jdbcType="INTEGER" property="paramType" />
+        <result column="SCHEME_ORDER" jdbcType="INTEGER" property="schemeOrder" />
+        <result column="LIMB_SIDE" jdbcType="INTEGER" property="limbSide" />
+        <result column="EXCITE_MOD" jdbcType="INTEGER" property="exciteMod" />
+        <result column="NEGATIVE_POLE" jdbcType="VARCHAR" property="negativePole" />
+        <result column="POSITIVE_POLE" jdbcType="VARCHAR" property="positivePole" />
+        <result column="FREQUENCY" jdbcType="VARCHAR" property="frequency" />
+        <result column="PULSE_WIDTH" jdbcType="VARCHAR" property="pulseWidth" />
+        <result column="VOLTAGE" jdbcType="VARCHAR" property="voltage" />
+        <result column="RESISTANCE" jdbcType="INTEGER" property="resistance" />
+        <result column="ELECTRIC" jdbcType="DOUBLE" property="electric" />
+        <result column="ELECTRICITY" jdbcType="DOUBLE" property="electricity" />
+        <result column="EFFECT_INFO" jdbcType="VARCHAR" property="effectInfo" />
+        <result column="PATIENT_DBS_FIRST_ID" jdbcType="INTEGER" property="patientDbsFirstId" />
+        <result column="PATIENT_DBS_FOLLOW_ID" jdbcType="INTEGER" property="patientDbsFollowId" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="NEGATIVE_POLE2" jdbcType="VARCHAR" property="negativePole2" />
+        <result column="POSITIVE_POLE2" jdbcType="VARCHAR" property="positivePole2" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientDbsMedicineMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsMedicine">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="NUMBER" jdbcType="VARCHAR" property="number" />
+        <result column="MEDICINE_ID" jdbcType="INTEGER" property="medicineId" />
+        <result column="MEDICAL_SPEC_USED" jdbcType="VARCHAR" property="medicalSpecUsed" />
+        <result column="TAKE_DOSE" jdbcType="DOUBLE" property="takeDose" />
+        <result column="TOTAL_MEASURE" jdbcType="DOUBLE" property="totalMeasure" />
+        <result column="LEDD" jdbcType="DOUBLE" property="ledd" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_DBS_FIRST_ID" jdbcType="INTEGER" property="patientDbsFirstId" />
+        <result column="PATIENT_DBS_FOLLOW_ID" jdbcType="INTEGER" property="patientDbsFollowId" />
+    </resultMap>
+
+    <resultMap id="patientDbsChooseMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsChoose">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="DBS_CHOOSE" jdbcType="INTEGER" property="dbsChoose" />
+        <result column="PATIENT_DBS_FIRST_ID" jdbcType="INTEGER" property="patientDbsFirstId" />
+        <result column="PATIENT_DBS_FOLLOW_ID" jdbcType="INTEGER" property="patientDbsFollowId" />
+    </resultMap>
+
+    <resultMap id="patientDbsFollowMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsFollow">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="L_STN_ELECTRIC" jdbcType="REAL" property="lStnElectric" />
+        <result column="L_STN_RESISTANCE" jdbcType="INTEGER" property="lStnResistance" />
+        <result column="R_STN_ELECTRIC" jdbcType="REAL" property="rStnElectric" />
+        <result column="R_STN_RESISTANCE" jdbcType="INTEGER" property="rStnResistance" />
+        <result column="ADJUST_MORE_LEFT_SATISFACTION" jdbcType="INTEGER" property="adjustMoreLeftSatisfaction" />
+        <result column="ADJUST_MORE_RIGHT_SATISFACTION" jdbcType="INTEGER" property="adjustMoreRightSatisfaction" />
+        <result column="ADJUST_VOLTAGE_LEFT_SATISFACTION" jdbcType="INTEGER" property="adjustVoltageLeftSatisfaction" />
+        <result column="ADJUST_VOLTAGE_RIGHT_SATISFACTION" jdbcType="INTEGER" property="adjustVoltageRightSatisfaction" />
+        <result column="COMPLAINT" jdbcType="VARCHAR" property="complaint" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="FOLLOW_NUM" jdbcType="INTEGER" property="followNum" />
+        <result column="LEFT_EXCITE_MOD" jdbcType="INTEGER" property="leftExciteMod" />
+        <result column="LEFT_FREQUENCY" jdbcType="VARCHAR" property="leftFrequency" />
+        <result column="LEFT_NEGATIVE_POLE" jdbcType="VARCHAR" property="leftNegativePole" />
+        <result column="LEFT_POSITIVE_POLE" jdbcType="VARCHAR" property="leftPositivePole" />
+        <result column="LEFT_PULSE_WIDTH" jdbcType="VARCHAR" property="leftPulseWidth" />
+        <result column="LEFT_VOLTAGE" jdbcType="VARCHAR" property="leftVoltage" />
+        <result column="MEDICATION_STATUS" jdbcType="VARCHAR" property="medicationStatus" />
+        <result column="PATIENT_DBS_FIRST_ID" jdbcType="INTEGER" property="patientDbsFirstId" />
+        <result column="PROGRAM_DATE" jdbcType="TIMESTAMP" property="programDate" />
+        <result column="RIGHT_EXCITE_MOD" jdbcType="INTEGER" property="rightExciteMod" />
+        <result column="RIGHT_FREQUENCY" jdbcType="VARCHAR" property="rightFrequency" />
+        <result column="RIGHT_NEGATIVE_POLE" jdbcType="VARCHAR" property="rightNegativePole" />
+        <result column="RIGHT_POSITIVE_POLE" jdbcType="VARCHAR" property="rightPositivePole" />
+        <result column="RIGHT_PULSE_WIDTH" jdbcType="VARCHAR" property="rightPulseWidth" />
+        <result column="RIGHT_VOLTAGE" jdbcType="VARCHAR" property="rightVoltage" />
+        <result column="STN_VOLTAGE" jdbcType="REAL" property="stnVoltage" />
+        <result column="DEVICE_ID" jdbcType="VARCHAR" property="deviceId" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_SURGICAL_ID" jdbcType="INTEGER" property="patientSurgicalId" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="DEVICE_POWER_TYPE" jdbcType="INTEGER" property="devicePowerType" />
+        <result column="EFFECT_INFO" jdbcType="VARCHAR" property="effectInfo" />
+        <result column="IS_TAKE_MEDICATION" jdbcType="INTEGER" property="isTakeMedication" />
+        <result column="ADJUST_BEFORE_LEFT_SATISFACTION" jdbcType="INTEGER" property="adjustBeforeLeftSatisfaction" />
+        <result column="ADJUST_BEFORE_RIGHT_SATISFACTION" jdbcType="INTEGER" property="adjustBeforeRightSatisfaction" />
+        <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+        <result column="DEPART_ID" jdbcType="VARCHAR" property="departId" />
+        <result column="TC_DEVICE_ID" jdbcType="VARCHAR" property="tcDeviceId" />
+        <collection property="patientDbsParameterList" column="{patientDbsFollowId=ID}" javaType="java.util.List"
+                    select="selectPatientDbsParameter"/>
+        <collection property="patientDbsMedicineList" column="{patientDbsFollowId=ID}" javaType="java.util.List"
+                    select="selectPatientDbsMedicine"/>
+        <collection property="patientDbsChooseList" column="{patientDbsFollowId=ID}" javaType="java.util.List"
+                    select="selectPatientDbsChoose"/>
+    </resultMap>
+
+    <resultMap id="patientScaleFileMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientScaleFile">
+        <id column="ID" jdbcType="VARCHAR" property="id" />
+        <result column="FILE_NAME" jdbcType="VARCHAR" property="fileName" />
+        <result column="FILE_PATH" jdbcType="VARCHAR" property="filePath" />
+        <result column="SIZE" jdbcType="INTEGER" property="size" />
+        <result column="PATIENT_SCALE_ID" jdbcType="INTEGER" property="patientScaleId" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    </resultMap>
+
+    <resultMap id="patientAdverseMedicineMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientAdverseMedicine">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="medicine_name" jdbcType="VARCHAR" property="medicineName" />
+        <result column="total_daily_dose" jdbcType="DECIMAL" property="totalDailyDose" />
+        <result column="medicine_method" jdbcType="TINYINT" property="medicineMethod" />
+        <result column="medicine_type" jdbcType="TINYINT" property="medicineType" />
+        <result column="adverse_id" jdbcType="INTEGER" property="adverseId" />
+    </resultMap>
+
+    <resultMap id="patientAdverseSeriousMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientAdverseSerious">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="adverse_name" jdbcType="VARCHAR" property="adverseName" />
+        <result column="sae_situation" jdbcType="VARCHAR" property="saeSituation" />
+        <result column="sae_accur_date" jdbcType="TIMESTAMP" property="saeAccurDate" />
+        <result column="sae_get_date" jdbcType="TIMESTAMP" property="saeGetDate" />
+        <result column="out_come" jdbcType="TINYINT" property="outCome" />
+        <result column="treatment_relate" jdbcType="TINYINT" property="treatmentRelate" />
+        <result column="sequela" jdbcType="TINYINT" property="sequela" />
+        <result column="disappear_time" jdbcType="TIMESTAMP" property="disappearTime" />
+        <result column="death_cause" jdbcType="VARCHAR" property="deathCause" />
+        <result column="death_date" jdbcType="TIMESTAMP" property="deathDate" />
+        <result column="domestic_situation" jdbcType="TINYINT" property="domesticSituation" />
+        <result column="abroad_situation" jdbcType="TINYINT" property="abroadSituation" />
+        <result column="relate_evaluate_flag" jdbcType="VARCHAR" property="relateEvaluateFlag" />
+        <result column="unblind_flag" jdbcType="TINYINT" property="unblindFlag" />
+        <result column="unblind_date" jdbcType="TIMESTAMP" property="unblindDate" />
+        <result column="sae_deal_detail" jdbcType="VARCHAR" property="saeDealDetail" />
+        <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="patient_case_id" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="patient_id" jdbcType="INTEGER" property="patientId" />
+    </resultMap>
+
+    <resultMap id="patientExerciseMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientExercise">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="AGE_STAGE" jdbcType="INTEGER" property="ageStage" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="EXE_NAME" jdbcType="VARCHAR" property="exeName" />
+        <result column="GRADE" jdbcType="INTEGER" property="grade" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="version" jdbcType="INTEGER" property="version" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    </resultMap>
+
+    <resultMap id="patientFirstVisitTreatmentMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientFirstVisitTreatment">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="FIRST_VISIT_TYPE" jdbcType="INTEGER" property="firstVisitType" />
+        <result column="TREATMENT_TYPE" jdbcType="INTEGER" property="treatmentType" />
+        <result column="TREATMENT_METHOD" jdbcType="INTEGER" property="treatmentMethod" />
+        <result column="TREATMENT_TIME" jdbcType="DATE" property="treatmentTime" />
+        <result column="MEDICINE_CLASSIFICATION" jdbcType="INTEGER" property="medicineClassification" />
+        <result column="MEDICINE_NAME" jdbcType="INTEGER" property="medicineName" />
+        <result column="COMMON_MEDICINE_NAME" jdbcType="INTEGER" property="commonMedicineName" />
+        <result column="DAILY_DOSAGE" jdbcType="DECIMAL" property="dailyDosage" />
+        <result column="FIRST_TIME" jdbcType="DATE" property="firstTime" />
+        <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="LEDD" jdbcType="DECIMAL" property="ledd" />
+        <result column="YEARS_OF_MEDICINE" jdbcType="VARCHAR" property="yearsOfMedicine" />
+        <result column="WHETHER_EFFECT" jdbcType="INTEGER" property="whetherEffect" />
+        <result column="ADVERSE" jdbcType="INTEGER" property="adverse" />
+        <result column="WHETHER_CONTINUE" jdbcType="INTEGER" property="whetherContinue" />
+        <result column="STOP_TIME" jdbcType="TIMESTAMP" property="stopTime" />
+        <result column="MEDICAL_SPEC_USED" jdbcType="VARCHAR" property="medicalSpecUsed" />
+        <result column="DAILY_DOSAGE_PIAN" jdbcType="DECIMAL" property="dailyDosagePian" />
+        <result column="IS_TAKING_TCM" jdbcType="INTEGER" property="isTakingTcm" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+        <result column="STOP_REASON" jdbcType="LONGVARCHAR" property="stopReason" />
+    </resultMap>
+
+    <resultMap id="patientMedicineAdverseMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicineAdverse">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="occur_time" jdbcType="TIMESTAMP" property="occurTime" />
+        <result column="adverse_name" jdbcType="VARCHAR" property="adverseName" />
+        <result column="adverse_describe" jdbcType="VARCHAR" property="adverseDescribe" />
+        <result column="measure_flag" jdbcType="TINYINT" property="measureFlag" />
+        <result column="treatment_relate" jdbcType="TINYINT" property="treatmentRelate" />
+        <result column="medicine_dose_effect" jdbcType="TINYINT" property="medicineDoseEffect" />
+        <result column="search_medicine_relate" jdbcType="TINYINT" property="searchMedicineRelate" />
+        <result column="serious_flag" jdbcType="TINYINT" property="seriousFlag" />
+        <result column="serious_adverse" jdbcType="VARCHAR" property="seriousAdverse" />
+        <result column="report_adverse_date" jdbcType="TIMESTAMP" property="reportAdverseDate" />
+        <result column="other_measure" jdbcType="VARCHAR" property="otherMeasure" />
+        <result column="aboratory_exam" jdbcType="VARCHAR" property="aboratoryExam" />
+        <result column="adverse_result" jdbcType="TINYINT" property="adverseResult" />
+        <result column="adverse_effect" jdbcType="TINYINT" property="adverseEffect" />
+        <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+        <result column="exit_test_flag" jdbcType="TINYINT" property="exitTestFlag" />
+        <result column="patient_case_id" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="patient_id" jdbcType="INTEGER" property="patientId" />
+        <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+        <collection property="patientMedicineAdverseMdList" column="{medicineAdverseId=id}" javaType="java.util.List"
+                    select="selectPatientMedicineAdverseMd"/>
+    </resultMap>
+
+    <resultMap id="patientMedicineAdverseMdMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicineAdverseMd">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="medicine_name" jdbcType="VARCHAR" property="medicineName" />
+        <result column="number" jdbcType="VARCHAR" property="number" />
+        <result column="use_medicine_way" jdbcType="VARCHAR" property="useMedicineWay" />
+        <result column="whether_continue" jdbcType="TINYINT" property="whetherContinue" />
+        <result column="duration" jdbcType="TIMESTAMP" property="duration" />
+        <result column="medicine_adverse_id" jdbcType="INTEGER" property="medicineAdverseId" />
+    </resultMap>
+
+    <resultMap id="patientSpephysicalMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientSpephysical">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="ARISE_TIME" jdbcType="TIMESTAMP" property="ariseTime" />
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+        <result column="SPEPHYSICAL_RESULT" jdbcType="VARCHAR" property="spephysicalResult" />
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+        <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+        <result column="SPEPHYSICAL_INFO" jdbcType="INTEGER" property="spephysicalInfo" />
+        <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+        <result column="PATIENT" jdbcType="INTEGER" property="patient" />
+        <result column="PULL_TEST" jdbcType="TINYINT" property="pullTest" />
+        <result column="SITTING_BLOC" jdbcType="TINYINT" property="sittingBloc" />
+        <result column="FACIAL_OIL" jdbcType="TINYINT" property="facialOil" />
+        <result column="SKIN_SCRATCH" jdbcType="TINYINT" property="skinScratch" />
+        <result column="ERECT_REFLEX" jdbcType="TINYINT" property="erectReflex" />
+        <result column="VERTICAL_TILT" jdbcType="TINYINT" property="verticalTilt" />
+        <result column="CHECK_TYPE" jdbcType="VARCHAR" property="checkType" />
+        <result column="back_data" jdbcType="VARCHAR" property="backData" />
+        <result column="FORGET_LANG" jdbcType="TINYINT" property="forgetLang" />
+        <result column="FORGET_USE" jdbcType="TINYINT" property="forgetUse" />
+        <result column="FORGET_COGNIZE" jdbcType="TINYINT" property="forgetCognize" />
+        <result column="FORGET_LANG_TYPE" jdbcType="VARCHAR" property="forgetLangType" />
+        <result column="FORGET_USE_TYPE" jdbcType="VARCHAR" property="forgetUseType" />
+        <result column="SIMPLE_FEEL" jdbcType="TINYINT" property="simpleFeel" />
+        <result column="DEPTH_FEEL" jdbcType="TINYINT" property="depthFeel" />
+        <result column="GRAPH_FEEL" jdbcType="TINYINT" property="graphFeel" />
+        <result column="ENTITY_FEEL" jdbcType="TINYINT" property="entityFeel" />
+        <result column="SIMPLE_FEEL_REMARK" jdbcType="VARCHAR" property="simpleFeelRemark" />
+        <result column="DEPTH_FEEL_REMARK" jdbcType="VARCHAR" property="depthFeelRemark" />
+        <result column="GRAPH_FEEL_REMARK" jdbcType="VARCHAR" property="graphFeelRemark" />
+        <result column="ENTITY_FEEL_REMARK" jdbcType="VARCHAR" property="entityFeelRemark" />
+        <result column="FORGET_COGNIZE_TYPE" jdbcType="VARCHAR" property="forgetCognizeType" />
+        <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+        <collection property="patientFieldDetailList" column="{businessId=ID}" javaType="java.util.List"
+                    select="selectPatientFieldDetail"/>
+    </resultMap>
+
+    <select id="selectAllPatientInfo" resultMap="BaseResultMap">
+        select * from tc_patient_info tpi order by ID asc
+    </select>
+
+    <select id="selectPatientCase" resultMap="patientCaseMap">
+        select * from tc_patient_case
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientScale" resultMap="patientScaleMap">
+        select * from tc_patient_scale
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientOption" resultMap="patientOptionMap">
+        select * from tc_patient_option
+        where PATIENT_SCALE_ID = #{patientScaleId}
+    </select>
+
+    <select id="selectPatientDiseaseOrder" resultMap="patientDiseaseOrderMap">
+        select * from tc_patient_disease_order
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientMedHistory" resultMap="patientMedHistoryMap">
+        select * from tc_patient_medhistory
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientHabit" resultMap="patientHabitMap">
+        select * from tc_patient_habit
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientHistory" resultMap="patientHistoryMap">
+        select * from tc_patient_history
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientFirstSymbol" resultMap="patientFirstSymbolMap">
+        select * from tc_patient_first_symbol
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientDisease" resultMap="patientDiseaseMap">
+        select * from tc_patient_disease
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientAllergy" resultMap="patientAllergyMap">
+        select * from tc_patient_allergy
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientFamilyHistory" resultMap="patientFamilyHistoryMap">
+        select * from tc_family_history
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientCideexposedHistory" resultMap="patientCideexposedHistoryMap">
+        select * from tc_cideexposed_history
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientDependents" resultMap="patientDependentsMap">
+        select * from tc_patient_dependents
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientDependentAccompanying" resultMap="patientDependentAccompanyingMap">
+        select * from  tc_accompanying_diagnosis
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientPaperOption" resultMap="patientPaperOptionMap">
+        select * from tc_patient_paperoption
+        where PATIENT_ID = ${patientId} and (PATIENT_CASE_ID is null or PATIENT_CASE_ID = '')
+    </select>
+
+    <select id="selectPatientCasePaperOption" resultMap="patientPaperOptionMap">
+        select * from tc_patient_paperoption where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientDiary" resultMap="patientDiaryMap">
+        select * from  tc_patient_diary where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientDiseaseComplication" resultMap="patientDiseaseComplicationMap">
+        select * from  tc_patient_disease_complication
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientSymptom" resultMap="patientSymptomMap">
+        select * from  tc_patient_symptom
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientMedicine" resultMap="patientMedicineMap">
+        select * from tc_patient_medicine
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientMedicineDetail" resultMap="patientMedicineDetailMap" >
+        select * from tc_patient_medicine_detail
+        where Patient_Medicine_ID = ${patientMedicineId}
+    </select>
+
+    <select id="selectPatientCombineMedicine" resultMap="patientCombineMedicineMap">
+        select * from tc_patient_combine_medicine
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientCombineMedicineDetail" resultMap="patientCombineMedicineDetailMap">
+        select * from tc_patient_combine_medicine_detail
+        where COMBINE_MEDICINE_ID = ${patientCombineMedicineId}
+    </select>
+
+    <select id="selectPatientVideoInfo" resultMap="patientVideoInfoMap">
+        select * from  tc_patient_video_info
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientVideoAttachment" resultMap="patientAttachmentMap">
+        select * from t_s_attachment where PATIENTATTACHMENTID = ${patientVideoAttachmentId}
+    </select>
+
+    <select id="selectPatientGait" resultMap="patientGaitMap">
+        select * from tc_patient_gait
+        where patient_case_id = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientGaitItem" resultMap="patientGaitItemMap">
+        select * from tc_patient_gait_item
+        where gait_id = #{patientGaitId}
+    </select>
+
+    <select id="selectPatientGaitCheck" resultMap="patientGaitCheckMap">
+        select * from tc_patient_gait_check
+        where gait_item_id = #{patientGaitItemId}
+    </select>
+
+    <select id="selectPatientElecTroGram" resultMap="patientElecTroGramMap">
+        select * from  tc_pat_elec_tro_gram
+        where P_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientMotNerCondResu" resultMap="patientMotNerCondResuMap">
+        select * from  tc_patient_mot_ner_cond_resu
+        where P_ELEC_TRO_GRAM_ID = #{patientElecTroGramId}
+    </select>
+
+    <select id="selectPatientFWavStuResu" resultMap="patientFWavStuResuMap">
+        select * from  tc_patient_f_wav_stu_resu
+        where P_ELEC_TRO_GRAM_ID = #{patientElecTroGramId}
+    </select>
+
+    <select id="selectPatientSenNerCondResu" resultMap="patientSenNerCondResuMap">
+        select * from  tc_patient_sen_ner_cond_resu
+        where P_ELEC_TRO_GRAM_ID = #{patientElecTroGramId}
+    </select>
+
+    <select id="selectPatientNeedExamResu" resultMap="patientNeedExamResuMap">
+        select * from  tc_patient_need_exam_resu
+        where P_ELEC_TRO_GRAM_ID = #{patientElecTroGramId}
+    </select>
+
+    <select id="selectPatientMotUniAnaResu" resultMap="patientMotUniAnaResuMap">
+        select * from  tc_patient_mot_uni_ana_resu
+        where P_ELEC_TRO_GRAM_ID = #{patientElecTroGramId}
+    </select>
+
+    <select id="selectPatientIntPatAnaItem" resultMap="patientIntPatAnaItemMap">
+        select * from  tc_patient_int_pat_ana_item
+        where P_ELEC_TRO_GRAM_ID = #{patientElecTroGramId}
+    </select>
+
+    <select id="selectPatientFieldDetail" resultMap="patientFieldDetailMap" >
+        select * from tc_patient_field_detail
+        where BUSINESS_ID = #{businessId}
+    </select>
+
+    <select id="selectPatientNerveSleep" resultMap="patientNerveSleepMap">
+        select * from  tc_patient_nerve_sleep
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientInspect" resultMap="patientInspectMap">
+        select * from  tc_patient_inspect
+        where id = ${patientInspectId}
+    </select>
+
+    <select id="selectPatientBioexam" resultMap="patientBioexamMap" >
+        select * from tc_patient_bioexam
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientBioexamResult" resultMap="patientBioexamResultMap">
+        select * from tc_bioexam_result
+        where PATIENT_BIOEXAM_ID = ${patientBioexamId}
+    </select>
+
+    <select id="selectPatientGeneMutationInfo" resultMap="patientGeneMutationInfoMap">
+        select * from tc_patient_gene_mutation_info
+        where bid = ${patientBioexamId}
+    </select>
+
+    <select id="selectPatientBobypart" resultMap="patientBodypartMap">
+        select * from tc_patient_bodypart
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientVitalSign" resultMap="patientVitalSignMap">
+        select * from  tc_patient_vital_sign
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientVitalSignDetail" resultMap="patientVitalSignDetailMap">
+        select * from tc_patient_vital_sign_detail
+        where Patient_VitalSign_ID = #{patientVitalSignId}
+    </select>
+
+    <select id="selectPatientPhytheTmsReaction" resultMap="patientPhytheReactionMap">
+        select * from tc_patient_phythe_reaction
+        where ASSESS_ID = ${accessId} and ASSESS_TYPE = 1
+    </select>
+
+    <select id="selectPatientPhytheAssessReaction" resultMap="patientPhytheReactionMap">
+        select * from tc_patient_phythe_reaction
+        where ASSESS_ID = ${accessId} and ASSESS_TYPE = 2
+    </select>
+
+    <select id="selectPatientPhytheTms" resultMap="patientPhytheTmsMap">
+        select * from tc_patient_phythe_tms
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientPhytheAssess" resultMap="patientPhytheAssessMap">
+        select * from tc_patient_phythe_assess
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientAdverse" resultMap="patientAdverseMap">
+        select * from  tc_patient_adverse
+        where patient_case_id = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientPreopsInfo" resultMap="patientPreopsInfoMap">
+        select * from tc_patient_preops_info
+        where PATIENT_CASE_ID = #{pateintCaseId}
+    </select>
+
+    <select id="selectPatientPreopsDiary" resultMap="patientPreopsDiaryMap">
+        select * from tc_patient_preops_diary
+        where PATIENT_PREOPS_INFO_ID = ${patientPreopsInfoId}
+    </select>
+
+    <select id="selectPatientPreopsScale" resultMap="patientPreopsScaleMap">
+        select * from tc_patient_preops_scale
+        where PATIENT_PREOPS_INFO_ID = ${patientPreopsInfoId}
+    </select>
+
+    <select id="selectPatientPreopsMedicine" resultMap="patientPreopsMedicineMap">
+        select * from tc_patient_preops_medicine
+        where PATIENT_PREOPS_INFO_ID = ${patientPreopsInfoId}
+    </select>
+
+    <select id="selectPatientTreatment" resultMap="patientTreatmentMap">
+        select * from tc_patient_treatment
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientComplication" resultMap="patientComplicationMap">
+        select * from tc_patient_complication
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientDbsFirst" resultMap="patientDbsFirstMap" >
+        select * from tc_patient_dbs_first
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientDbsFollow" resultMap="patientDbsFollowMap" >
+        select * from tc_patient_dbs_follow
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientDbsFirstDetail" resultMap="patientDbsFirstDetailMap" >
+        select * from tc_patient_dbs_first_detail
+        where PATIENT_DBS_FIRST_ID = #{patientDbsFirstId}
+    </select>
+
+    <select id="selectPatientDbsMedicine" resultMap="patientDbsMedicineMap">
+        select * from tc_patient_dbs_medicine
+        where
+        <if test="patientDbsFollowId != null">
+            PATIENT_DBS_FOLLOW_ID = ${patientDbsFollowId}
+        </if>
+        <if test="patientDbsFirstId != null">
+            PATIENT_DBS_FIRST_ID = ${patientDbsFirstId}
+        </if>
+    </select>
+
+    <select id="selectPatientDbsChoose" resultMap="patientDbsChooseMap">
+        select * from tc_patient_dbs_choose
+        where
+        <if test="patientDbsFollowId != null">
+            PATIENT_DBS_FOLLOW_ID = ${patientDbsFollowId}
+        </if>
+        <if test="patientDbsFirstId != null">
+            PATIENT_DBS_FIRST_ID = ${patientDbsFirstId}
+        </if>
+    </select>
+
+    <select id="selectPatientDbsParameter" resultMap="patientDbsParameterMap">
+        select * from tc_patient_dbs_parameter
+        where
+        <if test="patientDbsFollowId != null">
+            PATIENT_DBS_FOLLOW_ID = ${patientDbsFollowId}
+        </if>
+        <if test="patientDbsFirstId != null">
+            PATIENT_DBS_FIRST_ID = ${patientDbsFirstId}
+        </if>
+    </select>
+
+    <select id="selectPatientScaleFile" resultMap="patientScaleFileMap">
+        select * from tc_patient_scale_file
+        where PATIENT_SCALE_ID = ${patientScaleId}
+    </select>
+
+    <select id="selectPatientAdverseMedicine" resultMap="patientAdverseMedicineMap">
+        select * from tc_patient_adverse_medicine
+        where adverse_id = ${adverseId}
+    </select>
+
+    <select id="selectPatientAdverseSerious" resultMap="patientAdverseSeriousMap">
+        select * from tc_patient_adverse_serious
+        where patient_case_id = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientExercise" resultMap="patientExerciseMap">
+        select * from tc_patient_exercise
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientFirstVisitTreatment" resultMap="patientFirstVisitTreatmentMap">
+        select * from tc_patient_first_visit_treatment
+        where PATIENT_ID = ${patientId}
+    </select>
+
+    <select id="selectPatientMedicineAdverse" resultMap="patientMedicineAdverseMap">
+        select * from tc_patient_medicine_adverse
+        where patient_case_id = #{patientCaseId}
+    </select>
+
+    <select id="selectPatientMedicineAdverseMd" resultMap="patientMedicineAdverseMdMap">
+        select * from patient_medicine_adverse_md
+        where medicine_adverse_id = ${medicineAdverseId}
+    </select>
+
+    <select id="selectPatientSpephysical" resultMap="patientSpephysicalMap">
+        select * from tc_patient_spephysical
+        where PATIENT_CASE_ID = #{patientCaseId}
+    </select>
+</mapper>

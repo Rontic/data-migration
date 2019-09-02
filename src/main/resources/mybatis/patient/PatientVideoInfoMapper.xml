@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientVideoInfoMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientVideoInfo">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="checkDate" jdbcType="TIMESTAMP" property="checkdate" />
+    <result column="checkDevice" jdbcType="VARCHAR" property="checkdevice" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="VIDEO_TYPE" jdbcType="INTEGER" property="videoType" />
+    <result column="DEVICE_ID" jdbcType="VARCHAR" property="deviceId" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="ATTACHMENT_ID" jdbcType="VARCHAR" property="attachmentId" />
+    <result column="checkNum" jdbcType="VARCHAR" property="checknum" />
+    <result column="MAGNETIC_INTENSITY" jdbcType="INTEGER" property="magneticIntensity" />
+    <result column="diaceleWidth" jdbcType="VARCHAR" property="diacelewidth" />
+    <result column="HIPPOCAMPAL_DESC" jdbcType="VARCHAR" property="hippocampalDesc" />
+    <result column="BASAL_GANGLIA_DESC" jdbcType="VARCHAR" property="basalGangliaDesc" />
+    <result column="DAT_11C" jdbcType="BIT" property="dat11c" />
+    <result column="FDG_18F" jdbcType="BIT" property="fdg18f" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    <result column="checkconclusion" jdbcType="LONGVARCHAR" property="checkconclusion" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, checkDate, checkDevice, CREATE_BY, CREATE_DATE, CREATE_NAME, title, UPDATE_BY,
+    UPDATE_DATE, UPDATE_NAME, VIDEO_TYPE, DEVICE_ID, PATIENT_CASE_ID, ATTACHMENT_ID,
+    checkNum, MAGNETIC_INTENSITY, diaceleWidth, HIPPOCAMPAL_DESC, BASAL_GANGLIA_DESC,
+    DAT_11C, FDG_18F , REMARKS, checkconclusion
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_video_info
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientVideoInfo">
+    insert into tc_patient_video_info (ID, checkDate, checkDevice,
+      CREATE_BY, CREATE_DATE, CREATE_NAME,
+      title, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, VIDEO_TYPE, DEVICE_ID,
+      PATIENT_CASE_ID, ATTACHMENT_ID, checkNum,
+      MAGNETIC_INTENSITY, diaceleWidth, HIPPOCAMPAL_DESC,
+      BASAL_GANGLIA_DESC, DAT_11C, FDG_18F,
+      REMARKS, checkconclusion)
+    values (#{id,jdbcType=INTEGER}, #{checkdate,jdbcType=TIMESTAMP}, #{checkdevice,jdbcType=VARCHAR},
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR},
+      #{title,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{videoType,jdbcType=INTEGER}, #{deviceId,jdbcType=VARCHAR},
+      #{patientCaseId,jdbcType=VARCHAR}, #{attachmentId,jdbcType=VARCHAR}, #{checknum,jdbcType=VARCHAR},
+      #{magneticIntensity,jdbcType=INTEGER}, #{diacelewidth,jdbcType=VARCHAR}, #{hippocampalDesc,jdbcType=VARCHAR},
+      #{basalGangliaDesc,jdbcType=VARCHAR}, #{dat11c,jdbcType=BIT}, #{fdg18f,jdbcType=BIT},
+      #{remarks,jdbcType=LONGVARCHAR}, #{checkconclusion,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientVideoInfo">
+    insert into tc_patient_video_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="checkdate != null">
+        checkDate,
+      </if>
+      <if test="checkdevice != null">
+        checkDevice,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="videoType != null">
+        VIDEO_TYPE,
+      </if>
+      <if test="deviceId != null">
+        DEVICE_ID,
+      </if>
+      <if test="patientCaseId != null">
+        PATIENT_CASE_ID,
+      </if>
+      <if test="attachmentId != null">
+        ATTACHMENT_ID,
+      </if>
+      <if test="checknum != null">
+        checkNum,
+      </if>
+      <if test="magneticIntensity != null">
+        MAGNETIC_INTENSITY,
+      </if>
+      <if test="diacelewidth != null">
+        diaceleWidth,
+      </if>
+      <if test="hippocampalDesc != null">
+        HIPPOCAMPAL_DESC,
+      </if>
+      <if test="basalGangliaDesc != null">
+        BASAL_GANGLIA_DESC,
+      </if>
+      <if test="dat11c != null">
+        DAT_11C,
+      </if>
+      <if test="fdg18f != null">
+        FDG_18F,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="checkconclusion != null">
+        checkconclusion,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="checkdate != null">
+        #{checkdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkdevice != null">
+        #{checkdevice,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="videoType != null">
+        #{videoType,jdbcType=INTEGER},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentId != null">
+        #{attachmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="checknum != null">
+        #{checknum,jdbcType=VARCHAR},
+      </if>
+      <if test="magneticIntensity != null">
+        #{magneticIntensity,jdbcType=INTEGER},
+      </if>
+      <if test="diacelewidth != null">
+        #{diacelewidth,jdbcType=VARCHAR},
+      </if>
+      <if test="hippocampalDesc != null">
+        #{hippocampalDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="basalGangliaDesc != null">
+        #{basalGangliaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dat11c != null">
+        #{dat11c,jdbcType=BIT},
+      </if>
+      <if test="fdg18f != null">
+        #{fdg18f,jdbcType=BIT},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="checkconclusion != null">
+        #{checkconclusion,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

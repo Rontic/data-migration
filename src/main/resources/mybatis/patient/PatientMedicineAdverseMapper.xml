@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientMedicineAdverseMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicineAdverse">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="occur_time" jdbcType="TIMESTAMP" property="occurTime" />
+    <result column="adverse_name" jdbcType="VARCHAR" property="adverseName" />
+    <result column="adverse_describe" jdbcType="VARCHAR" property="adverseDescribe" />
+    <result column="measure_flag" jdbcType="TINYINT" property="measureFlag" />
+    <result column="treatment_relate" jdbcType="TINYINT" property="treatmentRelate" />
+    <result column="medicine_dose_effect" jdbcType="TINYINT" property="medicineDoseEffect" />
+    <result column="search_medicine_relate" jdbcType="TINYINT" property="searchMedicineRelate" />
+    <result column="serious_flag" jdbcType="TINYINT" property="seriousFlag" />
+    <result column="serious_adverse" jdbcType="VARCHAR" property="seriousAdverse" />
+    <result column="report_adverse_date" jdbcType="TIMESTAMP" property="reportAdverseDate" />
+    <result column="other_measure" jdbcType="VARCHAR" property="otherMeasure" />
+    <result column="aboratory_exam" jdbcType="VARCHAR" property="aboratoryExam" />
+    <result column="adverse_result" jdbcType="TINYINT" property="adverseResult" />
+    <result column="adverse_effect" jdbcType="TINYINT" property="adverseEffect" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="exit_test_flag" jdbcType="TINYINT" property="exitTestFlag" />
+    <result column="patient_case_id" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="patient_id" jdbcType="INTEGER" property="patientId" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, occur_time, adverse_name, adverse_describe, measure_flag, treatment_relate, medicine_dose_effect,
+    search_medicine_relate, serious_flag, serious_adverse, report_adverse_date, other_measure,
+    aboratory_exam, adverse_result, adverse_effect, end_time, exit_test_flag, patient_case_id,
+    patient_id, create_by, create_date, update_by, update_date
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_medicine_adverse
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicineAdverse">
+    insert into tc_patient_medicine_adverse (id, occur_time, adverse_name,
+      adverse_describe, measure_flag, treatment_relate,
+      medicine_dose_effect, search_medicine_relate,
+      serious_flag, serious_adverse, report_adverse_date,
+      other_measure, aboratory_exam, adverse_result,
+      adverse_effect, end_time, exit_test_flag,
+      patient_case_id, patient_id, create_by,
+      create_date, update_by, update_date
+      )
+    values (#{id,jdbcType=INTEGER}, #{occurTime,jdbcType=TIMESTAMP}, #{adverseName,jdbcType=VARCHAR},
+      #{adverseDescribe,jdbcType=VARCHAR}, #{measureFlag,jdbcType=TINYINT}, #{treatmentRelate,jdbcType=TINYINT},
+      #{medicineDoseEffect,jdbcType=TINYINT}, #{searchMedicineRelate,jdbcType=TINYINT},
+      #{seriousFlag,jdbcType=TINYINT}, #{seriousAdverse,jdbcType=VARCHAR}, #{reportAdverseDate,jdbcType=TIMESTAMP},
+      #{otherMeasure,jdbcType=VARCHAR}, #{aboratoryExam,jdbcType=VARCHAR}, #{adverseResult,jdbcType=TINYINT},
+      #{adverseEffect,jdbcType=TINYINT}, #{endTime,jdbcType=TIMESTAMP}, #{exitTestFlag,jdbcType=TINYINT},
+      #{patientCaseId,jdbcType=VARCHAR}, #{patientId,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicineAdverse">
+    insert into tc_patient_medicine_adverse
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="occurTime != null">
+        occur_time,
+      </if>
+      <if test="adverseName != null">
+        adverse_name,
+      </if>
+      <if test="adverseDescribe != null">
+        adverse_describe,
+      </if>
+      <if test="measureFlag != null">
+        measure_flag,
+      </if>
+      <if test="treatmentRelate != null">
+        treatment_relate,
+      </if>
+      <if test="medicineDoseEffect != null">
+        medicine_dose_effect,
+      </if>
+      <if test="searchMedicineRelate != null">
+        search_medicine_relate,
+      </if>
+      <if test="seriousFlag != null">
+        serious_flag,
+      </if>
+      <if test="seriousAdverse != null">
+        serious_adverse,
+      </if>
+      <if test="reportAdverseDate != null">
+        report_adverse_date,
+      </if>
+      <if test="otherMeasure != null">
+        other_measure,
+      </if>
+      <if test="aboratoryExam != null">
+        aboratory_exam,
+      </if>
+      <if test="adverseResult != null">
+        adverse_result,
+      </if>
+      <if test="adverseEffect != null">
+        adverse_effect,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="exitTestFlag != null">
+        exit_test_flag,
+      </if>
+      <if test="patientCaseId != null">
+        patient_case_id,
+      </if>
+      <if test="patientId != null">
+        patient_id,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="occurTime != null">
+        #{occurTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adverseName != null">
+        #{adverseName,jdbcType=VARCHAR},
+      </if>
+      <if test="adverseDescribe != null">
+        #{adverseDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="measureFlag != null">
+        #{measureFlag,jdbcType=TINYINT},
+      </if>
+      <if test="treatmentRelate != null">
+        #{treatmentRelate,jdbcType=TINYINT},
+      </if>
+      <if test="medicineDoseEffect != null">
+        #{medicineDoseEffect,jdbcType=TINYINT},
+      </if>
+      <if test="searchMedicineRelate != null">
+        #{searchMedicineRelate,jdbcType=TINYINT},
+      </if>
+      <if test="seriousFlag != null">
+        #{seriousFlag,jdbcType=TINYINT},
+      </if>
+      <if test="seriousAdverse != null">
+        #{seriousAdverse,jdbcType=VARCHAR},
+      </if>
+      <if test="reportAdverseDate != null">
+        #{reportAdverseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="otherMeasure != null">
+        #{otherMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="aboratoryExam != null">
+        #{aboratoryExam,jdbcType=VARCHAR},
+      </if>
+      <if test="adverseResult != null">
+        #{adverseResult,jdbcType=TINYINT},
+      </if>
+      <if test="adverseEffect != null">
+        #{adverseEffect,jdbcType=TINYINT},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exitTestFlag != null">
+        #{exitTestFlag,jdbcType=TINYINT},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientVitalSignDetailMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientVitalSignDetail">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="BP" jdbcType="TINYINT" property="bp" />
+    <result column="SIDE" jdbcType="TINYINT" property="side" />
+    <result column="SYSTOLIC" jdbcType="VARCHAR" property="systolic" />
+    <result column="DIASTOLIC" jdbcType="VARCHAR" property="diastolic" />
+    <result column="HEARTRATE" jdbcType="VARCHAR" property="heartrate" />
+    <result column="DIZZY" jdbcType="TINYINT" property="dizzy" />
+    <result column="Patient_VitalSign_ID" jdbcType="INTEGER" property="patientVitalsignId" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientVitalSignDetail">
+      SET FOREIGN_KEY_CHECKS = 0;
+        insert into tc_patient_vital_sign_detail (ID,CREATE_BY,CREATE_DATE,CREATE_NAME,UPDATE_BY,UPDATE_DATE,UPDATE_NAME,BP,SIDE,SYSTOLIC, DIASTOLIC,HEARTRATE,DIZZY,Patient_VitalSign_ID,PATIENT_CASE_ID)
+        values (#{id}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+          #{createName,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+          #{updateName,jdbcType=VARCHAR}, #{bp,jdbcType=TINYINT}, #{side,jdbcType=TINYINT},
+          #{systolic,jdbcType=VARCHAR}, #{diastolic,jdbcType=VARCHAR}, #{heartrate,jdbcType=VARCHAR},
+          #{dizzy,jdbcType=TINYINT}, #{patientVitalsignId,jdbcType=INTEGER}, #{patientCaseId,jdbcType=VARCHAR}
+      );
+      SET FOREIGN_KEY_CHECKS = 1;
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientVitalSignDetail">
+        insert into tc_patient_vital_sign_detail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+          <if test="id != null">
+            ID,
+          </if>
+          <if test="createBy != null">
+            CREATE_BY,
+          </if>
+          <if test="createDate != null">
+            CREATE_DATE,
+          </if>
+          <if test="createName != null">
+            CREATE_NAME,
+          </if>
+          <if test="updateBy != null">
+            UPDATE_BY,
+          </if>
+          <if test="updateDate != null">
+            UPDATE_DATE,
+          </if>
+          <if test="updateName != null">
+            UPDATE_NAME,
+          </if>
+          <if test="bp != null">
+            BP,
+          </if>
+          <if test="side != null">
+            SIDE,
+          </if>
+          <if test="systolic != null">
+            SYSTOLIC,
+          </if>
+          <if test="diastolic != null">
+            DIASTOLIC,
+          </if>
+          <if test="heartrate != null">
+            HEARTRATE,
+          </if>
+          <if test="dizzy != null">
+            DIZZY,
+          </if>
+          <if test="patientVitalsignId != null">
+            Patient_VitalSign_ID,
+          </if>
+          <if test="patientCaseId != null">
+            PATIENT_CASE_ID,
+          </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createName != null">
+                #{createName,jdbcType=VARCHAR},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateName != null">
+                #{updateName,jdbcType=VARCHAR},
+            </if>
+            <if test="bp != null">
+                #{bp,jdbcType=TINYINT},
+            </if>
+            <if test="side != null">
+                #{side,jdbcType=TINYINT},
+            </if>
+            <if test="systolic != null">
+                #{systolic,jdbcType=VARCHAR},
+            </if>
+            <if test="diastolic != null">
+                #{diastolic,jdbcType=VARCHAR},
+            </if>
+            <if test="heartrate != null">
+                #{heartrate,jdbcType=VARCHAR},
+            </if>
+            <if test="dizzy != null">
+                #{dizzy,jdbcType=TINYINT},
+            </if>
+            <if test="patientVitalsignId != null">
+                #{patientVitalsignId,jdbcType=INTEGER},
+            </if>
+            <if test="patientCaseId != null">
+                #{patientCaseId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+  </insert>
+</mapper>

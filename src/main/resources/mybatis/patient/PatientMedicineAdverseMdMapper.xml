@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientMedicineAdverseMdMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicineAdverseMd">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="medicine_name" jdbcType="VARCHAR" property="medicineName" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="use_medicine_way" jdbcType="VARCHAR" property="useMedicineWay" />
+    <result column="whether_continue" jdbcType="TINYINT" property="whetherContinue" />
+    <result column="duration" jdbcType="TIMESTAMP" property="duration" />
+    <result column="medicine_adverse_id" jdbcType="INTEGER" property="medicineAdverseId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, medicine_name, number, use_medicine_way, whether_continue, duration, medicine_adverse_id
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from patient_medicine_adverse_md
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from patient_medicine_adverse_md
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicineAdverseMd">
+    insert into patient_medicine_adverse_md (id, medicine_name, number,
+      use_medicine_way, whether_continue, duration,
+      medicine_adverse_id)
+    values (#{id,jdbcType=INTEGER}, #{medicineName,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR},
+      #{useMedicineWay,jdbcType=VARCHAR}, #{whetherContinue,jdbcType=TINYINT}, #{duration,jdbcType=TIMESTAMP},
+      #{medicineAdverseId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientMedicineAdverseMd">
+    insert into patient_medicine_adverse_md
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="medicineName != null">
+        medicine_name,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="useMedicineWay != null">
+        use_medicine_way,
+      </if>
+      <if test="whetherContinue != null">
+        whether_continue,
+      </if>
+      <if test="duration != null">
+        duration,
+      </if>
+      <if test="medicineAdverseId != null">
+        medicine_adverse_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="medicineName != null">
+        #{medicineName,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="useMedicineWay != null">
+        #{useMedicineWay,jdbcType=VARCHAR},
+      </if>
+      <if test="whetherContinue != null">
+        #{whetherContinue,jdbcType=TINYINT},
+      </if>
+      <if test="duration != null">
+        #{duration,jdbcType=TIMESTAMP},
+      </if>
+      <if test="medicineAdverseId != null">
+        #{medicineAdverseId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

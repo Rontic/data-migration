@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientIntPatAnaItemMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientIntPatAnaItem">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="AMPLITUDE" jdbcType="VARCHAR" property="amplitude" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="MUSCLE" jdbcType="VARCHAR" property="muscle" />
+    <result column="RATIO" jdbcType="VARCHAR" property="ratio" />
+    <result column="TURN" jdbcType="VARCHAR" property="turn" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="INT_PAT_ANA_ID" jdbcType="VARCHAR" property="intPatAnaId" />
+    <result column="P_ELEC_TRO_GRAM_ID" jdbcType="VARCHAR" property="pElecTroGramId" />
+    <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+    <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, AMPLITUDE, CREATE_BY, CREATE_DATE, CREATE_NAME, MUSCLE, RATIO, TURN, UPDATE_BY,
+    UPDATE_DATE, UPDATE_NAME, INT_PAT_ANA_ID, P_ELEC_TRO_GRAM_ID, P_CASE_ID, P_INFO_ID
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_int_pat_ana_item
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientIntPatAnaItem">
+    insert into tc_patient_int_pat_ana_item (ID, AMPLITUDE, CREATE_BY,
+      CREATE_DATE, CREATE_NAME, MUSCLE,
+      RATIO, TURN, UPDATE_BY,
+      UPDATE_DATE, UPDATE_NAME, INT_PAT_ANA_ID,
+      P_ELEC_TRO_GRAM_ID, P_CASE_ID, P_INFO_ID
+      )
+    values (#{id,jdbcType=VARCHAR}, #{amplitude,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR}, #{muscle,jdbcType=VARCHAR},
+      #{ratio,jdbcType=VARCHAR}, #{turn,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR},
+      #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR}, #{intPatAnaId,jdbcType=VARCHAR},
+      #{pElecTroGramId,jdbcType=VARCHAR}, #{pCaseId,jdbcType=VARCHAR}, #{pInfoId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientIntPatAnaItem">
+    insert into tc_patient_int_pat_ana_item
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="amplitude != null">
+        AMPLITUDE,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="muscle != null">
+        MUSCLE,
+      </if>
+      <if test="ratio != null">
+        RATIO,
+      </if>
+      <if test="turn != null">
+        TURN,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="intPatAnaId != null">
+        INT_PAT_ANA_ID,
+      </if>
+      <if test="pElecTroGramId != null">
+        P_ELEC_TRO_GRAM_ID,
+      </if>
+      <if test="pCaseId != null">
+        P_CASE_ID,
+      </if>
+      <if test="pInfoId != null">
+        P_INFO_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="amplitude != null">
+        #{amplitude,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="muscle != null">
+        #{muscle,jdbcType=VARCHAR},
+      </if>
+      <if test="ratio != null">
+        #{ratio,jdbcType=VARCHAR},
+      </if>
+      <if test="turn != null">
+        #{turn,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="intPatAnaId != null">
+        #{intPatAnaId,jdbcType=VARCHAR},
+      </if>
+      <if test="pElecTroGramId != null">
+        #{pElecTroGramId,jdbcType=VARCHAR},
+      </if>
+      <if test="pCaseId != null">
+        #{pCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="pInfoId != null">
+        #{pInfoId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

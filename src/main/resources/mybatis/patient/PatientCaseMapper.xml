@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientCaseMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientCase">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CASE_NAME" jdbcType="VARCHAR" property="caseName" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="DIAG_TIME" jdbcType="TIMESTAMP" property="diagTime" />
+    <result column="DOC_ID" jdbcType="VARCHAR" property="docId" />
+    <result column="DOC_NAME" jdbcType="VARCHAR" property="docName" />
+    <result column="HOSP_ID" jdbcType="VARCHAR" property="hospId" />
+    <result column="HOSP_NAME" jdbcType="VARCHAR" property="hospName" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="BP_ORTHOSTATIC" jdbcType="VARCHAR" property="bpOrthostatic" />
+    <result column="BREATHING" jdbcType="VARCHAR" property="breathing" />
+    <result column="DOI_CDR" jdbcType="VARCHAR" property="doiCdr" />
+    <result column="DOI_MMSE" jdbcType="VARCHAR" property="doiMmse" />
+    <result column="DOI_MOCA" jdbcType="VARCHAR" property="doiMoca" />
+    <result column="HEART_RATE" jdbcType="VARCHAR" property="heartRate" />
+    <result column="MEDICINEIMAGE_BRIEF" jdbcType="VARCHAR" property="medicineimageBrief" />
+    <result column="PULSE" jdbcType="VARCHAR" property="pulse" />
+    <result column="RHYTHM" jdbcType="TINYINT" property="rhythm" />
+    <result column="TEMPERATURE" jdbcType="VARCHAR" property="temperature" />
+    <result column="BP_DECUBITUS" jdbcType="VARCHAR" property="bpDecubitus" />
+    <result column="CASE_TYPE" jdbcType="INTEGER" property="caseType" />
+    <result column="ARCHIVE_STATUS" jdbcType="INTEGER" property="archiveStatus" />
+    <result column="DISEASE_TYPE" jdbcType="INTEGER" property="diseaseType" />
+    <result column="CASE_SYMPTOM" jdbcType="VARCHAR" property="caseSymptom" />
+    <result column="BLOOD_CODE" jdbcType="VARCHAR" property="bloodCode" />
+    <result column="GENE_DETECTION_NAME" jdbcType="VARCHAR" property="geneDetectionName" />
+    <result column="GENE_DETECTION_RESULT" jdbcType="VARCHAR" property="geneDetectionResult" />
+    <result column="TCS_RESULT" jdbcType="VARCHAR" property="tcsResult" />
+    <result column="BP_SITTING" jdbcType="VARCHAR" property="bpSitting" />
+    <result column="SPECIFIC_DISEASE" jdbcType="INTEGER" property="specificDisease" />
+    <result column="DIAGNOSE_STATE" jdbcType="INTEGER" property="diagnoseState" />
+    <result column="PATIENT_EXPERIMENT_ID" jdbcType="INTEGER" property="patientExperimentId" />
+    <result column="IS_PAYED" jdbcType="TINYINT" property="isPayed" />
+    <result column="TASK_INFO_ID" jdbcType="INTEGER" property="taskInfoId" />
+    <result column="PAY_DATE" jdbcType="VARCHAR" property="payDate" />
+    <result column="TCM_TYPE" jdbcType="VARCHAR" property="tcmType" />
+    <result column="FOLLOW_TIMES" jdbcType="INTEGER" property="followTimes" />
+    <result column="IS_Accompany" jdbcType="INTEGER" property="isAccompany" />
+    <result column="MEDICINE_BRIEF" jdbcType="LONGVARCHAR" property="medicineBrief" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    <result column="SCALE_BRIEF" jdbcType="LONGVARCHAR" property="scaleBrief" />
+    <result column="SIDEEFFECT_BRIEF" jdbcType="LONGVARCHAR" property="sideeffectBrief" />
+    <result column="SPEPHYSICAL_BRIEF" jdbcType="LONGVARCHAR" property="spephysicalBrief" />
+    <result column="SURGICAL_BRIEF" jdbcType="LONGVARCHAR" property="surgicalBrief" />
+    <result column="SYM_NAME" jdbcType="LONGVARCHAR" property="symName" />
+    <result column="BIOEXAM_BRIEF" jdbcType="LONGVARCHAR" property="bioexamBrief" />
+    <result column="ETG_BRIEF" jdbcType="LONGVARCHAR" property="etgBrief" />
+    <result column="AUXILIARYEXAM_BRIEF" jdbcType="LONGVARCHAR" property="auxiliaryexamBrief" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, CASE_NAME, CREATE_BY, CREATE_DATE, CREATE_NAME, DIAG_TIME, DOC_ID, DOC_NAME,
+    HOSP_ID, HOSP_NAME, UPDATE_BY, UPDATE_DATE, UPDATE_NAME, PATIENT_ID, version, BP_ORTHOSTATIC,
+    BREATHING, DOI_CDR, DOI_MMSE, DOI_MOCA, HEART_RATE, MEDICINEIMAGE_BRIEF, PULSE, RHYTHM,
+    TEMPERATURE, BP_DECUBITUS, CASE_TYPE, ARCHIVE_STATUS, DISEASE_TYPE, CASE_SYMPTOM,
+    BLOOD_CODE, GENE_DETECTION_NAME, GENE_DETECTION_RESULT, TCS_RESULT, BP_SITTING, SPECIFIC_DISEASE,
+    DIAGNOSE_STATE, PATIENT_EXPERIMENT_ID, IS_PAYED, TASK_INFO_ID, PAY_DATE, TCM_TYPE,
+    FOLLOW_TIMES, IS_Accompany,MEDICINE_BRIEF, REMARKS, SCALE_BRIEF, SIDEEFFECT_BRIEF, SPEPHYSICAL_BRIEF, SURGICAL_BRIEF,
+    SYM_NAME, BIOEXAM_BRIEF, ETG_BRIEF, AUXILIARYEXAM_BRIEF
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_case
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientCase">
+    insert into tc_patient_case (ID, CASE_NAME, CREATE_BY,
+      CREATE_DATE, CREATE_NAME, DIAG_TIME,
+      DOC_ID, DOC_NAME, HOSP_ID,
+      HOSP_NAME, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, PATIENT_ID, version,
+      BP_ORTHOSTATIC, BREATHING, DOI_CDR,
+      DOI_MMSE, DOI_MOCA, HEART_RATE,
+      MEDICINEIMAGE_BRIEF, PULSE, RHYTHM,
+      TEMPERATURE, BP_DECUBITUS, CASE_TYPE,
+      ARCHIVE_STATUS, DISEASE_TYPE, CASE_SYMPTOM,
+      BLOOD_CODE, GENE_DETECTION_NAME, GENE_DETECTION_RESULT,
+      TCS_RESULT, BP_SITTING, SPECIFIC_DISEASE,
+      DIAGNOSE_STATE, PATIENT_EXPERIMENT_ID, IS_PAYED,
+      TASK_INFO_ID, PAY_DATE, TCM_TYPE,
+      FOLLOW_TIMES, IS_Accompany, MEDICINE_BRIEF,
+      REMARKS, SCALE_BRIEF, SIDEEFFECT_BRIEF,
+      SPEPHYSICAL_BRIEF, SURGICAL_BRIEF,
+      SYM_NAME, BIOEXAM_BRIEF, ETG_BRIEF,
+      AUXILIARYEXAM_BRIEF)
+    values (#{id,jdbcType=VARCHAR}, #{caseName,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR}, #{diagTime,jdbcType=TIMESTAMP},
+      #{docId,jdbcType=VARCHAR}, #{docName,jdbcType=VARCHAR}, #{hospId,jdbcType=VARCHAR},
+      #{hospName,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{patientId,jdbcType=INTEGER}, #{version,jdbcType=INTEGER},
+      #{bpOrthostatic,jdbcType=VARCHAR}, #{breathing,jdbcType=VARCHAR}, #{doiCdr,jdbcType=VARCHAR},
+      #{doiMmse,jdbcType=VARCHAR}, #{doiMoca,jdbcType=VARCHAR}, #{heartRate,jdbcType=VARCHAR},
+      #{medicineimageBrief,jdbcType=VARCHAR}, #{pulse,jdbcType=VARCHAR}, #{rhythm,jdbcType=TINYINT},
+      #{temperature,jdbcType=VARCHAR}, #{bpDecubitus,jdbcType=VARCHAR}, #{caseType,jdbcType=INTEGER},
+      #{archiveStatus,jdbcType=INTEGER}, #{diseaseType,jdbcType=INTEGER}, #{caseSymptom,jdbcType=VARCHAR},
+      #{bloodCode,jdbcType=VARCHAR}, #{geneDetectionName,jdbcType=VARCHAR}, #{geneDetectionResult,jdbcType=VARCHAR},
+      #{tcsResult,jdbcType=VARCHAR}, #{bpSitting,jdbcType=VARCHAR}, #{specificDisease,jdbcType=INTEGER},
+      #{diagnoseState,jdbcType=INTEGER}, #{patientExperimentId,jdbcType=INTEGER}, #{isPayed,jdbcType=TINYINT},
+      #{taskInfoId,jdbcType=INTEGER}, #{payDate,jdbcType=VARCHAR}, #{tcmType,jdbcType=VARCHAR},
+      #{followTimes,jdbcType=INTEGER}, #{isAccompany,jdbcType=INTEGER}, #{medicineBrief,jdbcType=LONGVARCHAR},
+      #{remarks,jdbcType=LONGVARCHAR}, #{scaleBrief,jdbcType=LONGVARCHAR}, #{sideeffectBrief,jdbcType=LONGVARCHAR},
+      #{spephysicalBrief,jdbcType=LONGVARCHAR}, #{surgicalBrief,jdbcType=LONGVARCHAR},
+      #{symName,jdbcType=LONGVARCHAR}, #{bioexamBrief,jdbcType=LONGVARCHAR}, #{etgBrief,jdbcType=LONGVARCHAR},
+      #{auxiliaryexamBrief,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientCase">
+    insert into tc_patient_case
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="caseName != null">
+        CASE_NAME,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="diagTime != null">
+        DIAG_TIME,
+      </if>
+      <if test="docId != null">
+        DOC_ID,
+      </if>
+      <if test="docName != null">
+        DOC_NAME,
+      </if>
+      <if test="hospId != null">
+        HOSP_ID,
+      </if>
+      <if test="hospName != null">
+        HOSP_NAME,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="bpOrthostatic != null">
+        BP_ORTHOSTATIC,
+      </if>
+      <if test="breathing != null">
+        BREATHING,
+      </if>
+      <if test="doiCdr != null">
+        DOI_CDR,
+      </if>
+      <if test="doiMmse != null">
+        DOI_MMSE,
+      </if>
+      <if test="doiMoca != null">
+        DOI_MOCA,
+      </if>
+      <if test="heartRate != null">
+        HEART_RATE,
+      </if>
+      <if test="medicineimageBrief != null">
+        MEDICINEIMAGE_BRIEF,
+      </if>
+      <if test="pulse != null">
+        PULSE,
+      </if>
+      <if test="rhythm != null">
+        RHYTHM,
+      </if>
+      <if test="temperature != null">
+        TEMPERATURE,
+      </if>
+      <if test="bpDecubitus != null">
+        BP_DECUBITUS,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="archiveStatus != null">
+        ARCHIVE_STATUS,
+      </if>
+      <if test="diseaseType != null">
+        DISEASE_TYPE,
+      </if>
+      <if test="caseSymptom != null">
+        CASE_SYMPTOM,
+      </if>
+      <if test="bloodCode != null">
+        BLOOD_CODE,
+      </if>
+      <if test="geneDetectionName != null">
+        GENE_DETECTION_NAME,
+      </if>
+      <if test="geneDetectionResult != null">
+        GENE_DETECTION_RESULT,
+      </if>
+      <if test="tcsResult != null">
+        TCS_RESULT,
+      </if>
+      <if test="bpSitting != null">
+        BP_SITTING,
+      </if>
+      <if test="specificDisease != null">
+        SPECIFIC_DISEASE,
+      </if>
+      <if test="diagnoseState != null">
+        DIAGNOSE_STATE,
+      </if>
+      <if test="patientExperimentId != null">
+        PATIENT_EXPERIMENT_ID,
+      </if>
+      <if test="isPayed != null">
+        IS_PAYED,
+      </if>
+      <if test="taskInfoId != null">
+        TASK_INFO_ID,
+      </if>
+      <if test="payDate != null">
+        PAY_DATE,
+      </if>
+      <if test="tcmType != null">
+        TCM_TYPE,
+      </if>
+      <if test="followTimes != null">
+        FOLLOW_TIMES,
+      </if>
+      <if test="isAccompany != null">
+        IS_Accompany,
+      </if>
+      <if test="medicineBrief != null">
+        MEDICINE_BRIEF,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="scaleBrief != null">
+        SCALE_BRIEF,
+      </if>
+      <if test="sideeffectBrief != null">
+        SIDEEFFECT_BRIEF,
+      </if>
+      <if test="spephysicalBrief != null">
+        SPEPHYSICAL_BRIEF,
+      </if>
+      <if test="surgicalBrief != null">
+        SURGICAL_BRIEF,
+      </if>
+      <if test="symName != null">
+        SYM_NAME,
+      </if>
+      <if test="bioexamBrief != null">
+        BIOEXAM_BRIEF,
+      </if>
+      <if test="etgBrief != null">
+        ETG_BRIEF,
+      </if>
+      <if test="auxiliaryexamBrief != null">
+        AUXILIARYEXAM_BRIEF,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="caseName != null">
+        #{caseName,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="diagTime != null">
+        #{diagTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="docId != null">
+        #{docId,jdbcType=VARCHAR},
+      </if>
+      <if test="docName != null">
+        #{docName,jdbcType=VARCHAR},
+      </if>
+      <if test="hospId != null">
+        #{hospId,jdbcType=VARCHAR},
+      </if>
+      <if test="hospName != null">
+        #{hospName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="bpOrthostatic != null">
+        #{bpOrthostatic,jdbcType=VARCHAR},
+      </if>
+      <if test="breathing != null">
+        #{breathing,jdbcType=VARCHAR},
+      </if>
+      <if test="doiCdr != null">
+        #{doiCdr,jdbcType=VARCHAR},
+      </if>
+      <if test="doiMmse != null">
+        #{doiMmse,jdbcType=VARCHAR},
+      </if>
+      <if test="doiMoca != null">
+        #{doiMoca,jdbcType=VARCHAR},
+      </if>
+      <if test="heartRate != null">
+        #{heartRate,jdbcType=VARCHAR},
+      </if>
+      <if test="medicineimageBrief != null">
+        #{medicineimageBrief,jdbcType=VARCHAR},
+      </if>
+      <if test="pulse != null">
+        #{pulse,jdbcType=VARCHAR},
+      </if>
+      <if test="rhythm != null">
+        #{rhythm,jdbcType=TINYINT},
+      </if>
+      <if test="temperature != null">
+        #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="bpDecubitus != null">
+        #{bpDecubitus,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="archiveStatus != null">
+        #{archiveStatus,jdbcType=INTEGER},
+      </if>
+      <if test="diseaseType != null">
+        #{diseaseType,jdbcType=INTEGER},
+      </if>
+      <if test="caseSymptom != null">
+        #{caseSymptom,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodCode != null">
+        #{bloodCode,jdbcType=VARCHAR},
+      </if>
+      <if test="geneDetectionName != null">
+        #{geneDetectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="geneDetectionResult != null">
+        #{geneDetectionResult,jdbcType=VARCHAR},
+      </if>
+      <if test="tcsResult != null">
+        #{tcsResult,jdbcType=VARCHAR},
+      </if>
+      <if test="bpSitting != null">
+        #{bpSitting,jdbcType=VARCHAR},
+      </if>
+      <if test="specificDisease != null">
+        #{specificDisease,jdbcType=INTEGER},
+      </if>
+      <if test="diagnoseState != null">
+        #{diagnoseState,jdbcType=INTEGER},
+      </if>
+      <if test="patientExperimentId != null">
+        #{patientExperimentId,jdbcType=INTEGER},
+      </if>
+      <if test="isPayed != null">
+        #{isPayed,jdbcType=TINYINT},
+      </if>
+      <if test="taskInfoId != null">
+        #{taskInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="payDate != null">
+        #{payDate,jdbcType=VARCHAR},
+      </if>
+      <if test="tcmType != null">
+        #{tcmType,jdbcType=VARCHAR},
+      </if>
+      <if test="followTimes != null">
+        #{followTimes,jdbcType=INTEGER},
+      </if>
+      <if test="isAccompany != null">
+        #{isAccompany,jdbcType=INTEGER},
+      </if>
+      <if test="medicineBrief != null">
+        #{medicineBrief,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="scaleBrief != null">
+        #{scaleBrief,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sideeffectBrief != null">
+        #{sideeffectBrief,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="spephysicalBrief != null">
+        #{spephysicalBrief,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="surgicalBrief != null">
+        #{surgicalBrief,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="symName != null">
+        #{symName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bioexamBrief != null">
+        #{bioexamBrief,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="etgBrief != null">
+        #{etgBrief,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="auxiliaryexamBrief != null">
+        #{auxiliaryexamBrief,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

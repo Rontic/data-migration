@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientSenNerCondResuMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientSenNerCondResu">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="AMPLITUDE" jdbcType="VARCHAR" property="amplitude" />
+    <result column="CONDUCTION_VELOCITY" jdbcType="VARCHAR" property="conductionVelocity" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="DISTANCE" jdbcType="VARCHAR" property="distance" />
+    <result column="LATENCY_DIFFERENCE" jdbcType="VARCHAR" property="latencyDifference" />
+    <result column="NERVE_AND_SITE" jdbcType="VARCHAR" property="nerveAndSite" />
+    <result column="NERVE_TYPE" jdbcType="VARCHAR" property="nerveType" />
+    <result column="ONSET_LATENCY" jdbcType="VARCHAR" property="onsetLatency" />
+    <result column="PEAK_LATENCY" jdbcType="VARCHAR" property="peakLatency" />
+    <result column="SEGMENT" jdbcType="VARCHAR" property="segment" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="P_ELEC_TRO_GRAM_ID" jdbcType="VARCHAR" property="pElecTroGramId" />
+    <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+    <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+    <result column="SEN_NER_COND_ITEM_ID" jdbcType="VARCHAR" property="senNerCondItemId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, AMPLITUDE, CONDUCTION_VELOCITY, CREATE_BY, CREATE_DATE, CREATE_NAME, DISTANCE,
+    LATENCY_DIFFERENCE, NERVE_AND_SITE, NERVE_TYPE, ONSET_LATENCY, PEAK_LATENCY, SEGMENT,
+    UPDATE_BY, UPDATE_DATE, UPDATE_NAME, P_ELEC_TRO_GRAM_ID, P_CASE_ID, P_INFO_ID, SEN_NER_COND_ITEM_ID
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_sen_ner_cond_resu
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientSenNerCondResu">
+    insert into tc_patient_sen_ner_cond_resu (ID, AMPLITUDE, CONDUCTION_VELOCITY,
+      CREATE_BY, CREATE_DATE, CREATE_NAME,
+      DISTANCE, LATENCY_DIFFERENCE, NERVE_AND_SITE,
+      NERVE_TYPE, ONSET_LATENCY, PEAK_LATENCY,
+      SEGMENT, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, P_ELEC_TRO_GRAM_ID, P_CASE_ID,
+      P_INFO_ID, SEN_NER_COND_ITEM_ID)
+    values (#{id,jdbcType=VARCHAR}, #{amplitude,jdbcType=VARCHAR}, #{conductionVelocity,jdbcType=VARCHAR},
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR},
+      #{distance,jdbcType=VARCHAR}, #{latencyDifference,jdbcType=VARCHAR}, #{nerveAndSite,jdbcType=VARCHAR},
+      #{nerveType,jdbcType=VARCHAR}, #{onsetLatency,jdbcType=VARCHAR}, #{peakLatency,jdbcType=VARCHAR},
+      #{segment,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{pElecTroGramId,jdbcType=VARCHAR}, #{pCaseId,jdbcType=VARCHAR},
+      #{pInfoId,jdbcType=INTEGER}, #{senNerCondItemId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientSenNerCondResu">
+    insert into tc_patient_sen_ner_cond_resu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="amplitude != null">
+        AMPLITUDE,
+      </if>
+      <if test="conductionVelocity != null">
+        CONDUCTION_VELOCITY,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="distance != null">
+        DISTANCE,
+      </if>
+      <if test="latencyDifference != null">
+        LATENCY_DIFFERENCE,
+      </if>
+      <if test="nerveAndSite != null">
+        NERVE_AND_SITE,
+      </if>
+      <if test="nerveType != null">
+        NERVE_TYPE,
+      </if>
+      <if test="onsetLatency != null">
+        ONSET_LATENCY,
+      </if>
+      <if test="peakLatency != null">
+        PEAK_LATENCY,
+      </if>
+      <if test="segment != null">
+        SEGMENT,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="pElecTroGramId != null">
+        P_ELEC_TRO_GRAM_ID,
+      </if>
+      <if test="pCaseId != null">
+        P_CASE_ID,
+      </if>
+      <if test="pInfoId != null">
+        P_INFO_ID,
+      </if>
+      <if test="senNerCondItemId != null">
+        SEN_NER_COND_ITEM_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="amplitude != null">
+        #{amplitude,jdbcType=VARCHAR},
+      </if>
+      <if test="conductionVelocity != null">
+        #{conductionVelocity,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="distance != null">
+        #{distance,jdbcType=VARCHAR},
+      </if>
+      <if test="latencyDifference != null">
+        #{latencyDifference,jdbcType=VARCHAR},
+      </if>
+      <if test="nerveAndSite != null">
+        #{nerveAndSite,jdbcType=VARCHAR},
+      </if>
+      <if test="nerveType != null">
+        #{nerveType,jdbcType=VARCHAR},
+      </if>
+      <if test="onsetLatency != null">
+        #{onsetLatency,jdbcType=VARCHAR},
+      </if>
+      <if test="peakLatency != null">
+        #{peakLatency,jdbcType=VARCHAR},
+      </if>
+      <if test="segment != null">
+        #{segment,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="pElecTroGramId != null">
+        #{pElecTroGramId,jdbcType=VARCHAR},
+      </if>
+      <if test="pCaseId != null">
+        #{pCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="pInfoId != null">
+        #{pInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="senNerCondItemId != null">
+        #{senNerCondItemId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

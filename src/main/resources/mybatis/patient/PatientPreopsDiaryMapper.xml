@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientPreopsDiaryMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsDiary">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="DAY_COUNT" jdbcType="INTEGER" property="dayCount" />
+    <result column="FIVE_DAY_DIARY_HOUR" jdbcType="DOUBLE" property="fiveDayDiaryHour" />
+    <result column="FIVE_DAY_DIARY_TYPE" jdbcType="INTEGER" property="fiveDayDiaryType" />
+    <result column="FIVE_DAY_TIME" jdbcType="TIMESTAMP" property="fiveDayTime" />
+    <result column="FOUR_DAY_DIARY_HOUR" jdbcType="DOUBLE" property="fourDayDiaryHour" />
+    <result column="FOUR_DAY_DIARY_TYPE" jdbcType="INTEGER" property="fourDayDiaryType" />
+    <result column="FOUR_DAY_TIME" jdbcType="TIMESTAMP" property="fourDayTime" />
+    <result column="HOUR_AVERAGE" jdbcType="DOUBLE" property="hourAverage" />
+    <result column="ONE_DAY_DIARY_HOUR" jdbcType="DOUBLE" property="oneDayDiaryHour" />
+    <result column="ONE_DAY_DIARY_TYPE" jdbcType="INTEGER" property="oneDayDiaryType" />
+    <result column="ONE_DAY_TIME" jdbcType="TIMESTAMP" property="oneDayTime" />
+    <result column="SIX_DAY_DIARY_HOUR" jdbcType="DOUBLE" property="sixDayDiaryHour" />
+    <result column="SIX_DAY_DIARY_TYPE" jdbcType="INTEGER" property="sixDayDiaryType" />
+    <result column="SIX_DAY_TIME" jdbcType="TIMESTAMP" property="sixDayTime" />
+    <result column="THREE_DAY_DIARY_HOUR" jdbcType="DOUBLE" property="threeDayDiaryHour" />
+    <result column="THREE_DAY_DIARY_TYPE" jdbcType="INTEGER" property="threeDayDiaryType" />
+    <result column="THREE_DAY_TIME" jdbcType="TIMESTAMP" property="threeDayTime" />
+    <result column="TWO_DAY_DIARY_HOUR" jdbcType="DOUBLE" property="twoDayDiaryHour" />
+    <result column="TWO_DAY_DIARY_TYPE" jdbcType="INTEGER" property="twoDayDiaryType" />
+    <result column="TWO_DAY_TIME" jdbcType="TIMESTAMP" property="twoDayTime" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="PATIENT_PREOPS_INFO_ID" jdbcType="INTEGER" property="patientPreopsInfoId" />
+    <result column="seven_day_diary_hour" jdbcType="DOUBLE" property="sevenDayDiaryHour" />
+    <result column="seven_day_diary_type" jdbcType="INTEGER" property="sevenDayDiaryType" />
+    <result column="seven_day_time" jdbcType="TIMESTAMP" property="sevenDayTime" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, CREATE_BY, CREATE_DATE, CREATE_NAME, DAY_COUNT, FIVE_DAY_DIARY_HOUR, FIVE_DAY_DIARY_TYPE,
+    FIVE_DAY_TIME, FOUR_DAY_DIARY_HOUR, FOUR_DAY_DIARY_TYPE, FOUR_DAY_TIME, HOUR_AVERAGE,
+    ONE_DAY_DIARY_HOUR, ONE_DAY_DIARY_TYPE, ONE_DAY_TIME, SIX_DAY_DIARY_HOUR, SIX_DAY_DIARY_TYPE,
+    SIX_DAY_TIME, THREE_DAY_DIARY_HOUR, THREE_DAY_DIARY_TYPE, THREE_DAY_TIME, TWO_DAY_DIARY_HOUR,
+    TWO_DAY_DIARY_TYPE, TWO_DAY_TIME, UPDATE_BY, UPDATE_DATE, UPDATE_NAME, PATIENT_PREOPS_INFO_ID,
+    seven_day_diary_hour, seven_day_diary_type, seven_day_time
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_preops_diary
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsDiary">
+    insert into tc_patient_preops_diary (ID, CREATE_BY, CREATE_DATE,
+      CREATE_NAME, DAY_COUNT, FIVE_DAY_DIARY_HOUR,
+      FIVE_DAY_DIARY_TYPE, FIVE_DAY_TIME, FOUR_DAY_DIARY_HOUR,
+      FOUR_DAY_DIARY_TYPE, FOUR_DAY_TIME, HOUR_AVERAGE,
+      ONE_DAY_DIARY_HOUR, ONE_DAY_DIARY_TYPE, ONE_DAY_TIME,
+      SIX_DAY_DIARY_HOUR, SIX_DAY_DIARY_TYPE, SIX_DAY_TIME,
+      THREE_DAY_DIARY_HOUR, THREE_DAY_DIARY_TYPE, THREE_DAY_TIME,
+      TWO_DAY_DIARY_HOUR, TWO_DAY_DIARY_TYPE, TWO_DAY_TIME,
+      UPDATE_BY, UPDATE_DATE, UPDATE_NAME,
+      PATIENT_PREOPS_INFO_ID, seven_day_diary_hour,
+      seven_day_diary_type, seven_day_time)
+    values (#{id,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{dayCount,jdbcType=INTEGER}, #{fiveDayDiaryHour,jdbcType=DOUBLE},
+      #{fiveDayDiaryType,jdbcType=INTEGER}, #{fiveDayTime,jdbcType=TIMESTAMP}, #{fourDayDiaryHour,jdbcType=DOUBLE},
+      #{fourDayDiaryType,jdbcType=INTEGER}, #{fourDayTime,jdbcType=TIMESTAMP}, #{hourAverage,jdbcType=DOUBLE},
+      #{oneDayDiaryHour,jdbcType=DOUBLE}, #{oneDayDiaryType,jdbcType=INTEGER}, #{oneDayTime,jdbcType=TIMESTAMP},
+      #{sixDayDiaryHour,jdbcType=DOUBLE}, #{sixDayDiaryType,jdbcType=INTEGER}, #{sixDayTime,jdbcType=TIMESTAMP},
+      #{threeDayDiaryHour,jdbcType=DOUBLE}, #{threeDayDiaryType,jdbcType=INTEGER}, #{threeDayTime,jdbcType=TIMESTAMP},
+      #{twoDayDiaryHour,jdbcType=DOUBLE}, #{twoDayDiaryType,jdbcType=INTEGER}, #{twoDayTime,jdbcType=TIMESTAMP},
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR},
+      #{patientPreopsInfoId,jdbcType=INTEGER}, #{sevenDayDiaryHour,jdbcType=DOUBLE},
+      #{sevenDayDiaryType,jdbcType=INTEGER}, #{sevenDayTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientPreopsDiary">
+    insert into tc_patient_preops_diary
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="dayCount != null">
+        DAY_COUNT,
+      </if>
+      <if test="fiveDayDiaryHour != null">
+        FIVE_DAY_DIARY_HOUR,
+      </if>
+      <if test="fiveDayDiaryType != null">
+        FIVE_DAY_DIARY_TYPE,
+      </if>
+      <if test="fiveDayTime != null">
+        FIVE_DAY_TIME,
+      </if>
+      <if test="fourDayDiaryHour != null">
+        FOUR_DAY_DIARY_HOUR,
+      </if>
+      <if test="fourDayDiaryType != null">
+        FOUR_DAY_DIARY_TYPE,
+      </if>
+      <if test="fourDayTime != null">
+        FOUR_DAY_TIME,
+      </if>
+      <if test="hourAverage != null">
+        HOUR_AVERAGE,
+      </if>
+      <if test="oneDayDiaryHour != null">
+        ONE_DAY_DIARY_HOUR,
+      </if>
+      <if test="oneDayDiaryType != null">
+        ONE_DAY_DIARY_TYPE,
+      </if>
+      <if test="oneDayTime != null">
+        ONE_DAY_TIME,
+      </if>
+      <if test="sixDayDiaryHour != null">
+        SIX_DAY_DIARY_HOUR,
+      </if>
+      <if test="sixDayDiaryType != null">
+        SIX_DAY_DIARY_TYPE,
+      </if>
+      <if test="sixDayTime != null">
+        SIX_DAY_TIME,
+      </if>
+      <if test="threeDayDiaryHour != null">
+        THREE_DAY_DIARY_HOUR,
+      </if>
+      <if test="threeDayDiaryType != null">
+        THREE_DAY_DIARY_TYPE,
+      </if>
+      <if test="threeDayTime != null">
+        THREE_DAY_TIME,
+      </if>
+      <if test="twoDayDiaryHour != null">
+        TWO_DAY_DIARY_HOUR,
+      </if>
+      <if test="twoDayDiaryType != null">
+        TWO_DAY_DIARY_TYPE,
+      </if>
+      <if test="twoDayTime != null">
+        TWO_DAY_TIME,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="patientPreopsInfoId != null">
+        PATIENT_PREOPS_INFO_ID,
+      </if>
+      <if test="sevenDayDiaryHour != null">
+        seven_day_diary_hour,
+      </if>
+      <if test="sevenDayDiaryType != null">
+        seven_day_diary_type,
+      </if>
+      <if test="sevenDayTime != null">
+        seven_day_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="dayCount != null">
+        #{dayCount,jdbcType=INTEGER},
+      </if>
+      <if test="fiveDayDiaryHour != null">
+        #{fiveDayDiaryHour,jdbcType=DOUBLE},
+      </if>
+      <if test="fiveDayDiaryType != null">
+        #{fiveDayDiaryType,jdbcType=INTEGER},
+      </if>
+      <if test="fiveDayTime != null">
+        #{fiveDayTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fourDayDiaryHour != null">
+        #{fourDayDiaryHour,jdbcType=DOUBLE},
+      </if>
+      <if test="fourDayDiaryType != null">
+        #{fourDayDiaryType,jdbcType=INTEGER},
+      </if>
+      <if test="fourDayTime != null">
+        #{fourDayTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hourAverage != null">
+        #{hourAverage,jdbcType=DOUBLE},
+      </if>
+      <if test="oneDayDiaryHour != null">
+        #{oneDayDiaryHour,jdbcType=DOUBLE},
+      </if>
+      <if test="oneDayDiaryType != null">
+        #{oneDayDiaryType,jdbcType=INTEGER},
+      </if>
+      <if test="oneDayTime != null">
+        #{oneDayTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sixDayDiaryHour != null">
+        #{sixDayDiaryHour,jdbcType=DOUBLE},
+      </if>
+      <if test="sixDayDiaryType != null">
+        #{sixDayDiaryType,jdbcType=INTEGER},
+      </if>
+      <if test="sixDayTime != null">
+        #{sixDayTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="threeDayDiaryHour != null">
+        #{threeDayDiaryHour,jdbcType=DOUBLE},
+      </if>
+      <if test="threeDayDiaryType != null">
+        #{threeDayDiaryType,jdbcType=INTEGER},
+      </if>
+      <if test="threeDayTime != null">
+        #{threeDayTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="twoDayDiaryHour != null">
+        #{twoDayDiaryHour,jdbcType=DOUBLE},
+      </if>
+      <if test="twoDayDiaryType != null">
+        #{twoDayDiaryType,jdbcType=INTEGER},
+      </if>
+      <if test="twoDayTime != null">
+        #{twoDayTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientPreopsInfoId != null">
+        #{patientPreopsInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="sevenDayDiaryHour != null">
+        #{sevenDayDiaryHour,jdbcType=DOUBLE},
+      </if>
+      <if test="sevenDayDiaryType != null">
+        #{sevenDayDiaryType,jdbcType=INTEGER},
+      </if>
+      <if test="sevenDayTime != null">
+        #{sevenDayTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

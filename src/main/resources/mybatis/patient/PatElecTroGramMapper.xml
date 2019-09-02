@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatElecTroGramMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatElecTroGram">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="ETG_NAME" jdbcType="VARCHAR" property="etgName" />
+    <result column="ETG_TYPE" jdbcType="VARCHAR" property="etgType" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="ELEC_TRO__GRAM_ID" jdbcType="VARCHAR" property="elecTroGramId" />
+    <result column="P_CASE_ID" jdbcType="VARCHAR" property="pCaseId" />
+    <result column="P_INFO_ID" jdbcType="INTEGER" property="pInfoId" />
+    <result column="ELEC_EXAM_TYPE" jdbcType="VARCHAR" property="elecExamType" />
+    <result column="myotremor_frequency" jdbcType="INTEGER" property="myotremorFrequency" />
+    <result column="ETG_STRING" jdbcType="LONGVARCHAR" property="etgString" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    <result column="PAT_ElE_HINT" jdbcType="LONGVARCHAR" property="patEleHint" />
+    <result column="PAT_ElE_RESULE" jdbcType="LONGVARCHAR" property="patEleResule" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, CREATE_BY, CREATE_DATE, CREATE_NAME, ETG_NAME, ETG_TYPE, UPDATE_BY, UPDATE_DATE,
+    UPDATE_NAME, ELEC_TRO__GRAM_ID, P_CASE_ID, P_INFO_ID, ELEC_EXAM_TYPE, myotremor_frequency,
+    ETG_STRING, REMARKS, PAT_ElE_HINT, PAT_ElE_RESULE
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_pat_elec_tro_gram
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatElecTroGram">
+    insert into tc_pat_elec_tro_gram (ID, CREATE_BY, CREATE_DATE,
+      CREATE_NAME, ETG_NAME, ETG_TYPE,
+      UPDATE_BY, UPDATE_DATE, UPDATE_NAME,
+      ELEC_TRO__GRAM_ID, P_CASE_ID, P_INFO_ID,
+      ELEC_EXAM_TYPE, myotremor_frequency, ETG_STRING,
+      REMARKS, PAT_ElE_HINT, PAT_ElE_RESULE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{etgName,jdbcType=VARCHAR}, #{etgType,jdbcType=VARCHAR},
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR},
+      #{elecTroGramId,jdbcType=VARCHAR}, #{pCaseId,jdbcType=VARCHAR}, #{pInfoId,jdbcType=INTEGER},
+      #{elecExamType,jdbcType=VARCHAR}, #{myotremorFrequency,jdbcType=INTEGER}, #{etgString,jdbcType=LONGVARCHAR},
+      #{remarks,jdbcType=LONGVARCHAR}, #{patEleHint,jdbcType=LONGVARCHAR}, #{patEleResule,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatElecTroGram">
+    insert into tc_pat_elec_tro_gram
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="etgName != null">
+        ETG_NAME,
+      </if>
+      <if test="etgType != null">
+        ETG_TYPE,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="elecTroGramId != null">
+        ELEC_TRO__GRAM_ID,
+      </if>
+      <if test="pCaseId != null">
+        P_CASE_ID,
+      </if>
+      <if test="pInfoId != null">
+        P_INFO_ID,
+      </if>
+      <if test="elecExamType != null">
+        ELEC_EXAM_TYPE,
+      </if>
+      <if test="myotremorFrequency != null">
+        myotremor_frequency,
+      </if>
+      <if test="etgString != null">
+        ETG_STRING,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="patEleHint != null">
+        PAT_ElE_HINT,
+      </if>
+      <if test="patEleResule != null">
+        PAT_ElE_RESULE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="etgName != null">
+        #{etgName,jdbcType=VARCHAR},
+      </if>
+      <if test="etgType != null">
+        #{etgType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="elecTroGramId != null">
+        #{elecTroGramId,jdbcType=VARCHAR},
+      </if>
+      <if test="pCaseId != null">
+        #{pCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="pInfoId != null">
+        #{pInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="elecExamType != null">
+        #{elecExamType,jdbcType=VARCHAR},
+      </if>
+      <if test="myotremorFrequency != null">
+        #{myotremorFrequency,jdbcType=INTEGER},
+      </if>
+      <if test="etgString != null">
+        #{etgString,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="patEleHint != null">
+        #{patEleHint,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="patEleResule != null">
+        #{patEleResule,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+</mapper>

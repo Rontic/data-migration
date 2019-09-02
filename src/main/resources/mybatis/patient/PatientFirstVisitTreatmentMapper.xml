@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientFirstVisitTreatmentMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientFirstVisitTreatment">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="FIRST_VISIT_TYPE" jdbcType="INTEGER" property="firstVisitType" />
+    <result column="TREATMENT_TYPE" jdbcType="INTEGER" property="treatmentType" />
+    <result column="TREATMENT_METHOD" jdbcType="INTEGER" property="treatmentMethod" />
+    <result column="TREATMENT_TIME" jdbcType="DATE" property="treatmentTime" />
+    <result column="MEDICINE_CLASSIFICATION" jdbcType="INTEGER" property="medicineClassification" />
+    <result column="MEDICINE_NAME" jdbcType="INTEGER" property="medicineName" />
+    <result column="COMMON_MEDICINE_NAME" jdbcType="INTEGER" property="commonMedicineName" />
+    <result column="DAILY_DOSAGE" jdbcType="DECIMAL" property="dailyDosage" />
+    <result column="FIRST_TIME" jdbcType="DATE" property="firstTime" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="LEDD" jdbcType="DECIMAL" property="ledd" />
+    <result column="YEARS_OF_MEDICINE" jdbcType="VARCHAR" property="yearsOfMedicine" />
+    <result column="WHETHER_EFFECT" jdbcType="INTEGER" property="whetherEffect" />
+    <result column="ADVERSE" jdbcType="INTEGER" property="adverse" />
+    <result column="WHETHER_CONTINUE" jdbcType="INTEGER" property="whetherContinue" />
+    <result column="STOP_TIME" jdbcType="TIMESTAMP" property="stopTime" />
+    <result column="MEDICAL_SPEC_USED" jdbcType="VARCHAR" property="medicalSpecUsed" />
+    <result column="DAILY_DOSAGE_PIAN" jdbcType="DECIMAL" property="dailyDosagePian" />
+    <result column="IS_TAKING_TCM" jdbcType="INTEGER" property="isTakingTcm" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    <result column="STOP_REASON" jdbcType="LONGVARCHAR" property="stopReason" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, FIRST_VISIT_TYPE, TREATMENT_TYPE, TREATMENT_METHOD, TREATMENT_TIME, MEDICINE_CLASSIFICATION,
+    MEDICINE_NAME, COMMON_MEDICINE_NAME, DAILY_DOSAGE, FIRST_TIME, PATIENT_ID, CREATE_BY,
+    CREATE_DATE, UPDATE_BY, UPDATE_DATE, LEDD, YEARS_OF_MEDICINE, WHETHER_EFFECT, ADVERSE,
+    WHETHER_CONTINUE, STOP_TIME, MEDICAL_SPEC_USED, DAILY_DOSAGE_PIAN, IS_TAKING_TCM,REMARKS, STOP_REASON
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+
+    from tc_patient_first_visit_treatment
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientFirstVisitTreatment">
+    insert into tc_patient_first_visit_treatment (ID, FIRST_VISIT_TYPE, TREATMENT_TYPE,
+      TREATMENT_METHOD, TREATMENT_TIME, MEDICINE_CLASSIFICATION,
+      MEDICINE_NAME, COMMON_MEDICINE_NAME, DAILY_DOSAGE,
+      FIRST_TIME, PATIENT_ID, CREATE_BY,
+      CREATE_DATE, UPDATE_BY, UPDATE_DATE,
+      LEDD, YEARS_OF_MEDICINE, WHETHER_EFFECT,
+      ADVERSE, WHETHER_CONTINUE, STOP_TIME,
+      MEDICAL_SPEC_USED, DAILY_DOSAGE_PIAN, IS_TAKING_TCM,
+      REMARKS, STOP_REASON)
+    values (#{id,jdbcType=INTEGER}, #{firstVisitType,jdbcType=INTEGER}, #{treatmentType,jdbcType=INTEGER},
+      #{treatmentMethod,jdbcType=INTEGER}, #{treatmentTime,jdbcType=DATE}, #{medicineClassification,jdbcType=INTEGER},
+      #{medicineName,jdbcType=INTEGER}, #{commonMedicineName,jdbcType=INTEGER}, #{dailyDosage,jdbcType=DECIMAL},
+      #{firstTime,jdbcType=DATE}, #{patientId,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{ledd,jdbcType=DECIMAL}, #{yearsOfMedicine,jdbcType=VARCHAR}, #{whetherEffect,jdbcType=INTEGER},
+      #{adverse,jdbcType=INTEGER}, #{whetherContinue,jdbcType=INTEGER}, #{stopTime,jdbcType=TIMESTAMP},
+      #{medicalSpecUsed,jdbcType=VARCHAR}, #{dailyDosagePian,jdbcType=DECIMAL}, #{isTakingTcm,jdbcType=INTEGER},
+      #{remarks,jdbcType=LONGVARCHAR}, #{stopReason,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientFirstVisitTreatment">
+    insert into tc_patient_first_visit_treatment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="firstVisitType != null">
+        FIRST_VISIT_TYPE,
+      </if>
+      <if test="treatmentType != null">
+        TREATMENT_TYPE,
+      </if>
+      <if test="treatmentMethod != null">
+        TREATMENT_METHOD,
+      </if>
+      <if test="treatmentTime != null">
+        TREATMENT_TIME,
+      </if>
+      <if test="medicineClassification != null">
+        MEDICINE_CLASSIFICATION,
+      </if>
+      <if test="medicineName != null">
+        MEDICINE_NAME,
+      </if>
+      <if test="commonMedicineName != null">
+        COMMON_MEDICINE_NAME,
+      </if>
+      <if test="dailyDosage != null">
+        DAILY_DOSAGE,
+      </if>
+      <if test="firstTime != null">
+        FIRST_TIME,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="ledd != null">
+        LEDD,
+      </if>
+      <if test="yearsOfMedicine != null">
+        YEARS_OF_MEDICINE,
+      </if>
+      <if test="whetherEffect != null">
+        WHETHER_EFFECT,
+      </if>
+      <if test="adverse != null">
+        ADVERSE,
+      </if>
+      <if test="whetherContinue != null">
+        WHETHER_CONTINUE,
+      </if>
+      <if test="stopTime != null">
+        STOP_TIME,
+      </if>
+      <if test="medicalSpecUsed != null">
+        MEDICAL_SPEC_USED,
+      </if>
+      <if test="dailyDosagePian != null">
+        DAILY_DOSAGE_PIAN,
+      </if>
+      <if test="isTakingTcm != null">
+        IS_TAKING_TCM,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="stopReason != null">
+        STOP_REASON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="firstVisitType != null">
+        #{firstVisitType,jdbcType=INTEGER},
+      </if>
+      <if test="treatmentType != null">
+        #{treatmentType,jdbcType=INTEGER},
+      </if>
+      <if test="treatmentMethod != null">
+        #{treatmentMethod,jdbcType=INTEGER},
+      </if>
+      <if test="treatmentTime != null">
+        #{treatmentTime,jdbcType=DATE},
+      </if>
+      <if test="medicineClassification != null">
+        #{medicineClassification,jdbcType=INTEGER},
+      </if>
+      <if test="medicineName != null">
+        #{medicineName,jdbcType=INTEGER},
+      </if>
+      <if test="commonMedicineName != null">
+        #{commonMedicineName,jdbcType=INTEGER},
+      </if>
+      <if test="dailyDosage != null">
+        #{dailyDosage,jdbcType=DECIMAL},
+      </if>
+      <if test="firstTime != null">
+        #{firstTime,jdbcType=DATE},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ledd != null">
+        #{ledd,jdbcType=DECIMAL},
+      </if>
+      <if test="yearsOfMedicine != null">
+        #{yearsOfMedicine,jdbcType=VARCHAR},
+      </if>
+      <if test="whetherEffect != null">
+        #{whetherEffect,jdbcType=INTEGER},
+      </if>
+      <if test="adverse != null">
+        #{adverse,jdbcType=INTEGER},
+      </if>
+      <if test="whetherContinue != null">
+        #{whetherContinue,jdbcType=INTEGER},
+      </if>
+      <if test="stopTime != null">
+        #{stopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="medicalSpecUsed != null">
+        #{medicalSpecUsed,jdbcType=VARCHAR},
+      </if>
+      <if test="dailyDosagePian != null">
+        #{dailyDosagePian,jdbcType=DECIMAL},
+      </if>
+      <if test="isTakingTcm != null">
+        #{isTakingTcm,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="stopReason != null">
+        #{stopReason,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

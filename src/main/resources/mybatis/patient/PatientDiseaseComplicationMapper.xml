@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientDiseaseComplicationMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDiseaseComplication">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="disease_name" jdbcType="VARCHAR" property="diseaseName" />
+    <result column="ari_time" jdbcType="TIMESTAMP" property="ariTime" />
+    <result column="last_time" jdbcType="INTEGER" property="lastTime" />
+    <result column="reason_type" jdbcType="BIT" property="reasonType" />
+    <result column="reason_remark" jdbcType="VARCHAR" property="reasonRemark" />
+    <result column="treatment_type" jdbcType="BIT" property="treatmentType" />
+    <result column="treatment_remark" jdbcType="VARCHAR" property="treatmentRemark" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="patient_case_id" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="update_name" jdbcType="VARCHAR" property="updateName" />
+    <result column="del_flag" jdbcType="BIT" property="delFlag" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, disease_name, ari_time, last_time, reason_type, reason_remark, treatment_type,
+    treatment_remark, remark, patient_case_id, create_by, create_date, create_name, update_by,
+    update_date, update_name, del_flag
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_disease_complication
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientDiseaseComplication">
+    insert into tc_patient_disease_complication (id, disease_name, ari_time,
+      last_time, reason_type, reason_remark,
+      treatment_type, treatment_remark, remark,
+      patient_case_id, create_by, create_date,
+      create_name, update_by, update_date,
+      update_name, del_flag)
+    values (#{id,jdbcType=INTEGER}, #{diseaseName,jdbcType=VARCHAR}, #{ariTime,jdbcType=TIMESTAMP},
+      #{lastTime,jdbcType=INTEGER}, #{reasonType,jdbcType=BIT}, #{reasonRemark,jdbcType=VARCHAR},
+      #{treatmentType,jdbcType=BIT}, #{treatmentRemark,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR},
+      #{patientCaseId,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{delFlag,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientDiseaseComplication">
+    insert into tc_patient_disease_complication
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="diseaseName != null">
+        disease_name,
+      </if>
+      <if test="ariTime != null">
+        ari_time,
+      </if>
+      <if test="lastTime != null">
+        last_time,
+      </if>
+      <if test="reasonType != null">
+        reason_type,
+      </if>
+      <if test="reasonRemark != null">
+        reason_remark,
+      </if>
+      <if test="treatmentType != null">
+        treatment_type,
+      </if>
+      <if test="treatmentRemark != null">
+        treatment_remark,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="patientCaseId != null">
+        patient_case_id,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="createName != null">
+        create_name,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="updateName != null">
+        update_name,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="diseaseName != null">
+        #{diseaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="ariTime != null">
+        #{ariTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTime != null">
+        #{lastTime,jdbcType=INTEGER},
+      </if>
+      <if test="reasonType != null">
+        #{reasonType,jdbcType=BIT},
+      </if>
+      <if test="reasonRemark != null">
+        #{reasonRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="treatmentType != null">
+        #{treatmentType,jdbcType=BIT},
+      </if>
+      <if test="treatmentRemark != null">
+        #{treatmentRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

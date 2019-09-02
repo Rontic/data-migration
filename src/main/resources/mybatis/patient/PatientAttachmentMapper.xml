@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientAttachmentMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientAttachment">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="attachmenttitle" jdbcType="VARCHAR" property="attachmenttitle" />
+    <result column="businesskey" jdbcType="VARCHAR" property="businesskey" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="extend" jdbcType="VARCHAR" property="extend" />
+    <result column="realpath" jdbcType="VARCHAR" property="realpath" />
+    <result column="BUSENTITYNAME" jdbcType="VARCHAR" property="busentityname" />
+    <result column="INFOTYPEID" jdbcType="VARCHAR" property="infotypeid" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="size" jdbcType="BIGINT" property="size" />
+    <result column="filename" jdbcType="VARCHAR" property="filename" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="attachmenttype" jdbcType="SMALLINT" property="attachmenttype" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="PATIENTATTACHMENTID" jdbcType="INTEGER" property="patientattachmentid" />
+    <result column="attachmentcontent" jdbcType="LONGVARBINARY" property="attachmentcontent" />
+    <result column="note" jdbcType="LONGVARCHAR" property="note" />
+    <result column="subclassname" jdbcType="LONGVARCHAR" property="subclassname" />
+    <result column="swfpath" jdbcType="LONGVARCHAR" property="swfpath" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, attachmenttitle, businesskey, createdate, extend, realpath, BUSENTITYNAME, INFOTYPEID,
+    USERID, size, filename, tag, attachmenttype, PATIENT_ID, PATIENTATTACHMENTID,attachmentcontent, note, subclassname, swfpath
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_s_attachment
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientAttachment">
+    insert into t_s_attachment (ID, attachmenttitle, businesskey,
+      createdate, extend, realpath,
+      BUSENTITYNAME, INFOTYPEID, USERID,
+      size, filename, tag,
+      attachmenttype, PATIENT_ID, PATIENTATTACHMENTID,
+      attachmentcontent, note, subclassname,
+      swfpath)
+    values (#{id,jdbcType=VARCHAR}, #{attachmenttitle,jdbcType=VARCHAR}, #{businesskey,jdbcType=VARCHAR},
+      #{createdate,jdbcType=TIMESTAMP}, #{extend,jdbcType=VARCHAR}, #{realpath,jdbcType=VARCHAR},
+      #{busentityname,jdbcType=VARCHAR}, #{infotypeid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR},
+      #{size,jdbcType=BIGINT}, #{filename,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR},
+      #{attachmenttype,jdbcType=SMALLINT}, #{patientId,jdbcType=INTEGER}, #{patientattachmentid,jdbcType=INTEGER},
+      #{attachmentcontent,jdbcType=LONGVARBINARY}, #{note,jdbcType=LONGVARCHAR}, #{subclassname,jdbcType=LONGVARCHAR},
+      #{swfpath,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientAttachment">
+    insert into t_s_attachment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="attachmenttitle != null">
+        attachmenttitle,
+      </if>
+      <if test="businesskey != null">
+        businesskey,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="extend != null">
+        extend,
+      </if>
+      <if test="realpath != null">
+        realpath,
+      </if>
+      <if test="busentityname != null">
+        BUSENTITYNAME,
+      </if>
+      <if test="infotypeid != null">
+        INFOTYPEID,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+      <if test="size != null">
+        size,
+      </if>
+      <if test="filename != null">
+        filename,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+      <if test="attachmenttype != null">
+        attachmenttype,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="patientattachmentid != null">
+        PATIENTATTACHMENTID,
+      </if>
+      <if test="attachmentcontent != null">
+        attachmentcontent,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="subclassname != null">
+        subclassname,
+      </if>
+      <if test="swfpath != null">
+        swfpath,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmenttitle != null">
+        #{attachmenttitle,jdbcType=VARCHAR},
+      </if>
+      <if test="businesskey != null">
+        #{businesskey,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extend != null">
+        #{extend,jdbcType=VARCHAR},
+      </if>
+      <if test="realpath != null">
+        #{realpath,jdbcType=VARCHAR},
+      </if>
+      <if test="busentityname != null">
+        #{busentityname,jdbcType=VARCHAR},
+      </if>
+      <if test="infotypeid != null">
+        #{infotypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=BIGINT},
+      </if>
+      <if test="filename != null">
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmenttype != null">
+        #{attachmenttype,jdbcType=SMALLINT},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="patientattachmentid != null">
+        #{patientattachmentid,jdbcType=INTEGER},
+      </if>
+      <if test="attachmentcontent != null">
+        #{attachmentcontent,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="subclassname != null">
+        #{subclassname,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="swfpath != null">
+        #{swfpath,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

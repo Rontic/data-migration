@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientCideexposedHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientCideexposedHistory">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="EXPMATERIAL_NAME" jdbcType="VARCHAR" property="expmaterialName" />
+    <result column="EXPOSED_FRQUENCY" jdbcType="VARCHAR" property="exposedFrquency" />
+    <result column="EXPOSED_TYPE" jdbcType="INTEGER" property="exposedType" />
+    <result column="IS_DISCOMFORT" jdbcType="INTEGER" property="isDiscomfort" />
+    <result column="LIFE_STAGE" jdbcType="INTEGER" property="lifeStage" />
+    <result column="PROT_MEASURES" jdbcType="VARCHAR" property="protMeasures" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="WORK_EXPERIENCE" jdbcType="VARCHAR" property="workExperience" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, CREATE_BY, CREATE_DATE, CREATE_NAME, EXPMATERIAL_NAME, EXPOSED_FRQUENCY, EXPOSED_TYPE,
+    IS_DISCOMFORT, LIFE_STAGE, PROT_MEASURES, UPDATE_BY, UPDATE_DATE, UPDATE_NAME, PATIENT_ID,
+    version, WORK_EXPERIENCE ,REMARKS
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+
+    from tc_cideexposed_history
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientCideexposedHistory">
+    insert into tc_cideexposed_history (ID, CREATE_BY, CREATE_DATE,
+      CREATE_NAME, EXPMATERIAL_NAME, EXPOSED_FRQUENCY,
+      EXPOSED_TYPE, IS_DISCOMFORT, LIFE_STAGE,
+      PROT_MEASURES, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, PATIENT_ID, version,
+      WORK_EXPERIENCE, REMARKS)
+    values (#{id,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{expmaterialName,jdbcType=VARCHAR}, #{exposedFrquency,jdbcType=VARCHAR},
+      #{exposedType,jdbcType=INTEGER}, #{isDiscomfort,jdbcType=INTEGER}, #{lifeStage,jdbcType=INTEGER},
+      #{protMeasures,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{patientId,jdbcType=INTEGER}, #{version,jdbcType=INTEGER},
+      #{workExperience,jdbcType=VARCHAR}, #{remarks,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientCideexposedHistory">
+    insert into tc_cideexposed_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="expmaterialName != null">
+        EXPMATERIAL_NAME,
+      </if>
+      <if test="exposedFrquency != null">
+        EXPOSED_FRQUENCY,
+      </if>
+      <if test="exposedType != null">
+        EXPOSED_TYPE,
+      </if>
+      <if test="isDiscomfort != null">
+        IS_DISCOMFORT,
+      </if>
+      <if test="lifeStage != null">
+        LIFE_STAGE,
+      </if>
+      <if test="protMeasures != null">
+        PROT_MEASURES,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="workExperience != null">
+        WORK_EXPERIENCE,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="expmaterialName != null">
+        #{expmaterialName,jdbcType=VARCHAR},
+      </if>
+      <if test="exposedFrquency != null">
+        #{exposedFrquency,jdbcType=VARCHAR},
+      </if>
+      <if test="exposedType != null">
+        #{exposedType,jdbcType=INTEGER},
+      </if>
+      <if test="isDiscomfort != null">
+        #{isDiscomfort,jdbcType=INTEGER},
+      </if>
+      <if test="lifeStage != null">
+        #{lifeStage,jdbcType=INTEGER},
+      </if>
+      <if test="protMeasures != null">
+        #{protMeasures,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="workExperience != null">
+        #{workExperience,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

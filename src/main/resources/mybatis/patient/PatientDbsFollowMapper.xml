@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientDbsFollowMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsFollow">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="L_STN_ELECTRIC" jdbcType="REAL" property="lStnElectric" />
+    <result column="L_STN_RESISTANCE" jdbcType="INTEGER" property="lStnResistance" />
+    <result column="R_STN_ELECTRIC" jdbcType="REAL" property="rStnElectric" />
+    <result column="R_STN_RESISTANCE" jdbcType="INTEGER" property="rStnResistance" />
+    <result column="ADJUST_MORE_LEFT_SATISFACTION" jdbcType="INTEGER" property="adjustMoreLeftSatisfaction" />
+    <result column="ADJUST_MORE_RIGHT_SATISFACTION" jdbcType="INTEGER" property="adjustMoreRightSatisfaction" />
+    <result column="ADJUST_VOLTAGE_LEFT_SATISFACTION" jdbcType="INTEGER" property="adjustVoltageLeftSatisfaction" />
+    <result column="ADJUST_VOLTAGE_RIGHT_SATISFACTION" jdbcType="INTEGER" property="adjustVoltageRightSatisfaction" />
+    <result column="COMPLAINT" jdbcType="VARCHAR" property="complaint" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="FOLLOW_NUM" jdbcType="INTEGER" property="followNum" />
+    <result column="LEFT_EXCITE_MOD" jdbcType="INTEGER" property="leftExciteMod" />
+    <result column="LEFT_FREQUENCY" jdbcType="VARCHAR" property="leftFrequency" />
+    <result column="LEFT_NEGATIVE_POLE" jdbcType="VARCHAR" property="leftNegativePole" />
+    <result column="LEFT_POSITIVE_POLE" jdbcType="VARCHAR" property="leftPositivePole" />
+    <result column="LEFT_PULSE_WIDTH" jdbcType="VARCHAR" property="leftPulseWidth" />
+    <result column="LEFT_VOLTAGE" jdbcType="VARCHAR" property="leftVoltage" />
+    <result column="MEDICATION_STATUS" jdbcType="VARCHAR" property="medicationStatus" />
+    <result column="PATIENT_DBS_FIRST_ID" jdbcType="INTEGER" property="patientDbsFirstId" />
+    <result column="PROGRAM_DATE" jdbcType="TIMESTAMP" property="programDate" />
+    <result column="RIGHT_EXCITE_MOD" jdbcType="INTEGER" property="rightExciteMod" />
+    <result column="RIGHT_FREQUENCY" jdbcType="VARCHAR" property="rightFrequency" />
+    <result column="RIGHT_NEGATIVE_POLE" jdbcType="VARCHAR" property="rightNegativePole" />
+    <result column="RIGHT_POSITIVE_POLE" jdbcType="VARCHAR" property="rightPositivePole" />
+    <result column="RIGHT_PULSE_WIDTH" jdbcType="VARCHAR" property="rightPulseWidth" />
+    <result column="RIGHT_VOLTAGE" jdbcType="VARCHAR" property="rightVoltage" />
+    <result column="STN_VOLTAGE" jdbcType="REAL" property="stnVoltage" />
+    <result column="DEVICE_ID" jdbcType="VARCHAR" property="deviceId" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="PATIENT_SURGICAL_ID" jdbcType="INTEGER" property="patientSurgicalId" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="DEVICE_POWER_TYPE" jdbcType="INTEGER" property="devicePowerType" />
+    <result column="EFFECT_INFO" jdbcType="VARCHAR" property="effectInfo" />
+    <result column="IS_TAKE_MEDICATION" jdbcType="INTEGER" property="isTakeMedication" />
+    <result column="ADJUST_BEFORE_LEFT_SATISFACTION" jdbcType="INTEGER" property="adjustBeforeLeftSatisfaction" />
+    <result column="ADJUST_BEFORE_RIGHT_SATISFACTION" jdbcType="INTEGER" property="adjustBeforeRightSatisfaction" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="DEPART_ID" jdbcType="VARCHAR" property="departId" />
+    <result column="TC_DEVICE_ID" jdbcType="VARCHAR" property="tcDeviceId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, L_STN_ELECTRIC, L_STN_RESISTANCE, R_STN_ELECTRIC, R_STN_RESISTANCE, ADJUST_MORE_LEFT_SATISFACTION,
+    ADJUST_MORE_RIGHT_SATISFACTION, ADJUST_VOLTAGE_LEFT_SATISFACTION, ADJUST_VOLTAGE_RIGHT_SATISFACTION,
+    COMPLAINT, CREATE_BY, CREATE_DATE, CREATE_NAME, FOLLOW_NUM, LEFT_EXCITE_MOD, LEFT_FREQUENCY,
+    LEFT_NEGATIVE_POLE, LEFT_POSITIVE_POLE, LEFT_PULSE_WIDTH, LEFT_VOLTAGE, MEDICATION_STATUS,
+    PATIENT_DBS_FIRST_ID, PROGRAM_DATE, RIGHT_EXCITE_MOD, RIGHT_FREQUENCY, RIGHT_NEGATIVE_POLE,
+    RIGHT_POSITIVE_POLE, RIGHT_PULSE_WIDTH, RIGHT_VOLTAGE, STN_VOLTAGE, DEVICE_ID, UPDATE_BY,
+    UPDATE_DATE, UPDATE_NAME, PATIENT_SURGICAL_ID, PATIENT_CASE_ID, DEVICE_POWER_TYPE,
+    EFFECT_INFO, IS_TAKE_MEDICATION, ADJUST_BEFORE_LEFT_SATISFACTION, ADJUST_BEFORE_RIGHT_SATISFACTION,
+    REMARKS, DEPART_ID, TC_DEVICE_ID
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_dbs_follow
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsFollow">
+    insert into tc_patient_dbs_follow (ID, L_STN_ELECTRIC, L_STN_RESISTANCE,
+      R_STN_ELECTRIC, R_STN_RESISTANCE, ADJUST_MORE_LEFT_SATISFACTION,
+      ADJUST_MORE_RIGHT_SATISFACTION, ADJUST_VOLTAGE_LEFT_SATISFACTION,
+      ADJUST_VOLTAGE_RIGHT_SATISFACTION, COMPLAINT,
+      CREATE_BY, CREATE_DATE, CREATE_NAME,
+      FOLLOW_NUM, LEFT_EXCITE_MOD, LEFT_FREQUENCY,
+      LEFT_NEGATIVE_POLE, LEFT_POSITIVE_POLE, LEFT_PULSE_WIDTH,
+      LEFT_VOLTAGE, MEDICATION_STATUS, PATIENT_DBS_FIRST_ID,
+      PROGRAM_DATE, RIGHT_EXCITE_MOD, RIGHT_FREQUENCY,
+      RIGHT_NEGATIVE_POLE, RIGHT_POSITIVE_POLE, RIGHT_PULSE_WIDTH,
+      RIGHT_VOLTAGE, STN_VOLTAGE, DEVICE_ID,
+      UPDATE_BY, UPDATE_DATE, UPDATE_NAME,
+      PATIENT_SURGICAL_ID, PATIENT_CASE_ID, DEVICE_POWER_TYPE,
+      EFFECT_INFO, IS_TAKE_MEDICATION, ADJUST_BEFORE_LEFT_SATISFACTION,
+      ADJUST_BEFORE_RIGHT_SATISFACTION, REMARKS,
+      DEPART_ID, TC_DEVICE_ID)
+    values (#{id,jdbcType=INTEGER}, #{lStnElectric,jdbcType=REAL}, #{lStnResistance,jdbcType=INTEGER},
+      #{rStnElectric,jdbcType=REAL}, #{rStnResistance,jdbcType=INTEGER}, #{adjustMoreLeftSatisfaction,jdbcType=INTEGER},
+      #{adjustMoreRightSatisfaction,jdbcType=INTEGER}, #{adjustVoltageLeftSatisfaction,jdbcType=INTEGER},
+      #{adjustVoltageRightSatisfaction,jdbcType=INTEGER}, #{complaint,jdbcType=VARCHAR},
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR},
+      #{followNum,jdbcType=INTEGER}, #{leftExciteMod,jdbcType=INTEGER}, #{leftFrequency,jdbcType=VARCHAR},
+      #{leftNegativePole,jdbcType=VARCHAR}, #{leftPositivePole,jdbcType=VARCHAR}, #{leftPulseWidth,jdbcType=VARCHAR},
+      #{leftVoltage,jdbcType=VARCHAR}, #{medicationStatus,jdbcType=VARCHAR}, #{patientDbsFirstId,jdbcType=INTEGER},
+      #{programDate,jdbcType=TIMESTAMP}, #{rightExciteMod,jdbcType=INTEGER}, #{rightFrequency,jdbcType=VARCHAR},
+      #{rightNegativePole,jdbcType=VARCHAR}, #{rightPositivePole,jdbcType=VARCHAR}, #{rightPulseWidth,jdbcType=VARCHAR},
+      #{rightVoltage,jdbcType=VARCHAR}, #{stnVoltage,jdbcType=REAL}, #{deviceId,jdbcType=VARCHAR},
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR},
+      #{patientSurgicalId,jdbcType=INTEGER}, #{patientCaseId,jdbcType=VARCHAR}, #{devicePowerType,jdbcType=INTEGER},
+      #{effectInfo,jdbcType=VARCHAR}, #{isTakeMedication,jdbcType=INTEGER}, #{adjustBeforeLeftSatisfaction,jdbcType=INTEGER},
+      #{adjustBeforeRightSatisfaction,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR},
+      #{departId,jdbcType=VARCHAR}, #{tcDeviceId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsFollow">
+    insert into tc_patient_dbs_follow
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="lStnElectric != null">
+        L_STN_ELECTRIC,
+      </if>
+      <if test="lStnResistance != null">
+        L_STN_RESISTANCE,
+      </if>
+      <if test="rStnElectric != null">
+        R_STN_ELECTRIC,
+      </if>
+      <if test="rStnResistance != null">
+        R_STN_RESISTANCE,
+      </if>
+      <if test="adjustMoreLeftSatisfaction != null">
+        ADJUST_MORE_LEFT_SATISFACTION,
+      </if>
+      <if test="adjustMoreRightSatisfaction != null">
+        ADJUST_MORE_RIGHT_SATISFACTION,
+      </if>
+      <if test="adjustVoltageLeftSatisfaction != null">
+        ADJUST_VOLTAGE_LEFT_SATISFACTION,
+      </if>
+      <if test="adjustVoltageRightSatisfaction != null">
+        ADJUST_VOLTAGE_RIGHT_SATISFACTION,
+      </if>
+      <if test="complaint != null">
+        COMPLAINT,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="followNum != null">
+        FOLLOW_NUM,
+      </if>
+      <if test="leftExciteMod != null">
+        LEFT_EXCITE_MOD,
+      </if>
+      <if test="leftFrequency != null">
+        LEFT_FREQUENCY,
+      </if>
+      <if test="leftNegativePole != null">
+        LEFT_NEGATIVE_POLE,
+      </if>
+      <if test="leftPositivePole != null">
+        LEFT_POSITIVE_POLE,
+      </if>
+      <if test="leftPulseWidth != null">
+        LEFT_PULSE_WIDTH,
+      </if>
+      <if test="leftVoltage != null">
+        LEFT_VOLTAGE,
+      </if>
+      <if test="medicationStatus != null">
+        MEDICATION_STATUS,
+      </if>
+      <if test="patientDbsFirstId != null">
+        PATIENT_DBS_FIRST_ID,
+      </if>
+      <if test="programDate != null">
+        PROGRAM_DATE,
+      </if>
+      <if test="rightExciteMod != null">
+        RIGHT_EXCITE_MOD,
+      </if>
+      <if test="rightFrequency != null">
+        RIGHT_FREQUENCY,
+      </if>
+      <if test="rightNegativePole != null">
+        RIGHT_NEGATIVE_POLE,
+      </if>
+      <if test="rightPositivePole != null">
+        RIGHT_POSITIVE_POLE,
+      </if>
+      <if test="rightPulseWidth != null">
+        RIGHT_PULSE_WIDTH,
+      </if>
+      <if test="rightVoltage != null">
+        RIGHT_VOLTAGE,
+      </if>
+      <if test="stnVoltage != null">
+        STN_VOLTAGE,
+      </if>
+      <if test="deviceId != null">
+        DEVICE_ID,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="patientSurgicalId != null">
+        PATIENT_SURGICAL_ID,
+      </if>
+      <if test="patientCaseId != null">
+        PATIENT_CASE_ID,
+      </if>
+      <if test="devicePowerType != null">
+        DEVICE_POWER_TYPE,
+      </if>
+      <if test="effectInfo != null">
+        EFFECT_INFO,
+      </if>
+      <if test="isTakeMedication != null">
+        IS_TAKE_MEDICATION,
+      </if>
+      <if test="adjustBeforeLeftSatisfaction != null">
+        ADJUST_BEFORE_LEFT_SATISFACTION,
+      </if>
+      <if test="adjustBeforeRightSatisfaction != null">
+        ADJUST_BEFORE_RIGHT_SATISFACTION,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="departId != null">
+        DEPART_ID,
+      </if>
+      <if test="tcDeviceId != null">
+        TC_DEVICE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="lStnElectric != null">
+        #{lStnElectric,jdbcType=REAL},
+      </if>
+      <if test="lStnResistance != null">
+        #{lStnResistance,jdbcType=INTEGER},
+      </if>
+      <if test="rStnElectric != null">
+        #{rStnElectric,jdbcType=REAL},
+      </if>
+      <if test="rStnResistance != null">
+        #{rStnResistance,jdbcType=INTEGER},
+      </if>
+      <if test="adjustMoreLeftSatisfaction != null">
+        #{adjustMoreLeftSatisfaction,jdbcType=INTEGER},
+      </if>
+      <if test="adjustMoreRightSatisfaction != null">
+        #{adjustMoreRightSatisfaction,jdbcType=INTEGER},
+      </if>
+      <if test="adjustVoltageLeftSatisfaction != null">
+        #{adjustVoltageLeftSatisfaction,jdbcType=INTEGER},
+      </if>
+      <if test="adjustVoltageRightSatisfaction != null">
+        #{adjustVoltageRightSatisfaction,jdbcType=INTEGER},
+      </if>
+      <if test="complaint != null">
+        #{complaint,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="followNum != null">
+        #{followNum,jdbcType=INTEGER},
+      </if>
+      <if test="leftExciteMod != null">
+        #{leftExciteMod,jdbcType=INTEGER},
+      </if>
+      <if test="leftFrequency != null">
+        #{leftFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="leftNegativePole != null">
+        #{leftNegativePole,jdbcType=VARCHAR},
+      </if>
+      <if test="leftPositivePole != null">
+        #{leftPositivePole,jdbcType=VARCHAR},
+      </if>
+      <if test="leftPulseWidth != null">
+        #{leftPulseWidth,jdbcType=VARCHAR},
+      </if>
+      <if test="leftVoltage != null">
+        #{leftVoltage,jdbcType=VARCHAR},
+      </if>
+      <if test="medicationStatus != null">
+        #{medicationStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="patientDbsFirstId != null">
+        #{patientDbsFirstId,jdbcType=INTEGER},
+      </if>
+      <if test="programDate != null">
+        #{programDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rightExciteMod != null">
+        #{rightExciteMod,jdbcType=INTEGER},
+      </if>
+      <if test="rightFrequency != null">
+        #{rightFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="rightNegativePole != null">
+        #{rightNegativePole,jdbcType=VARCHAR},
+      </if>
+      <if test="rightPositivePole != null">
+        #{rightPositivePole,jdbcType=VARCHAR},
+      </if>
+      <if test="rightPulseWidth != null">
+        #{rightPulseWidth,jdbcType=VARCHAR},
+      </if>
+      <if test="rightVoltage != null">
+        #{rightVoltage,jdbcType=VARCHAR},
+      </if>
+      <if test="stnVoltage != null">
+        #{stnVoltage,jdbcType=REAL},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientSurgicalId != null">
+        #{patientSurgicalId,jdbcType=INTEGER},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="devicePowerType != null">
+        #{devicePowerType,jdbcType=INTEGER},
+      </if>
+      <if test="effectInfo != null">
+        #{effectInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="isTakeMedication != null">
+        #{isTakeMedication,jdbcType=INTEGER},
+      </if>
+      <if test="adjustBeforeLeftSatisfaction != null">
+        #{adjustBeforeLeftSatisfaction,jdbcType=INTEGER},
+      </if>
+      <if test="adjustBeforeRightSatisfaction != null">
+        #{adjustBeforeRightSatisfaction,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="departId != null">
+        #{departId,jdbcType=VARCHAR},
+      </if>
+      <if test="tcDeviceId != null">
+        #{tcDeviceId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

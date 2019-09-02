@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientSymptomMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientSymptom">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ARISE_TIME" jdbcType="TIMESTAMP" property="ariseTime" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="SYM_NAME" jdbcType="VARCHAR" property="symName" />
+    <result column="SYM_TYPE" jdbcType="VARCHAR" property="symType" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="WHETHER_LAW" jdbcType="VARCHAR" property="whetherLaw" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="SYMPTOM_TYPE_ID" jdbcType="INTEGER" property="symptomTypeId" />
+    <result column="ARISE_TIME_LEFT_UP" jdbcType="TIMESTAMP" property="ariseTimeLeftUp" />
+    <result column="ARISE_TIME_RIGHT_UP" jdbcType="TIMESTAMP" property="ariseTimeRightUp" />
+    <result column="ARISE_TIME_LEFT_DOWN" jdbcType="TIMESTAMP" property="ariseTimeLeftDown" />
+    <result column="ARISE_TIME_RIGHT_DOWN" jdbcType="TIMESTAMP" property="ariseTimeRightDown" />
+    <result column="LAST_TIME" jdbcType="VARCHAR" property="lastTime" />
+    <result column="NOT_SPORT_TYPE" jdbcType="VARCHAR" property="notSportType" />
+    <result column="NOT_SPORT_TYPE_ID" jdbcType="INTEGER" property="notSportTypeId" />
+    <result column="SYM_TYPE_ID" jdbcType="INTEGER" property="symTypeId" />
+    <result column="WHETHER_LAW_ID" jdbcType="INTEGER" property="whetherLawId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, ARISE_TIME, CREATE_BY, CREATE_DATE, CREATE_NAME, REMARKS, SYM_NAME, SYM_TYPE,
+    UPDATE_BY, UPDATE_DATE, UPDATE_NAME, WHETHER_LAW, PATIENT_CASE_ID, PATIENT_ID, SYMPTOM_TYPE_ID,
+    ARISE_TIME_LEFT_UP, ARISE_TIME_RIGHT_UP, ARISE_TIME_LEFT_DOWN, ARISE_TIME_RIGHT_DOWN,
+    LAST_TIME, NOT_SPORT_TYPE, NOT_SPORT_TYPE_ID, SYM_TYPE_ID, WHETHER_LAW_ID
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_symptom
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientSymptom">
+    insert into tc_patient_symptom (ID, ARISE_TIME, CREATE_BY,
+      CREATE_DATE, CREATE_NAME, REMARKS,
+      SYM_NAME, SYM_TYPE, UPDATE_BY,
+      UPDATE_DATE, UPDATE_NAME, WHETHER_LAW,
+      PATIENT_CASE_ID, PATIENT_ID, SYMPTOM_TYPE_ID,
+      ARISE_TIME_LEFT_UP, ARISE_TIME_RIGHT_UP,
+      ARISE_TIME_LEFT_DOWN, ARISE_TIME_RIGHT_DOWN,
+      LAST_TIME, NOT_SPORT_TYPE, NOT_SPORT_TYPE_ID,
+      SYM_TYPE_ID, WHETHER_LAW_ID)
+    values (#{id,jdbcType=INTEGER}, #{ariseTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR},
+      #{symName,jdbcType=VARCHAR}, #{symType,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR},
+      #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR}, #{whetherLaw,jdbcType=VARCHAR},
+      #{patientCaseId,jdbcType=VARCHAR}, #{patientId,jdbcType=INTEGER}, #{symptomTypeId,jdbcType=INTEGER},
+      #{ariseTimeLeftUp,jdbcType=TIMESTAMP}, #{ariseTimeRightUp,jdbcType=TIMESTAMP},
+      #{ariseTimeLeftDown,jdbcType=TIMESTAMP}, #{ariseTimeRightDown,jdbcType=TIMESTAMP},
+      #{lastTime,jdbcType=VARCHAR}, #{notSportType,jdbcType=VARCHAR}, #{notSportTypeId,jdbcType=INTEGER},
+      #{symTypeId,jdbcType=INTEGER}, #{whetherLawId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientSymptom">
+    insert into tc_patient_symptom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="ariseTime != null">
+        ARISE_TIME,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="symName != null">
+        SYM_NAME,
+      </if>
+      <if test="symType != null">
+        SYM_TYPE,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="whetherLaw != null">
+        WHETHER_LAW,
+      </if>
+      <if test="patientCaseId != null">
+        PATIENT_CASE_ID,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="symptomTypeId != null">
+        SYMPTOM_TYPE_ID,
+      </if>
+      <if test="ariseTimeLeftUp != null">
+        ARISE_TIME_LEFT_UP,
+      </if>
+      <if test="ariseTimeRightUp != null">
+        ARISE_TIME_RIGHT_UP,
+      </if>
+      <if test="ariseTimeLeftDown != null">
+        ARISE_TIME_LEFT_DOWN,
+      </if>
+      <if test="ariseTimeRightDown != null">
+        ARISE_TIME_RIGHT_DOWN,
+      </if>
+      <if test="lastTime != null">
+        LAST_TIME,
+      </if>
+      <if test="notSportType != null">
+        NOT_SPORT_TYPE,
+      </if>
+      <if test="notSportTypeId != null">
+        NOT_SPORT_TYPE_ID,
+      </if>
+      <if test="symTypeId != null">
+        SYM_TYPE_ID,
+      </if>
+      <if test="whetherLawId != null">
+        WHETHER_LAW_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ariseTime != null">
+        #{ariseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="symName != null">
+        #{symName,jdbcType=VARCHAR},
+      </if>
+      <if test="symType != null">
+        #{symType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="whetherLaw != null">
+        #{whetherLaw,jdbcType=VARCHAR},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="symptomTypeId != null">
+        #{symptomTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="ariseTimeLeftUp != null">
+        #{ariseTimeLeftUp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ariseTimeRightUp != null">
+        #{ariseTimeRightUp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ariseTimeLeftDown != null">
+        #{ariseTimeLeftDown,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ariseTimeRightDown != null">
+        #{ariseTimeRightDown,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTime != null">
+        #{lastTime,jdbcType=VARCHAR},
+      </if>
+      <if test="notSportType != null">
+        #{notSportType,jdbcType=VARCHAR},
+      </if>
+      <if test="notSportTypeId != null">
+        #{notSportTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="symTypeId != null">
+        #{symTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="whetherLawId != null">
+        #{whetherLawId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

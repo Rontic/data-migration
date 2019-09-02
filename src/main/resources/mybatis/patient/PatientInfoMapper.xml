@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientInfoMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientInfo">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ariTime" jdbcType="TIMESTAMP" property="aritime" />
+    <result column="BIRTH" jdbcType="TIMESTAMP" property="birth" />
+    <result column="BIRTH_PLACE" jdbcType="VARCHAR" property="birthPlace" />
+    <result column="CAREER" jdbcType="VARCHAR" property="career" />
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="DIAGMODE" jdbcType="VARCHAR" property="diagmode" />
+    <result column="DISEASE_TYPE" jdbcType="VARCHAR" property="diseaseType" />
+    <result column="ECON_TYPE" jdbcType="VARCHAR" property="econType" />
+    <result column="FIR_BODY" jdbcType="VARCHAR" property="firBody" />
+    <result column="FIRHOSP" jdbcType="VARCHAR" property="firhosp" />
+    <result column="FIRMED" jdbcType="VARCHAR" property="firmed" />
+    <result column="FIR_SYM" jdbcType="VARCHAR" property="firSym" />
+    <result column="firTime" jdbcType="TIMESTAMP" property="firtime" />
+    <result column="GETDISFAC" jdbcType="VARCHAR" property="getdisfac" />
+    <result column="GETDISFAC0" jdbcType="VARCHAR" property="getdisfac0" />
+    <result column="HEIGHT" jdbcType="VARCHAR" property="height" />
+    <result column="HOME_ADDRESS" jdbcType="VARCHAR" property="homeAddress" />
+    <result column="LIVE_TYPE" jdbcType="VARCHAR" property="liveType" />
+    <result column="MARRY_TYPE" jdbcType="VARCHAR" property="marryType" />
+    <result column="NATION" jdbcType="VARCHAR" property="nation" />
+    <result column="OWN_CODE" jdbcType="VARCHAR" property="ownCode" />
+    <result column="ptcphone" jdbcType="VARCHAR" property="ptcphone" />
+    <result column="PTNAME" jdbcType="VARCHAR" property="ptname" />
+    <result column="PTNAME_HEAD" jdbcType="VARCHAR" property="ptnameHead" />
+    <result column="PT_PHONE" jdbcType="VARCHAR" property="ptPhone" />
+    <result column="QUALIFICATION" jdbcType="VARCHAR" property="qualification" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="surHosp" jdbcType="VARCHAR" property="surhosp" />
+    <result column="surTime" jdbcType="TIMESTAMP" property="surtime" />
+    <result column="TREATPRO" jdbcType="VARCHAR" property="treatpro" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="WEIGHT" jdbcType="VARCHAR" property="weight" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="degree" jdbcType="INTEGER" property="degree" />
+    <result column="bloodType" jdbcType="INTEGER" property="bloodtype" />
+    <result column="patientCode" jdbcType="VARCHAR" property="patientcode" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="patientPersonInfoVersion" jdbcType="INTEGER" property="patientpersoninfoversion" />
+    <result column="orgId" jdbcType="INTEGER" property="orgid" />
+    <result column="orgType" jdbcType="TINYINT" property="orgtype" />
+    <result column="createByUserId" jdbcType="INTEGER" property="createbyuserid" />
+    <result column="createByUserType" jdbcType="TINYINT" property="createbyusertype" />
+    <result column="createByAccount" jdbcType="VARCHAR" property="createbyaccount" />
+    <result column="homeCity" jdbcType="VARCHAR" property="homecity" />
+    <result column="diseaseVersion" jdbcType="INTEGER" property="diseaseversion" />
+    <result column="FIR_MEDINFO" jdbcType="VARCHAR" property="firMedinfo" />
+    <result column="FIR_MEDTIME" jdbcType="TIMESTAMP" property="firMedtime" />
+    <result column="DBS_PATIENT_CODE" jdbcType="VARCHAR" property="dbsPatientCode" />
+    <result column="CLIENT_TYPE" jdbcType="INTEGER" property="clientType" />
+    <result column="ARI_AGE" jdbcType="INTEGER" property="ariAge" />
+    <result column="SYMMETRIES" jdbcType="INTEGER" property="symmetries" />
+    <result column="SYMMETRIES_TIME" jdbcType="TIMESTAMP" property="symmetriesTime" />
+    <result column="OUT_PATIENT_MEDICAL_RECORDS" jdbcType="VARCHAR" property="outPatientMedicalRecords" />
+    <result column="MEDICAL_RECORD_NUMBER" jdbcType="VARCHAR" property="medicalRecordNumber" />
+    <result column="BMI" jdbcType="DECIMAL" property="bmi" />
+    <result column="YEARS_OF_EDUCATION" jdbcType="REAL" property="yearsOfEducation" />
+    <result column="COURSE_OF_DISEASE" jdbcType="INTEGER" property="courseOfDisease" />
+    <result column="SPECIFIC_DISEASE" jdbcType="INTEGER" property="specificDisease" />
+    <result column="STATUS" jdbcType="TINYINT" property="status" />
+    <result column="TASK_INFO_ID" jdbcType="INTEGER" property="taskInfoId" />
+    <result column="DIAGNOSE_STATE" jdbcType="INTEGER" property="diagnoseState" />
+    <result column="STEP" jdbcType="INTEGER" property="step" />
+    <result column="PATIENT_NAME_SPELL" jdbcType="VARCHAR" property="patientNameSpell" />
+    <result column="CALFLENGTH" jdbcType="VARCHAR" property="calflength" />
+    <result column="THIGHLENGTH" jdbcType="VARCHAR" property="thighlength" />
+    <result column="CREATE_SUPPORT" jdbcType="VARCHAR" property="createSupport" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="NATIONALITY" jdbcType="VARCHAR" property="nationality" />
+    <result column="social_security_number" jdbcType="VARCHAR" property="socialSecurityNumber" />
+    <result column="complete_percent" jdbcType="VARCHAR" property="completePercent" />
+    <result column="WAIST" jdbcType="VARCHAR" property="waist" />
+    <result column="DISEASE_TYPE_REMARK" jdbcType="VARCHAR" property="diseaseTypeRemark" />
+    <result column="live_status" jdbcType="INTEGER" property="liveStatus" />
+    <result column="nationality_code" jdbcType="VARCHAR" property="nationalityCode" />
+    <result column="home_city_txt" jdbcType="VARCHAR" property="homeCityTxt" />
+    <result column="birth_place_code" jdbcType="VARCHAR" property="birthPlaceCode" />
+    <result column="PREMORBID_WEIGHT" jdbcType="VARCHAR" property="premorbidWeight" />
+    <result column="TCM_TYPE" jdbcType="VARCHAR" property="tcmType" />
+    <result column="DOMINANT_SIDE" jdbcType="INTEGER" property="dominantSide" />
+    <result column="bear_num" jdbcType="INTEGER" property="bearNum" />
+    <result column="menopause_age" jdbcType="INTEGER" property="menopauseAge" />
+    <result column="emergency_phone" jdbcType="VARCHAR" property="emergencyPhone" />
+    <result column="HY_POINT" jdbcType="VARCHAR" property="hyPoint" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    <result column="TOIMPOERDATA" jdbcType="LONGVARCHAR" property="toimpoerdata" />
+    <result column="CHIEF_COMPLAINT" jdbcType="LONGVARCHAR" property="chiefComplaint" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, ariTime, BIRTH, BIRTH_PLACE, CAREER, CODE, CREATE_BY, CREATE_DATE, CREATE_NAME,
+    DIAGMODE, DISEASE_TYPE, ECON_TYPE, FIR_BODY, FIRHOSP, FIRMED, FIR_SYM, firTime, GETDISFAC,
+    GETDISFAC0, HEIGHT, HOME_ADDRESS, LIVE_TYPE, MARRY_TYPE, NATION, OWN_CODE, ptcphone,
+    PTNAME, PTNAME_HEAD, PT_PHONE, QUALIFICATION, SEX, surHosp, surTime, TREATPRO, UPDATE_BY,
+    UPDATE_DATE, UPDATE_NAME, WEIGHT, age, degree, bloodType, patientCode, version, patientPersonInfoVersion,
+    orgId, orgType, createByUserId, createByUserType, createByAccount, homeCity, diseaseVersion,
+    FIR_MEDINFO, FIR_MEDTIME, DBS_PATIENT_CODE, CLIENT_TYPE, ARI_AGE, SYMMETRIES, SYMMETRIES_TIME,
+    OUT_PATIENT_MEDICAL_RECORDS, MEDICAL_RECORD_NUMBER, BMI, YEARS_OF_EDUCATION, COURSE_OF_DISEASE,
+    SPECIFIC_DISEASE, STATUS, TASK_INFO_ID, DIAGNOSE_STATE, STEP, PATIENT_NAME_SPELL,
+    CALFLENGTH, THIGHLENGTH, CREATE_SUPPORT, EMAIL, NATIONALITY, social_security_number,
+    complete_percent, WAIST, DISEASE_TYPE_REMARK, live_status, nationality_code, home_city_txt,
+    birth_place_code, PREMORBID_WEIGHT, TCM_TYPE, DOMINANT_SIDE, bear_num, menopause_age,
+    emergency_phone, HY_POINT,REMARKS, TOIMPOERDATA, CHIEF_COMPLAINT
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+
+    from tc_patient_info
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientInfo">
+    insert into tc_patient_info (ID, ariTime, BIRTH,
+      BIRTH_PLACE, CAREER, CODE,
+      CREATE_BY, CREATE_DATE, CREATE_NAME,
+      DIAGMODE, DISEASE_TYPE, ECON_TYPE,
+      FIR_BODY, FIRHOSP, FIRMED,
+      FIR_SYM, firTime, GETDISFAC,
+      GETDISFAC0, HEIGHT, HOME_ADDRESS,
+      LIVE_TYPE, MARRY_TYPE, NATION,
+      OWN_CODE, ptcphone, PTNAME,
+      PTNAME_HEAD, PT_PHONE, QUALIFICATION,
+      SEX, surHosp, surTime,
+      TREATPRO, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, WEIGHT, age,
+      degree, bloodType, patientCode,
+      version, patientPersonInfoVersion, orgId,
+      orgType, createByUserId, createByUserType,
+      createByAccount, homeCity, diseaseVersion,
+      FIR_MEDINFO, FIR_MEDTIME, DBS_PATIENT_CODE,
+      CLIENT_TYPE, ARI_AGE, SYMMETRIES,
+      SYMMETRIES_TIME, OUT_PATIENT_MEDICAL_RECORDS,
+      MEDICAL_RECORD_NUMBER, BMI, YEARS_OF_EDUCATION,
+      COURSE_OF_DISEASE, SPECIFIC_DISEASE, STATUS,
+      TASK_INFO_ID, DIAGNOSE_STATE, STEP,
+      PATIENT_NAME_SPELL, CALFLENGTH, THIGHLENGTH,
+      CREATE_SUPPORT, EMAIL, NATIONALITY,
+      social_security_number, complete_percent,
+      WAIST, DISEASE_TYPE_REMARK, live_status,
+      nationality_code, home_city_txt, birth_place_code,
+      PREMORBID_WEIGHT, TCM_TYPE, DOMINANT_SIDE,
+      bear_num, menopause_age, emergency_phone,
+      HY_POINT, REMARKS, TOIMPOERDATA,
+      CHIEF_COMPLAINT)
+    values (#{id,jdbcType=INTEGER}, #{aritime,jdbcType=TIMESTAMP}, #{birth,jdbcType=TIMESTAMP},
+      #{birthPlace,jdbcType=VARCHAR}, #{career,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR},
+      #{diagmode,jdbcType=VARCHAR}, #{diseaseType,jdbcType=VARCHAR}, #{econType,jdbcType=VARCHAR},
+      #{firBody,jdbcType=VARCHAR}, #{firhosp,jdbcType=VARCHAR}, #{firmed,jdbcType=VARCHAR},
+      #{firSym,jdbcType=VARCHAR}, #{firtime,jdbcType=TIMESTAMP}, #{getdisfac,jdbcType=VARCHAR},
+      #{getdisfac0,jdbcType=VARCHAR}, #{height,jdbcType=VARCHAR}, #{homeAddress,jdbcType=VARCHAR},
+      #{liveType,jdbcType=VARCHAR}, #{marryType,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR},
+      #{ownCode,jdbcType=VARCHAR}, #{ptcphone,jdbcType=VARCHAR}, #{ptname,jdbcType=VARCHAR},
+      #{ptnameHead,jdbcType=VARCHAR}, #{ptPhone,jdbcType=VARCHAR}, #{qualification,jdbcType=VARCHAR},
+      #{sex,jdbcType=VARCHAR}, #{surhosp,jdbcType=VARCHAR}, #{surtime,jdbcType=TIMESTAMP},
+      #{treatpro,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
+      #{degree,jdbcType=INTEGER}, #{bloodtype,jdbcType=INTEGER}, #{patientcode,jdbcType=VARCHAR},
+      #{version,jdbcType=INTEGER}, #{patientpersoninfoversion,jdbcType=INTEGER}, #{orgid,jdbcType=INTEGER},
+      #{orgtype,jdbcType=TINYINT}, #{createbyuserid,jdbcType=INTEGER}, #{createbyusertype,jdbcType=TINYINT},
+      #{createbyaccount,jdbcType=VARCHAR}, #{homecity,jdbcType=VARCHAR}, #{diseaseversion,jdbcType=INTEGER},
+      #{firMedinfo,jdbcType=VARCHAR}, #{firMedtime,jdbcType=TIMESTAMP}, #{dbsPatientCode,jdbcType=VARCHAR},
+      #{clientType,jdbcType=INTEGER}, #{ariAge,jdbcType=INTEGER}, #{symmetries,jdbcType=INTEGER},
+      #{symmetriesTime,jdbcType=TIMESTAMP}, #{outPatientMedicalRecords,jdbcType=VARCHAR},
+      #{medicalRecordNumber,jdbcType=VARCHAR}, #{bmi,jdbcType=DECIMAL}, #{yearsOfEducation,jdbcType=REAL},
+      #{courseOfDisease,jdbcType=INTEGER}, #{specificDisease,jdbcType=INTEGER}, #{status,jdbcType=TINYINT},
+      #{taskInfoId,jdbcType=INTEGER}, #{diagnoseState,jdbcType=INTEGER}, #{step,jdbcType=INTEGER},
+      #{patientNameSpell,jdbcType=VARCHAR}, #{calflength,jdbcType=VARCHAR}, #{thighlength,jdbcType=VARCHAR},
+      #{createSupport,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR},
+      #{socialSecurityNumber,jdbcType=VARCHAR}, #{completePercent,jdbcType=VARCHAR},
+      #{waist,jdbcType=VARCHAR}, #{diseaseTypeRemark,jdbcType=VARCHAR}, #{liveStatus,jdbcType=INTEGER},
+      #{nationalityCode,jdbcType=VARCHAR}, #{homeCityTxt,jdbcType=VARCHAR}, #{birthPlaceCode,jdbcType=VARCHAR},
+      #{premorbidWeight,jdbcType=VARCHAR}, #{tcmType,jdbcType=VARCHAR}, #{dominantSide,jdbcType=INTEGER},
+      #{bearNum,jdbcType=INTEGER}, #{menopauseAge,jdbcType=INTEGER}, #{emergencyPhone,jdbcType=VARCHAR},
+      #{hyPoint,jdbcType=VARCHAR}, #{remarks,jdbcType=LONGVARCHAR}, #{toimpoerdata,jdbcType=LONGVARCHAR},
+      #{chiefComplaint,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientWholeInfo">
+    insert into tc_patient_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="aritime != null">
+        ariTime,
+      </if>
+      <if test="birth != null">
+        BIRTH,
+      </if>
+      <if test="birthPlace != null">
+        BIRTH_PLACE,
+      </if>
+      <if test="career != null">
+        CAREER,
+      </if>
+      <if test="code != null">
+        CODE,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="diagmode != null">
+        DIAGMODE,
+      </if>
+      <if test="diseaseType != null">
+        DISEASE_TYPE,
+      </if>
+      <if test="econType != null">
+        ECON_TYPE,
+      </if>
+      <if test="firBody != null">
+        FIR_BODY,
+      </if>
+      <if test="firhosp != null">
+        FIRHOSP,
+      </if>
+      <if test="firmed != null">
+        FIRMED,
+      </if>
+      <if test="firSym != null">
+        FIR_SYM,
+      </if>
+      <if test="firtime != null">
+        firTime,
+      </if>
+      <if test="getdisfac != null">
+        GETDISFAC,
+      </if>
+      <if test="getdisfac0 != null">
+        GETDISFAC0,
+      </if>
+      <if test="height != null">
+        HEIGHT,
+      </if>
+      <if test="homeAddress != null">
+        HOME_ADDRESS,
+      </if>
+      <if test="liveType != null">
+        LIVE_TYPE,
+      </if>
+      <if test="marryType != null">
+        MARRY_TYPE,
+      </if>
+      <if test="nation != null">
+        NATION,
+      </if>
+      <if test="ownCode != null">
+        OWN_CODE,
+      </if>
+      <if test="ptcphone != null">
+        ptcphone,
+      </if>
+      <if test="ptname != null">
+        PTNAME,
+      </if>
+      <if test="ptnameHead != null">
+        PTNAME_HEAD,
+      </if>
+      <if test="ptPhone != null">
+        PT_PHONE,
+      </if>
+      <if test="qualification != null">
+        QUALIFICATION,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="surhosp != null">
+        surHosp,
+      </if>
+      <if test="surtime != null">
+        surTime,
+      </if>
+      <if test="treatpro != null">
+        TREATPRO,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="weight != null">
+        WEIGHT,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="degree != null">
+        degree,
+      </if>
+      <if test="bloodtype != null">
+        bloodType,
+      </if>
+      <if test="patientcode != null">
+        patientCode,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="patientpersoninfoversion != null">
+        patientPersonInfoVersion,
+      </if>
+      <if test="orgid != null">
+        orgId,
+      </if>
+      <if test="orgtype != null">
+        orgType,
+      </if>
+      <if test="createbyuserid != null">
+        createByUserId,
+      </if>
+      <if test="createbyusertype != null">
+        createByUserType,
+      </if>
+      <if test="createbyaccount != null">
+        createByAccount,
+      </if>
+      <if test="homecity != null">
+        homeCity,
+      </if>
+      <if test="diseaseversion != null">
+        diseaseVersion,
+      </if>
+      <if test="firMedinfo != null">
+        FIR_MEDINFO,
+      </if>
+      <if test="firMedtime != null">
+        FIR_MEDTIME,
+      </if>
+      <if test="dbsPatientCode != null">
+        DBS_PATIENT_CODE,
+      </if>
+      <if test="clientType != null">
+        CLIENT_TYPE,
+      </if>
+      <if test="ariAge != null">
+        ARI_AGE,
+      </if>
+      <if test="symmetries != null">
+        SYMMETRIES,
+      </if>
+      <if test="symmetriesTime != null">
+        SYMMETRIES_TIME,
+      </if>
+      <if test="outPatientMedicalRecords != null">
+        OUT_PATIENT_MEDICAL_RECORDS,
+      </if>
+      <if test="medicalRecordNumber != null">
+        MEDICAL_RECORD_NUMBER,
+      </if>
+      <if test="bmi != null">
+        BMI,
+      </if>
+      <if test="yearsOfEducation != null">
+        YEARS_OF_EDUCATION,
+      </if>
+      <if test="courseOfDisease != null">
+        COURSE_OF_DISEASE,
+      </if>
+      <if test="specificDisease != null">
+        SPECIFIC_DISEASE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="taskInfoId != null">
+        TASK_INFO_ID,
+      </if>
+      <if test="diagnoseState != null">
+        DIAGNOSE_STATE,
+      </if>
+      <if test="step != null">
+        STEP,
+      </if>
+      <if test="patientNameSpell != null">
+        PATIENT_NAME_SPELL,
+      </if>
+      <if test="calflength != null">
+        CALFLENGTH,
+      </if>
+      <if test="thighlength != null">
+        THIGHLENGTH,
+      </if>
+      <if test="createSupport != null">
+        CREATE_SUPPORT,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="nationality != null">
+        NATIONALITY,
+      </if>
+      <if test="socialSecurityNumber != null">
+        social_security_number,
+      </if>
+      <if test="completePercent != null">
+        complete_percent,
+      </if>
+      <if test="waist != null">
+        WAIST,
+      </if>
+      <if test="diseaseTypeRemark != null">
+        DISEASE_TYPE_REMARK,
+      </if>
+      <if test="liveStatus != null">
+        live_status,
+      </if>
+      <if test="nationalityCode != null">
+        nationality_code,
+      </if>
+      <if test="homeCityTxt != null">
+        home_city_txt,
+      </if>
+      <if test="birthPlaceCode != null">
+        birth_place_code,
+      </if>
+      <if test="premorbidWeight != null">
+        PREMORBID_WEIGHT,
+      </if>
+      <if test="tcmType != null">
+        TCM_TYPE,
+      </if>
+      <if test="dominantSide != null">
+        DOMINANT_SIDE,
+      </if>
+      <if test="bearNum != null">
+        bear_num,
+      </if>
+      <if test="menopauseAge != null">
+        menopause_age,
+      </if>
+      <if test="emergencyPhone != null">
+        emergency_phone,
+      </if>
+      <if test="hyPoint != null">
+        HY_POINT,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="toimpoerdata != null">
+        TOIMPOERDATA,
+      </if>
+      <if test="chiefComplaint != null">
+        CHIEF_COMPLAINT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="aritime != null">
+        #{aritime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="birth != null">
+        #{birth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="birthPlace != null">
+        #{birthPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="career != null">
+        #{career,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="diagmode != null">
+        #{diagmode,jdbcType=VARCHAR},
+      </if>
+      <if test="diseaseType != null">
+        #{diseaseType,jdbcType=VARCHAR},
+      </if>
+      <if test="econType != null">
+        #{econType,jdbcType=VARCHAR},
+      </if>
+      <if test="firBody != null">
+        #{firBody,jdbcType=VARCHAR},
+      </if>
+      <if test="firhosp != null">
+        #{firhosp,jdbcType=VARCHAR},
+      </if>
+      <if test="firmed != null">
+        #{firmed,jdbcType=VARCHAR},
+      </if>
+      <if test="firSym != null">
+        #{firSym,jdbcType=VARCHAR},
+      </if>
+      <if test="firtime != null">
+        #{firtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="getdisfac != null">
+        #{getdisfac,jdbcType=VARCHAR},
+      </if>
+      <if test="getdisfac0 != null">
+        #{getdisfac0,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="homeAddress != null">
+        #{homeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="liveType != null">
+        #{liveType,jdbcType=VARCHAR},
+      </if>
+      <if test="marryType != null">
+        #{marryType,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="ownCode != null">
+        #{ownCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ptcphone != null">
+        #{ptcphone,jdbcType=VARCHAR},
+      </if>
+      <if test="ptname != null">
+        #{ptname,jdbcType=VARCHAR},
+      </if>
+      <if test="ptnameHead != null">
+        #{ptnameHead,jdbcType=VARCHAR},
+      </if>
+      <if test="ptPhone != null">
+        #{ptPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="qualification != null">
+        #{qualification,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="surhosp != null">
+        #{surhosp,jdbcType=VARCHAR},
+      </if>
+      <if test="surtime != null">
+        #{surtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="treatpro != null">
+        #{treatpro,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="degree != null">
+        #{degree,jdbcType=INTEGER},
+      </if>
+      <if test="bloodtype != null">
+        #{bloodtype,jdbcType=INTEGER},
+      </if>
+      <if test="patientcode != null">
+        #{patientcode,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="patientpersoninfoversion != null">
+        #{patientpersoninfoversion,jdbcType=INTEGER},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=INTEGER},
+      </if>
+      <if test="orgtype != null">
+        #{orgtype,jdbcType=TINYINT},
+      </if>
+      <if test="createbyuserid != null">
+        #{createbyuserid,jdbcType=INTEGER},
+      </if>
+      <if test="createbyusertype != null">
+        #{createbyusertype,jdbcType=TINYINT},
+      </if>
+      <if test="createbyaccount != null">
+        #{createbyaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="homecity != null">
+        #{homecity,jdbcType=VARCHAR},
+      </if>
+      <if test="diseaseversion != null">
+        #{diseaseversion,jdbcType=INTEGER},
+      </if>
+      <if test="firMedinfo != null">
+        #{firMedinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="firMedtime != null">
+        #{firMedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dbsPatientCode != null">
+        #{dbsPatientCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clientType != null">
+        #{clientType,jdbcType=INTEGER},
+      </if>
+      <if test="ariAge != null">
+        #{ariAge,jdbcType=INTEGER},
+      </if>
+      <if test="symmetries != null">
+        #{symmetries,jdbcType=INTEGER},
+      </if>
+      <if test="symmetriesTime != null">
+        #{symmetriesTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outPatientMedicalRecords != null">
+        #{outPatientMedicalRecords,jdbcType=VARCHAR},
+      </if>
+      <if test="medicalRecordNumber != null">
+        #{medicalRecordNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="bmi != null">
+        #{bmi,jdbcType=DECIMAL},
+      </if>
+      <if test="yearsOfEducation != null">
+        #{yearsOfEducation,jdbcType=REAL},
+      </if>
+      <if test="courseOfDisease != null">
+        #{courseOfDisease,jdbcType=INTEGER},
+      </if>
+      <if test="specificDisease != null">
+        #{specificDisease,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="taskInfoId != null">
+        #{taskInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="diagnoseState != null">
+        #{diagnoseState,jdbcType=INTEGER},
+      </if>
+      <if test="step != null">
+        #{step,jdbcType=INTEGER},
+      </if>
+      <if test="patientNameSpell != null">
+        #{patientNameSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="calflength != null">
+        #{calflength,jdbcType=VARCHAR},
+      </if>
+      <if test="thighlength != null">
+        #{thighlength,jdbcType=VARCHAR},
+      </if>
+      <if test="createSupport != null">
+        #{createSupport,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="socialSecurityNumber != null">
+        #{socialSecurityNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="completePercent != null">
+        #{completePercent,jdbcType=VARCHAR},
+      </if>
+      <if test="waist != null">
+        #{waist,jdbcType=VARCHAR},
+      </if>
+      <if test="diseaseTypeRemark != null">
+        #{diseaseTypeRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="liveStatus != null">
+        #{liveStatus,jdbcType=INTEGER},
+      </if>
+      <if test="nationalityCode != null">
+        #{nationalityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="homeCityTxt != null">
+        #{homeCityTxt,jdbcType=VARCHAR},
+      </if>
+      <if test="birthPlaceCode != null">
+        #{birthPlaceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="premorbidWeight != null">
+        #{premorbidWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="tcmType != null">
+        #{tcmType,jdbcType=VARCHAR},
+      </if>
+      <if test="dominantSide != null">
+        #{dominantSide,jdbcType=INTEGER},
+      </if>
+      <if test="bearNum != null">
+        #{bearNum,jdbcType=INTEGER},
+      </if>
+      <if test="menopauseAge != null">
+        #{menopauseAge,jdbcType=INTEGER},
+      </if>
+      <if test="emergencyPhone != null">
+        #{emergencyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="hyPoint != null">
+        #{hyPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="toimpoerdata != null">
+        #{toimpoerdata,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="chiefComplaint != null">
+        #{chiefComplaint,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

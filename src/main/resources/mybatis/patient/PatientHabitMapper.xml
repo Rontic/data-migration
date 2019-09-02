@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientHabitMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientHabit">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="DOSE_INFO" jdbcType="VARCHAR" property="doseInfo" />
+    <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="PATIENT_HABIT_ID" jdbcType="INTEGER" property="patientHabitId" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="UNIT" jdbcType="INTEGER" property="unit" />
+    <result column="YEARS_OF_SMOKING" jdbcType="VARCHAR" property="yearsOfSmoking" />
+    <result column="YEARS_OF_WINE" jdbcType="VARCHAR" property="yearsOfWine" />
+    <result column="STOP_YEARS" jdbcType="VARCHAR" property="stopYears" />
+    <result column="YEARS_OF_TEA" jdbcType="VARCHAR" property="yearsOfTea" />
+    <result column="YEARS_OF_COFFEE" jdbcType="VARCHAR" property="yearsOfCoffee" />
+    <result column="QUESTION_INFO" jdbcType="INTEGER" property="questionInfo" />
+    <result column="QUESTION_INFOS" jdbcType="INTEGER" property="questionInfos" />
+    <result column="taste_preference" jdbcType="VARCHAR" property="tastePreference" />
+    <result column="staple_preference" jdbcType="INTEGER" property="staplePreference" />
+    <result column="sleep_latency" jdbcType="VARCHAR" property="sleepLatency" />
+    <result column="snoring_time" jdbcType="VARCHAR" property="snoringTime" />
+    <result column="substance_abuse" jdbcType="VARCHAR" property="substanceAbuse" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, CREATE_BY, CREATE_DATE, CREATE_NAME, DOSE_INFO, END_TIME, START_TIME, UPDATE_BY,
+    UPDATE_DATE, UPDATE_NAME, PATIENT_HABIT_ID, PATIENT_ID, version, UNIT, YEARS_OF_SMOKING,
+    YEARS_OF_WINE, STOP_YEARS, YEARS_OF_TEA, YEARS_OF_COFFEE, QUESTION_INFO, QUESTION_INFOS,
+    taste_preference, staple_preference, sleep_latency, snoring_time, substance_abuse,REMARKS
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+
+    from tc_patient_habit
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientHabit">
+    insert into tc_patient_habit (ID, CREATE_BY, CREATE_DATE,
+      CREATE_NAME, DOSE_INFO, END_TIME,
+      START_TIME, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, PATIENT_HABIT_ID, PATIENT_ID,
+      version, UNIT, YEARS_OF_SMOKING,
+      YEARS_OF_WINE, STOP_YEARS, YEARS_OF_TEA,
+      YEARS_OF_COFFEE, QUESTION_INFO, QUESTION_INFOS,
+      taste_preference, staple_preference, sleep_latency,
+      snoring_time, substance_abuse, REMARKS
+      )
+    values (#{id,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{doseInfo,jdbcType=VARCHAR}, #{endTime,jdbcType=TIMESTAMP},
+      #{startTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{patientHabitId,jdbcType=INTEGER}, #{patientId,jdbcType=INTEGER},
+      #{version,jdbcType=INTEGER}, #{unit,jdbcType=INTEGER}, #{yearsOfSmoking,jdbcType=VARCHAR},
+      #{yearsOfWine,jdbcType=VARCHAR}, #{stopYears,jdbcType=VARCHAR}, #{yearsOfTea,jdbcType=VARCHAR},
+      #{yearsOfCoffee,jdbcType=VARCHAR}, #{questionInfo,jdbcType=INTEGER}, #{questionInfos,jdbcType=INTEGER},
+      #{tastePreference,jdbcType=VARCHAR}, #{staplePreference,jdbcType=INTEGER}, #{sleepLatency,jdbcType=VARCHAR},
+      #{snoringTime,jdbcType=VARCHAR}, #{substanceAbuse,jdbcType=VARCHAR}, #{remarks,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientHabit">
+    insert into tc_patient_habit
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="doseInfo != null">
+        DOSE_INFO,
+      </if>
+      <if test="endTime != null">
+        END_TIME,
+      </if>
+      <if test="startTime != null">
+        START_TIME,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="patientHabitId != null">
+        PATIENT_HABIT_ID,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="unit != null">
+        UNIT,
+      </if>
+      <if test="yearsOfSmoking != null">
+        YEARS_OF_SMOKING,
+      </if>
+      <if test="yearsOfWine != null">
+        YEARS_OF_WINE,
+      </if>
+      <if test="stopYears != null">
+        STOP_YEARS,
+      </if>
+      <if test="yearsOfTea != null">
+        YEARS_OF_TEA,
+      </if>
+      <if test="yearsOfCoffee != null">
+        YEARS_OF_COFFEE,
+      </if>
+      <if test="questionInfo != null">
+        QUESTION_INFO,
+      </if>
+      <if test="questionInfos != null">
+        QUESTION_INFOS,
+      </if>
+      <if test="tastePreference != null">
+        taste_preference,
+      </if>
+      <if test="staplePreference != null">
+        staple_preference,
+      </if>
+      <if test="sleepLatency != null">
+        sleep_latency,
+      </if>
+      <if test="snoringTime != null">
+        snoring_time,
+      </if>
+      <if test="substanceAbuse != null">
+        substance_abuse,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="doseInfo != null">
+        #{doseInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientHabitId != null">
+        #{patientHabitId,jdbcType=INTEGER},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=INTEGER},
+      </if>
+      <if test="yearsOfSmoking != null">
+        #{yearsOfSmoking,jdbcType=VARCHAR},
+      </if>
+      <if test="yearsOfWine != null">
+        #{yearsOfWine,jdbcType=VARCHAR},
+      </if>
+      <if test="stopYears != null">
+        #{stopYears,jdbcType=VARCHAR},
+      </if>
+      <if test="yearsOfTea != null">
+        #{yearsOfTea,jdbcType=VARCHAR},
+      </if>
+      <if test="yearsOfCoffee != null">
+        #{yearsOfCoffee,jdbcType=VARCHAR},
+      </if>
+      <if test="questionInfo != null">
+        #{questionInfo,jdbcType=INTEGER},
+      </if>
+      <if test="questionInfos != null">
+        #{questionInfos,jdbcType=INTEGER},
+      </if>
+      <if test="tastePreference != null">
+        #{tastePreference,jdbcType=VARCHAR},
+      </if>
+      <if test="staplePreference != null">
+        #{staplePreference,jdbcType=INTEGER},
+      </if>
+      <if test="sleepLatency != null">
+        #{sleepLatency,jdbcType=VARCHAR},
+      </if>
+      <if test="snoringTime != null">
+        #{snoringTime,jdbcType=VARCHAR},
+      </if>
+      <if test="substanceAbuse != null">
+        #{substanceAbuse,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

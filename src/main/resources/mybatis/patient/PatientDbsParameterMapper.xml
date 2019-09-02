@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientDbsParameterMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsParameter">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="PARAM_TYPE" jdbcType="INTEGER" property="paramType" />
+    <result column="SCHEME_ORDER" jdbcType="INTEGER" property="schemeOrder" />
+    <result column="LIMB_SIDE" jdbcType="INTEGER" property="limbSide" />
+    <result column="EXCITE_MOD" jdbcType="INTEGER" property="exciteMod" />
+    <result column="NEGATIVE_POLE" jdbcType="VARCHAR" property="negativePole" />
+    <result column="POSITIVE_POLE" jdbcType="VARCHAR" property="positivePole" />
+    <result column="FREQUENCY" jdbcType="VARCHAR" property="frequency" />
+    <result column="PULSE_WIDTH" jdbcType="VARCHAR" property="pulseWidth" />
+    <result column="VOLTAGE" jdbcType="VARCHAR" property="voltage" />
+    <result column="RESISTANCE" jdbcType="INTEGER" property="resistance" />
+    <result column="ELECTRIC" jdbcType="DOUBLE" property="electric" />
+    <result column="ELECTRICITY" jdbcType="DOUBLE" property="electricity" />
+    <result column="EFFECT_INFO" jdbcType="VARCHAR" property="effectInfo" />
+    <result column="PATIENT_DBS_FIRST_ID" jdbcType="INTEGER" property="patientDbsFirstId" />
+    <result column="PATIENT_DBS_FOLLOW_ID" jdbcType="INTEGER" property="patientDbsFollowId" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="NEGATIVE_POLE2" jdbcType="VARCHAR" property="negativePole2" />
+    <result column="POSITIVE_POLE2" jdbcType="VARCHAR" property="positivePole2" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, PARAM_TYPE, SCHEME_ORDER, LIMB_SIDE, EXCITE_MOD, NEGATIVE_POLE, POSITIVE_POLE,
+    FREQUENCY, PULSE_WIDTH, VOLTAGE, RESISTANCE, ELECTRIC, ELECTRICITY, EFFECT_INFO,
+    PATIENT_DBS_FIRST_ID, PATIENT_DBS_FOLLOW_ID, CREATE_BY, CREATE_DATE, CREATE_NAME,
+    UPDATE_BY, UPDATE_DATE, UPDATE_NAME, NEGATIVE_POLE2, POSITIVE_POLE2,REMARKS
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+
+    from tc_patient_dbs_parameter
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsParameter">
+    insert into tc_patient_dbs_parameter (ID, PARAM_TYPE, SCHEME_ORDER,
+      LIMB_SIDE, EXCITE_MOD, NEGATIVE_POLE,
+      POSITIVE_POLE, FREQUENCY, PULSE_WIDTH,
+      VOLTAGE, RESISTANCE, ELECTRIC,
+      ELECTRICITY, EFFECT_INFO, PATIENT_DBS_FIRST_ID,
+      PATIENT_DBS_FOLLOW_ID, CREATE_BY, CREATE_DATE,
+      CREATE_NAME, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, NEGATIVE_POLE2, POSITIVE_POLE2,
+      REMARKS)
+    values (#{id,jdbcType=INTEGER}, #{paramType,jdbcType=INTEGER}, #{schemeOrder,jdbcType=INTEGER},
+      #{limbSide,jdbcType=INTEGER}, #{exciteMod,jdbcType=INTEGER}, #{negativePole,jdbcType=VARCHAR},
+      #{positivePole,jdbcType=VARCHAR}, #{frequency,jdbcType=VARCHAR}, #{pulseWidth,jdbcType=VARCHAR},
+      #{voltage,jdbcType=VARCHAR}, #{resistance,jdbcType=INTEGER}, #{electric,jdbcType=DOUBLE},
+      #{electricity,jdbcType=DOUBLE}, #{effectInfo,jdbcType=VARCHAR}, #{patientDbsFirstId,jdbcType=INTEGER},
+      #{patientDbsFollowId,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{negativePole2,jdbcType=VARCHAR}, #{positivePole2,jdbcType=VARCHAR},
+      #{remarks,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientDbsParameter">
+    insert into tc_patient_dbs_parameter
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="paramType != null">
+        PARAM_TYPE,
+      </if>
+      <if test="schemeOrder != null">
+        SCHEME_ORDER,
+      </if>
+      <if test="limbSide != null">
+        LIMB_SIDE,
+      </if>
+      <if test="exciteMod != null">
+        EXCITE_MOD,
+      </if>
+      <if test="negativePole != null">
+        NEGATIVE_POLE,
+      </if>
+      <if test="positivePole != null">
+        POSITIVE_POLE,
+      </if>
+      <if test="frequency != null">
+        FREQUENCY,
+      </if>
+      <if test="pulseWidth != null">
+        PULSE_WIDTH,
+      </if>
+      <if test="voltage != null">
+        VOLTAGE,
+      </if>
+      <if test="resistance != null">
+        RESISTANCE,
+      </if>
+      <if test="electric != null">
+        ELECTRIC,
+      </if>
+      <if test="electricity != null">
+        ELECTRICITY,
+      </if>
+      <if test="effectInfo != null">
+        EFFECT_INFO,
+      </if>
+      <if test="patientDbsFirstId != null">
+        PATIENT_DBS_FIRST_ID,
+      </if>
+      <if test="patientDbsFollowId != null">
+        PATIENT_DBS_FOLLOW_ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="negativePole2 != null">
+        NEGATIVE_POLE2,
+      </if>
+      <if test="positivePole2 != null">
+        POSITIVE_POLE2,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="paramType != null">
+        #{paramType,jdbcType=INTEGER},
+      </if>
+      <if test="schemeOrder != null">
+        #{schemeOrder,jdbcType=INTEGER},
+      </if>
+      <if test="limbSide != null">
+        #{limbSide,jdbcType=INTEGER},
+      </if>
+      <if test="exciteMod != null">
+        #{exciteMod,jdbcType=INTEGER},
+      </if>
+      <if test="negativePole != null">
+        #{negativePole,jdbcType=VARCHAR},
+      </if>
+      <if test="positivePole != null">
+        #{positivePole,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null">
+        #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="pulseWidth != null">
+        #{pulseWidth,jdbcType=VARCHAR},
+      </if>
+      <if test="voltage != null">
+        #{voltage,jdbcType=VARCHAR},
+      </if>
+      <if test="resistance != null">
+        #{resistance,jdbcType=INTEGER},
+      </if>
+      <if test="electric != null">
+        #{electric,jdbcType=DOUBLE},
+      </if>
+      <if test="electricity != null">
+        #{electricity,jdbcType=DOUBLE},
+      </if>
+      <if test="effectInfo != null">
+        #{effectInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="patientDbsFirstId != null">
+        #{patientDbsFirstId,jdbcType=INTEGER},
+      </if>
+      <if test="patientDbsFollowId != null">
+        #{patientDbsFollowId,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="negativePole2 != null">
+        #{negativePole2,jdbcType=VARCHAR},
+      </if>
+      <if test="positivePole2 != null">
+        #{positivePole2,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientFirstSymbolMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientFirstSymbol">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="FIRST_SYMBOL_TYPE" jdbcType="INTEGER" property="firstSymbolType" />
+    <result column="FIRST_SYMBOL_NAME" jdbcType="INTEGER" property="firstSymbolName" />
+    <result column="ARISE_TIME_LEFT_UP" jdbcType="DATE" property="ariseTimeLeftUp" />
+    <result column="ARISE_TIME_RIGHT_UP" jdbcType="DATE" property="ariseTimeRightUp" />
+    <result column="ARISE_TIME_LEFT_DOWN" jdbcType="DATE" property="ariseTimeLeftDown" />
+    <result column="ARISE_TIME_RIGHT_DOWN" jdbcType="DATE" property="ariseTimeRightDown" />
+    <result column="REGULAR" jdbcType="INTEGER" property="regular" />
+    <result column="NOT_SPORT_TYPE" jdbcType="INTEGER" property="notSportType" />
+    <result column="LAST_TIME" jdbcType="VARCHAR" property="lastTime" />
+    <result column="ARISE_TIME" jdbcType="DATE" property="ariseTime" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, FIRST_SYMBOL_TYPE, FIRST_SYMBOL_NAME, ARISE_TIME_LEFT_UP, ARISE_TIME_RIGHT_UP,
+    ARISE_TIME_LEFT_DOWN, ARISE_TIME_RIGHT_DOWN, REGULAR, NOT_SPORT_TYPE, LAST_TIME,
+    ARISE_TIME, PATIENT_ID, CREATE_BY, CREATE_DATE, UPDATE_BY, UPDATE_DATE,REMARKS
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_first_symbol
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientFirstSymbol">
+    insert into tc_patient_first_symbol (ID, FIRST_SYMBOL_TYPE, FIRST_SYMBOL_NAME,
+      ARISE_TIME_LEFT_UP, ARISE_TIME_RIGHT_UP, ARISE_TIME_LEFT_DOWN,
+      ARISE_TIME_RIGHT_DOWN, REGULAR, NOT_SPORT_TYPE,
+      LAST_TIME, ARISE_TIME, PATIENT_ID,
+      CREATE_BY, CREATE_DATE, UPDATE_BY,
+      UPDATE_DATE, REMARKS)
+    values (#{id,jdbcType=INTEGER}, #{firstSymbolType,jdbcType=INTEGER}, #{firstSymbolName,jdbcType=INTEGER},
+      #{ariseTimeLeftUp,jdbcType=DATE}, #{ariseTimeRightUp,jdbcType=DATE}, #{ariseTimeLeftDown,jdbcType=DATE},
+      #{ariseTimeRightDown,jdbcType=DATE}, #{regular,jdbcType=INTEGER}, #{notSportType,jdbcType=INTEGER},
+      #{lastTime,jdbcType=VARCHAR}, #{ariseTime,jdbcType=DATE}, #{patientId,jdbcType=INTEGER},
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR},
+      #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientFirstSymbol">
+    insert into tc_patient_first_symbol
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="firstSymbolType != null">
+        FIRST_SYMBOL_TYPE,
+      </if>
+      <if test="firstSymbolName != null">
+        FIRST_SYMBOL_NAME,
+      </if>
+      <if test="ariseTimeLeftUp != null">
+        ARISE_TIME_LEFT_UP,
+      </if>
+      <if test="ariseTimeRightUp != null">
+        ARISE_TIME_RIGHT_UP,
+      </if>
+      <if test="ariseTimeLeftDown != null">
+        ARISE_TIME_LEFT_DOWN,
+      </if>
+      <if test="ariseTimeRightDown != null">
+        ARISE_TIME_RIGHT_DOWN,
+      </if>
+      <if test="regular != null">
+        REGULAR,
+      </if>
+      <if test="notSportType != null">
+        NOT_SPORT_TYPE,
+      </if>
+      <if test="lastTime != null">
+        LAST_TIME,
+      </if>
+      <if test="ariseTime != null">
+        ARISE_TIME,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="firstSymbolType != null">
+        #{firstSymbolType,jdbcType=INTEGER},
+      </if>
+      <if test="firstSymbolName != null">
+        #{firstSymbolName,jdbcType=INTEGER},
+      </if>
+      <if test="ariseTimeLeftUp != null">
+        #{ariseTimeLeftUp,jdbcType=DATE},
+      </if>
+      <if test="ariseTimeRightUp != null">
+        #{ariseTimeRightUp,jdbcType=DATE},
+      </if>
+      <if test="ariseTimeLeftDown != null">
+        #{ariseTimeLeftDown,jdbcType=DATE},
+      </if>
+      <if test="ariseTimeRightDown != null">
+        #{ariseTimeRightDown,jdbcType=DATE},
+      </if>
+      <if test="regular != null">
+        #{regular,jdbcType=INTEGER},
+      </if>
+      <if test="notSportType != null">
+        #{notSportType,jdbcType=INTEGER},
+      </if>
+      <if test="lastTime != null">
+        #{lastTime,jdbcType=VARCHAR},
+      </if>
+      <if test="ariseTime != null">
+        #{ariseTime,jdbcType=DATE},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

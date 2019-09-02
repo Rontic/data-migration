@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientOptionMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientOption">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="BPM_STATUS" jdbcType="VARCHAR" property="bpmStatus" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="SYS_COMPANY_CODE" jdbcType="VARCHAR" property="sysCompanyCode" />
+    <result column="SYS_ORG_CODE" jdbcType="VARCHAR" property="sysOrgCode" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="PATIENT_SCALE_ID" jdbcType="INTEGER" property="patientScaleId" />
+    <result column="SCALE_OPTION_ID" jdbcType="VARCHAR" property="scaleOptionId" />
+    <result column="SORT" jdbcType="INTEGER" property="sort" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    <result column="OPTION_POINT" jdbcType="LONGVARCHAR" property="optionPoint" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, BPM_STATUS, CREATE_BY, CREATE_DATE, CREATE_NAME, SYS_COMPANY_CODE, SYS_ORG_CODE,
+    UPDATE_BY, UPDATE_DATE, UPDATE_NAME, PATIENT_ID, PATIENT_SCALE_ID, SCALE_OPTION_ID,
+    SORT,REMARKS, OPTION_POINT
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_option
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientOption">
+    insert into tc_patient_option (ID, BPM_STATUS, CREATE_BY,
+      CREATE_DATE, CREATE_NAME, SYS_COMPANY_CODE,
+      SYS_ORG_CODE, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, PATIENT_ID, PATIENT_SCALE_ID,
+      SCALE_OPTION_ID, SORT, REMARKS,
+      OPTION_POINT)
+    values (#{id,jdbcType=INTEGER}, #{bpmStatus,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR}, #{sysCompanyCode,jdbcType=VARCHAR},
+      #{sysOrgCode,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{patientId,jdbcType=INTEGER}, #{patientScaleId,jdbcType=INTEGER},
+      #{scaleOptionId,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{remarks,jdbcType=LONGVARCHAR},
+      #{optionPoint,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientOption">
+    insert into tc_patient_option
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="bpmStatus != null">
+        BPM_STATUS,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="sysCompanyCode != null">
+        SYS_COMPANY_CODE,
+      </if>
+      <if test="sysOrgCode != null">
+        SYS_ORG_CODE,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="patientScaleId != null">
+        PATIENT_SCALE_ID,
+      </if>
+      <if test="scaleOptionId != null">
+        SCALE_OPTION_ID,
+      </if>
+      <if test="sort != null">
+        SORT,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="optionPoint != null">
+        OPTION_POINT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bpmStatus != null">
+        #{bpmStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCompanyCode != null">
+        #{sysCompanyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysOrgCode != null">
+        #{sysOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="patientScaleId != null">
+        #{patientScaleId,jdbcType=INTEGER},
+      </if>
+      <if test="scaleOptionId != null">
+        #{scaleOptionId,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="optionPoint != null">
+        #{optionPoint,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

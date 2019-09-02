@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientSpephysicalMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientSpephysical">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ARISE_TIME" jdbcType="TIMESTAMP" property="ariseTime" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="SPEPHYSICAL_RESULT" jdbcType="VARCHAR" property="spephysicalResult" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="SPEPHYSICAL_INFO" jdbcType="INTEGER" property="spephysicalInfo" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="PATIENT" jdbcType="INTEGER" property="patient" />
+    <result column="PULL_TEST" jdbcType="TINYINT" property="pullTest" />
+    <result column="SITTING_BLOC" jdbcType="TINYINT" property="sittingBloc" />
+    <result column="FACIAL_OIL" jdbcType="TINYINT" property="facialOil" />
+    <result column="SKIN_SCRATCH" jdbcType="TINYINT" property="skinScratch" />
+    <result column="ERECT_REFLEX" jdbcType="TINYINT" property="erectReflex" />
+    <result column="VERTICAL_TILT" jdbcType="TINYINT" property="verticalTilt" />
+    <result column="CHECK_TYPE" jdbcType="VARCHAR" property="checkType" />
+    <result column="back_data" jdbcType="VARCHAR" property="backData" />
+    <result column="FORGET_LANG" jdbcType="TINYINT" property="forgetLang" />
+    <result column="FORGET_USE" jdbcType="TINYINT" property="forgetUse" />
+    <result column="FORGET_COGNIZE" jdbcType="TINYINT" property="forgetCognize" />
+    <result column="FORGET_LANG_TYPE" jdbcType="VARCHAR" property="forgetLangType" />
+    <result column="FORGET_USE_TYPE" jdbcType="VARCHAR" property="forgetUseType" />
+    <result column="SIMPLE_FEEL" jdbcType="TINYINT" property="simpleFeel" />
+    <result column="DEPTH_FEEL" jdbcType="TINYINT" property="depthFeel" />
+    <result column="GRAPH_FEEL" jdbcType="TINYINT" property="graphFeel" />
+    <result column="ENTITY_FEEL" jdbcType="TINYINT" property="entityFeel" />
+    <result column="SIMPLE_FEEL_REMARK" jdbcType="VARCHAR" property="simpleFeelRemark" />
+    <result column="DEPTH_FEEL_REMARK" jdbcType="VARCHAR" property="depthFeelRemark" />
+    <result column="GRAPH_FEEL_REMARK" jdbcType="VARCHAR" property="graphFeelRemark" />
+    <result column="ENTITY_FEEL_REMARK" jdbcType="VARCHAR" property="entityFeelRemark" />
+    <result column="FORGET_COGNIZE_TYPE" jdbcType="VARCHAR" property="forgetCognizeType" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, ARISE_TIME, CREATE_BY, CREATE_DATE, CREATE_NAME, SPEPHYSICAL_RESULT, UPDATE_BY,
+    UPDATE_DATE, UPDATE_NAME, SPEPHYSICAL_INFO, PATIENT_CASE_ID, PATIENT, PULL_TEST,
+    SITTING_BLOC, FACIAL_OIL, SKIN_SCRATCH, ERECT_REFLEX, VERTICAL_TILT, CHECK_TYPE,
+    back_data, FORGET_LANG, FORGET_USE, FORGET_COGNIZE, FORGET_LANG_TYPE, FORGET_USE_TYPE,
+    SIMPLE_FEEL, DEPTH_FEEL, GRAPH_FEEL, ENTITY_FEEL, SIMPLE_FEEL_REMARK, DEPTH_FEEL_REMARK,
+    GRAPH_FEEL_REMARK, ENTITY_FEEL_REMARK, FORGET_COGNIZE_TYPE,REMARKS
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_spephysical
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientSpephysical">
+    insert into tc_patient_spephysical (ID, ARISE_TIME, CREATE_BY,
+      CREATE_DATE, CREATE_NAME, SPEPHYSICAL_RESULT,
+      UPDATE_BY, UPDATE_DATE, UPDATE_NAME,
+      SPEPHYSICAL_INFO, PATIENT_CASE_ID, PATIENT,
+      PULL_TEST, SITTING_BLOC, FACIAL_OIL,
+      SKIN_SCRATCH, ERECT_REFLEX, VERTICAL_TILT,
+      CHECK_TYPE, back_data, FORGET_LANG,
+      FORGET_USE, FORGET_COGNIZE, FORGET_LANG_TYPE,
+      FORGET_USE_TYPE, SIMPLE_FEEL, DEPTH_FEEL,
+      GRAPH_FEEL, ENTITY_FEEL, SIMPLE_FEEL_REMARK,
+      DEPTH_FEEL_REMARK, GRAPH_FEEL_REMARK, ENTITY_FEEL_REMARK,
+      FORGET_COGNIZE_TYPE, REMARKS)
+    values (#{id,jdbcType=INTEGER}, #{ariseTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR}, #{spephysicalResult,jdbcType=VARCHAR},
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR},
+      #{spephysicalInfo,jdbcType=INTEGER}, #{patientCaseId,jdbcType=VARCHAR}, #{patient,jdbcType=INTEGER},
+      #{pullTest,jdbcType=TINYINT}, #{sittingBloc,jdbcType=TINYINT}, #{facialOil,jdbcType=TINYINT},
+      #{skinScratch,jdbcType=TINYINT}, #{erectReflex,jdbcType=TINYINT}, #{verticalTilt,jdbcType=TINYINT},
+      #{checkType,jdbcType=VARCHAR}, #{backData,jdbcType=VARCHAR}, #{forgetLang,jdbcType=TINYINT},
+      #{forgetUse,jdbcType=TINYINT}, #{forgetCognize,jdbcType=TINYINT}, #{forgetLangType,jdbcType=VARCHAR},
+      #{forgetUseType,jdbcType=VARCHAR}, #{simpleFeel,jdbcType=TINYINT}, #{depthFeel,jdbcType=TINYINT},
+      #{graphFeel,jdbcType=TINYINT}, #{entityFeel,jdbcType=TINYINT}, #{simpleFeelRemark,jdbcType=VARCHAR},
+      #{depthFeelRemark,jdbcType=VARCHAR}, #{graphFeelRemark,jdbcType=VARCHAR}, #{entityFeelRemark,jdbcType=VARCHAR},
+      #{forgetCognizeType,jdbcType=VARCHAR}, #{remarks,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientSpephysical">
+    insert into tc_patient_spephysical
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="ariseTime != null">
+        ARISE_TIME,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="spephysicalResult != null">
+        SPEPHYSICAL_RESULT,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="spephysicalInfo != null">
+        SPEPHYSICAL_INFO,
+      </if>
+      <if test="patientCaseId != null">
+        PATIENT_CASE_ID,
+      </if>
+      <if test="patient != null">
+        PATIENT,
+      </if>
+      <if test="pullTest != null">
+        PULL_TEST,
+      </if>
+      <if test="sittingBloc != null">
+        SITTING_BLOC,
+      </if>
+      <if test="facialOil != null">
+        FACIAL_OIL,
+      </if>
+      <if test="skinScratch != null">
+        SKIN_SCRATCH,
+      </if>
+      <if test="erectReflex != null">
+        ERECT_REFLEX,
+      </if>
+      <if test="verticalTilt != null">
+        VERTICAL_TILT,
+      </if>
+      <if test="checkType != null">
+        CHECK_TYPE,
+      </if>
+      <if test="backData != null">
+        back_data,
+      </if>
+      <if test="forgetLang != null">
+        FORGET_LANG,
+      </if>
+      <if test="forgetUse != null">
+        FORGET_USE,
+      </if>
+      <if test="forgetCognize != null">
+        FORGET_COGNIZE,
+      </if>
+      <if test="forgetLangType != null">
+        FORGET_LANG_TYPE,
+      </if>
+      <if test="forgetUseType != null">
+        FORGET_USE_TYPE,
+      </if>
+      <if test="simpleFeel != null">
+        SIMPLE_FEEL,
+      </if>
+      <if test="depthFeel != null">
+        DEPTH_FEEL,
+      </if>
+      <if test="graphFeel != null">
+        GRAPH_FEEL,
+      </if>
+      <if test="entityFeel != null">
+        ENTITY_FEEL,
+      </if>
+      <if test="simpleFeelRemark != null">
+        SIMPLE_FEEL_REMARK,
+      </if>
+      <if test="depthFeelRemark != null">
+        DEPTH_FEEL_REMARK,
+      </if>
+      <if test="graphFeelRemark != null">
+        GRAPH_FEEL_REMARK,
+      </if>
+      <if test="entityFeelRemark != null">
+        ENTITY_FEEL_REMARK,
+      </if>
+      <if test="forgetCognizeType != null">
+        FORGET_COGNIZE_TYPE,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ariseTime != null">
+        #{ariseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="spephysicalResult != null">
+        #{spephysicalResult,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="spephysicalInfo != null">
+        #{spephysicalInfo,jdbcType=INTEGER},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="patient != null">
+        #{patient,jdbcType=INTEGER},
+      </if>
+      <if test="pullTest != null">
+        #{pullTest,jdbcType=TINYINT},
+      </if>
+      <if test="sittingBloc != null">
+        #{sittingBloc,jdbcType=TINYINT},
+      </if>
+      <if test="facialOil != null">
+        #{facialOil,jdbcType=TINYINT},
+      </if>
+      <if test="skinScratch != null">
+        #{skinScratch,jdbcType=TINYINT},
+      </if>
+      <if test="erectReflex != null">
+        #{erectReflex,jdbcType=TINYINT},
+      </if>
+      <if test="verticalTilt != null">
+        #{verticalTilt,jdbcType=TINYINT},
+      </if>
+      <if test="checkType != null">
+        #{checkType,jdbcType=VARCHAR},
+      </if>
+      <if test="backData != null">
+        #{backData,jdbcType=VARCHAR},
+      </if>
+      <if test="forgetLang != null">
+        #{forgetLang,jdbcType=TINYINT},
+      </if>
+      <if test="forgetUse != null">
+        #{forgetUse,jdbcType=TINYINT},
+      </if>
+      <if test="forgetCognize != null">
+        #{forgetCognize,jdbcType=TINYINT},
+      </if>
+      <if test="forgetLangType != null">
+        #{forgetLangType,jdbcType=VARCHAR},
+      </if>
+      <if test="forgetUseType != null">
+        #{forgetUseType,jdbcType=VARCHAR},
+      </if>
+      <if test="simpleFeel != null">
+        #{simpleFeel,jdbcType=TINYINT},
+      </if>
+      <if test="depthFeel != null">
+        #{depthFeel,jdbcType=TINYINT},
+      </if>
+      <if test="graphFeel != null">
+        #{graphFeel,jdbcType=TINYINT},
+      </if>
+      <if test="entityFeel != null">
+        #{entityFeel,jdbcType=TINYINT},
+      </if>
+      <if test="simpleFeelRemark != null">
+        #{simpleFeelRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="depthFeelRemark != null">
+        #{depthFeelRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="graphFeelRemark != null">
+        #{graphFeelRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="entityFeelRemark != null">
+        #{entityFeelRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="forgetCognizeType != null">
+        #{forgetCognizeType,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

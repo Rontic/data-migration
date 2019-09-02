@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientScaleMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientScale">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="LAST_TAKING_TIME" jdbcType="TIMESTAMP" property="lastTakingTime" />
+    <result column="SCALE_POINT" jdbcType="REAL" property="scalePoint" />
+    <result column="SWITCH_TYPE" jdbcType="INTEGER" property="switchType" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="SCALE_INFO_ID" jdbcType="VARCHAR" property="scaleInfoId" />
+    <result column="INSPECT_TIME" jdbcType="TIMESTAMP" property="inspectTime" />
+    <result column="IS_COMPLETE" jdbcType="TINYINT" property="isComplete" />
+    <result column="equipment_switchgear" jdbcType="INTEGER" property="equipmentSwitchgear" />
+    <result column="part_one_score" jdbcType="REAL" property="partOneScore" />
+    <result column="part_two_score" jdbcType="REAL" property="partTwoScore" />
+    <result column="part_three_score" jdbcType="REAL" property="partThreeScore" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    <result column="SCALE_OPTION_IDS" jdbcType="LONGVARCHAR" property="scaleOptionIds" />
+    <result column="SCALE_SYMP_NAME" jdbcType="LONGVARCHAR" property="scaleSympName" />
+    <result column="SCALE_SYMP_INFO" jdbcType="LONGVARCHAR" property="scaleSympInfo" />
+    <result column="SCALE_SYMP_TIP" jdbcType="LONGVARCHAR" property="scaleSympTip" />
+    <result column="SCALE_EXTRAINFO" jdbcType="LONGVARCHAR" property="scaleExtrainfo" />
+    <result column="SCALEEXTRA_INFOTIP" jdbcType="LONGVARCHAR" property="scaleextraInfotip" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, CREATE_BY, CREATE_DATE, CREATE_NAME, LAST_TAKING_TIME, SCALE_POINT, SWITCH_TYPE,
+    UPDATE_BY, UPDATE_DATE, UPDATE_NAME, PATIENT_CASE_ID, PATIENT_ID, SCALE_INFO_ID,
+    INSPECT_TIME, IS_COMPLETE, equipment_switchgear, part_one_score, part_two_score,
+    part_three_score,REMARKS, SCALE_OPTION_IDS, SCALE_SYMP_NAME, SCALE_SYMP_INFO, SCALE_SYMP_TIP, SCALE_EXTRAINFO,
+    SCALEEXTRA_INFOTIP
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_scale
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientScale">
+    insert into tc_patient_scale (ID, CREATE_BY, CREATE_DATE,
+      CREATE_NAME, LAST_TAKING_TIME, SCALE_POINT,
+      SWITCH_TYPE, UPDATE_BY, UPDATE_DATE,
+      UPDATE_NAME, PATIENT_CASE_ID, PATIENT_ID,
+      SCALE_INFO_ID, INSPECT_TIME, IS_COMPLETE,
+      equipment_switchgear, part_one_score, part_two_score,
+      part_three_score, REMARKS, SCALE_OPTION_IDS,
+      SCALE_SYMP_NAME, SCALE_SYMP_INFO, SCALE_SYMP_TIP,
+      SCALE_EXTRAINFO, SCALEEXTRA_INFOTIP
+      )
+    values (#{id,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+      #{createName,jdbcType=VARCHAR}, #{lastTakingTime,jdbcType=TIMESTAMP}, #{scalePoint,jdbcType=REAL},
+      #{switchType,jdbcType=INTEGER}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+      #{updateName,jdbcType=VARCHAR}, #{patientCaseId,jdbcType=VARCHAR}, #{patientId,jdbcType=INTEGER},
+      #{scaleInfoId,jdbcType=VARCHAR}, #{inspectTime,jdbcType=TIMESTAMP}, #{isComplete,jdbcType=TINYINT},
+      #{equipmentSwitchgear,jdbcType=INTEGER}, #{partOneScore,jdbcType=REAL}, #{partTwoScore,jdbcType=REAL},
+      #{partThreeScore,jdbcType=REAL}, #{remarks,jdbcType=LONGVARCHAR}, #{scaleOptionIds,jdbcType=LONGVARCHAR},
+      #{scaleSympName,jdbcType=LONGVARCHAR}, #{scaleSympInfo,jdbcType=LONGVARCHAR}, #{scaleSympTip,jdbcType=LONGVARCHAR},
+      #{scaleExtrainfo,jdbcType=LONGVARCHAR}, #{scaleextraInfotip,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientScale">
+    insert into tc_patient_scale
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="lastTakingTime != null">
+        LAST_TAKING_TIME,
+      </if>
+      <if test="scalePoint != null">
+        SCALE_POINT,
+      </if>
+      <if test="switchType != null">
+        SWITCH_TYPE,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="patientCaseId != null">
+        PATIENT_CASE_ID,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="scaleInfoId != null">
+        SCALE_INFO_ID,
+      </if>
+      <if test="inspectTime != null">
+        INSPECT_TIME,
+      </if>
+      <if test="isComplete != null">
+        IS_COMPLETE,
+      </if>
+      <if test="equipmentSwitchgear != null">
+        equipment_switchgear,
+      </if>
+      <if test="partOneScore != null">
+        part_one_score,
+      </if>
+      <if test="partTwoScore != null">
+        part_two_score,
+      </if>
+      <if test="partThreeScore != null">
+        part_three_score,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="scaleOptionIds != null">
+        SCALE_OPTION_IDS,
+      </if>
+      <if test="scaleSympName != null">
+        SCALE_SYMP_NAME,
+      </if>
+      <if test="scaleSympInfo != null">
+        SCALE_SYMP_INFO,
+      </if>
+      <if test="scaleSympTip != null">
+        SCALE_SYMP_TIP,
+      </if>
+      <if test="scaleExtrainfo != null">
+        SCALE_EXTRAINFO,
+      </if>
+      <if test="scaleextraInfotip != null">
+        SCALEEXTRA_INFOTIP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastTakingTime != null">
+        #{lastTakingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scalePoint != null">
+        #{scalePoint,jdbcType=REAL},
+      </if>
+      <if test="switchType != null">
+        #{switchType,jdbcType=INTEGER},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="scaleInfoId != null">
+        #{scaleInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectTime != null">
+        #{inspectTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isComplete != null">
+        #{isComplete,jdbcType=TINYINT},
+      </if>
+      <if test="equipmentSwitchgear != null">
+        #{equipmentSwitchgear,jdbcType=INTEGER},
+      </if>
+      <if test="partOneScore != null">
+        #{partOneScore,jdbcType=REAL},
+      </if>
+      <if test="partTwoScore != null">
+        #{partTwoScore,jdbcType=REAL},
+      </if>
+      <if test="partThreeScore != null">
+        #{partThreeScore,jdbcType=REAL},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="scaleOptionIds != null">
+        #{scaleOptionIds,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="scaleSympName != null">
+        #{scaleSympName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="scaleSympInfo != null">
+        #{scaleSympInfo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="scaleSympTip != null">
+        #{scaleSympTip,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="scaleExtrainfo != null">
+        #{scaleExtrainfo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="scaleextraInfotip != null">
+        #{scaleextraInfotip,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyenno.ruiyun.datamigration.mapper.patient.PatientSampleRetentionMapper">
+  <resultMap id="BaseResultMap" type="com.gyenno.ruiyun.datamigration.model.patient.PatientSampleRetention">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="GENE_DETECTION_CODE" jdbcType="INTEGER" property="geneDetectionCode" />
+    <result column="GENE_DETECTION_DATE" jdbcType="TIMESTAMP" property="geneDetectionDate" />
+    <result column="GENE_DETECTION_SAMPLENUMBER" jdbcType="VARCHAR" property="geneDetectionSamplenumber" />
+    <result column="SALIVA_COLLECTION_CODE" jdbcType="INTEGER" property="salivaCollectionCode" />
+    <result column="SALIVA_COLLECTION_DATE" jdbcType="TIMESTAMP" property="salivaCollectionDate" />
+    <result column="SALIVA_COLLECTION_SAMPLENUMBER" jdbcType="VARCHAR" property="salivaCollectionSamplenumber" />
+    <result column="SPOUSE_SALIVA_CODE" jdbcType="INTEGER" property="spouseSalivaCode" />
+    <result column="SPOUSE_SALIVA_DATE" jdbcType="TIMESTAMP" property="spouseSalivaDate" />
+    <result column="SPOUSE_SALIVA_SAMPLENUMBER" jdbcType="VARCHAR" property="spouseSalivaSamplenumber" />
+    <result column="BLOOD_COLLECTION_CODE" jdbcType="INTEGER" property="bloodCollectionCode" />
+    <result column="BLOOD_COLLECTION_DATE" jdbcType="TIMESTAMP" property="bloodCollectionDate" />
+    <result column="BLOOD_COLLECTION_SAMPLENUMBER" jdbcType="VARCHAR" property="bloodCollectionSamplenumber" />
+    <result column="SPOUSE_BLOOD_CODE" jdbcType="INTEGER" property="spouseBloodCode" />
+    <result column="SPOUSE_BLOOD_DATE" jdbcType="TIMESTAMP" property="spouseBloodDate" />
+    <result column="SPOUSE_BLOOD_SAMPLENUMBER" jdbcType="VARCHAR" property="spouseBloodSamplenumber" />
+    <result column="URINE_COLLECTION_CODE" jdbcType="INTEGER" property="urineCollectionCode" />
+    <result column="URINE_COLLECTION_DATE" jdbcType="TIMESTAMP" property="urineCollectionDate" />
+    <result column="URINE_COLLECTION_SAMPLENUMBER" jdbcType="VARCHAR" property="urineCollectionSamplenumber" />
+    <result column="FMRI_CODE" jdbcType="INTEGER" property="fmriCode" />
+    <result column="FMRI_DATE" jdbcType="TIMESTAMP" property="fmriDate" />
+    <result column="FMRI_SAMPLENUMBER" jdbcType="VARCHAR" property="fmriSamplenumber" />
+    <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
+    <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_NAME" jdbcType="VARCHAR" property="updateName" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="FILES" jdbcType="VARCHAR" property="files" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, CREATE_BY, CREATE_NAME, CREATE_DATE, GENE_DETECTION_CODE, GENE_DETECTION_DATE,
+    GENE_DETECTION_SAMPLENUMBER, SALIVA_COLLECTION_CODE, SALIVA_COLLECTION_DATE, SALIVA_COLLECTION_SAMPLENUMBER,
+    SPOUSE_SALIVA_CODE, SPOUSE_SALIVA_DATE, SPOUSE_SALIVA_SAMPLENUMBER, BLOOD_COLLECTION_CODE,
+    BLOOD_COLLECTION_DATE, BLOOD_COLLECTION_SAMPLENUMBER, SPOUSE_BLOOD_CODE, SPOUSE_BLOOD_DATE,
+    SPOUSE_BLOOD_SAMPLENUMBER, URINE_COLLECTION_CODE, URINE_COLLECTION_DATE, URINE_COLLECTION_SAMPLENUMBER,
+    FMRI_CODE, FMRI_DATE, FMRI_SAMPLENUMBER, PATIENT_CASE_ID, PATIENT_ID, UPDATE_BY,
+    UPDATE_NAME, UPDATE_DATE, FILES,REMARKS
+  </sql>
+
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tc_patient_sample_retention
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tc_patient_sample_retention
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientSampleRetention">
+    insert into tc_patient_sample_retention (ID, CREATE_BY, CREATE_NAME,
+      CREATE_DATE, GENE_DETECTION_CODE, GENE_DETECTION_DATE,
+      GENE_DETECTION_SAMPLENUMBER, SALIVA_COLLECTION_CODE,
+      SALIVA_COLLECTION_DATE, SALIVA_COLLECTION_SAMPLENUMBER,
+      SPOUSE_SALIVA_CODE, SPOUSE_SALIVA_DATE, SPOUSE_SALIVA_SAMPLENUMBER,
+      BLOOD_COLLECTION_CODE, BLOOD_COLLECTION_DATE,
+      BLOOD_COLLECTION_SAMPLENUMBER, SPOUSE_BLOOD_CODE,
+      SPOUSE_BLOOD_DATE, SPOUSE_BLOOD_SAMPLENUMBER,
+      URINE_COLLECTION_CODE, URINE_COLLECTION_DATE,
+      URINE_COLLECTION_SAMPLENUMBER, FMRI_CODE,
+      FMRI_DATE, FMRI_SAMPLENUMBER, PATIENT_CASE_ID,
+      PATIENT_ID, UPDATE_BY, UPDATE_NAME,
+      UPDATE_DATE, FILES, REMARKS
+      )
+    values (#{id,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{geneDetectionCode,jdbcType=INTEGER}, #{geneDetectionDate,jdbcType=TIMESTAMP},
+      #{geneDetectionSamplenumber,jdbcType=VARCHAR}, #{salivaCollectionCode,jdbcType=INTEGER},
+      #{salivaCollectionDate,jdbcType=TIMESTAMP}, #{salivaCollectionSamplenumber,jdbcType=VARCHAR},
+      #{spouseSalivaCode,jdbcType=INTEGER}, #{spouseSalivaDate,jdbcType=TIMESTAMP}, #{spouseSalivaSamplenumber,jdbcType=VARCHAR},
+      #{bloodCollectionCode,jdbcType=INTEGER}, #{bloodCollectionDate,jdbcType=TIMESTAMP},
+      #{bloodCollectionSamplenumber,jdbcType=VARCHAR}, #{spouseBloodCode,jdbcType=INTEGER},
+      #{spouseBloodDate,jdbcType=TIMESTAMP}, #{spouseBloodSamplenumber,jdbcType=VARCHAR},
+      #{urineCollectionCode,jdbcType=INTEGER}, #{urineCollectionDate,jdbcType=TIMESTAMP},
+      #{urineCollectionSamplenumber,jdbcType=VARCHAR}, #{fmriCode,jdbcType=INTEGER},
+      #{fmriDate,jdbcType=TIMESTAMP}, #{fmriSamplenumber,jdbcType=VARCHAR}, #{patientCaseId,jdbcType=VARCHAR},
+      #{patientId,jdbcType=INTEGER}, #{updateBy,jdbcType=VARCHAR}, #{updateName,jdbcType=VARCHAR},
+      #{updateDate,jdbcType=TIMESTAMP}, #{files,jdbcType=VARCHAR}, #{remarks,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientSampleRetention">
+    insert into tc_patient_sample_retention
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="geneDetectionCode != null">
+        GENE_DETECTION_CODE,
+      </if>
+      <if test="geneDetectionDate != null">
+        GENE_DETECTION_DATE,
+      </if>
+      <if test="geneDetectionSamplenumber != null">
+        GENE_DETECTION_SAMPLENUMBER,
+      </if>
+      <if test="salivaCollectionCode != null">
+        SALIVA_COLLECTION_CODE,
+      </if>
+      <if test="salivaCollectionDate != null">
+        SALIVA_COLLECTION_DATE,
+      </if>
+      <if test="salivaCollectionSamplenumber != null">
+        SALIVA_COLLECTION_SAMPLENUMBER,
+      </if>
+      <if test="spouseSalivaCode != null">
+        SPOUSE_SALIVA_CODE,
+      </if>
+      <if test="spouseSalivaDate != null">
+        SPOUSE_SALIVA_DATE,
+      </if>
+      <if test="spouseSalivaSamplenumber != null">
+        SPOUSE_SALIVA_SAMPLENUMBER,
+      </if>
+      <if test="bloodCollectionCode != null">
+        BLOOD_COLLECTION_CODE,
+      </if>
+      <if test="bloodCollectionDate != null">
+        BLOOD_COLLECTION_DATE,
+      </if>
+      <if test="bloodCollectionSamplenumber != null">
+        BLOOD_COLLECTION_SAMPLENUMBER,
+      </if>
+      <if test="spouseBloodCode != null">
+        SPOUSE_BLOOD_CODE,
+      </if>
+      <if test="spouseBloodDate != null">
+        SPOUSE_BLOOD_DATE,
+      </if>
+      <if test="spouseBloodSamplenumber != null">
+        SPOUSE_BLOOD_SAMPLENUMBER,
+      </if>
+      <if test="urineCollectionCode != null">
+        URINE_COLLECTION_CODE,
+      </if>
+      <if test="urineCollectionDate != null">
+        URINE_COLLECTION_DATE,
+      </if>
+      <if test="urineCollectionSamplenumber != null">
+        URINE_COLLECTION_SAMPLENUMBER,
+      </if>
+      <if test="fmriCode != null">
+        FMRI_CODE,
+      </if>
+      <if test="fmriDate != null">
+        FMRI_DATE,
+      </if>
+      <if test="fmriSamplenumber != null">
+        FMRI_SAMPLENUMBER,
+      </if>
+      <if test="patientCaseId != null">
+        PATIENT_CASE_ID,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="files != null">
+        FILES,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="geneDetectionCode != null">
+        #{geneDetectionCode,jdbcType=INTEGER},
+      </if>
+      <if test="geneDetectionDate != null">
+        #{geneDetectionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="geneDetectionSamplenumber != null">
+        #{geneDetectionSamplenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="salivaCollectionCode != null">
+        #{salivaCollectionCode,jdbcType=INTEGER},
+      </if>
+      <if test="salivaCollectionDate != null">
+        #{salivaCollectionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salivaCollectionSamplenumber != null">
+        #{salivaCollectionSamplenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseSalivaCode != null">
+        #{spouseSalivaCode,jdbcType=INTEGER},
+      </if>
+      <if test="spouseSalivaDate != null">
+        #{spouseSalivaDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spouseSalivaSamplenumber != null">
+        #{spouseSalivaSamplenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodCollectionCode != null">
+        #{bloodCollectionCode,jdbcType=INTEGER},
+      </if>
+      <if test="bloodCollectionDate != null">
+        #{bloodCollectionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bloodCollectionSamplenumber != null">
+        #{bloodCollectionSamplenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="spouseBloodCode != null">
+        #{spouseBloodCode,jdbcType=INTEGER},
+      </if>
+      <if test="spouseBloodDate != null">
+        #{spouseBloodDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spouseBloodSamplenumber != null">
+        #{spouseBloodSamplenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="urineCollectionCode != null">
+        #{urineCollectionCode,jdbcType=INTEGER},
+      </if>
+      <if test="urineCollectionDate != null">
+        #{urineCollectionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="urineCollectionSamplenumber != null">
+        #{urineCollectionSamplenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="fmriCode != null">
+        #{fmriCode,jdbcType=INTEGER},
+      </if>
+      <if test="fmriDate != null">
+        #{fmriDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fmriSamplenumber != null">
+        #{fmriSamplenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="patientCaseId != null">
+        #{patientCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="files != null">
+        #{files,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

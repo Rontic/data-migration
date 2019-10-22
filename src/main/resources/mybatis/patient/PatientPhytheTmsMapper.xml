@@ -18,6 +18,11 @@
     <result column="REMARK" jdbcType="VARCHAR" property="remark" />
     <result column="PATIENT_CASE_ID" jdbcType="VARCHAR" property="patientCaseId" />
     <result column="PATIENT_ID" jdbcType="INTEGER" property="patientId" />
+      <result column="AMPLITUDE" property="amplitude" jdbcType="VARCHAR" />
+      <result column="REP_RATE" property="repRate" jdbcType="VARCHAR" />
+      <result column="PULSES_IN_TRAIN" property="pulsesInTrain" jdbcType="VARCHAR" />
+      <result column="NUMBER_OF_TRAINS" property="numberOfTrains" jdbcType="VARCHAR" />
+      <result column="INTER_TRAIN_INTERVAL" property="interTrainInterval" jdbcType="VARCHAR" />
     <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
     <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
     <result column="CREATE_NAME" jdbcType="VARCHAR" property="createName" />
@@ -30,6 +35,7 @@
     ID, RECORD_DATE, DEVICE_TYPE, STIMULUS_INTENSITY, STIMULUS_FREQUENCY, STIMULUS_SIDE,
     STIMULUS_DURATION, LEFT_THRESHOLD_BEFORE, RIGHT_THRESHOLD_BEFORE, LEFT_THRESHOLD_AFTER,
     RIGHT_THRESHOLD_AFTER, PHYSI_TYPE, REACTION_FLAG, REMARK, PATIENT_CASE_ID, PATIENT_ID,
+    AMPLITUDE, REP_RATE, PULSES_IN_TRAIN, NUMBER_OF_TRAINS, INTER_TRAIN_INTERVAL,
     CREATE_BY, CREATE_DATE, CREATE_NAME, UPDATE_BY, UPDATE_DATE, UPDATE_NAME
   </sql>
 
@@ -47,6 +53,7 @@
       RIGHT_THRESHOLD_BEFORE, LEFT_THRESHOLD_AFTER,
       RIGHT_THRESHOLD_AFTER, PHYSI_TYPE, REACTION_FLAG,
       REMARK, PATIENT_CASE_ID, PATIENT_ID,
+      AMPLITUDE, REP_RATE, PULSES_IN_TRAIN, NUMBER_OF_TRAINS, INTER_TRAIN_INTERVAL,
       CREATE_BY, CREATE_DATE, CREATE_NAME,
       UPDATE_BY, UPDATE_DATE, UPDATE_NAME
       )
@@ -56,6 +63,7 @@
       #{rightThresholdBefore,jdbcType=VARCHAR}, #{leftThresholdAfter,jdbcType=VARCHAR},
       #{rightThresholdAfter,jdbcType=VARCHAR}, #{physiType,jdbcType=INTEGER}, #{reactionFlag,jdbcType=TINYINT},
       #{remark,jdbcType=VARCHAR}, #{patientCaseId,jdbcType=VARCHAR}, #{patientId,jdbcType=INTEGER},
+      #{amplitude,jdbcType=VARCHAR},#{repRate,jdbcType=VARCHAR},#{pulsesInTrain,jdbcType=VARCHAR},#{numberOfTrains,jdbcType=VARCHAR},#{interTrainInterval,jdbcType=VARCHAR},
       #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR},
       #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateName,jdbcType=VARCHAR}
       )

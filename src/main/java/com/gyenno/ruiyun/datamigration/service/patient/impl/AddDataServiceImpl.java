@@ -11,12 +11,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class AddDataServiceImpl implements AddDataService {
 
     private final static Logger logger = (Logger) LoggerFactory.getLogger("数据正在迁移中:");
+
+    private List<Integer> filedIdList = new ArrayList<>();
 
     @Autowired
     private PatientVitalSignMapper patientVitalSignMapper;
@@ -35,6 +39,9 @@ public class AddDataServiceImpl implements AddDataService {
 
     @Autowired
     private PatientDependentsMapper patientAllergyListMapper;
+
+    @Autowired
+    private PatientSampleRetentionMapper patientSampleRetentionMapper;
 
     @Autowired
     private PatientCideexposedHistoryMapper patientCideexposedHistoryMapper;
@@ -203,6 +210,13 @@ public class AddDataServiceImpl implements AddDataService {
         for(int patientIdIndex = 0;patientIdIndex < patientWholeInfoList.size(); patientIdIndex ++) {
             patientInfoMapper.insertSelective(patientWholeInfoList.get(patientIdIndex));
             logger.info("正在添加第"+(patientIdIndex+1)+ "个患者【"+patientWholeInfoList.get(patientIdIndex).getPtname()+"】的数据");
+
+            if(!CollectionUtils.isEmpty(patientWholeInfoList.get(patientIdIndex).getPatientGroupeList())){
+                for(int itemIndex = 0 ;itemIndex < patientWholeInfoList.get(patientIdIndex).getPatientGroupeList().size();itemIndex ++){
+                    patientGroupeMapper.insertSelective(patientWholeInfoList.get(patientIdIndex).getPatientGroupeList().get(itemIndex));
+                }
+            }
+
             if(!CollectionUtils.isEmpty(patientWholeInfoList.get(patientIdIndex).getPatientDependentsList())){
                 for(int itemIndex = 0 ;itemIndex < patientWholeInfoList.get(patientIdIndex).getPatientDependentsList().size();itemIndex ++){
                     patientDependentsMapper.insertSelective(patientWholeInfoList.get(patientIdIndex).getPatientDependentsList().get(itemIndex));
@@ -445,6 +459,13 @@ public class AddDataServiceImpl implements AddDataService {
             if(!CollectionUtils.isEmpty(patientCaseList.get(patientCaseIndex).getPatientSpephysicalList())){
                 dealSpephysical(patientCaseList.get(patientCaseIndex).getPatientSpephysicalList());
             }
+
+            // PatientSampleRetention
+            if(!CollectionUtils.isEmpty(patientCaseList.get(patientCaseIndex).getPatientSampleRetentionList())){
+                for(int itemIndex = 0 ;itemIndex < patientCaseList.get(patientCaseIndex).getPatientSampleRetentionList().size(); itemIndex ++){
+                    patientSampleRetentionMapper.insertSelective(patientCaseList.get(patientCaseIndex).getPatientSampleRetentionList().get(itemIndex));
+                }
+            }
         }
     }
 
@@ -644,8 +665,7 @@ public class AddDataServiceImpl implements AddDataService {
     @Transactional(propagation = Propagation.NESTED,value = "transactionManager")
     public void dealPhytheTms (List<PatientPhytheTms> patientPhytheTmsList) {
         for(int tmsIndex = 0 ; tmsIndex < patientPhytheTmsList.size(); tmsIndex ++){
-            patientPhytheTmsMapper.insertSelective(patientPhytheTmsList.get(tmsIndex));
-
+            patientPhytheTmsMapper.insert(patientPhytheTmsList.get(tmsIndex));
             if(!CollectionUtils.isEmpty(patientPhytheTmsList.get(tmsIndex).getPatientPhytheReactionList())){
                 for(int itemIndex = 0 ;itemIndex < patientPhytheTmsList.get(tmsIndex).getPatientPhytheReactionList().size(); itemIndex ++){
                     patientPhytheReactionMapper.insertSelective(patientPhytheTmsList.get(tmsIndex).getPatientPhytheReactionList().get(itemIndex));
@@ -657,23 +677,23 @@ public class AddDataServiceImpl implements AddDataService {
     @Transactional(propagation = Propagation.NESTED,value = "transactionManager")
     public void dealPreopsInfo(List<PatientPreopsInfo> patientPreopsInfoList){
         for(int preIndex = 0 ; preIndex< patientPreopsInfoList.size(); preIndex ++){
-            patientPreopsInfoMapper.insertSelective(patientPreopsInfoList.get(preIndex));
+            patientPreopsInfoMapper.insert(patientPreopsInfoList.get(preIndex));
 
             if(!CollectionUtils.isEmpty(patientPreopsInfoList.get(preIndex).getPatientPreopsDiaryList())){
                 for(int itemIndex = 0 ;itemIndex < patientPreopsInfoList.get(preIndex).getPatientPreopsDiaryList().size(); itemIndex ++){
-                    patientPreopsDiaryMapper.insertSelective(patientPreopsInfoList.get(preIndex).getPatientPreopsDiaryList().get(itemIndex));
+                    patientPreopsDiaryMapper.insert(patientPreopsInfoList.get(preIndex).getPatientPreopsDiaryList().get(itemIndex));
                 }
             }
 
             if(!CollectionUtils.isEmpty(patientPreopsInfoList.get(preIndex).getPatientPreopsScaleList())){
                 for(int itemIndex = 0 ;itemIndex < patientPreopsInfoList.get(preIndex).getPatientPreopsScaleList().size(); itemIndex ++){
-                    patientPreopsScaleMapper.insertSelective(patientPreopsInfoList.get(preIndex).getPatientPreopsScaleList().get(itemIndex));
+                    patientPreopsScaleMapper.insert(patientPreopsInfoList.get(preIndex).getPatientPreopsScaleList().get(itemIndex));
                 }
             }
 
             if(!CollectionUtils.isEmpty(patientPreopsInfoList.get(preIndex).getPatientPreopsMedicineList())){
                 for(int itemIndex = 0 ;itemIndex < patientPreopsInfoList.get(preIndex).getPatientPreopsMedicineList().size(); itemIndex ++){
-                    patientPreopsMedicineMapper.insertSelective(patientPreopsInfoList.get(preIndex).getPatientPreopsMedicineList().get(itemIndex));
+                    patientPreopsMedicineMapper.insert(patientPreopsInfoList.get(preIndex).getPatientPreopsMedicineList().get(itemIndex));
                 }
             }
         }
@@ -709,7 +729,9 @@ public class AddDataServiceImpl implements AddDataService {
 
             if(!CollectionUtils.isEmpty(patientVideoInfoList.get(videoIndex).getPatientFieldDetailList())){
                 for(int itemIndex = 0 ;itemIndex < patientVideoInfoList.get(videoIndex).getPatientFieldDetailList().size(); itemIndex ++){
-                    patientFieldDetailMapper.insertSelective(patientVideoInfoList.get(videoIndex).getPatientFieldDetailList().get(itemIndex));
+                    if(patientVideoInfoList.get(videoIndex).getPatientFieldDetailList().get(itemIndex).getId() != 35212){
+                        patientFieldDetailMapper.insertSelective(patientVideoInfoList.get(videoIndex).getPatientFieldDetailList().get(itemIndex));
+                    }
                 }
             }
         }
@@ -745,7 +767,7 @@ public class AddDataServiceImpl implements AddDataService {
             patientSpephysicalMapper.insertSelective(patientSpephysicalList.get(spephysicalIndex));
             if(!CollectionUtils.isEmpty(patientSpephysicalList.get(spephysicalIndex).getPatientFieldDetailList())){
                 for(int itemIndex = 0 ;itemIndex < patientSpephysicalList.get(spephysicalIndex).getPatientFieldDetailList().size(); itemIndex ++){
-                    patientFieldDetailMapper.insertSelective(patientSpephysicalList.get(spephysicalIndex).getPatientFieldDetailList().get(itemIndex));
+                    patientFieldDetailMapper.insert(patientSpephysicalList.get(spephysicalIndex).getPatientFieldDetailList().get(itemIndex));
                 }
             }
         }

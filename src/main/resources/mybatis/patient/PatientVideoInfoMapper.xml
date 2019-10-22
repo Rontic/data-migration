@@ -25,13 +25,19 @@
     <result column="FDG_18F" jdbcType="BIT" property="fdg18f" />
     <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
     <result column="checkconclusion" jdbcType="LONGVARCHAR" property="checkconclusion" />
+      <result column="time_limit" property="timeLimit" jdbcType="VARCHAR" />
+      <result column="satellite_potential" property="satellitePotential" jdbcType="VARCHAR" />
+      <result column="multiphase_wave" property="multiphaseWave" jdbcType="VARCHAR" />
+      <result column="aplitude" property="aplitude" jdbcType="VARCHAR" />
+      <result column="over_limit" property="overLimit" jdbcType="VARCHAR" />
+      <result column="phase" property="phase" jdbcType="VARCHAR" />
   </resultMap>
 
   <sql id="Base_Column_List">
     ID, checkDate, checkDevice, CREATE_BY, CREATE_DATE, CREATE_NAME, title, UPDATE_BY,
     UPDATE_DATE, UPDATE_NAME, VIDEO_TYPE, DEVICE_ID, PATIENT_CASE_ID, ATTACHMENT_ID,
     checkNum, MAGNETIC_INTENSITY, diaceleWidth, HIPPOCAMPAL_DESC, BASAL_GANGLIA_DESC,
-    DAT_11C, FDG_18F , REMARKS, checkconclusion
+    DAT_11C, FDG_18F , REMARKS, checkconclusion,time_limit,satellite_potential,multiphase_wave,aplitude,over_limit,phase
   </sql>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -49,7 +55,7 @@
       PATIENT_CASE_ID, ATTACHMENT_ID, checkNum,
       MAGNETIC_INTENSITY, diaceleWidth, HIPPOCAMPAL_DESC,
       BASAL_GANGLIA_DESC, DAT_11C, FDG_18F,
-      REMARKS, checkconclusion)
+      REMARKS, checkconclusion,time_limit,satellite_potential,multiphase_wave,aplitude,over_limit,phase)
     values (#{id,jdbcType=INTEGER}, #{checkdate,jdbcType=TIMESTAMP}, #{checkdevice,jdbcType=VARCHAR},
       #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR},
       #{title,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
@@ -57,7 +63,7 @@
       #{patientCaseId,jdbcType=VARCHAR}, #{attachmentId,jdbcType=VARCHAR}, #{checknum,jdbcType=VARCHAR},
       #{magneticIntensity,jdbcType=INTEGER}, #{diacelewidth,jdbcType=VARCHAR}, #{hippocampalDesc,jdbcType=VARCHAR},
       #{basalGangliaDesc,jdbcType=VARCHAR}, #{dat11c,jdbcType=BIT}, #{fdg18f,jdbcType=BIT},
-      #{remarks,jdbcType=LONGVARCHAR}, #{checkconclusion,jdbcType=LONGVARCHAR})
+      #{remarks,jdbcType=LONGVARCHAR}, #{checkconclusion,jdbcType=LONGVARCHAR},#{timeLimit,jdbcType=VARCHAR},#{satellitePotential,jdbcType=VARCHAR},#{multiphaseWave,jdbcType=VARCHAR},#{aplitude,jdbcType=VARCHAR},#{overLimit,jdbcType=VARCHAR},#{phase,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientVideoInfo">
     insert into tc_patient_video_info
@@ -131,6 +137,24 @@
       <if test="checkconclusion != null">
         checkconclusion,
       </if>
+        <if test="timeLimit != null">
+            time_limit,
+        </if>
+        <if test="satellitePotential != null">
+            satellite_potential,
+        </if>
+        <if test="multiphaseWave != null">
+            multiphase_wave,
+        </if>
+        <if test="aplitude != null">
+            aplitude,
+        </if>
+        <if test="overLimit != null">
+            over_limit,
+        </if>
+        <if test="phase != null">
+            phase,
+        </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -202,6 +226,24 @@
       <if test="checkconclusion != null">
         #{checkconclusion,jdbcType=LONGVARCHAR},
       </if>
+        <if test="timeLimit != null">
+            #{timeLimit,jdbcType=VARCHAR},
+        </if>
+        <if test="satellitePotential != null">
+            #{satellitePotential,jdbcType=VARCHAR},
+        </if>
+        <if test="multiphaseWave != null">
+            #{multiphaseWave,jdbcType=VARCHAR},
+        </if>
+        <if test="aplitude != null">
+            #{aplitude,jdbcType=VARCHAR},
+        </if>
+        <if test="overLimit != null">
+            #{overLimit,jdbcType=VARCHAR},
+        </if>
+        <if test="phase != null">
+            #{phase,jdbcType=VARCHAR},
+        </if>
     </trim>
   </insert>
 </mapper>

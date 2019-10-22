@@ -72,4 +72,6 @@ public class TableId {
     private int PatientMedicineAdverseId;
     private int PatientMedicineAdverseMdId;
     private int PatientSpephysicalId;
+    private int PatientGroupeId;
+    private int PatientSampleRetentionId;
 }

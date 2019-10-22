@@ -8,6 +8,9 @@ import com.gyenno.ruiyun.datamigration.service.patient.AddDataService;
 import com.gyenno.ruiyun.datamigration.service.patient.PatientService;
 import com.gyenno.ruiyun.datamigration.service.user.UserService;
 import com.gyenno.ruiyun.datamigration.service.util.TableIdService;
+import com.sun.javafx.collections.SortableList;
+import javafx.collections.transformation.SortedList;
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -44,6 +47,7 @@ public class MigrationApplicationRunner implements ApplicationRunner {
 
     private static HashMap<Integer,Integer> dependentsDiff = new HashMap<>();
 
+    private static HashMap<Integer,Integer> symptomDiff = new HashMap<>();
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
@@ -60,6 +64,24 @@ public class MigrationApplicationRunner implements ApplicationRunner {
     }
 
     public void myTimer(){
+        symptomDiff.put(1,7);
+        symptomDiff.put(39,5);
+        symptomDiff.put(40,12);
+        symptomDiff.put(42,40);
+        symptomDiff.put(43,41);
+        symptomDiff.put(44,42);
+        symptomDiff.put(45,43);
+        symptomDiff.put(41,44);
+        symptomDiff.put(46,45);
+        symptomDiff.put(47,46);
+        symptomDiff.put(48,47);
+        symptomDiff.put(49,48);
+        symptomDiff.put(50,49);
+        symptomDiff.put(51,50);
+        symptomDiff.put(52,51);
+        symptomDiff.put(53,52);
+        symptomDiff.put(54,53);
+        symptomDiff.put(55,54);
 
         logger.info("正在查询单机版数据......");
         List<PatientWholeInfo> patientAloneWholeInfoList = patientService.getAlonePatientWholeInfo();
@@ -68,6 +90,7 @@ public class MigrationApplicationRunner implements ApplicationRunner {
         dealAloneData(patientAloneWholeInfoList);
 
         logger.info("开始插入数据");
+
         addDataService.insetWholeData(patientAloneWholeInfoList);
 
         logger.info("迁移完毕");
@@ -142,7 +165,9 @@ public class MigrationApplicationRunner implements ApplicationRunner {
                 "tc_patient_exercise",
                 "tc_patient_medicine_adverse",
                 "patient_medicine_adverse_md",
-                "tc_patient_spephysical"
+                "tc_patient_spephysical",
+                "tc_patient_groupe",
+                "tc_patient_sample_retention"
         };
 
         TableId tableId = new TableId();
@@ -221,6 +246,8 @@ public class MigrationApplicationRunner implements ApplicationRunner {
         //string 402890825def1339015df402a9d90078
         tableId.setPatientIntPatAnaItemId(1);
         //
+        tableId.setPatientGroupeId(1);
+
         tableId.setPatientFieldDetailId(tableIdService.getTableId(tableArray[35]));
         tableId.setPatientNerveSleepId(tableIdService.getTableId(tableArray[36]));
         tableId.setPatientInspectId(tableIdService.getTableId(tableArray[37]));
@@ -256,6 +283,7 @@ public class MigrationApplicationRunner implements ApplicationRunner {
         tableId.setPatientMedicineAdverseId(tableIdService.getTableId(tableArray[65]));
         tableId.setPatientMedicineAdverseMdId(tableIdService.getTableId(tableArray[66]));
         tableId.setPatientSpephysicalId(tableIdService.getTableId(tableArray[67]));
+        tableId.setPatientSampleRetentionId(tableIdService.getTableId(tableArray[69]));
         return tableId;
     }
 
@@ -268,6 +296,14 @@ public class MigrationApplicationRunner implements ApplicationRunner {
     public void dealAloneData(List<PatientWholeInfo> patientWholeInfoList){
         for(int patientIdIndex = 0;patientIdIndex < patientWholeInfoList.size(); patientIdIndex ++) {
             patientWholeInfoList.get(patientIdIndex).setId(tableId.getPatientInfoId());
+
+            if(!CollectionUtils.isEmpty(patientWholeInfoList.get(patientIdIndex).getPatientGroupeList())){
+                for(int itemIndex = 0 ;itemIndex < patientWholeInfoList.get(patientIdIndex).getPatientGroupeList().size();itemIndex ++){
+                patientWholeInfoList.get(patientIdIndex).getPatientGroupeList().get(itemIndex).setId(tableStringId.PATIENT_GROUPE_ID + getStringIdNum(tableId.getPatientGroupeId()));
+                patientWholeInfoList.get(patientIdIndex).getPatientGroupeList().get(itemIndex).setTcPatientId(tableId.getPatientInfoId());
+                tableId.setPatientGroupeId(tableId.getPatientGroupeId() + 1);
+                }
+            }
 
             if(!CollectionUtils.isEmpty(patientWholeInfoList.get(patientIdIndex).getPatientDependentsList())){
                 for(int itemIndex = 0 ;itemIndex < patientWholeInfoList.get(patientIdIndex).getPatientDependentsList().size();itemIndex ++){
@@ -298,6 +334,19 @@ public class MigrationApplicationRunner implements ApplicationRunner {
                 for(int itemIndex = 0 ;itemIndex < patientWholeInfoList.get(patientIdIndex).getPatientDiseaseList().size();itemIndex ++){
                     patientWholeInfoList.get(patientIdIndex).getPatientDiseaseList().get(itemIndex).setId(tableId.getPatientDiseaseId());
                     patientWholeInfoList.get(patientIdIndex).getPatientDiseaseList().get(itemIndex).setPatientId(tableId.getPatientInfoId());
+
+                    if(patientWholeInfoList.get(patientIdIndex).getPatientDiseaseList().get(itemIndex).getDiseaseRelationId() == 1){
+                        patientWholeInfoList.get(patientIdIndex).getPatientDiseaseList().get(itemIndex).setDiseaseRelationId(7);
+                    }
+                    /*
+                    if(patientWholeInfoList.get(patientIdIndex).getPatientDiseaseList().get(itemIndex).getDiseaseRelationId() == 11){
+                        patientWholeInfoList.get(patientIdIndex).getPatientDiseaseList().get(itemIndex).setDiseaseRelationId(30);
+                    }
+                    if(patientWholeInfoList.get(patientIdIndex).getPatientDiseaseList().get(itemIndex).getDiseaseRelationId() >= 12 && patientWholeInfoList.get(patientIdIndex).getPatientDiseaseList().get(itemIndex).getDiseaseRelationId() < 31){
+                        patientWholeInfoList.get(patientIdIndex).getPatientDiseaseList().get(itemIndex).setDiseaseRelationId(patientWholeInfoList.get(patientIdIndex).getPatientDiseaseList().get(itemIndex).getDiseaseRelationId() - 1);
+                    }*/
+
+
                     tableId.setPatientDiseaseId(tableId.getPatientDiseaseId() + 1);
                 }
             }
@@ -306,7 +355,7 @@ public class MigrationApplicationRunner implements ApplicationRunner {
                 for(int itemIndex = 0 ;itemIndex < patientWholeInfoList.get(patientIdIndex).getPatientHabitList().size();itemIndex ++){
                     patientWholeInfoList.get(patientIdIndex).getPatientHabitList().get(itemIndex).setId(tableId.getPatientHabitId());
                     patientWholeInfoList.get(patientIdIndex).getPatientHabitList().get(itemIndex).setPatientId(tableId.getPatientInfoId());
-                    //哈尔冰医院特殊处理
+                    //哈尔冰,福建协和医院特殊处理
                     //patientWholeInfoList.get(patientIdIndex).getPatientHabitList().get(itemIndex).setPatientHabitId(patientWholeInfoList.get(patientIdIndex).getPatientHabitList().get(itemIndex).getPatientHabitId() == 16 ? 19 : patientWholeInfoList.get(patientIdIndex).getPatientHabitList().get(itemIndex).getPatientHabitId());
                     tableId.setPatientHabitId(tableId.getPatientHabitId() + 1);
                 }
@@ -340,6 +389,7 @@ public class MigrationApplicationRunner implements ApplicationRunner {
                 for(int itemIndex = 0 ;itemIndex < patientWholeInfoList.get(patientIdIndex).getPatientFirstSymbolList().size();itemIndex ++){
                     patientWholeInfoList.get(patientIdIndex).getPatientFirstSymbolList().get(itemIndex).setId(tableId.getPatientFirstSymbolId());
                     patientWholeInfoList.get(patientIdIndex).getPatientFirstSymbolList().get(itemIndex).setPatientId(tableId.getPatientInfoId());
+                    patientWholeInfoList.get(patientIdIndex).getPatientFirstSymbolList().get(itemIndex).setFirstSymbolName(symptomDiff.containsKey(patientWholeInfoList.get(patientIdIndex).getPatientFirstSymbolList().get(itemIndex).getFirstSymbolName()) ? symptomDiff.get(patientWholeInfoList.get(patientIdIndex).getPatientFirstSymbolList().get(itemIndex).getFirstSymbolName()) : patientWholeInfoList.get(patientIdIndex).getPatientFirstSymbolList().get(itemIndex).getFirstSymbolName());
                     tableId.setPatientFirstSymbolId(tableId.getPatientFirstSymbolId() + 1);
                 }
             }
@@ -536,6 +586,7 @@ public class MigrationApplicationRunner implements ApplicationRunner {
                     patientCaseList.get(patientCaseIndex).getPatientSymptomList().get(itemIndex).setPatientId(tableId.getPatientInfoId());
                     patientCaseList.get(patientCaseIndex).getPatientSymptomList().get(itemIndex).setPatientCaseId(patientCaseId);
                     patientCaseList.get(patientCaseIndex).getPatientSymptomList().get(itemIndex).setId(tableId.getPatientSymptomId());
+                    patientCaseList.get(patientCaseIndex).getPatientSymptomList().get(itemIndex).setSymptomTypeId(symptomDiff.containsKey(patientCaseList.get(patientCaseIndex).getPatientSymptomList().get(itemIndex).getSymptomTypeId()) ? symptomDiff.get(patientCaseList.get(patientCaseIndex).getPatientSymptomList().get(itemIndex).getSymptomTypeId()) : patientCaseList.get(patientCaseIndex).getPatientSymptomList().get(itemIndex).getSymptomTypeId());
                     tableId.setPatientSymptomId(tableId.getPatientSymptomId() + 1);
                 }
             }
@@ -569,6 +620,15 @@ public class MigrationApplicationRunner implements ApplicationRunner {
                 dealSpephysical(patientCaseList.get(patientCaseIndex).getPatientSpephysicalList(),patientCaseId);
             }
 
+            // PatientSampleRetention
+            if(!CollectionUtils.isEmpty(patientCaseList.get(patientCaseIndex).getPatientSampleRetentionList())){
+                for(int sampleRetentionIndex = 0 ;sampleRetentionIndex < patientCaseList.get(patientCaseIndex).getPatientSampleRetentionList().size(); sampleRetentionIndex ++){
+                    patientCaseList.get(patientCaseIndex).getPatientSampleRetentionList().get(sampleRetentionIndex).setPatientCaseId(patientCaseId);
+                    patientCaseList.get(patientCaseIndex).getPatientSampleRetentionList().get(sampleRetentionIndex).setId(tableId.getPatientSampleRetentionId());
+                    patientCaseList.get(patientCaseIndex).getPatientSampleRetentionList().get(sampleRetentionIndex).setPatientId(tableId.getPatientInfoId());
+                    tableId.setPatientSampleRetentionId(tableId.getPatientSampleRetentionId() + 1);
+                }
+            }
             tableId.setPatientCaseId(tableId.getPatientCaseId() + 1);
         }
     }
@@ -696,7 +756,6 @@ public class MigrationApplicationRunner implements ApplicationRunner {
             patientPhytheAssessList.get(phyAccessIndex).setPatientId(tableId.getPatientInfoId());
             if(!CollectionUtils.isEmpty(patientPhytheAssessList.get(phyAccessIndex).getPatientPhytheReactionList())){
                 for(int itemIndex = 0 ;itemIndex < patientPhytheAssessList.get(phyAccessIndex).getPatientPhytheReactionList().size(); itemIndex ++){
-                    logger.info(tableId.getPatientPhytheReactionId() + "");
                     patientPhytheAssessList.get(phyAccessIndex).getPatientPhytheReactionList().get(itemIndex).setId(null);
                     patientPhytheAssessList.get(phyAccessIndex).getPatientPhytheReactionList().get(itemIndex).setAssessId(tableId.getPatientPhytheAssessId());
                     tableId.setPatientPhytheReactionId(tableId.getPatientPhytheReactionId() + 1);
@@ -850,7 +909,6 @@ public class MigrationApplicationRunner implements ApplicationRunner {
 
             if(!CollectionUtils.isEmpty(patientPhytheTmsList.get(tmsIndex).getPatientPhytheReactionList())){
                 for(int itemIndex = 0 ;itemIndex < patientPhytheTmsList.get(tmsIndex).getPatientPhytheReactionList().size(); itemIndex ++){
-                    logger.info(tableId.getPatientPhytheReactionId() + "");
                     patientPhytheTmsList.get(tmsIndex).getPatientPhytheReactionList().get(itemIndex).setId(null);
                     patientPhytheTmsList.get(tmsIndex).getPatientPhytheReactionList().get(itemIndex).setAssessId(tableId.getPatientPhytheTmsId());
                     tableId.setPatientPhytheReactionId(tableId.getPatientPhytheReactionId() + 1);
@@ -938,12 +996,11 @@ public class MigrationApplicationRunner implements ApplicationRunner {
 
             if(!CollectionUtils.isEmpty(patientVideoInfoList.get(videoIndex).getPatientFieldDetailList())){
                 for(int itemIndex = 0 ;itemIndex < patientVideoInfoList.get(videoIndex).getPatientFieldDetailList().size(); itemIndex ++){
-                    patientVideoInfoList.get(videoIndex).getPatientFieldDetailList().get(itemIndex).setBusinessId(tableId.getPatientNerveSleepId());
+                    patientVideoInfoList.get(videoIndex).getPatientFieldDetailList().get(itemIndex).setBusinessId(tableId.getPatientVideoInfoId());
                     patientVideoInfoList.get(videoIndex).getPatientFieldDetailList().get(itemIndex).setId(tableId.getPatientFieldDetailId());
                     tableId.setPatientFieldDetailId(tableId.getPatientFieldDetailId() + 1);
                 }
             }
-
             tableId.setPatientVideoInfoId(tableId.getPatientVideoInfoId() + 1);
         }
     }
@@ -983,7 +1040,7 @@ public class MigrationApplicationRunner implements ApplicationRunner {
         for(int spephysicalIndex = 0 ;spephysicalIndex < patientSpephysicalList.size(); spephysicalIndex ++){
             patientSpephysicalList.get(spephysicalIndex).setPatientCaseId(patientCaseId);
             patientSpephysicalList.get(spephysicalIndex).setId(tableId.getPatientSpephysicalId());
-
+            patientSpephysicalList.get(spephysicalIndex).setPatient(tableId.getPatientInfoId());
             if(!CollectionUtils.isEmpty(patientSpephysicalList.get(spephysicalIndex).getPatientFieldDetailList())){
                 for(int itemIndex = 0 ;itemIndex < patientSpephysicalList.get(spephysicalIndex).getPatientFieldDetailList().size(); itemIndex ++){
                     patientSpephysicalList.get(spephysicalIndex).getPatientFieldDetailList().get(itemIndex).setId(tableId.getPatientFieldDetailId());
@@ -992,6 +1049,15 @@ public class MigrationApplicationRunner implements ApplicationRunner {
                 }
             }
             tableId.setPatientSpephysicalId(tableId.getPatientSpephysicalId() + 1);
+        }
+    }
+
+    public void dealSampleRetention(List<PatientSampleRetention> patientSampleRetentionList,String patientCaseId){
+        for(int sampleRetentionIndex = 0 ;sampleRetentionIndex < patientSampleRetentionList.size(); sampleRetentionIndex ++){
+            patientSampleRetentionList.get(sampleRetentionIndex).setPatientCaseId(patientCaseId);
+            patientSampleRetentionList.get(sampleRetentionIndex).setId(tableId.getPatientSampleRetentionId());
+            patientSampleRetentionList.get(sampleRetentionIndex).setPatientId(tableId.getPatientInfoId());
+            tableId.setPatientSampleRetentionId(tableId.getPatientSampleRetentionId() + 1);
         }
     }
 }

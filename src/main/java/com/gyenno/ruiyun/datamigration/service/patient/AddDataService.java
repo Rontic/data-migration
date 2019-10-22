@@ -1,9 +1,6 @@
 package com.gyenno.ruiyun.datamigration.service.patient;
 
-import com.gyenno.ruiyun.datamigration.model.patient.PatientVideoInfo;
-import com.gyenno.ruiyun.datamigration.model.patient.PatientVitalSign;
-import com.gyenno.ruiyun.datamigration.model.patient.PatientVitalSignDetail;
-import com.gyenno.ruiyun.datamigration.model.patient.PatientWholeInfo;
+import com.gyenno.ruiyun.datamigration.model.patient.*;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;

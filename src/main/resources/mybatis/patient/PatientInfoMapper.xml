@@ -94,6 +94,8 @@
     <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
     <result column="TOIMPOERDATA" jdbcType="LONGVARCHAR" property="toimpoerdata" />
     <result column="CHIEF_COMPLAINT" jdbcType="LONGVARCHAR" property="chiefComplaint" />
+      <result column="postural_hypotension" jdbcType="VARCHAR" property="posturalHypotension" />
+      <result column="HY_POINT_CLOSED" jdbcType="VARCHAR" property="hyPointClosed" />
   </resultMap>
 
   <sql id="Base_Column_List">
@@ -109,7 +111,7 @@
     CALFLENGTH, THIGHLENGTH, CREATE_SUPPORT, EMAIL, NATIONALITY, social_security_number,
     complete_percent, WAIST, DISEASE_TYPE_REMARK, live_status, nationality_code, home_city_txt,
     birth_place_code, PREMORBID_WEIGHT, TCM_TYPE, DOMINANT_SIDE, bear_num, menopause_age,
-    emergency_phone, HY_POINT,REMARKS, TOIMPOERDATA, CHIEF_COMPLAINT
+    emergency_phone, HY_POINT,REMARKS, TOIMPOERDATA, CHIEF_COMPLAINT,postural_hypotension,HY_POINT_CLOSED
   </sql>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -152,7 +154,7 @@
       PREMORBID_WEIGHT, TCM_TYPE, DOMINANT_SIDE,
       bear_num, menopause_age, emergency_phone,
       HY_POINT, REMARKS, TOIMPOERDATA,
-      CHIEF_COMPLAINT)
+      CHIEF_COMPLAINT,postural_hypotension,HY_POINT_CLOSED)
     values (#{id,jdbcType=INTEGER}, #{aritime,jdbcType=TIMESTAMP}, #{birth,jdbcType=TIMESTAMP},
       #{birthPlace,jdbcType=VARCHAR}, #{career,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
       #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR},
@@ -184,7 +186,7 @@
       #{premorbidWeight,jdbcType=VARCHAR}, #{tcmType,jdbcType=VARCHAR}, #{dominantSide,jdbcType=INTEGER},
       #{bearNum,jdbcType=INTEGER}, #{menopauseAge,jdbcType=INTEGER}, #{emergencyPhone,jdbcType=VARCHAR},
       #{hyPoint,jdbcType=VARCHAR}, #{remarks,jdbcType=LONGVARCHAR}, #{toimpoerdata,jdbcType=LONGVARCHAR},
-      #{chiefComplaint,jdbcType=LONGVARCHAR})
+      #{chiefComplaint,jdbcType=LONGVARCHAR},#{posturalHypotension,jdbcType=VARCHAR},#{hyPointClosed,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.gyenno.ruiyun.datamigration.model.patient.PatientWholeInfo">
     insert into tc_patient_info
@@ -465,6 +467,12 @@
       <if test="chiefComplaint != null">
         CHIEF_COMPLAINT,
       </if>
+        <if test="posturalHypotension != null">
+            postural_hypotension,
+        </if>
+        <if test="hyPointClosed != null">
+            HY_POINT_CLOSED,
+        </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -743,6 +751,12 @@
       <if test="chiefComplaint != null">
         #{chiefComplaint,jdbcType=LONGVARCHAR},
       </if>
+        <if test="posturalHypotension != null">
+            #{posturalHypotension,jdbcType=VARCHAR},
+        </if>
+        <if test="hyPointClosed != null">
+            #{hyPointClosed,jdbcType=VARCHAR},
+        </if>
     </trim>
   </insert>
 </mapper>
